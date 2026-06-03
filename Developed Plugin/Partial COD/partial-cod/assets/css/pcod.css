@@ -1,0 +1,68 @@
+.pcod-checkout-panel {
+	font-size: 14px;
+}
+
+.pcod-split {
+	margin: 12px 0;
+	padding: 12px;
+	background: #f7f7f7;
+	border-radius: 4px;
+}
+
+.pcod-split__row {
+	display: flex;
+	justify-content: space-between;
+	margin: 4px 0;
+}
+
+.pcod-split__value {
+	font-weight: 600;
+}
+
+.pcod-sub-gateways {
+	border: 1px solid #e0e0e0;
+	padding: 10px 12px;
+	margin: 10px 0 0;
+	border-radius: 4px;
+}
+
+.pcod-sub-gateways legend {
+	padding: 0 6px;
+	font-weight: 600;
+}
+
+.pcod-sub-gateway {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 0;
+}
+
+.pcod-sub-gateway img {
+	max-height: 24px;
+	width: auto;
+}
+
+.pcod-admin-balance-box .pcod-row {
+	display: flex;
+	justify-content: space-between;
+	margin: 6px 0;
+}
+
+.pcod-admin-balance-box .pcod-status-pending {
+	color: #b26200;
+	font-weight: 600;
+}
+
+.pcod-admin-balance-box .pcod-status-paid {
+	color: #2e7d32;
+	font-weight: 600;
+}
+
+.pcod-myaccount-split {
+	margin: 8px 0;
+}
+
+.pcod-myaccount-split td {
+	padding: 4px 8px;
+}

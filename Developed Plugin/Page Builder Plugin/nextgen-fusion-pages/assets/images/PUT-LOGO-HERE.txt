@@ -1,0 +1,9 @@
+IMPORTANT: Copy your NextGen Fusion logo file into this folder and name it exactly:
+
+    logo.png
+
+The plugin references it at:
+    assets/images/logo.png
+
+Recommended size: 400–600 px wide, transparent PNG background.
+The plugin will display it in the hero and footer of your pages.

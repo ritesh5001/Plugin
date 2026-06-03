@@ -1,0 +1,877 @@
+/* ============================================================
+   NextGen Fusion — ngf-pages.css  v1.0.0
+   All classes prefixed with  ngf-  to prevent theme leakage.
+   Loaded only on NGF-created pages via PHP conditional.
+   Palette extracted from the NextGen Fusion logo:
+     Neon green  #00E676  |  Orange  #FF6B2B  |  Dark  #08090F
+   ============================================================ */
+
+/* ── CSS Variables ──────────────────────────────────────────── */
+:root {
+	--ngf-neon:        #00E676;
+	--ngf-neon-dark:   #00B857;
+	--ngf-neon-glow:   rgba(0, 230, 118, 0.25);
+	--ngf-orange:      #FF6B2B;
+	--ngf-orange-dim:  #CC4E18;
+	--ngf-dark:        #08090F;
+	--ngf-dark-2:      #0C0F17;
+	--ngf-dark-3:      #121720;
+	--ngf-dark-4:      #1A2030;
+	--ngf-text:        #E8EDF5;
+	--ngf-text-dim:    #8A95A8;
+	--ngf-border:      rgba(0, 230, 118, 0.12);
+	--ngf-border-h:    rgba(0, 230, 118, 0.35);
+	--ngf-shadow:      0 4px 28px rgba(0, 0, 0, 0.55);
+	--ngf-glow:        0 0 30px rgba(0, 230, 118, 0.22);
+	--ngf-radius:      12px;
+	--ngf-radius-sm:   8px;
+	--ngf-font-h:      'Cinzel', Georgia, serif;
+	--ngf-font-b:      'Manrope', system-ui, -apple-system, sans-serif;
+	--ngf-max-w:       1200px;
+	--ngf-pad:         clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ── Full-page dark override (body.ngf-page) ────────────────── */
+body.ngf-page {
+	background: var(--ngf-dark) !important;
+}
+
+/* Hide the default theme page title — our hero renders it */
+body.ngf-page .entry-title,
+body.ngf-page .page-title,
+body.ngf-page .page-header {
+	display: none !important;
+}
+
+/* Make the content area full-width so our layout breathes */
+body.ngf-page .entry-content,
+body.ngf-page .post-content,
+body.ngf-page .page-content {
+	max-width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+body.ngf-page article,
+body.ngf-page main {
+	max-width: 100% !important;
+}
+
+/* ── Wrap — root element of every NGF page ──────────────────── */
+.ngf-wrap {
+	font-family: var(--ngf-font-b);
+	color: var(--ngf-text);
+	background: var(--ngf-dark);
+	line-height: 1.7;
+	font-size: 1rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ngf-wrap *,
+.ngf-wrap *::before,
+.ngf-wrap *::after {
+	box-sizing: border-box;
+}
+
+.ngf-wrap img { max-width: 100%; height: auto; display: block; }
+
+.ngf-wrap a {
+	color: var(--ngf-neon);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.ngf-wrap a:hover { color: var(--ngf-orange); }
+
+/* ── Container ──────────────────────────────────────────────── */
+.ngf-container {
+	max-width: var(--ngf-max-w);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--ngf-pad);
+	padding-right: var(--ngf-pad);
+}
+
+/* ── Eyebrow label ──────────────────────────────────────────── */
+.ngf-eyebrow {
+	display: inline-block;
+	font-family: var(--ngf-font-b);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ngf-neon);
+	margin-bottom: 0.8rem;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.ngf-hero {
+	background:
+		radial-gradient(ellipse 60% 70% at 15% 55%, rgba(0, 230, 118, 0.09) 0%, transparent 65%),
+		radial-gradient(ellipse 50% 60% at 85% 15%, rgba(255, 107, 43, 0.07) 0%, transparent 60%),
+		linear-gradient(155deg, var(--ngf-dark-3) 0%, var(--ngf-dark) 60%, var(--ngf-dark-2) 100%);
+	border-bottom: 1px solid var(--ngf-border);
+	padding: clamp(4.5rem, 12vw, 9rem) var(--ngf-pad);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Subtle dot grid texture */
+.ngf-hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(circle, rgba(0, 230, 118, 0.04) 1px, transparent 1px);
+	background-size: 44px 44px;
+	pointer-events: none;
+}
+
+/* Accent line at bottom */
+.ngf-hero::after {
+	content: '';
+	position: absolute;
+	bottom: 0; left: 50%;
+	transform: translateX(-50%);
+	width: 200px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--ngf-neon), transparent);
+}
+
+.ngf-hero-sm {
+	padding: clamp(3rem, 8vw, 5.5rem) var(--ngf-pad);
+}
+
+.ngf-hero-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 780px;
+	margin: 0 auto;
+}
+
+.ngf-hero-logo {
+	max-width: 230px;
+	width: 100%;
+	margin: 0 auto 2.25rem;
+	filter: drop-shadow(0 0 24px rgba(0, 230, 118, 0.45));
+}
+
+.ngf-hero-title {
+	font-family: var(--ngf-font-h);
+	font-size: clamp(2rem, 6vw, 4rem);
+	font-weight: 700;
+	line-height: 1.12;
+	color: var(--ngf-text);
+	margin: 0 0 1.25rem;
+	letter-spacing: 0.02em;
+}
+
+.ngf-hero-title em {
+	font-style: normal;
+	color: var(--ngf-neon);
+	text-shadow: 0 0 28px rgba(0, 230, 118, 0.4);
+}
+
+.ngf-hero-intro {
+	font-size: clamp(1rem, 2.5vw, 1.15rem);
+	color: var(--ngf-text-dim);
+	max-width: 640px;
+	margin: 0 auto 2.75rem;
+	line-height: 1.82;
+}
+
+.ngf-hero-cta {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.ngf-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.45rem;
+	padding: 0.875rem 2rem;
+	border-radius: var(--ngf-radius-sm);
+	font-family: var(--ngf-font-b);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease,
+	            box-shadow 0.22s ease, transform 0.18s ease;
+	border: 2px solid transparent;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.ngf-btn-primary {
+	background: var(--ngf-neon);
+	color: var(--ngf-dark);
+	border-color: var(--ngf-neon);
+}
+
+.ngf-btn-primary:hover {
+	background: var(--ngf-neon-dark);
+	border-color: var(--ngf-neon-dark);
+	color: var(--ngf-dark);
+	box-shadow: var(--ngf-glow);
+	transform: translateY(-2px);
+}
+
+.ngf-btn-outline {
+	background: transparent;
+	color: var(--ngf-neon);
+	border-color: var(--ngf-neon);
+}
+
+.ngf-btn-outline:hover {
+	background: var(--ngf-neon);
+	color: var(--ngf-dark);
+	box-shadow: var(--ngf-glow);
+	transform: translateY(-2px);
+}
+
+/* ── Sections ───────────────────────────────────────────────── */
+.ngf-section {
+	padding: clamp(3.5rem, 9vw, 6.5rem) 0;
+	background: var(--ngf-dark);
+}
+
+.ngf-section-dark {
+	background: var(--ngf-dark-2);
+}
+
+.ngf-section-title {
+	font-family: var(--ngf-font-h);
+	font-size: clamp(1.5rem, 4vw, 2.4rem);
+	font-weight: 700;
+	color: var(--ngf-text);
+	margin: 0 0 2.5rem;
+	letter-spacing: 0.02em;
+	line-height: 1.2;
+}
+
+.ngf-section-title span {
+	color: var(--ngf-neon);
+}
+
+/* ── Grid system ────────────────────────────────────────────── */
+.ngf-grid {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.ngf-grid-2 {
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+}
+
+.ngf-grid-3 {
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.ngf-card {
+	background: var(--ngf-dark-3);
+	border: 1px solid var(--ngf-border);
+	border-radius: var(--ngf-radius);
+	padding: 2rem;
+	transition: border-color 0.28s, box-shadow 0.28s, transform 0.22s;
+	position: relative;
+	overflow: hidden;
+}
+
+.ngf-card::before {
+	content: '';
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	height: 2px;
+	background: linear-gradient(90deg, transparent 0%, var(--ngf-neon) 50%, transparent 100%);
+	opacity: 0;
+	transition: opacity 0.28s;
+}
+
+.ngf-card:hover {
+	border-color: var(--ngf-border-h);
+	box-shadow: var(--ngf-glow), var(--ngf-shadow);
+	transform: translateY(-5px);
+}
+
+.ngf-card:hover::before {
+	opacity: 1;
+}
+
+/* Featured card — always shows the accent top line */
+.ngf-card-featured {
+	background: linear-gradient(148deg, var(--ngf-dark-4) 0%, var(--ngf-dark-3) 100%);
+	border-color: rgba(0, 230, 118, 0.28);
+}
+
+.ngf-card-featured::before {
+	opacity: 1;
+}
+
+.ngf-card-lg {
+	padding: 2.5rem;
+}
+
+.ngf-card-num {
+	font-family: var(--ngf-font-h);
+	font-size: 2.8rem;
+	font-weight: 900;
+	color: rgba(0, 230, 118, 0.13);
+	line-height: 1;
+	margin-bottom: 1rem;
+	letter-spacing: -0.02em;
+}
+
+.ngf-card-title {
+	font-family: var(--ngf-font-h);
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--ngf-text);
+	margin: 0 0 0.75rem;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+}
+
+.ngf-card-body {
+	color: var(--ngf-text-dim);
+	font-size: 0.93rem;
+	margin: 0;
+	line-height: 1.78;
+}
+
+/* ── Feature list (checkmarks inside cards) ─────────────────── */
+.ngf-list {
+	list-style: none;
+	padding: 0;
+	margin: 1.4rem 0 0;
+}
+
+.ngf-list li {
+	padding: 0.42rem 0 0.42rem 1.6rem;
+	position: relative;
+	color: var(--ngf-text-dim);
+	font-size: 0.9rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ngf-list li:last-child { border-bottom: none; }
+
+.ngf-list li::before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: var(--ngf-neon);
+	font-weight: 700;
+	font-size: 0.85rem;
+}
+
+/* ── Two-column layout ──────────────────────────────────────── */
+.ngf-two-col {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+	gap: 3.5rem;
+	align-items: start;
+}
+
+.ngf-col p {
+	color: var(--ngf-text-dim);
+	margin-bottom: 1.2rem;
+	font-size: 0.96rem;
+}
+
+.ngf-col > .ngf-btn {
+	margin-top: 0.5rem;
+}
+
+/* ── Feature items (icon + text blocks) ─────────────────────── */
+.ngf-feature-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+}
+
+.ngf-feature-item {
+	display: flex;
+	gap: 1.1rem;
+	align-items: flex-start;
+	padding: 1.25rem;
+	background: var(--ngf-dark-3);
+	border: 1px solid var(--ngf-border);
+	border-radius: var(--ngf-radius-sm);
+	transition: border-color 0.25s;
+}
+
+.ngf-feature-item:hover {
+	border-color: var(--ngf-border-h);
+}
+
+.ngf-feature-icon {
+	font-size: 1.2rem;
+	color: var(--ngf-neon);
+	flex-shrink: 0;
+	line-height: 1.4;
+}
+
+.ngf-feature-item h4 {
+	font-family: var(--ngf-font-h);
+	font-size: 0.93rem;
+	font-weight: 600;
+	color: var(--ngf-text);
+	margin: 0 0 0.35rem;
+	letter-spacing: 0.02em;
+}
+
+.ngf-feature-item p {
+	color: var(--ngf-text-dim);
+	font-size: 0.88rem;
+	margin: 0;
+	line-height: 1.65;
+}
+
+.ngf-feature-item a {
+	color: var(--ngf-neon);
+}
+
+/* ── Stats bar ──────────────────────────────────────────────── */
+.ngf-stats-bar {
+	background: var(--ngf-dark-2);
+	border-top: 1px solid var(--ngf-border);
+	border-bottom: 1px solid var(--ngf-border);
+	padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.ngf-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+	gap: 2rem 1.5rem;
+	text-align: center;
+}
+
+.ngf-stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.ngf-stat-num {
+	font-family: var(--ngf-font-h);
+	font-size: clamp(1.9rem, 5vw, 3.2rem);
+	font-weight: 700;
+	color: var(--ngf-neon);
+	text-shadow: 0 0 22px rgba(0, 230, 118, 0.35);
+	line-height: 1;
+}
+
+.ngf-stat-label {
+	font-size: 0.74rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ngf-text-dim);
+}
+
+/* ── CTA / Contact panel ────────────────────────────────────── */
+.ngf-contact-panel {
+	background: linear-gradient(135deg, var(--ngf-dark-3) 0%, var(--ngf-dark-4) 100%);
+	border-top: 1px solid var(--ngf-border);
+	padding: clamp(3.5rem, 9vw, 6rem) var(--ngf-pad);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.ngf-contact-panel::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0, 230, 118, 0.07) 0%, transparent 70%);
+	pointer-events: none;
+}
+
+.ngf-contact-panel h2 {
+	font-family: var(--ngf-font-h);
+	font-size: clamp(1.5rem, 4vw, 2.2rem);
+	font-weight: 700;
+	color: var(--ngf-text);
+	margin: 0 0 1rem;
+	letter-spacing: 0.02em;
+	position: relative;
+	z-index: 1;
+}
+
+.ngf-contact-panel p {
+	color: var(--ngf-text-dim);
+	font-size: 1.05rem;
+	margin: 0 auto 2.25rem;
+	max-width: 540px;
+	line-height: 1.8;
+	position: relative;
+	z-index: 1;
+}
+
+.ngf-contact-panel .ngf-btn {
+	position: relative;
+	z-index: 1;
+}
+
+/* ── Contact info items (Contact page) ──────────────────────── */
+.ngf-contact-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	margin-top: 1.5rem;
+}
+
+.ngf-contact-item {
+	display: flex;
+	gap: 1.1rem;
+	align-items: flex-start;
+	padding: 1.2rem 1.4rem;
+	background: var(--ngf-dark-3);
+	border: 1px solid var(--ngf-border);
+	border-radius: var(--ngf-radius-sm);
+	transition: border-color 0.25s;
+}
+
+.ngf-contact-item:hover { border-color: var(--ngf-border-h); }
+
+.ngf-contact-icon {
+	font-size: 1.25rem;
+	color: var(--ngf-neon);
+	flex-shrink: 0;
+	line-height: 1.5;
+}
+
+.ngf-contact-item strong {
+	display: block;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ngf-neon);
+	margin-bottom: 0.3rem;
+}
+
+.ngf-contact-item a,
+.ngf-contact-item span {
+	color: var(--ngf-text);
+	font-size: 0.94rem;
+}
+
+.ngf-contact-item a:hover { color: var(--ngf-orange); }
+
+.ngf-contact-note {
+	margin-top: 1.75rem;
+	padding: 1.2rem 1.4rem;
+	background: rgba(255, 107, 43, 0.07);
+	border: 1px solid rgba(255, 107, 43, 0.2);
+	border-radius: var(--ngf-radius-sm);
+	border-left: 3px solid var(--ngf-orange);
+}
+
+.ngf-contact-note p {
+	color: var(--ngf-text-dim);
+	font-size: 0.88rem;
+	margin: 0;
+	line-height: 1.7;
+}
+
+.ngf-contact-note strong { color: var(--ngf-text); }
+
+/* ── Form wrapper (Contact page) ────────────────────────────── */
+.ngf-form-wrap {
+	background: var(--ngf-dark-3);
+	border: 1px solid var(--ngf-border);
+	border-radius: var(--ngf-radius);
+	padding: 2.25rem;
+}
+
+.ngf-form-wrap h3 {
+	font-family: var(--ngf-font-h);
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: var(--ngf-text);
+	margin: 0 0 1.5rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--ngf-border);
+	letter-spacing: 0.02em;
+}
+
+/* Make CF7 / WPForms / Gravity Forms inputs blend with dark theme */
+.ngf-form-wrap input,
+.ngf-form-wrap textarea,
+.ngf-form-wrap select {
+	background: var(--ngf-dark-2) !important;
+	border: 1px solid var(--ngf-border) !important;
+	color: var(--ngf-text) !important;
+	border-radius: var(--ngf-radius-sm) !important;
+	font-family: var(--ngf-font-b) !important;
+	font-size: 0.93rem !important;
+	padding: 0.75rem 1rem !important;
+	width: 100% !important;
+	transition: border-color 0.22s !important;
+}
+
+.ngf-form-wrap input:focus,
+.ngf-form-wrap textarea:focus,
+.ngf-form-wrap select:focus {
+	border-color: var(--ngf-neon) !important;
+	outline: none !important;
+	box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12) !important;
+}
+
+.ngf-form-wrap input[type="submit"],
+.ngf-form-wrap button[type="submit"] {
+	background: var(--ngf-neon) !important;
+	color: var(--ngf-dark) !important;
+	border-color: var(--ngf-neon) !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.06em !important;
+	text-transform: uppercase !important;
+	cursor: pointer !important;
+	transition: background 0.22s, box-shadow 0.22s, transform 0.18s !important;
+}
+
+.ngf-form-wrap input[type="submit"]:hover,
+.ngf-form-wrap button[type="submit"]:hover {
+	background: var(--ngf-neon-dark) !important;
+	border-color: var(--ngf-neon-dark) !important;
+	box-shadow: var(--ngf-glow) !important;
+	transform: translateY(-1px) !important;
+}
+
+.ngf-form-wrap label {
+	color: var(--ngf-text-dim) !important;
+	font-size: 0.85rem !important;
+	font-weight: 600 !important;
+	letter-spacing: 0.05em !important;
+	text-transform: uppercase !important;
+	display: block !important;
+	margin-bottom: 0.4rem !important;
+}
+
+/* ── Policy pages (Privacy, Terms) ─────────────────────────── */
+.ngf-policy-body {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: clamp(2rem, 5vw, 4rem) var(--ngf-pad);
+}
+
+.ngf-policy-meta {
+	font-size: 0.8rem;
+	color: var(--ngf-text-dim);
+	margin-bottom: 2.5rem;
+	padding: 0.8rem 1.1rem;
+	background: var(--ngf-dark-3);
+	border-left: 3px solid var(--ngf-neon);
+	border-radius: 0 var(--ngf-radius-sm) var(--ngf-radius-sm) 0;
+	line-height: 1.7;
+}
+
+.ngf-policy-body h2 {
+	font-family: var(--ngf-font-h);
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--ngf-text);
+	margin: 2.75rem 0 1rem;
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid var(--ngf-border);
+	letter-spacing: 0.02em;
+}
+
+.ngf-policy-body h3 {
+	font-family: var(--ngf-font-h);
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--ngf-neon);
+	margin: 1.5rem 0 0.5rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.ngf-policy-body p {
+	color: var(--ngf-text-dim);
+	font-size: 0.93rem;
+	line-height: 1.82;
+	margin-bottom: 1rem;
+}
+
+.ngf-policy-body ul {
+	padding-left: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+.ngf-policy-body ul li {
+	color: var(--ngf-text-dim);
+	font-size: 0.93rem;
+	line-height: 1.82;
+	margin-bottom: 0.45rem;
+}
+
+.ngf-policy-body a {
+	color: var(--ngf-neon);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.ngf-policy-body a:hover { color: var(--ngf-orange); }
+
+.ngf-policy-body strong {
+	color: var(--ngf-text);
+	font-weight: 600;
+}
+
+/* ── Footer (Home page only) ────────────────────────────────── */
+.ngf-site-footer {
+	background: var(--ngf-dark-2);
+	border-top: 1px solid var(--ngf-border);
+	padding: clamp(3rem, 7vw, 5rem) 0 0;
+}
+
+.ngf-footer-grid {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	gap: 3rem;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid var(--ngf-border);
+}
+
+.ngf-footer-brand p {
+	color: var(--ngf-text-dim);
+	font-size: 0.88rem;
+	line-height: 1.7;
+	margin: 1.1rem 0 0.75rem;
+}
+
+.ngf-footer-logo {
+	max-width: 160px;
+}
+
+.ngf-footer-email {
+	color: var(--ngf-neon);
+	font-size: 0.88rem;
+	font-weight: 600;
+}
+
+.ngf-footer-email:hover { color: var(--ngf-orange); }
+
+.ngf-footer-links h5 {
+	font-family: var(--ngf-font-h);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--ngf-text);
+	margin: 0 0 1.2rem;
+}
+
+.ngf-footer-links ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+}
+
+.ngf-footer-links ul li a {
+	color: var(--ngf-text-dim);
+	font-size: 0.9rem;
+	transition: color 0.2s;
+}
+
+.ngf-footer-links ul li a:hover { color: var(--ngf-neon); }
+
+.ngf-footer-bottom {
+	padding: 1.75rem 0;
+	text-align: center;
+}
+
+.ngf-footer-bottom p {
+	color: var(--ngf-text-dim);
+	font-size: 0.82rem;
+	margin: 0;
+}
+
+/* ── Policy highlight box ───────────────────────────────────── */
+.ngf-policy-highlight {
+	margin: 1.5rem 0;
+	padding: 1rem 1.4rem;
+	background: rgba(0, 230, 118, 0.07);
+	border: 1px solid rgba(0, 230, 118, 0.25);
+	border-left: 4px solid var(--ngf-neon);
+	border-radius: 0 var(--ngf-radius-sm) var(--ngf-radius-sm) 0;
+	color: var(--ngf-text);
+	font-size: 0.95rem;
+	line-height: 1.7;
+}
+
+.ngf-policy-highlight strong {
+	color: var(--ngf-neon);
+}
+
+/* ── Ordered list (policy pages) ────────────────────────────── */
+.ngf-ordered-list {
+	padding-left: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+.ngf-ordered-list li {
+	color: var(--ngf-text-dim);
+	font-size: 0.93rem;
+	line-height: 1.82;
+	margin-bottom: 0.65rem;
+	padding-left: 0.4rem;
+}
+
+.ngf-ordered-list li strong {
+	color: var(--ngf-text);
+}
+
+/* ── Responsive adjustments ─────────────────────────────────── */
+@media (max-width: 768px) {
+	.ngf-footer-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.ngf-footer-brand {
+		grid-column: 1 / -1;
+	}
+
+	.ngf-two-col {
+		gap: 2.5rem;
+	}
+}
+
+@media (max-width: 520px) {
+	.ngf-hero-cta {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.ngf-btn {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.ngf-footer-grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.ngf-card-lg {
+		padding: 1.75rem;
+	}
+
+	.ngf-stats-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}

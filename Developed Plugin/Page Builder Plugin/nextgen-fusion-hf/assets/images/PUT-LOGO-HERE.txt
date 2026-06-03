@@ -1,0 +1,6 @@
+Copy your NextGen Fusion logo file into this folder and name it:
+
+    logo.png
+
+Recommended: transparent PNG, at least 400px wide.
+It will appear in the header (44px tall) and the footer (155px wide).

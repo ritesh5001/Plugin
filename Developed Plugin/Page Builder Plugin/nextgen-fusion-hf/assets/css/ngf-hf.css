@@ -1,0 +1,603 @@
+/* ============================================================
+   NextGen Fusion — Header & Footer   ngf-hf.css  v1.0.0
+   Header prefix:   ngf-hdr-
+   Footer prefix:   ngf-ftr-
+   WhatsApp prefix: ngf-wa-
+
+   Palette from NextGen Fusion logo:
+     --ngf-dark      #08090F   deep background
+     --ngf-dark-2    #0C0F17   footer background
+     --ngf-dark-3    #121720   card/input surface
+     --ngf-neon      #00E676   primary accent (neon green)
+     --ngf-neon-dim  #00B857   darker green
+     --ngf-orange    #FF6B2B   secondary accent
+     --ngf-text      #E8EDF5   primary text
+     --ngf-text-dim  #8A95A8   secondary / muted text
+     --ngf-border    rgba(0,230,118,0.15)
+   ============================================================ */
+
+/* ═══════════════════════════════════════════════════════════
+   1. HEADER
+═══════════════════════════════════════════════════════════ */
+
+.ngf-hdr {
+  width: 100%;
+  background: #08090F;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  font-family: 'Manrope', system-ui, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ngf-hdr *,
+.ngf-hdr *::before,
+.ngf-hdr *::after { box-sizing: border-box; }
+
+/* ── Inner row ─────────────────────────────────────────── */
+.ngf-hdr-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ── Logo ──────────────────────────────────────────────── */
+.ngf-hdr-logo-wrap { flex-shrink: 0; }
+
+.ngf-hdr-logo-wrap a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ngf-hdr-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(0, 230, 118, 0.4));
+  transition: filter 0.25s;
+}
+
+.ngf-hdr-logo-wrap:hover .ngf-hdr-logo {
+  filter: drop-shadow(0 0 22px rgba(0, 230, 118, 0.65));
+}
+
+/* ── Search bar ────────────────────────────────────────── */
+.ngf-hdr-search-wrap {
+  flex: 1;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.ngf-hdr-search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 230, 118, 0.18);
+  border-radius: 50px;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.ngf-hdr-search-form:focus-within {
+  border-color: #00E676;
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12);
+}
+
+.ngf-hdr-search-input {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #E8EDF5 !important;
+  font-family: 'Manrope', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  padding: 11px 20px !important;
+  min-width: 0;
+  -webkit-appearance: none;
+}
+
+.ngf-hdr-search-input::placeholder { color: #8A95A8 !important; }
+
+/* Remove browser default search decoration */
+.ngf-hdr-search-input::-webkit-search-cancel-button,
+.ngf-hdr-search-input::-webkit-search-decoration { display: none; }
+
+.ngf-hdr-search-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px 8px 12px;
+  cursor: pointer;
+  color: #8A95A8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.ngf-hdr-search-btn:hover { color: #00E676; }
+
+/* ── Right-side action links ───────────────────────────── */
+.ngf-hdr-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.ngf-hdr-action-link {
+  color: #E8EDF5;
+  text-decoration: none !important;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.ngf-hdr-action-link:hover { color: #00E676 !important; }
+
+.ngf-hdr-action-link svg { display: block; flex-shrink: 0; }
+
+/* Cart icon + badge */
+.ngf-hdr-cart { position: relative; }
+
+.ngf-hdr-cart-count {
+  background: #00E676;
+  color: #08090F;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-family: 'Manrope', system-ui, sans-serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Mobile hamburger (hidden on desktop) ──────────────── */
+.ngf-hdr-mob-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  border-radius: 6px;
+  color: #E8EDF5;
+  cursor: pointer;
+  padding: 5px 7px;
+  margin-left: auto;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 0;
+}
+
+.ngf-hdr-mob-toggle:hover {
+  border-color: #00E676;
+  color: #00E676;
+}
+
+/* ── Mobile dropdown nav ───────────────────────────────── */
+.ngf-hdr-mob-menu {
+  display: none;
+  background: #0C0F17;
+  border-top: 1px solid rgba(0, 230, 118, 0.12);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s ease;
+}
+
+.ngf-hdr-mob-menu.ngf-hdr-mob-open { max-height: 420px; }
+
+.ngf-hdr-mob-list {
+  list-style: none;
+  padding: 8px 20px 18px;
+  margin: 0;
+}
+
+.ngf-hdr-mob-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ngf-hdr-mob-list a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 4px;
+  color: #E8EDF5;
+  text-decoration: none;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s, padding-left 0.22s;
+}
+
+.ngf-hdr-mob-list a:hover {
+  color: #00E676;
+  padding-left: 10px;
+}
+
+.ngf-hdr-mob-divider {
+  border-bottom: 1px solid rgba(0, 230, 118, 0.22) !important;
+  margin: 4px 0;
+}
+
+.ngf-hdr-mob-cart-badge {
+  background: #00E676;
+  color: #08090F;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 50px;
+  padding: 1px 7px;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   2. FOOTER  (structure mirrors the Surat Collection footer,
+      colors replaced with NextGen Fusion palette)
+═══════════════════════════════════════════════════════════ */
+
+.ngf-ftr {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #0C0F17;
+  color: #E8EDF5;
+  padding-top: 70px;
+  font-family: 'Manrope', system-ui, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 230, 118, 0.15);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ngf-ftr *,
+.ngf-ftr *::before,
+.ngf-ftr *::after { box-sizing: border-box; }
+
+.ngf-ftr-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* ── Top row grid ──────────────────────────────────────── */
+.ngf-ftr-row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  gap: 40px;
+}
+
+.ngf-ftr-col-wide {
+  flex: 2;
+  min-width: 280px;
+  padding-right: 40px;
+}
+
+.ngf-ftr-col-std {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ── Brand logo ────────────────────────────────────────── */
+.ngf-ftr-brand-logo {
+  max-width: 155px !important;
+  width: 155px !important;
+  height: auto !important;
+  margin-bottom: 20px;
+  display: inline-block;
+  filter: drop-shadow(0 0 12px rgba(0, 230, 118, 0.35));
+  transition: filter 0.25s;
+}
+
+.ngf-ftr-brand-logo:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 230, 118, 0.6));
+}
+
+/* ── Description ───────────────────────────────────────── */
+.ngf-ftr-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #8A95A8;
+  margin-top: 14px;
+  font-weight: 300;
+}
+
+.ngf-ftr-desc strong {
+  color: #E8EDF5;
+  font-weight: 600;
+}
+
+/* ── Column headings with animated neon underline ──────── */
+.ngf-ftr-head {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12.5px;
+  color: #E8EDF5;
+  margin: 0 0 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.ngf-ftr-head::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00E676;
+  margin-top: 9px;
+  transition: width 0.35s ease;
+  box-shadow: 0 0 7px rgba(0, 230, 118, 0.55);
+}
+
+.ngf-ftr-col-std:hover .ngf-ftr-head::after { width: 100%; }
+
+/* ── Nav links ─────────────────────────────────────────── */
+.ngf-ftr-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ngf-ftr-nav-list li { margin-bottom: 11px; }
+
+.ngf-ftr-nav-list a {
+  text-decoration: none;
+  color: #8A95A8;
+  font-size: 13.5px;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.25s, transform 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ngf-ftr-nav-list a:hover {
+  color: #00E676 !important;
+  transform: translateX(5px);
+}
+
+.ngf-ftr-nav-list a i {
+  font-size: 12px;
+  opacity: 0.65;
+  transition: opacity 0.25s;
+}
+
+.ngf-ftr-nav-list a:hover i { opacity: 1; }
+
+/* Small neon tick that slides in on hover */
+.ngf-ftr-nav-list a::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  width: 8px;
+  height: 1.5px;
+  background: #00E676;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.25s, left 0.25s;
+}
+
+.ngf-ftr-nav-list a:hover::before {
+  opacity: 1;
+  left: -13px;
+}
+
+/* ── Social icons ──────────────────────────────────────── */
+.ngf-ftr-social-wrap {
+  margin-top: 26px;
+  display: flex;
+  gap: 16px;
+}
+
+.ngf-ftr-social-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #8A95A8;
+  font-size: 18px;
+  text-decoration: none !important;
+  transition: color 0.25s, transform 0.25s, text-shadow 0.25s;
+}
+
+.ngf-ftr-social-link:hover {
+  color: #00E676 !important;
+  transform: translateY(-4px);
+  text-shadow: 0 0 10px rgba(0, 230, 118, 0.55);
+}
+
+/* ── Bottom bar ────────────────────────────────────────── */
+.ngf-ftr-row-btm {
+  background-color: #08090F;
+  border-top: 1px solid rgba(0, 230, 118, 0.1);
+  padding: 16px 0;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  display: flex;
+  justify-content: center;
+}
+
+.ngf-ftr-btm-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ngf-ftr-copy {
+  font-size: 12px;
+  color: #8A95A8;
+  letter-spacing: 0.4px;
+}
+
+.ngf-ftr-copy a {
+  color: #00E676;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.ngf-ftr-copy a:hover {
+  color: #FF6B2B;
+  border-color: rgba(255, 107, 43, 0.4);
+}
+
+/* ── Payment icons ─────────────────────────────────────── */
+.ngf-ftr-pay-wrap {
+  opacity: 0.75;
+  transition: opacity 0.28s;
+}
+
+.ngf-ftr-pay-wrap:hover { opacity: 1; }
+
+.ngf-ftr-pay-img {
+  height: 22px !important;
+  width: auto !important;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   3. WHATSAPP FLOATING BUTTON
+═══════════════════════════════════════════════════════════ */
+
+.ngf-wa-float {
+  position: fixed;
+  width: 54px;
+  height: 54px;
+  bottom: 28px;
+  left: 28px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.32), 0 0 0 0 rgba(37, 211, 102, 0.4);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.28s, transform 0.28s, box-shadow 0.28s;
+  animation: ngf-wa-pulse 2.5s infinite;
+}
+
+@keyframes ngf-wa-pulse {
+  0%   { box-shadow: 0 3px 14px rgba(0,0,0,.32), 0 0 0 0 rgba(37,211,102,.45); }
+  70%  { box-shadow: 0 3px 14px rgba(0,0,0,.32), 0 0 0 12px rgba(37,211,102,0); }
+  100% { box-shadow: 0 3px 14px rgba(0,0,0,.32), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.ngf-wa-float:hover {
+  background-color: #128C7E;
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.38);
+  animation: none;
+}
+
+.ngf-wa-icon {
+  width: 29px;
+  height: 29px;
+  fill: currentColor;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   4. RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+
+/* ── Header ── */
+@media (max-width: 1024px) {
+  .ngf-hdr-search-wrap { max-width: 380px; }
+}
+
+@media (max-width: 768px) {
+  .ngf-hdr-inner {
+    height: 58px;
+    padding: 0 18px;
+    gap: 12px;
+  }
+
+  /* Hide search + sign-in text on mobile — use mobile menu instead */
+  .ngf-hdr-search-wrap { display: none; }
+  .ngf-hdr-signin      { display: none; }
+  .ngf-hdr-orders      { display: none; }
+
+  .ngf-hdr-mob-toggle  { display: flex; }
+  .ngf-hdr-mob-menu    { display: block; }
+
+  .ngf-hdr-logo { height: 36px; }
+
+  .ngf-hdr-actions { gap: 14px; }
+}
+
+/* ── Footer ── */
+@media (max-width: 900px) {
+  .ngf-ftr-col-wide {
+    flex: 100%;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ngf-ftr               { padding-top: 50px; }
+  .ngf-ftr-col-std       { flex: 100%; text-align: center; }
+  .ngf-ftr-col-wide      { text-align: center; }
+
+  .ngf-ftr-head::after   { margin: 9px auto 0; }
+
+  .ngf-ftr-social-wrap   { justify-content: center; }
+
+  .ngf-ftr-nav-list a::before { display: none; }
+  .ngf-ftr-nav-list a:hover   { transform: none; }
+
+  .ngf-ftr-btm-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .ngf-wa-float {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .ngf-wa-icon {
+    width: 25px;
+    height: 25px;
+  }
+}

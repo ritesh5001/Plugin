@@ -1,0 +1,963 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+/* ── Variables (all colors extracted from the Royal Vastar logo) ── */
+:root {
+  /* Raw logo colors */
+  --rv-color-1:      #0D3320;    /* darkest green — shield interior */
+  --rv-color-2:      #C9A040;    /* rich gold — crown, arrows, laurel, text */
+  --rv-color-3:      #1B4332;    /* forest green — banner & shield background */
+  --rv-color-4:      #2D6A4F;    /* medium emerald — lighter green areas */
+
+  /* Semantic aliases */
+  --rv-bg:           #0D3320;    /* page background */
+  --rv-primary:      #C9A040;    /* primary text accent */
+  --rv-accent:       #C9A040;    /* borders, glows, hover states */
+  --rv-surface:      #1B4332;    /* card/panel backgrounds */
+  --rv-surface2:     #2D6A4F;    /* slightly lighter panels */
+
+  /* Derived utilities */
+  --rv-gold-light:   #E8C96E;
+  --rv-gold-dark:    #8B6914;
+  --rv-white:        #FFFFFF;
+  --rv-text:         #EAEFE9;    /* soft off-white for body copy */
+  --rv-muted:        #C2CFBE;    /* light sage for secondary text */
+  --rv-glow:         rgba(201,160,64,0.25);
+  --rv-glow-strong:  rgba(201,160,64,0.45);
+  --rv-radius:       8px;
+  --rv-radius-lg:    16px;
+  --rv-transition:   0.3s ease;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THEME RESET — force our look over the active theme (XStore etc.)
+   Everything is scoped to body.rv-page and forced with !important so
+   the theme's own heading/text colors can never bleed through.
+════════════════════════════════════════════════════════════════ */
+body.rv-page {
+  background-color: var(--rv-bg) !important;
+  color: var(--rv-text) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Hide the theme's default page title */
+body.rv-page .entry-title,
+body.rv-page h1.entry-title,
+body.rv-page .page-title,
+body.rv-page .page-header,
+body.rv-page .et_post_meta_wrapper > h1,
+body.rv-page .elementor-heading-title.entry-title {
+  display: none !important;
+}
+
+/* Force full-width content area, strip theme padding/max-width */
+body.rv-page .entry-content,
+body.rv-page .entry-content.wp-block-post-content,
+body.rv-page .et_builder_inner_content,
+body.rv-page .site-content,
+body.rv-page .content-area,
+body.rv-page #primary,
+body.rv-page #content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--rv-bg) !important;
+  border: none !important;
+}
+
+body.rv-page .site-main,
+body.rv-page article,
+body.rv-page .hentry,
+body.rv-page main {
+  background: var(--rv-bg) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Kill any theme box-shadow / borders on our containers */
+body.rv-page .rv-card,
+body.rv-page .rv-contact-panel,
+body.rv-page .rv-form-panel,
+body.rv-page .rv-cta {
+  box-shadow: none;
+}
+
+/* ── Layout helpers ──────────────────────────────────────────── */
+body.rv-page .rv-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+body.rv-page .rv-section {
+  padding: 80px 0;
+}
+
+body.rv-page .rv-section-sm {
+  padding: 48px 0;
+}
+
+/* ── Typography — forced so the theme cannot recolor headings ── */
+body.rv-page h1,
+body.rv-page h2,
+body.rv-page h3,
+body.rv-page h4,
+body.rv-page .rv-h1,
+body.rv-page .rv-h2,
+body.rv-page .rv-h3 {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  color: var(--rv-white) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 16px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+body.rv-page .rv-h1 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
+body.rv-page .rv-h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; }
+body.rv-page .rv-h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem) !important; }
+
+body.rv-page p,
+body.rv-page li,
+body.rv-page span {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+body.rv-page .rv-gold-text  { color: var(--rv-accent) !important; }
+body.rv-page .rv-muted-text { color: var(--rv-muted) !important; }
+
+/* Links inside our content default to gold */
+body.rv-page a {
+  color: var(--rv-accent);
+}
+
+/* ── Chip / eyebrow label ────────────────────────────────────── */
+body.rv-page .rv-chip {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--rv-accent);
+  color: var(--rv-accent) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* ── Hero section ────────────────────────────────────────────── */
+body.rv-page .rv-hero {
+  background: linear-gradient(160deg, #0D3320 0%, #1B4332 50%, #0D2A18 100%) !important;
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201,160,64,0.3);
+}
+
+body.rv-page .rv-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,160,64,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+body.rv-page .rv-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.rv-page .rv-hero-logo {
+  display: block;
+  margin: 0 auto 32px;
+  max-width: 180px;
+  height: auto;
+}
+
+body.rv-page .rv-hero h1 {
+  color: var(--rv-white) !important;
+}
+
+body.rv-page .rv-hero-intro {
+  font-size: 1.1rem;
+  color: var(--rv-muted) !important;
+  max-width: 680px;
+  margin: 16px auto 0;
+  line-height: 1.8;
+}
+
+/* ── Stats bar ───────────────────────────────────────────────── */
+body.rv-page .rv-stats {
+  background: var(--rv-surface) !important;
+  border-top: 1px solid rgba(201,160,64,0.2);
+  border-bottom: 1px solid rgba(201,160,64,0.2);
+  padding: 40px 24px;
+}
+
+body.rv-page .rv-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+body.rv-page .rv-stat-item {
+  text-align: center;
+  flex: 1 1 180px;
+}
+
+body.rv-page .rv-stat-number {
+  display: block;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--rv-accent) !important;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+body.rv-page .rv-stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--rv-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Card grid ───────────────────────────────────────────────── */
+body.rv-page .rv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+body.rv-page .rv-card {
+  background: var(--rv-surface) !important;
+  border: 1px solid rgba(201,160,64,0.25);
+  border-radius: var(--rv-radius-lg);
+  padding: 36px 28px;
+  transition: border-color var(--rv-transition), box-shadow var(--rv-transition), transform var(--rv-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+body.rv-page .rv-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rv-accent), transparent);
+  opacity: 0;
+  transition: opacity var(--rv-transition);
+}
+
+body.rv-page .rv-card:hover {
+  border-color: var(--rv-accent);
+  box-shadow: 0 0 32px var(--rv-glow);
+  transform: translateY(-4px);
+}
+
+body.rv-page .rv-card:hover::before {
+  opacity: 1;
+}
+
+body.rv-page .rv-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  display: block;
+  color: var(--rv-accent) !important;
+}
+
+body.rv-page .rv-card h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 12px !important;
+}
+
+body.rv-page .rv-card p {
+  font-size: 0.95rem;
+  color: var(--rv-muted) !important;
+  margin: 0;
+  line-height: 1.7;
+}
+
+body.rv-page .rv-card ul {
+  list-style: none !important;
+  margin: 12px 0 0 !important;
+  padding: 0 !important;
+}
+
+body.rv-page .rv-card ul li {
+  font-size: 0.9rem;
+  color: var(--rv-muted) !important;
+  padding: 4px 0 4px 20px;
+  position: relative;
+  margin: 0;
+}
+
+body.rv-page .rv-card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--rv-accent);
+}
+
+/* ── Card number badge ───────────────────────────────────────── */
+body.rv-page .rv-card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid var(--rv-accent);
+  border-radius: 50%;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rv-accent) !important;
+  margin-bottom: 20px;
+}
+
+/* ── Why Us / feature list ───────────────────────────────────── */
+body.rv-page .rv-why-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+body.rv-page .rv-why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--rv-bg) !important;
+  border: 1px solid rgba(201,160,64,0.2);
+  border-radius: var(--rv-radius);
+  padding: 20px;
+  margin: 0;
+}
+
+body.rv-page .rv-why-icon {
+  font-size: 1.5rem;
+  color: var(--rv-accent) !important;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+body.rv-page .rv-why-text strong {
+  display: block;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.95rem;
+  color: var(--rv-white) !important;
+  margin-bottom: 4px;
+}
+
+body.rv-page .rv-why-text span {
+  font-size: 0.88rem;
+  color: var(--rv-muted) !important;
+}
+
+/* ── CTA panel ───────────────────────────────────────────────── */
+body.rv-page .rv-cta {
+  background: linear-gradient(135deg, #1B4332 0%, #0D3A1E 100%) !important;
+  border: 1px solid rgba(201,160,64,0.35);
+  border-radius: var(--rv-radius-lg);
+  text-align: center;
+  padding: 64px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.rv-page .rv-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,160,64,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+body.rv-page .rv-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.rv-page .rv-cta h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 12px !important;
+}
+
+body.rv-page .rv-cta p {
+  color: var(--rv-muted) !important;
+  font-size: 1.05rem;
+  margin: 0 auto 32px;
+  max-width: 520px;
+}
+
+body.rv-page .rv-btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Button ──────────────────────────────────────────────────── */
+body.rv-page .rv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rv-accent) !important;
+  color: var(--rv-bg) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none !important;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: 2px solid var(--rv-accent) !important;
+  transition: background var(--rv-transition), color var(--rv-transition), box-shadow var(--rv-transition);
+  cursor: pointer;
+}
+
+body.rv-page .rv-btn:hover {
+  background: transparent !important;
+  color: var(--rv-accent) !important;
+  box-shadow: 0 0 24px var(--rv-glow);
+  text-decoration: none !important;
+}
+
+body.rv-page .rv-btn-outline {
+  background: transparent !important;
+  color: var(--rv-accent) !important;
+}
+
+body.rv-page .rv-btn-outline:hover {
+  background: var(--rv-accent) !important;
+  color: var(--rv-bg) !important;
+}
+
+/* ── Two-column layout ───────────────────────────────────────── */
+body.rv-page .rv-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+body.rv-page .rv-two-col-content h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 20px !important;
+}
+
+body.rv-page .rv-two-col-content p {
+  color: var(--rv-muted) !important;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+body.rv-page .rv-feature-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.rv-page .rv-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.rv-page .rv-feature-list li:last-child {
+  border-bottom: none;
+}
+
+body.rv-page .rv-feature-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(201,160,64,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--rv-accent) !important;
+  flex-shrink: 0;
+}
+
+body.rv-page .rv-feature-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--rv-white) !important;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+body.rv-page .rv-feature-text span {
+  font-size: 0.88rem;
+  color: var(--rv-muted) !important;
+}
+
+/* ── Process steps ───────────────────────────────────────────── */
+body.rv-page .rv-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+body.rv-page .rv-process::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rv-accent), transparent);
+  opacity: 0.4;
+}
+
+body.rv-page .rv-step {
+  text-align: center;
+  padding: 24px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+body.rv-page .rv-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--rv-surface) !important;
+  border: 2px solid var(--rv-accent);
+  border-radius: 50%;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--rv-accent) !important;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 16px var(--rv-glow);
+}
+
+body.rv-page .rv-step h4 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 8px !important;
+}
+
+body.rv-page .rv-step p {
+  font-size: 0.88rem;
+  color: var(--rv-muted) !important;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Section heading ─────────────────────────────────────────── */
+body.rv-page .rv-section-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+body.rv-page .rv-section-heading h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 12px !important;
+}
+
+body.rv-page .rv-section-heading p {
+  color: var(--rv-muted) !important;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+body.rv-page .rv-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rv-accent), transparent);
+  margin: 16px auto;
+}
+
+/* ── Contact section ─────────────────────────────────────────── */
+body.rv-page .rv-contact-panel {
+  background: var(--rv-surface) !important;
+  border: 1px solid rgba(201,160,64,0.25);
+  border-radius: var(--rv-radius-lg);
+  padding: 40px 36px;
+  height: 100%;
+}
+
+body.rv-page .rv-contact-panel h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.4rem !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 28px !important;
+}
+
+body.rv-page .rv-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+body.rv-page .rv-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+body.rv-page .rv-contact-item-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(201,160,64,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+body.rv-page .rv-contact-item-text strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--rv-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+body.rv-page .rv-contact-item-text a,
+body.rv-page .rv-contact-item-text span {
+  font-size: 1rem;
+  color: var(--rv-white) !important;
+  text-decoration: none;
+  transition: color var(--rv-transition);
+}
+
+body.rv-page .rv-contact-item-text a:hover {
+  color: var(--rv-accent) !important;
+}
+
+body.rv-page .rv-social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+body.rv-page .rv-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rv-surface2) !important;
+  border: 1px solid rgba(201,160,64,0.25);
+  color: var(--rv-muted) !important;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all var(--rv-transition);
+}
+
+body.rv-page .rv-social-link:hover {
+  border-color: var(--rv-accent);
+  color: var(--rv-accent) !important;
+  text-decoration: none !important;
+}
+
+/* ── CF7 form wrapper ────────────────────────────────────────── */
+body.rv-page .rv-form-panel {
+  background: var(--rv-surface) !important;
+  border: 1px solid rgba(201,160,64,0.25);
+  border-radius: var(--rv-radius-lg);
+  padding: 40px 36px;
+}
+
+body.rv-page .rv-form-panel h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.4rem !important;
+  color: var(--rv-white) !important;
+  margin: 0 0 28px !important;
+}
+
+body.rv-page .rv-form-panel label {
+  color: var(--rv-muted) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.9rem;
+  display: block;
+}
+
+body.rv-page .rv-form-panel .wpcf7-form input[type="text"],
+body.rv-page .rv-form-panel .wpcf7-form input[type="email"],
+body.rv-page .rv-form-panel .wpcf7-form input[type="tel"],
+body.rv-page .rv-form-panel .wpcf7-form textarea,
+body.rv-page .rv-form-panel .wpcf7-form select {
+  width: 100%;
+  background: var(--rv-surface2) !important;
+  border: 1px solid rgba(201,160,64,0.25) !important;
+  border-radius: var(--rv-radius);
+  color: var(--rv-white) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  transition: border-color var(--rv-transition);
+  margin-bottom: 4px;
+}
+
+body.rv-page .rv-form-panel .wpcf7-form input:focus,
+body.rv-page .rv-form-panel .wpcf7-form textarea:focus {
+  outline: none;
+  border-color: var(--rv-accent) !important;
+  box-shadow: 0 0 0 3px var(--rv-glow);
+}
+
+body.rv-page .rv-form-panel .wpcf7-form input[type="submit"] {
+  background: var(--rv-accent) !important;
+  color: var(--rv-bg) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid var(--rv-accent) !important;
+  padding: 14px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--rv-transition);
+  width: auto;
+  margin-top: 8px;
+}
+
+body.rv-page .rv-form-panel .wpcf7-form input[type="submit"]:hover {
+  background: transparent !important;
+  color: var(--rv-accent) !important;
+}
+
+/* ── Policy prose section ────────────────────────────────────── */
+body.rv-page .rv-policy {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+body.rv-page .rv-policy-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(201,160,64,0.2);
+}
+
+body.rv-page .rv-policy-meta span {
+  font-size: 0.85rem;
+  color: var(--rv-muted) !important;
+}
+
+body.rv-page .rv-policy-meta span strong {
+  color: var(--rv-accent) !important;
+}
+
+body.rv-page .rv-policy-section {
+  margin-bottom: 40px;
+}
+
+body.rv-page .rv-policy-section h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.3rem !important;
+  color: var(--rv-accent) !important;
+  margin: 0 0 16px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid rgba(201,160,64,0.2);
+}
+
+body.rv-page .rv-policy-section h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem !important;
+  color: var(--rv-white) !important;
+  margin: 24px 0 8px !important;
+}
+
+body.rv-page .rv-policy-section p {
+  font-size: 0.95rem;
+  color: var(--rv-text) !important;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+body.rv-page .rv-policy-section ul,
+body.rv-page .rv-policy-section ol {
+  margin: 0 0 14px 20px !important;
+  padding: 0;
+}
+
+body.rv-page .rv-policy-section ul li,
+body.rv-page .rv-policy-section ol li {
+  font-size: 0.95rem;
+  color: var(--rv-text) !important;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+body.rv-page .rv-policy-section a {
+  color: var(--rv-accent) !important;
+  text-decoration: none;
+}
+
+body.rv-page .rv-policy-section a:hover {
+  text-decoration: underline;
+}
+
+body.rv-page .rv-policy-highlight {
+  background: rgba(201,160,64,0.1) !important;
+  border-left: 3px solid var(--rv-accent);
+  border-radius: 0 var(--rv-radius) var(--rv-radius) 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+body.rv-page .rv-policy-highlight p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--rv-white) !important;
+}
+
+/* ── Home page inline footer links ───────────────────────────── */
+body.rv-page .rv-home-footer {
+  background: var(--rv-bg) !important;
+  border-top: 1px solid rgba(201,160,64,0.2);
+  padding: 40px 24px;
+}
+
+body.rv-page .rv-home-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+body.rv-page .rv-home-footer-col h4 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.9rem !important;
+  color: var(--rv-accent) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 16px !important;
+}
+
+body.rv-page .rv-home-footer-col ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.rv-page .rv-home-footer-col ul li {
+  margin-bottom: 8px;
+}
+
+body.rv-page .rv-home-footer-col ul li a {
+  font-size: 0.9rem;
+  color: var(--rv-muted) !important;
+  text-decoration: none;
+  transition: color var(--rv-transition);
+}
+
+body.rv-page .rv-home-footer-col ul li a:hover {
+  color: var(--rv-accent) !important;
+}
+
+body.rv-page .rv-home-footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--rv-muted) !important;
+}
+
+body.rv-page .rv-home-footer-bottom a {
+  color: var(--rv-accent) !important;
+  text-decoration: none;
+}
+
+/* ── Utility ──────────────────────────────────────────────────── */
+body.rv-page .rv-text-center { text-align: center; }
+body.rv-page .rv-mt-0  { margin-top: 0; }
+body.rv-page .rv-mt-8  { margin-top: 8px; }
+body.rv-page .rv-mt-16 { margin-top: 16px; }
+body.rv-page .rv-mt-32 { margin-top: 32px; }
+body.rv-page .rv-mb-0  { margin-bottom: 0; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  body.rv-page .rv-two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.rv-page .rv-section { padding: 56px 0; }
+  body.rv-page .rv-hero { padding: 72px 20px 60px; }
+
+  body.rv-page .rv-stats-inner {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  body.rv-page .rv-stat-item {
+    flex: 1 1 140px;
+  }
+
+  body.rv-page .rv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.rv-page .rv-process {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.rv-page .rv-process::before { display: none; }
+
+  body.rv-page .rv-cta { padding: 48px 20px; }
+  body.rv-page .rv-contact-panel,
+  body.rv-page .rv-form-panel { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  body.rv-page .rv-hero { padding: 56px 16px 48px; }
+  body.rv-page .rv-section { padding: 40px 0; }
+  body.rv-page .rv-wrap { padding: 0 16px; }
+  body.rv-page .rv-process { grid-template-columns: 1fr; }
+  body.rv-page .rv-why-list { grid-template-columns: 1fr; }
+  body.rv-page .rv-stats-inner { flex-direction: column; align-items: center; }
+}
