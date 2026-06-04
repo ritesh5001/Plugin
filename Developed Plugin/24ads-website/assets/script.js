@@ -79,18 +79,22 @@
   document.querySelectorAll('[data-logos]').forEach(function (root) {
     var tabs = root.querySelectorAll('.a24-logos__tab');
     var panels = root.querySelectorAll('.a24-logos__cat');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var cat = tab.getAttribute('data-cat');
-        tabs.forEach(function (t) {
-          var on = t === tab;
-          t.classList.toggle('is-active', on);
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-        });
-        panels.forEach(function (p) {
-          p.classList.toggle('is-active', p.getAttribute('data-cat') === cat);
-        });
+    var activate = function (tab) {
+      var cat = tab.getAttribute('data-cat');
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
       });
+      panels.forEach(function (p) {
+        p.classList.toggle('is-active', p.getAttribute('data-cat') === cat);
+      });
+    };
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { activate(tab); });
     });
+    // Sync panels to whichever tab is marked active on load (e.g. the "All" tab).
+    var initial = root.querySelector('.a24-logos__tab.is-active') || tabs[0];
+    if (initial) activate(initial);
   });
 })();

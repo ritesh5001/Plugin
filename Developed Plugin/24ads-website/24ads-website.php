@@ -3,7 +3,7 @@
  * Plugin Name:       24 Ads Website
  * Plugin URI:        https://24adsmarketing.com/
  * Description:        One-click installer for the full 24 Ads Marketing website. On activation it creates every page (home, about, services, all service pages, clients, contact, career) with the exact same design, and serves them at the original URLs. Just activate and you're live.
- * Version:           1.0.0
+ * Version:           2.0.0
  * Author:            24 Ads Marketing
  * Author URI:        https://24adsmarketing.com/
  * License:           GPL-2.0+
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'A24_FILE', __FILE__ );
 define( 'A24_DIR', plugin_dir_path( __FILE__ ) );
 define( 'A24_URL', plugin_dir_url( __FILE__ ) );
-define( 'A24_VER', '1.0.0' );
+define( 'A24_VER', '2.0.0' );
 
 /**
  * The full site map.
@@ -139,6 +139,37 @@ function a24_render_page() {
 
 	$html = file_get_contents( $path );
 	$html = a24_rewrite_links( $html );
+
+	// ---- Contact Form 7 shortcode support ----
+	// If CF7 is active and the page contains a [contact-form-7] tag,
+	// fire wp_enqueue_scripts so CF7 registers its assets, render the
+	// shortcode, then inject CF7's stylesheet + script into the document.
+	if ( defined( 'WPCF7_VERSION' ) && strpos( $html, '[contact-form-7' ) !== false ) {
+
+		// Let CF7 (and any other plugin) register its enqueued assets.
+		do_action( 'wp_enqueue_scripts' );
+
+		// Render the CF7 shortcode inside our static HTML.
+		$html = do_shortcode( $html );
+
+		// Capture CF7's stylesheet and inject it before </head>.
+		ob_start();
+		wp_print_styles( array( 'contact-form-7' ) );
+		$cf7_css = ob_get_clean();
+
+		// Capture CF7's script (+ dependencies) and inject before </body>.
+		ob_start();
+		wp_print_scripts( array( 'contact-form-7' ) );
+		$cf7_js = ob_get_clean();
+
+		if ( $cf7_css ) {
+			$html = str_replace( '</head>', $cf7_css . "\n</head>", $html );
+		}
+		if ( $cf7_js ) {
+			$html = str_replace( '</body>', $cf7_js . "\n</body>", $html );
+		}
+	}
+	// ---- end CF7 support ----
 
 	// Serve the standalone document and stop — bypasses the theme entirely
 	// so the page looks exactly like the original design.
