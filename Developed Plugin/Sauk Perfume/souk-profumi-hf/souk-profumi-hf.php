@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Header & Footer
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Souk Profumi Header & Footer. Shortcodes [sp_header] and [sp_footer] also available.
- * Version:     1.0.2
+ * Version:     1.0.4
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -20,7 +20,7 @@ define( 'SP_HF_INSTAGRAM', '' );
 define( 'SP_HF_FACEBOOK',  '' );
 define( 'SP_HF_TIKTOK',    '' );
 
-define( 'SP_HF_VERSION', '1.0.2' );
+define( 'SP_HF_VERSION', '1.0.4' );
 define( 'SP_HF_URL',  plugin_dir_url( __FILE__ ) );
 define( 'SP_HF_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -32,6 +32,57 @@ function sp_hf_activate() {
     if ( get_option( 'sp_hf_enable_footer' ) === false ) update_option( 'sp_hf_enable_footer', '1' );
 }
 register_activation_hook( __FILE__, 'sp_hf_activate' );
+
+/* =====================================================================
+ * Settings helpers
+ * ===================================================================== */
+function sp_hf_get_url_override( $option_name, $default_url ) {
+    $value = trim( (string) get_option( $option_name, '' ) );
+    return $value !== '' ? $value : $default_url;
+}
+
+function sp_hf_get_social_url( $option_name, $default_url = '' ) {
+    $value = get_option( $option_name, null );
+    if ( $value === null ) {
+        $value = $default_url;
+    }
+    return trim( (string) $value );
+}
+
+function sp_hf_get_whatsapp_number() {
+    $value = get_option( 'sp_hf_whatsapp_number', null );
+    if ( $value === null ) {
+        $value = SP_HF_WHATSAPP;
+    }
+    return preg_replace( '/[^0-9]/', '', (string) $value );
+}
+
+function sp_hf_link_option_names() {
+    return array(
+        'sp_hf_logo_image_url',
+        'sp_hf_logo_link_url',
+        'sp_hf_search_action_url',
+        'sp_hf_account_url',
+        'sp_hf_cart_url',
+        'sp_hf_header_home_url',
+        'sp_hf_header_about_url',
+        'sp_hf_header_collections_url',
+        'sp_hf_header_contact_url',
+        'sp_hf_footer_home_url',
+        'sp_hf_footer_about_url',
+        'sp_hf_footer_collections_url',
+        'sp_hf_footer_contact_url',
+        'sp_hf_footer_privacy_url',
+        'sp_hf_footer_terms_service_url',
+        'sp_hf_footer_terms_conditions_url',
+        'sp_hf_footer_refund_url',
+        'sp_hf_footer_cancellation_url',
+        'sp_hf_footer_shipping_url',
+        'sp_hf_instagram_url',
+        'sp_hf_facebook_url',
+        'sp_hf_tiktok_url',
+    );
+}
 
 /* =====================================================================
  * Front-end assets — always enqueue
@@ -106,44 +157,48 @@ add_shortcode( 'sp_footer', 'sp_hf_render_footer' );
  * HEADER RENDER
  * ===================================================================== */
 function sp_hf_render_header() {
-    $home = esc_url( home_url( '/' ) );
-    $logo = esc_url( SP_HF_LOGO_URL );
+    $home      = esc_url( home_url( '/' ) );
+    $logo      = esc_url( sp_hf_get_url_override( 'sp_hf_logo_image_url', SP_HF_LOGO_URL ) );
+    $logo_link = esc_url( sp_hf_get_url_override( 'sp_hf_logo_link_url', home_url( '/' ) ) );
 
     // Search action — WooCommerce aware
     if ( function_exists( 'wc_get_page_permalink' ) ) {
-        $search_action = esc_url( wc_get_page_permalink( 'shop' ) );
+        $search_default = wc_get_page_permalink( 'shop' );
         $search_hidden = '<input type="hidden" name="post_type" value="product"/>';
     } else {
-        $search_action = $home;
+        $search_default = home_url( '/' );
         $search_hidden = '';
     }
+    $search_action = esc_url( sp_hf_get_url_override( 'sp_hf_search_action_url', $search_default ) );
 
     // Account link
     if ( function_exists( 'wc_get_page_permalink' ) ) {
-        $account_url = esc_url( wc_get_page_permalink( 'myaccount' ) );
+        $account_default = wc_get_page_permalink( 'myaccount' );
     } else {
-        $account_url = esc_url( wp_login_url() );
+        $account_default = wp_login_url();
     }
+    $account_url = esc_url( sp_hf_get_url_override( 'sp_hf_account_url', $account_default ) );
 
     // Cart count
     $cart_count = 0;
     if ( function_exists( 'WC' ) && WC()->cart ) {
         $cart_count = WC()->cart->get_cart_contents_count();
     }
-    $cart_url = function_exists( 'wc_get_cart_url' ) ? esc_url( wc_get_cart_url() ) : $home;
+    $cart_default = function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/' );
+    $cart_url = esc_url( sp_hf_get_url_override( 'sp_hf_cart_url', $cart_default ) );
 
     // Nav slugs → permalinks
     $nav = array(
-        'Home'            => sp_hf_url_for( 'sp-home', $home ),
-        'About Us'        => sp_hf_url_for( 'about-us', $home ),
-        'Our Collections' => sp_hf_url_for( 'services', $home ),
-        'Contact'         => sp_hf_url_for( 'contact', $home ),
+        'Home'            => sp_hf_get_url_override( 'sp_hf_header_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
+        'About Us'        => sp_hf_get_url_override( 'sp_hf_header_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
+        'Our Collections' => sp_hf_get_url_override( 'sp_hf_header_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
+        'Contact'         => sp_hf_get_url_override( 'sp_hf_header_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
     );
 
     ob_start(); ?>
 <header class="sp-hdr-bar" role="banner">
   <div class="sp-hdr-inner">
-    <a class="sp-hdr-logo" href="<?php echo $home; ?>" aria-label="Souk Profumi Home">
+    <a class="sp-hdr-logo" href="<?php echo $logo_link; ?>" aria-label="Souk Profumi Home">
       <img src="<?php echo $logo; ?>" alt="Souk Profumi" />
     </a>
 
@@ -221,38 +276,42 @@ function sp_hf_render_header() {
  * FOOTER RENDER
  * ===================================================================== */
 function sp_hf_render_footer() {
-    $home = esc_url( home_url( '/' ) );
-    $logo = esc_url( SP_HF_LOGO_URL );
+    $home      = esc_url( home_url( '/' ) );
+    $logo      = esc_url( sp_hf_get_url_override( 'sp_hf_logo_image_url', SP_HF_LOGO_URL ) );
+    $logo_link = esc_url( sp_hf_get_url_override( 'sp_hf_logo_link_url', home_url( '/' ) ) );
 
     $quick = array(
-        'Home'            => sp_hf_url_for( 'sp-home', $home ),
-        'About Us'        => sp_hf_url_for( 'about-us', $home ),
-        'Our Collections' => sp_hf_url_for( 'services', $home ),
-        'Contact'         => sp_hf_url_for( 'contact', $home ),
+        'Home'            => sp_hf_get_url_override( 'sp_hf_footer_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
+        'About Us'        => sp_hf_get_url_override( 'sp_hf_footer_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
+        'Our Collections' => sp_hf_get_url_override( 'sp_hf_footer_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
+        'Contact'         => sp_hf_get_url_override( 'sp_hf_footer_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
     );
     $policies = array(
-        'Privacy Policy'             => sp_hf_url_for( 'privacy-policy', $home ),
-        'Terms of Service'           => sp_hf_url_for( 'terms-of-service', $home ),
-        'Terms & Conditions'         => sp_hf_url_for( 'terms-and-conditions', $home ),
-        'Refund Policy'              => sp_hf_url_for( 'refund-policy', $home ),
-        'Cancellation Policy'        => sp_hf_url_for( 'cancellation-policy', $home ),
-        'Shipping & Handling Policy' => sp_hf_url_for( 'shipping-policy', $home ),
+        'Privacy Policy'             => sp_hf_get_url_override( 'sp_hf_footer_privacy_url', sp_hf_url_for( 'privacy-policy', home_url( '/' ) ) ),
+        'Terms of Service'           => sp_hf_get_url_override( 'sp_hf_footer_terms_service_url', sp_hf_url_for( 'terms-of-service', home_url( '/' ) ) ),
+        'Terms & Conditions'         => sp_hf_get_url_override( 'sp_hf_footer_terms_conditions_url', sp_hf_url_for( 'terms-and-conditions', home_url( '/' ) ) ),
+        'Refund Policy'              => sp_hf_get_url_override( 'sp_hf_footer_refund_url', sp_hf_url_for( 'refund-policy', home_url( '/' ) ) ),
+        'Cancellation Policy'        => sp_hf_get_url_override( 'sp_hf_footer_cancellation_url', sp_hf_url_for( 'cancellation-policy', home_url( '/' ) ) ),
+        'Shipping & Handling Policy' => sp_hf_get_url_override( 'sp_hf_footer_shipping_url', sp_hf_url_for( 'shipping-policy', home_url( '/' ) ) ),
     );
 
-    $wa = preg_replace( '/[^0-9]/', '', SP_HF_WHATSAPP );
+    $instagram = sp_hf_get_social_url( 'sp_hf_instagram_url', SP_HF_INSTAGRAM );
+    $facebook  = sp_hf_get_social_url( 'sp_hf_facebook_url', SP_HF_FACEBOOK );
+    $tiktok    = sp_hf_get_social_url( 'sp_hf_tiktok_url', SP_HF_TIKTOK );
+    $wa        = sp_hf_get_whatsapp_number();
 
     ob_start(); ?>
 <footer class="sp-ftr" role="contentinfo">
   <div class="sp-ftr-inner">
 
     <div class="sp-ftr-col sp-ftr-brand">
-      <img class="sp-ftr-logo" src="<?php echo $logo; ?>" alt="Souk Profumi"/>
+      <a href="<?php echo $logo_link; ?>" aria-label="Souk Profumi Home"><img class="sp-ftr-logo" src="<?php echo $logo; ?>" alt="Souk Profumi"/></a>
       <p class="sp-ftr-tag">Profumi Arabi di Nicchia</p>
       <p class="sp-ftr-desc">An independent atelier of authentic Arabian and niche fragrances, curated for those who seek the extraordinary.</p>
       <div class="sp-ftr-socials">
-        <?php if ( SP_HF_INSTAGRAM ) : ?><a href="<?php echo esc_url( SP_HF_INSTAGRAM ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><?php endif; ?>
-        <?php if ( SP_HF_FACEBOOK )  : ?><a href="<?php echo esc_url( SP_HF_FACEBOOK ); ?>" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><?php endif; ?>
-        <?php if ( SP_HF_TIKTOK )    : ?><a href="<?php echo esc_url( SP_HF_TIKTOK ); ?>" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a><?php endif; ?>
+        <?php if ( $instagram ) : ?><a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><?php endif; ?>
+        <?php if ( $facebook )  : ?><a href="<?php echo esc_url( $facebook ); ?>" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><?php endif; ?>
+        <?php if ( $tiktok )    : ?><a href="<?php echo esc_url( $tiktok ); ?>" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a><?php endif; ?>
         <?php if ( $wa )             : ?><a href="https://wa.me/<?php echo esc_attr( $wa ); ?>" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><?php endif; ?>
       </div>
     </div>
@@ -350,10 +409,25 @@ function sp_hf_render_settings_page() {
     // Always read fresh
     wp_cache_delete( 'sp_hf_enable_header', 'options' );
     wp_cache_delete( 'sp_hf_enable_footer', 'options' );
+    foreach ( sp_hf_link_option_names() as $option_name ) {
+        wp_cache_delete( $option_name, 'options' );
+    }
+    wp_cache_delete( 'sp_hf_whatsapp_number', 'options' );
 
     $header = get_option( 'sp_hf_enable_header', '1' );
     $footer = get_option( 'sp_hf_enable_footer', '1' );
     $saved  = isset( $_GET['sp_saved'] ) && $_GET['sp_saved'] === '1';
+    $url_field = function( $name, $label, $description = '', $placeholder = '' ) {
+        ?>
+          <tr>
+            <th scope="row"><label for="<?php echo esc_attr( $name ); ?>"><?php echo esc_html( $label ); ?></label></th>
+            <td>
+              <input type="url" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( get_option( $name, '' ) ); ?>" class="regular-text" placeholder="<?php echo esc_attr( $placeholder ); ?>"/>
+              <?php if ( $description ) : ?><p class="description"><?php echo esc_html( $description ); ?></p><?php endif; ?>
+            </td>
+          </tr>
+        <?php
+    };
     ?>
     <div class="wrap sp-hf-settings">
       <h1 style="font-family:Cinzel,serif;color:#8B6A2E;">Souk Profumi — Header &amp; Footer</h1>
@@ -362,7 +436,7 @@ function sp_hf_render_settings_page() {
         <div class="notice notice-success is-dismissible" style="border-left-color:#C99A4B;"><p><strong>Settings saved.</strong> Hard-refresh your front-end (Cmd/Ctrl + Shift + R) to see changes.</p></div>
       <?php endif; ?>
 
-      <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="background:#fff;border:1px solid #E8C77E;border-radius:14px;padding:28px;max-width:760px;margin-top:18px;box-shadow:0 10px 30px rgba(139,106,46,.08);">
+      <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="background:#fff;border:1px solid #E8C77E;border-radius:14px;padding:28px;max-width:980px;margin-top:18px;box-shadow:0 10px 30px rgba(139,106,46,.08);">
         <?php wp_nonce_field( 'sp_hf_save_nonce' ); ?>
         <input type="hidden" name="action" value="sp_hf_save"/>
 
@@ -388,6 +462,71 @@ function sp_hf_render_settings_page() {
                 <span class="sp-slider"></span>
               </label>
               <p class="description">Injects the 4-column footer and the floating WhatsApp button.</p>
+            </td>
+          </tr>
+        </table>
+
+        <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
+        <h2 style="font-family:Cinzel,serif;">Logo &amp; Header Icon Links</h2>
+        <p style="color:#5C5C5C;">Leave a URL field empty to use the plugin's automatic default.</p>
+        <table class="form-table" role="presentation">
+          <?php
+            $url_field( 'sp_hf_logo_image_url', 'Logo Image URL', 'Changes the logo image used in both header and footer.', SP_HF_LOGO_URL );
+            $url_field( 'sp_hf_logo_link_url', 'Logo Click URL', 'Changes where the header and footer logos link.', home_url( '/' ) );
+            $url_field( 'sp_hf_search_action_url', 'Search Form URL', 'Changes where the search form submits. Empty uses the WooCommerce shop page when available.', home_url( '/' ) );
+            $url_field( 'sp_hf_account_url', 'Account Icon URL', 'Changes the user/account icon link. Empty uses My Account or WordPress login.', wp_login_url() );
+            $url_field( 'sp_hf_cart_url', 'Cart Icon URL', 'Changes the cart icon link. Empty uses the WooCommerce cart when available.', home_url( '/' ) );
+          ?>
+        </table>
+
+        <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
+        <h2 style="font-family:Cinzel,serif;">Header Navigation Links</h2>
+        <table class="form-table" role="presentation">
+          <?php
+            $url_field( 'sp_hf_header_home_url', 'Header Home URL', '', home_url( '/' ) );
+            $url_field( 'sp_hf_header_about_url', 'Header About URL', '', home_url( '/about-us/' ) );
+            $url_field( 'sp_hf_header_collections_url', 'Header Collections URL', '', home_url( '/services/' ) );
+            $url_field( 'sp_hf_header_contact_url', 'Header Contact URL', '', home_url( '/contact/' ) );
+          ?>
+        </table>
+
+        <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
+        <h2 style="font-family:Cinzel,serif;">Footer Quick Links</h2>
+        <table class="form-table" role="presentation">
+          <?php
+            $url_field( 'sp_hf_footer_home_url', 'Footer Home URL', '', home_url( '/' ) );
+            $url_field( 'sp_hf_footer_about_url', 'Footer About URL', '', home_url( '/about-us/' ) );
+            $url_field( 'sp_hf_footer_collections_url', 'Footer Collections URL', '', home_url( '/services/' ) );
+            $url_field( 'sp_hf_footer_contact_url', 'Footer Contact URL', '', home_url( '/contact/' ) );
+          ?>
+        </table>
+
+        <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
+        <h2 style="font-family:Cinzel,serif;">Footer Policy Links</h2>
+        <table class="form-table" role="presentation">
+          <?php
+            $url_field( 'sp_hf_footer_privacy_url', 'Privacy Policy URL', '', home_url( '/privacy-policy/' ) );
+            $url_field( 'sp_hf_footer_terms_service_url', 'Terms of Service URL', '', home_url( '/terms-of-service/' ) );
+            $url_field( 'sp_hf_footer_terms_conditions_url', 'Terms & Conditions URL', '', home_url( '/terms-and-conditions/' ) );
+            $url_field( 'sp_hf_footer_refund_url', 'Refund Policy URL', '', home_url( '/refund-policy/' ) );
+            $url_field( 'sp_hf_footer_cancellation_url', 'Cancellation Policy URL', '', home_url( '/cancellation-policy/' ) );
+            $url_field( 'sp_hf_footer_shipping_url', 'Shipping & Handling Policy URL', '', home_url( '/shipping-policy/' ) );
+          ?>
+        </table>
+
+        <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
+        <h2 style="font-family:Cinzel,serif;">Footer Social &amp; WhatsApp Links</h2>
+        <table class="form-table" role="presentation">
+          <?php
+            $url_field( 'sp_hf_instagram_url', 'Instagram URL', 'Leave blank to hide the Instagram icon.', 'https://www.instagram.com/yourprofile/' );
+            $url_field( 'sp_hf_facebook_url', 'Facebook URL', 'Leave blank to hide the Facebook icon.', 'https://www.facebook.com/yourpage/' );
+            $url_field( 'sp_hf_tiktok_url', 'TikTok URL', 'Leave blank to hide the TikTok icon.', 'https://www.tiktok.com/@yourprofile' );
+          ?>
+          <tr>
+            <th scope="row"><label for="sp_hf_whatsapp_number">WhatsApp Number</label></th>
+            <td>
+              <input type="text" name="sp_hf_whatsapp_number" id="sp_hf_whatsapp_number" value="<?php echo esc_attr( get_option( 'sp_hf_whatsapp_number', SP_HF_WHATSAPP ) ); ?>" class="regular-text" placeholder="393000000000"/>
+              <p class="description">Use international format with numbers only, no plus sign. Leave blank to hide WhatsApp links and the floating button.</p>
             </td>
           </tr>
         </table>
@@ -424,6 +563,16 @@ function sp_hf_handle_save() {
 
     update_option( 'sp_hf_enable_header', $header );
     update_option( 'sp_hf_enable_footer', $footer );
+
+    foreach ( sp_hf_link_option_names() as $option_name ) {
+        $value = isset( $_POST[ $option_name ] ) ? wp_unslash( $_POST[ $option_name ] ) : '';
+        $value = is_scalar( $value ) ? trim( (string) $value ) : '';
+        update_option( $option_name, esc_url_raw( $value ) );
+    }
+
+    $whatsapp = isset( $_POST['sp_hf_whatsapp_number'] ) ? wp_unslash( $_POST['sp_hf_whatsapp_number'] ) : '';
+    $whatsapp = is_scalar( $whatsapp ) ? (string) $whatsapp : '';
+    update_option( 'sp_hf_whatsapp_number', preg_replace( '/[^0-9]/', '', (string) $whatsapp ) );
 
     sp_hf_purge_cache();
 
