@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Header & Footer
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Souk Profumi Header & Footer. Shortcodes [sp_header] and [sp_footer] also available.
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* =====================================================================
  * EDIT THESE CONSTANTS WITH YOUR REAL DATA
  * ===================================================================== */
-define( 'SP_HF_LOGO_URL',  'https://soukprofumi.it/wp-content/uploads/2026/01/souk-profumi-logo.png' );
+define( 'SP_HF_LOGO_URL',  'https://pink-bat-240785.hostingersite.com/wp-content/uploads/2026/06/Sauk.png' );
 define( 'SP_HF_WHATSAPP',  '393000000000' );   // intl format, no + (used ONLY in the WhatsApp button)
 
 // Social URLs — leave blank to hide that icon
@@ -20,7 +20,7 @@ define( 'SP_HF_INSTAGRAM', '' );
 define( 'SP_HF_FACEBOOK',  '' );
 define( 'SP_HF_TIKTOK',    '' );
 
-define( 'SP_HF_VERSION', '1.0.0' );
+define( 'SP_HF_VERSION', '1.0.2' );
 define( 'SP_HF_URL',  plugin_dir_url( __FILE__ ) );
 define( 'SP_HF_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -234,9 +234,9 @@ function sp_hf_render_footer() {
         'Privacy Policy'             => sp_hf_url_for( 'privacy-policy', $home ),
         'Terms of Service'           => sp_hf_url_for( 'terms-of-service', $home ),
         'Terms & Conditions'         => sp_hf_url_for( 'terms-and-conditions', $home ),
-        'Refund & Return Policy'     => sp_hf_url_for( 'refund-policy', $home ),
+        'Refund Policy'              => sp_hf_url_for( 'refund-policy', $home ),
         'Cancellation Policy'        => sp_hf_url_for( 'cancellation-policy', $home ),
-        'Shipping & Delivery Policy' => sp_hf_url_for( 'shipping-policy', $home ),
+        'Shipping & Handling Policy' => sp_hf_url_for( 'shipping-policy', $home ),
     );
 
     $wa = preg_replace( '/[^0-9]/', '', SP_HF_WHATSAPP );
@@ -289,7 +289,7 @@ function sp_hf_render_footer() {
   </div>
 
   <div class="sp-ftr-bottom">
-    © <?php echo esc_html( date('Y') ); ?> <?php echo esc_html( get_bloginfo('name') ); ?>. Developed by <a href="https://nextgenfusionl.in" target="_blank" rel="noopener">NextGen Fusion</a>.
+    © <?php echo esc_html( date('Y') ); ?> Souk Profumi – Profumi Arabi di Nicchia. All Rights Reserved.
   </div>
 </footer>
 

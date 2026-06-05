@@ -15,9 +15,9 @@ function sp_get_page_definitions() {
         'privacy-policy'         => array( 'title' => 'Privacy Policy',             'content' => sp_page_privacy() ),
         'terms-of-service'       => array( 'title' => 'Terms of Service',           'content' => sp_page_tos() ),
         'terms-and-conditions'   => array( 'title' => 'Terms & Conditions',         'content' => sp_page_tc() ),
-        'refund-policy'          => array( 'title' => 'Refund & Return Policy',     'content' => sp_page_refund() ),
+        'refund-policy'          => array( 'title' => 'Refund Policy',              'content' => sp_page_refund() ),
         'cancellation-policy'    => array( 'title' => 'Cancellation Policy',        'content' => sp_page_cancel() ),
-        'shipping-policy'        => array( 'title' => 'Shipping & Delivery Policy', 'content' => sp_page_shipping() ),
+        'shipping-policy'        => array( 'title' => 'Shipping & Handling Policy', 'content' => sp_page_shipping() ),
     );
 }
 
@@ -109,41 +109,6 @@ function sp_page_home() {
   </div>
 </section>
 
-<footer class="sp-home-footer">
-  <div class="sp-home-footer__grid">
-    <div>
-      <img class="sp-home-footer__logo" src="%%BRAND_LOGO%%" alt="Souk Profumi"/>
-      <p class="sp-home-footer__tag">Profumi Arabi di Nicchia</p>
-      <p class="sp-home-footer__desc">An independent atelier of authentic Arabian and niche fragrances, curated for those who seek the extraordinary.</p>
-    </div>
-    <div>
-      <h4>Discover</h4>
-      <ul>
-        <li><a href="%%URL_HOME%%">Home</a></li>
-        <li><a href="%%URL_ABOUT%%">About Us</a></li>
-        <li><a href="%%URL_SERVICES%%">Our Collections</a></li>
-        <li><a href="%%URL_CONTACT%%">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Policies</h4>
-      <ul>
-        <li><a href="%%URL_PRIVACY%%">Privacy Policy</a></li>
-        <li><a href="%%URL_TERMS%%">Terms of Service</a></li>
-        <li><a href="%%URL_TERMS_C%%">Terms &amp; Conditions</a></li>
-        <li><a href="%%URL_REFUND%%">Refund &amp; Return</a></li>
-        <li><a href="%%URL_CANCEL%%">Cancellation Policy</a></li>
-        <li><a href="%%URL_SHIPPING%%">Shipping &amp; Delivery</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Reach Us</h4>
-      <p>Use the floating WhatsApp button at the bottom-right of the screen to chat with our team directly.</p>
-      <a class="sp-btn sp-btn--ghost" href="%%URL_CONTACT%%">Open Contact Page</a>
-    </div>
-  </div>
-  <div class="sp-home-footer__bottom">© Souk Profumi · Profumi Arabi di Nicchia · All Rights Reserved.</div>
-</footer>
 <!-- /wp:html -->
 HTML;
 }
@@ -566,11 +531,11 @@ function sp_page_tc() {
   <h2>5. Product Availability</h2>
   <p>Products are subject to availability. In the rare event that an item becomes unavailable after your order has been placed, we will notify you and offer a full refund or a suitable alternative.</p>
 
-  <h2>6. Shipping &amp; Delivery</h2>
-  <p>Shipping terms, timeframes, and costs are described in our <a href="%%URL_SHIPPING%%">Shipping &amp; Delivery Policy</a>. Delivery times are estimates and may vary due to customs clearance, courier delays, or other factors outside our control.</p>
+  <h2>6. Shipping &amp; Handling</h2>
+  <p>Shipping terms, timeframes, and costs are described in our <a href="%%URL_SHIPPING%%">Shipping &amp; Handling Policy</a>. Delivery times are estimates and may vary due to customs clearance, courier delays, or other factors outside our control.</p>
 
   <h2>7. Returns &amp; Refunds</h2>
-  <p>Our return and refund process is described in the <a href="%%URL_REFUND%%">Refund &amp; Return Policy</a>. Due to the nature of fragrance products and applicable hygiene regulations, certain conditions apply.</p>
+  <p>Our refund process is described in the <a href="%%URL_REFUND%%">Refund Policy</a>. Due to the nature of fragrance products and applicable hygiene regulations, certain conditions apply.</p>
 
   <h2>8. Cancellations</h2>
   <p>Order cancellations are subject to our <a href="%%URL_CANCEL%%">Cancellation Policy</a>.</p>
@@ -595,7 +560,7 @@ HTML;
 }
 
 /* ============================================================
- * REFUND & RETURN POLICY
+ * REFUND POLICY
  * ============================================================ */
 function sp_page_refund() {
     return <<<'HTML'
@@ -603,51 +568,56 @@ function sp_page_refund() {
 <section class="sp-hero">
   <div class="sp-hero__inner">
     <span class="sp-eyebrow">Legal</span>
-    <h1 class="sp-h1">Refund &amp; Return Policy</h1>
+    <h1 class="sp-h1">Refund Policy</h1>
     <p class="sp-lede">Last Updated: 2026</p>
   </div>
 </section>
 
 <section class="sp-section sp-legal">
-  <p>At Souk Profumi we want every customer to be delighted with their purchase. If you are not satisfied, this policy describes how you may request a return or refund in accordance with Italian and EU consumer protection law.</p>
+  <p>At Souk Profumi – Profumi Arabi di Nicchia, customer satisfaction is important to us. Due to the nature of our products and for hygiene, safety, and authenticity reasons, all sales are generally considered final.</p>
 
-  <h2>1. Right of Withdrawal</h2>
-  <p>In line with Italian Consumer Code (Codice del Consumo) and EU Directive 2011/83/EU, you have the right to withdraw from your purchase within <strong>14 days</strong> of receiving the products, without giving any reason.</p>
-
-  <h2>2. Conditions for Return</h2>
-  <p>To be eligible for return, items must be:</p>
+  <h2>No Refunds</h2>
+  <p>We do not offer refunds for:</p>
   <ul>
-    <li>Unopened, unused, and in their original packaging</li>
-    <li>With all original seals, plastic wrap, and labels intact</li>
-    <li>Returned in resalable condition</li>
+    <li>Change of mind after purchase</li>
+    <li>Personal fragrance preferences</li>
+    <li>Incorrect product selection by the customer</li>
+    <li>Opened, used, or damaged products after delivery</li>
+    <li>Orders where the customer provided incorrect shipping information</li>
   </ul>
-  <p>Due to hygiene and safety regulations for fragrance products, items that have been opened, used, or had their original seal broken cannot be accepted for return.</p>
+  <p>Please review your order carefully before completing your purchase.</p>
 
-  <h2>3. How to Request a Return</h2>
-  <p>To initiate a return, contact us via the WhatsApp button on our website within 14 days of delivery. Please include your order reference and the reason for return.</p>
-
-  <h2>4. Return Shipping</h2>
-  <p>Unless the product is defective or incorrectly shipped, return shipping costs are the responsibility of the customer. We recommend using a tracked, insured shipping method, as we cannot guarantee receipt of returned items.</p>
-
-  <h2>5. Refunds</h2>
-  <p>Once we receive and inspect the returned product, we will notify you of the approval or rejection of your refund. Approved refunds will be processed to the original payment method within <strong>14 business days</strong> of approval.</p>
-
-  <h2>6. Damaged or Incorrect Items</h2>
-  <p>If you receive a product that is damaged, defective, or incorrect, please contact us via WhatsApp within 48 hours of delivery with photographs. We will arrange a replacement or full refund — including return shipping — at no additional cost.</p>
-
-  <h2>7. Non-Refundable Items</h2>
+  <h2>Damaged or Incorrect Items</h2>
+  <p>If you receive:</p>
   <ul>
-    <li>Opened or used fragrance products</li>
-    <li>Items damaged due to customer mishandling</li>
-    <li>Gift cards or promotional items</li>
-    <li>Sale items marked as final</li>
+    <li>A damaged product</li>
+    <li>A defective product</li>
+    <li>An incorrect item</li>
+  </ul>
+  <p>Please contact us within 48 hours of delivery and provide:</p>
+  <ul>
+    <li>Your order number</li>
+    <li>Clear photographs of the product and packaging</li>
+    <li>A description of the issue</li>
+  </ul>
+  <p>After reviewing the claim, we may, at our sole discretion:</p>
+  <ul>
+    <li>Send a replacement product</li>
+    <li>Issue store credit</li>
+    <li>Provide another appropriate solution</li>
   </ul>
 
-  <h2>8. Late or Missing Refunds</h2>
-  <p>If you have not received a refund after the timeframe above, please check with your bank or payment provider first. If the issue persists, contact us via WhatsApp.</p>
+  <h2>Lost Packages</h2>
+  <p>Souk Profumi is not responsible for delays or losses caused by shipping carriers once the order has been handed over for delivery. However, we will assist customers in opening an investigation with the carrier whenever possible.</p>
 
-  <h2>9. Contact</h2>
-  <p>For all return and refund enquiries, please reach out via the WhatsApp button on our website or use the form on our <a href="%%URL_CONTACT%%">Contact page</a>.</p>
+  <h2>Order Cancellations</h2>
+  <p>Orders cannot be cancelled once they have been processed or shipped.</p>
+
+  <h2>Contact Us</h2>
+  <p>For assistance regarding an order, please contact us through WhatsApp or the contact information available on our website.</p>
+  <p>Souk Profumi – Profumi Arabi di Nicchia<br>Website: <a href="https://soukprofumi.it">https://soukprofumi.it</a></p>
+
+  <p><strong>Important Notice:</strong> By placing an order on soukprofumi.it, you acknowledge and agree to this Refund Policy.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -677,7 +647,7 @@ function sp_page_cancel() {
   <p>To cancel an order, contact us as soon as possible via the WhatsApp button on our website. Please include your order reference number. We will confirm the cancellation in writing once processed.</p>
 
   <h2>3. Orders Already Shipped</h2>
-  <p>If an order has already been packed or dispatched, it can no longer be cancelled. In that case, you may request a return once the parcel has been delivered, in accordance with our <a href="%%URL_REFUND%%">Refund &amp; Return Policy</a>.</p>
+  <p>If an order has already been packed or dispatched, it can no longer be cancelled. In that case, please review our <a href="%%URL_REFUND%%">Refund Policy</a>.</p>
 
   <h2>4. Refunds for Cancelled Orders</h2>
   <p>Refunds for successfully cancelled orders are processed to the original payment method within <strong>7–14 business days</strong>, depending on your bank or payment provider.</p>
@@ -700,7 +670,7 @@ HTML;
 }
 
 /* ============================================================
- * SHIPPING & DELIVERY POLICY
+ * SHIPPING & HANDLING POLICY
  * ============================================================ */
 function sp_page_shipping() {
     return <<<'HTML'
@@ -708,48 +678,104 @@ function sp_page_shipping() {
 <section class="sp-hero">
   <div class="sp-hero__inner">
     <span class="sp-eyebrow">Legal</span>
-    <h1 class="sp-h1">Shipping &amp; Delivery Policy</h1>
+    <h1 class="sp-h1">Shipping &amp; Handling Policy</h1>
     <p class="sp-lede">Last Updated: 2026</p>
   </div>
 </section>
 
 <section class="sp-section sp-legal">
-  <p>This Shipping &amp; Delivery Policy describes how Souk Profumi processes, packages, and delivers orders placed through soukprofumi.it.</p>
+  <p>At Souk Profumi – Profumi Arabi di Nicchia, we are committed to delivering your fragrances quickly, securely, and in perfect condition. Please review our Shipping &amp; Handling Policy below.</p>
 
-  <h2>1. Order Processing</h2>
-  <p>Orders are processed within <strong>1–3 business days</strong> after payment confirmation. Orders placed on weekends or Italian public holidays are processed on the next working day.</p>
-
-  <h2>2. Shipping Destinations</h2>
-  <p>We ship across Italy and to selected international destinations. Available shipping options and rates are displayed at checkout based on your delivery address.</p>
-
-  <h2>3. Delivery Timeframes</h2>
+  <h2>Shipping Rates</h2>
+  <p>We offer a transparent shipping structure for deliveries within Italy:</p>
+  <h3>Italy</h3>
   <ul>
-    <li><strong>Italy:</strong> typically 2–5 business days after dispatch</li>
-    <li><strong>European Union:</strong> typically 5–10 business days after dispatch</li>
-    <li><strong>International:</strong> typically 7–21 business days after dispatch (subject to customs)</li>
+    <li>Orders under €30.00: Shipping fee €5.15</li>
+    <li>Orders from €30.00 to €74.99: Shipping fee €5.00</li>
+    <li>Orders of €100.00 or more: FREE Shipping</li>
   </ul>
-  <p>Delivery times are estimates and may vary due to courier capacity, customs clearance, or events outside our control.</p>
+  <p>Shipping fees are automatically calculated and displayed during checkout.</p>
 
-  <h2>4. Shipping Costs</h2>
-  <p>Shipping costs are calculated at checkout based on order weight and destination. Promotional free shipping offers, where applicable, will be displayed during checkout.</p>
+  <h2>Delivery Timeframes</h2>
+  <h3>Standard Delivery (Italy)</h3>
+  <ul>
+    <li>Estimated delivery time: 3–4 working days after shipment.</li>
+    <li>Delivery times are estimates and may vary due to weather conditions, holidays, carrier delays, or circumstances beyond our control.</li>
+  </ul>
 
-  <h2>5. Order Tracking</h2>
-  <p>Once your order has been dispatched, you will receive a confirmation with a tracking number. You may use this number to monitor the progress of your shipment.</p>
+  <h2>Order Processing</h2>
+  <ul>
+    <li>Orders are typically processed within 3 working days.</li>
+    <li>Orders placed on weekends or public holidays will be processed on the next business day.</li>
+    <li>Once your order has been processed, you will receive a shipping confirmation email.</li>
+  </ul>
 
-  <h2>6. Packaging</h2>
-  <p>All fragrances are packaged discreetly and securely to protect against breakage during transit. Glass items are wrapped with extra padding to prevent damage.</p>
+  <h2>Shipping Carriers</h2>
+  <p>We work with trusted shipping partners.</p>
 
-  <h2>7. Customs, Duties &amp; Taxes</h2>
-  <p>International orders may be subject to import duties, taxes, or customs fees applied by the destination country. These charges are the responsibility of the recipient and are not included in the product price or shipping cost.</p>
+  <h2>Order Tracking</h2>
+  <p>Once your order has been shipped, you will receive a tracking number via email.</p>
+  <p>You can use this tracking information to monitor your shipment and estimated delivery date.</p>
 
-  <h2>8. Failed or Refused Deliveries</h2>
-  <p>If a parcel is returned to us due to an incorrect address, refusal to accept delivery, or failure to collect from a depot, the customer may be required to cover re-shipping costs.</p>
+  <h2>Shipping Restrictions</h2>
+  <p>Currently, we ship only within Europe.</p>
+  <p>We do not ship to:</p>
+  <ul>
+    <li>P.O. Boxes</li>
+    <li>Military addresses</li>
+    <li>Freight forwarding services</li>
+  </ul>
 
-  <h2>9. Lost or Damaged Shipments</h2>
-  <p>If your parcel is lost in transit or arrives damaged, please contact us via WhatsApp within 48 hours of the expected delivery date or actual delivery. We will work with the courier to investigate and provide a replacement or refund where appropriate.</p>
+  <h2>Packaging &amp; Handling</h2>
+  <p>All orders are carefully packaged to protect the products during transit.</p>
+  <p>Our shipping charges cover transportation costs only and do not include additional handling or packaging fees unless specifically stated during checkout.</p>
 
-  <h2>10. Contact</h2>
-  <p>For any shipping-related enquiry, please reach out via the WhatsApp button on our website or use the form on our <a href="%%URL_CONTACT%%">Contact page</a>.</p>
+  <h2>Damaged Goods &amp; Complaints</h2>
+  <h3>Reporting Timeframe</h3>
+  <p>If your order arrives damaged, you must notify us within 48 hours (2 days) of delivery.</p>
+  <p>Claims submitted after this period may not be eligible for review or compensation.</p>
+
+  <h3>Unboxing Documentation Requirement</h3>
+  <p>To support any claim regarding damaged or missing items, customers must:</p>
+  <ul>
+    <li>Record a continuous video while opening the package.</li>
+    <li>Take clear photographs of the package and products.</li>
+    <li>Retain all original packaging materials.</li>
+  </ul>
+  <p>Claims submitted without sufficient photographic or video evidence may be declined.</p>
+
+  <h2>Lost or Damaged Packages</h2>
+  <p>If your package is lost or arrives damaged during transit:</p>
+  <h3>Contact Us Immediately</h3>
+  <p>Through WhatsApp</p>
+  <p>Or contact us through the <a href="%%URL_CONTACT%%">Contact Us page</a> on our website.</p>
+
+  <h3>Please Include</h3>
+  <ul>
+    <li>Order number</li>
+    <li>Photos or videos showing the issue</li>
+    <li>Description of the damage or loss</li>
+  </ul>
+
+  <h3>Resolution Process</h3>
+  <p>We will investigate the matter with the shipping carrier and work toward an appropriate resolution, which may include:</p>
+  <ul>
+    <li>Replacement of the product</li>
+    <li>Store credit</li>
+    <li>Other reasonable solutions at our discretion</li>
+  </ul>
+
+  <h2>Incorrect Shipping Information</h2>
+  <p>Customers are responsible for providing accurate shipping information.</p>
+  <p>Souk Profumi is not responsible for delays, failed deliveries, or additional shipping charges resulting from incorrect or incomplete addresses provided by the customer.</p>
+
+  <h2>Policy Updates</h2>
+  <p>We reserve the right to update or modify this Shipping &amp; Handling Policy at any time.</p>
+  <p>Any changes will be published on this page and become effective immediately upon posting.</p>
+
+  <h2>Contact Information</h2>
+  <p>Souk Profumi – Profumi Arabi di Nicchia<br>Website: <a href="https://soukprofumi.it">https://soukprofumi.it</a></p>
+  <p>© 2026 Souk Profumi – Profumi Arabi di Nicchia. All Rights Reserved.</p>
 </section>
 <!-- /wp:html -->
 HTML;

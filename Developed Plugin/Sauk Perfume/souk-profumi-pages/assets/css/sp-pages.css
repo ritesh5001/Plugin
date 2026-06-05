@@ -36,11 +36,23 @@ body.sp-page { background: var(--sp-bg) !important; color: var(--sp-text); font-
 body.sp-page .entry-title,
 body.sp-page .page-title,
 body.sp-page header.entry-header,
-body.sp-page .wp-block-post-title { display: none !important; }
+body.sp-page .wp-block-post-title,
+body.sp-page .wp-block-site-title,
+body.sp-page .wp-block-site-logo { display: none !important; }
 body.sp-page .entry-content,
 body.sp-page .site-main,
 body.sp-page .content-area,
-body.sp-page main { max-width: 100% !important; width: 100% !important; padding: 0 !important; margin: 0 !important; }
+body.sp-page .wp-site-blocks,
+body.sp-page .site,
+body.sp-page #page,
+body.sp-page #content,
+body.sp-page main { max-width: none !important; width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
+body.sp-page .entry-content,
+body.sp-page .wp-block-post-content,
+body.sp-page .is-layout-constrained,
+body.sp-page .is-layout-flow {
+  max-width: none !important;
+}
 body.sp-page .entry-content > * { margin-left: 0; margin-right: 0; }
 
 body.sp-page h1, body.sp-page h2, body.sp-page h3, body.sp-page h4 {

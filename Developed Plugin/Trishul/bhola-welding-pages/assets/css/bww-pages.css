@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
 
-/* ── Variables ───────────────────────────────────────────────── */
+/* ── Variables (light / white theme) ─────────────────────────── */
 :root {
-  --bww-black:       #000000;
-  --bww-dark:        #0A0A0A;
-  --bww-surface:     #111111;
-  --bww-surface2:    #1A1A1A;
-  --bww-gold:        #C9A84C;
-  --bww-gold-light:  #E8C96E;
+  --bww-black:       #1A1A1A;   /* dark label (e.g. text on gold buttons) */
+  --bww-dark:        #FFFFFF;   /* page background — now white */
+  --bww-surface:     #F6F3EC;   /* warm off-white section / card surface */
+  --bww-surface2:    #FCFAF5;   /* inputs / nested surfaces */
+  --bww-gold:        #B0851F;   /* deeper gold — legible on white */
+  --bww-gold-light:  #C9A84C;   /* brand gold for hovers / highlights */
   --bww-gold-dark:   #8B6914;
-  --bww-white:       #FFFFFF;
-  --bww-muted:       #AAAAAA;
-  --bww-glow:        rgba(201, 168, 76, 0.25);
-  --bww-glow-strong: rgba(201, 168, 76, 0.45);
+  --bww-white:       #1A1A1A;   /* primary text — now dark on light bg */
+  --bww-muted:       #5C5A54;   /* muted gray-brown body text */
+  --bww-glow:        rgba(176, 133, 31, 0.16);
+  --bww-glow-strong: rgba(176, 133, 31, 0.32);
+  --bww-line:        rgba(0, 0, 0, 0.08);
+  --bww-card-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
   --bww-radius:      8px;
   --bww-radius-lg:   16px;
   --bww-transition:  0.3s ease;
@@ -100,19 +102,19 @@ body.bww-page .hentry {
 
 /* ── Hero section ────────────────────────────────────────────── */
 .bww-hero {
-  background: linear-gradient(160deg, #0A0A0A 0%, #111111 50%, #0D0A00 100%);
+  background: linear-gradient(160deg, #FFFFFF 0%, #F6F3EC 55%, #FBF4E0 100%);
   text-align: center;
   padding: 100px 24px 80px;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
 }
 
 .bww-hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -179,10 +181,11 @@ body.bww-page .hentry {
 }
 
 .bww-card {
-  background: var(--bww-surface);
-  border: 1px solid rgba(201,168,76,0.2);
+  background: #FFFFFF;
+  border: 1px solid rgba(201,168,76,0.25);
   border-radius: var(--bww-radius-lg);
   padding: 36px 28px;
+  box-shadow: var(--bww-card-shadow);
   transition: border-color var(--bww-transition), box-shadow var(--bww-transition), transform var(--bww-transition);
   position: relative;
   overflow: hidden;
@@ -281,10 +284,11 @@ body.bww-page .hentry {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: var(--bww-surface);
-  border: 1px solid rgba(201,168,76,0.15);
+  background: #FFFFFF;
+  border: 1px solid rgba(201,168,76,0.2);
   border-radius: var(--bww-radius);
   padding: 20px;
+  box-shadow: var(--bww-card-shadow);
 }
 
 .bww-why-icon {
@@ -309,20 +313,21 @@ body.bww-page .hentry {
 
 /* ── CTA panel ───────────────────────────────────────────────── */
 .bww-cta {
-  background: linear-gradient(135deg, #111111 0%, #1A1400 100%);
-  border: 1px solid rgba(201,168,76,0.3);
+  background: linear-gradient(135deg, #FBF8F0 0%, #F3EAD2 100%);
+  border: 1px solid rgba(201,168,76,0.45);
   border-radius: var(--bww-radius-lg);
   text-align: center;
   padding: 64px 32px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--bww-card-shadow);
 }
 
 .bww-cta::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -418,7 +423,7 @@ body.bww-page .hentry {
   align-items: flex-start;
   gap: 14px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--bww-line);
 }
 
 .bww-feature-list li:last-child {
@@ -538,11 +543,12 @@ body.bww-page .hentry {
 
 /* ── Contact section ─────────────────────────────────────────── */
 .bww-contact-panel {
-  background: var(--bww-surface);
-  border: 1px solid rgba(201,168,76,0.2);
+  background: #FFFFFF;
+  border: 1px solid rgba(201,168,76,0.25);
   border-radius: var(--bww-radius-lg);
   padding: 40px 36px;
   height: 100%;
+  box-shadow: var(--bww-card-shadow);
 }
 
 .bww-contact-panel h3 {
@@ -625,10 +631,11 @@ body.bww-page .hentry {
 
 /* ── CF7 form wrapper ────────────────────────────────────────── */
 .bww-form-panel {
-  background: var(--bww-surface);
-  border: 1px solid rgba(201,168,76,0.2);
+  background: #FFFFFF;
+  border: 1px solid rgba(201,168,76,0.25);
   border-radius: var(--bww-radius-lg);
   padding: 40px 36px;
+  box-shadow: var(--bww-card-shadow);
 }
 
 .bww-form-panel h3 {
@@ -773,8 +780,8 @@ body.bww-page .hentry {
 
 /* ── Home page inline footer links ───────────────────────────── */
 .bww-home-footer {
-  background: var(--bww-black);
-  border-top: 1px solid rgba(201,168,76,0.15);
+  background: var(--bww-surface);
+  border-top: 1px solid rgba(201,168,76,0.25);
   padding: 40px 24px;
 }
 
@@ -820,7 +827,7 @@ body.bww-page .hentry {
   max-width: 1200px;
   margin: 24px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid var(--bww-line);
   text-align: center;
   font-size: 0.85rem;
   color: var(--bww-muted);

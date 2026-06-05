@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Pages
  * Description: Creates all website content pages on activation.
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -10,9 +10,9 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ===== EDIT THIS CONSTANT WITH YOUR REAL LOGO URL =====
-define( 'SP_LOGO_URL', 'https://soukprofumi.it/wp-content/uploads/2026/01/souk-profumi-logo.png' );
+define( 'SP_LOGO_URL', 'https://pink-bat-240785.hostingersite.com/wp-content/uploads/2026/06/Sauk.png' );
 
-define( 'SP_PAGES_VERSION', '1.0.0' );
+define( 'SP_PAGES_VERSION', '1.0.2' );
 define( 'SP_PAGES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SP_PAGES_URL',  plugin_dir_url( __FILE__ ) );
 
@@ -21,7 +21,7 @@ require_once SP_PAGES_PATH . 'includes/pages.php';
 /* ------------------------------------------------------------------
  * Activation: create pages, store IDs in sp_page_ids
  * ------------------------------------------------------------------ */
-function sp_pages_activate() {
+function sp_pages_sync_pages() {
     $defs = sp_get_page_definitions();
     $ids  = get_option( 'sp_page_ids', array() );
 
@@ -29,6 +29,12 @@ function sp_pages_activate() {
         $existing = get_page_by_path( $slug );
         if ( $existing ) {
             $ids[ $slug ] = (int) $existing->ID;
+            wp_update_post( array(
+                'ID'           => (int) $existing->ID,
+                'post_title'   => $def['title'],
+                'post_content' => $def['content'],
+            ) );
+            sp_pages_apply_full_width_layout( (int) $existing->ID );
             continue;
         }
         $id = wp_insert_post( array(
@@ -43,12 +49,29 @@ function sp_pages_activate() {
         ) );
         if ( $id && ! is_wp_error( $id ) ) {
             $ids[ $slug ] = (int) $id;
+            sp_pages_apply_full_width_layout( (int) $id );
         }
     }
 
     update_option( 'sp_page_ids', $ids );
+    update_option( 'sp_pages_content_version', SP_PAGES_VERSION );
+}
+
+function sp_pages_apply_full_width_layout( $post_id ) {
+    update_post_meta( $post_id, '_wp_page_template', 'elementor_header_footer' );
+}
+
+function sp_pages_activate() {
+    sp_pages_sync_pages();
 }
 register_activation_hook( __FILE__, 'sp_pages_activate' );
+
+function sp_pages_maybe_sync_pages() {
+    if ( get_option( 'sp_pages_content_version' ) !== SP_PAGES_VERSION ) {
+        sp_pages_sync_pages();
+    }
+}
+add_action( 'admin_init', 'sp_pages_maybe_sync_pages' );
 
 /* ------------------------------------------------------------------
  * Is current post one of our plugin pages?
