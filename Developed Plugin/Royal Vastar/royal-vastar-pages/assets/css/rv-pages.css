@@ -79,6 +79,52 @@ body.rv-page main {
   box-shadow: none !important;
 }
 
+/* ── Full-width override for XStore / Bootstrap-grid themes ─────
+   XStore wraps page content in:
+   .container.content-page > .sidebar-position-* > .row > .content.col-md-9
+   plus a .col-md-3 sidebar. Strip the container, expand the content
+   column to 100%, and remove the sidebar so our pages run edge-to-edge. */
+body.rv-page .container.content-page,
+body.rv-page .content-page,
+body.rv-page .sidebar-position-right,
+body.rv-page .sidebar-position-left,
+body.rv-page .template-content,
+body.rv-page .page-content,
+body.rv-page #main-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.rv-page .content-page > .row,
+body.rv-page .content-page .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.rv-page .content-page .content[class*="col-"],
+body.rv-page .content-page .col-md-9.content,
+body.rv-page .content-page .content {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove the theme sidebar (search/widgets) on our branded pages */
+body.rv-page .content-page .sidebar,
+body.rv-page .content-page .col-md-3,
+body.rv-page .sidebar-enabled,
+body.rv-page .sidebar-right,
+body.rv-page .sidebar-left,
+body.rv-page .widget-area {
+  display: none !important;
+}
+
 /* Kill any theme box-shadow / borders on our containers */
 body.rv-page .rv-card,
 body.rv-page .rv-contact-panel,

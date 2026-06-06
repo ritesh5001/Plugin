@@ -3,7 +3,7 @@
  * Plugin Name: Royal Vastar Pages
  * Plugin URI:  https://royalvastar.com/
  * Description: Creates all website content pages on activation. Includes Home, About, Services, Contact, and all policy pages with branded styling.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Royal Vastar
  * Author URI:  https://royalvastar.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'RV_PAGES_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'RV_PAGES_URL',     plugin_dir_url( __FILE__ ) );
-define( 'RV_PAGES_VERSION', '1.0.2' );
+define( 'RV_PAGES_VERSION', '1.0.3' );
 define( 'RV_LOGO_URL',      'https://limegreen-gaur-701943.hostingersite.com/wp-content/uploads/2026/05/Royal-Vaster-1.png' );
 
 require_once RV_PAGES_DIR . 'includes/pages.php';
@@ -128,8 +128,15 @@ function rv_replace_placeholders( $content ) {
 		return $content;
 	}
 
+	/* Logo is shared with the Header & Footer plugin so changing it once
+	   updates both. Falls back to the bundled default when unset. */
+	$logo = get_option( 'rv_hf_logo_url', '' );
+	if ( empty( $logo ) ) {
+		$logo = RV_LOGO_URL;
+	}
+
 	$map = [
-		'%%BRAND_LOGO%%'   => esc_url( RV_LOGO_URL ),
+		'%%BRAND_LOGO%%'   => esc_url( $logo ),
 		'%%URL_HOME%%'     => esc_url( rv_get_page_url( 'rv-home' ) ),
 		'%%URL_ABOUT%%'    => esc_url( rv_get_page_url( 'about-us' ) ),
 		'%%URL_SERVICES%%' => esc_url( rv_get_page_url( 'services' ) ),

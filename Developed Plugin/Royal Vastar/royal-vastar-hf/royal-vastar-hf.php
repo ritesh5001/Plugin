@@ -3,7 +3,7 @@
  * Plugin Name: Royal Vastar Header & Footer
  * Plugin URI:  https://royalvastar.com/
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Royal Vastar Header & Footer. Shortcodes [rv_header] and [rv_footer] also available for manual placement.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Royal Vastar
  * Author URI:  https://royalvastar.com/
  * License:     GPL-2.0-or-later
@@ -15,8 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'RV_HF_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'RV_HF_URL',     plugin_dir_url( __FILE__ ) );
-define( 'RV_HF_VERSION', '1.0.0' );
+define( 'RV_HF_VERSION', '1.1.0' );
 define( 'RV_HF_LOGO_URL', 'https://limegreen-gaur-701943.hostingersite.com/wp-content/uploads/2026/05/Royal-Vaster-1.png' );
+
+/* ── Default contact details (overridable in settings) ───────── */
+define( 'RV_HF_DEF_WHATSAPP',  '447908369765' );
+define( 'RV_HF_DEF_EMAIL',     'royalvastar@icloud.com' );
+define( 'RV_HF_DEF_INSTAGRAM', 'https://www.instagram.com/royalvastar' );
 
 /* Flag: prevents double-injection when both wp_body_open and wp_footer fire */
 global $rv_hdr_injected;
@@ -158,6 +163,23 @@ function rv_hf_handle_save() {
 	update_option( 'rv_hf_enable_header', $header );
 	update_option( 'rv_hf_enable_footer', $footer );
 
+	/* ── Branding & contact ──────────────────────────────────── */
+	update_option( 'rv_hf_logo_url', isset( $_POST['rv_hf_logo_url'] )
+		? esc_url_raw( trim( wp_unslash( $_POST['rv_hf_logo_url'] ) ) ) : '' );
+
+	update_option( 'rv_hf_whatsapp', isset( $_POST['rv_hf_whatsapp'] )
+		? preg_replace( '/[^0-9]/', '', wp_unslash( $_POST['rv_hf_whatsapp'] ) ) : '' );
+
+	update_option( 'rv_hf_email', isset( $_POST['rv_hf_email'] )
+		? sanitize_email( wp_unslash( $_POST['rv_hf_email'] ) ) : '' );
+
+	update_option( 'rv_hf_instagram', isset( $_POST['rv_hf_instagram'] )
+		? esc_url_raw( trim( wp_unslash( $_POST['rv_hf_instagram'] ) ) ) : '' );
+
+	/* ── Header nav + footer quick links (label + URL rows) ──── */
+	update_option( 'rv_hf_nav_links',   rv_hf_collect_link_rows( 'rv_hf_nav' ) );
+	update_option( 'rv_hf_quick_links', rv_hf_collect_link_rows( 'rv_hf_quick' ) );
+
 	rv_hf_purge_cache();
 
 	wp_safe_redirect( add_query_arg(
@@ -165,6 +187,22 @@ function rv_hf_handle_save() {
 		admin_url( 'themes.php' )
 	) );
 	exit;
+}
+
+/* Collect repeatable label+URL rows from POST (empty rows dropped).
+   Only called from rv_hf_handle_save(), after the nonce check. */
+function rv_hf_collect_link_rows( $prefix ) {
+	$labels = isset( $_POST[ $prefix . '_label' ] ) ? (array) $_POST[ $prefix . '_label' ] : [];
+	$urls   = isset( $_POST[ $prefix . '_url' ] )   ? (array) $_POST[ $prefix . '_url' ]   : [];
+	$rows   = [];
+	foreach ( $labels as $i => $label ) {
+		$label = sanitize_text_field( wp_unslash( $label ) );
+		$url   = isset( $urls[ $i ] ) ? esc_url_raw( trim( wp_unslash( $urls[ $i ] ) ) ) : '';
+		if ( $label !== '' && $url !== '' ) {
+			$rows[] = [ 'label' => $label, 'url' => $url ];
+		}
+	}
+	return $rows;
 }
 
 /* ── Cache purge: clears server & plugin caches after save ────── */
@@ -230,6 +268,18 @@ function rv_hf_render_settings_page() {
 		.rv-admin-header p  { font-size: 0.8rem; color: #A0C4A8; margin: 2px 0 0; }
 		.rv-sc-box { display: inline-block; background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #333; padding: 6px 12px; margin: 4px 0 12px; }
 		.rv-submit-row { margin-top: 6px; }
+		.rv-field-label { display: block; font-size: 0.85rem; font-weight: 600; color: #1a1a1a; margin: 16px 0 6px; }
+		.rv-field-label:first-of-type { margin-top: 0; }
+		.rv-field-note { font-weight: 400; color: #999; font-size: 0.78rem; }
+		.rv-text-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid #cfcfcf; border-radius: 6px; font-size: 0.9rem; color: #1a1a1a; transition: border-color .2s, box-shadow .2s; }
+		.rv-text-input:focus { outline: none; border-color: #C9A040; box-shadow: 0 0 0 3px rgba(201,160,64,.18); }
+		.rv-field-hint { font-size: 0.8rem; color: #777; margin: 8px 0 0; }
+		.rv-logo-preview { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: #0D3320; border-radius: 6px; }
+		.rv-logo-preview span { font-size: 0.78rem; color: #A0C4A8; }
+		.rv-logo-preview img { max-height: 40px; max-width: 200px; width: auto; height: auto; }
+		.rv-link-row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 10px; }
+		.rv-link-row .rv-text-input { margin: 0; }
+		.rv-link-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #999; }
 	</style>
 
 	<div class="wrap rv-admin-wrap">
@@ -287,10 +337,63 @@ function rv_hf_render_settings_page() {
 						<span class="rv-switch-track"></span>
 					</label>
 				</div>
+			</div>
 
-				<div class="rv-submit-row">
-					<?php submit_button( 'Save Settings', 'primary', 'submit', false ); ?>
+			<?php
+			$logo_val      = esc_attr( get_option( 'rv_hf_logo_url', '' ) );
+			$whatsapp_val  = esc_attr( get_option( 'rv_hf_whatsapp', '' ) );
+			$email_val     = esc_attr( get_option( 'rv_hf_email', '' ) );
+			$instagram_val = esc_attr( get_option( 'rv_hf_instagram', '' ) );
+			?>
+
+			<div class="rv-admin-card">
+				<h2>&#127912; Branding</h2>
+				<p class="rv-card-desc">The logo shows in the header, the footer, and the home-page hero. Leave blank to use the bundled default logo.</p>
+
+				<label class="rv-field-label">Logo image URL</label>
+				<input type="url" name="rv_hf_logo_url" class="rv-text-input" value="<?php echo $logo_val; ?>" placeholder="<?php echo esc_attr( RV_HF_LOGO_URL ); ?>">
+				<?php $logo_preview = $logo_val !== '' ? get_option( 'rv_hf_logo_url' ) : RV_HF_LOGO_URL; ?>
+				<div class="rv-logo-preview">
+					<span>Preview:</span>
+					<img src="<?php echo esc_url( $logo_preview ); ?>" alt="Logo preview">
 				</div>
+				<p class="rv-field-hint">Tip: upload your logo under <strong>Media → Add New</strong>, then copy its file URL here.</p>
+			</div>
+
+			<div class="rv-admin-card">
+				<h2>&#9742; Contact &amp; Social</h2>
+				<p class="rv-card-desc">Used across the header, footer contact column, social icons, and the floating WhatsApp button. Leave a field blank to keep the default.</p>
+
+				<label class="rv-field-label">WhatsApp number <span class="rv-field-note">(digits only, incl. country code — e.g. 447908369765)</span></label>
+				<input type="text" name="rv_hf_whatsapp" class="rv-text-input" value="<?php echo $whatsapp_val; ?>" placeholder="<?php echo esc_attr( RV_HF_DEF_WHATSAPP ); ?>">
+
+				<label class="rv-field-label">Email address</label>
+				<input type="email" name="rv_hf_email" class="rv-text-input" value="<?php echo $email_val; ?>" placeholder="<?php echo esc_attr( RV_HF_DEF_EMAIL ); ?>">
+
+				<label class="rv-field-label">Instagram profile URL</label>
+				<input type="url" name="rv_hf_instagram" class="rv-text-input" value="<?php echo $instagram_val; ?>" placeholder="<?php echo esc_attr( RV_HF_DEF_INSTAGRAM ); ?>">
+			</div>
+
+			<?php
+			rv_hf_render_link_rows_card(
+				'Header Navigation',
+				'&#129517;',
+				'These links appear in the header menu. Leave a row blank to remove it. If you clear all rows, the default Home / About / Services / Contact links are used.',
+				'rv_hf_nav',
+				rv_hf_get_nav_links()
+			);
+
+			rv_hf_render_link_rows_card(
+				'Footer Quick Links',
+				'&#128279;',
+				'The "Quick Links" column in the footer. Leave a row blank to remove it. Clearing all rows restores the defaults. (Policy links auto-link to your policy pages.)',
+				'rv_hf_quick',
+				rv_hf_get_quick_links()
+			);
+			?>
+
+			<div class="rv-submit-row" style="margin-bottom:24px;">
+				<?php submit_button( 'Save All Settings', 'primary', 'submit', false ); ?>
 			</div>
 
 		</form>
@@ -321,6 +424,34 @@ function rv_hf_render_settings_page() {
 	<?php
 }
 
+/* ── Render a card of repeatable label + URL link rows ───────── */
+function rv_hf_render_link_rows_card( $title, $icon, $desc, $prefix, $rows ) {
+	/* Always show a couple of spare blank rows so new links can be added */
+	$display = array_values( (array) $rows );
+	$spare   = max( 2, 6 - count( $display ) );
+	for ( $i = 0; $i < $spare; $i++ ) {
+		$display[] = [ 'label' => '', 'url' => '' ];
+	}
+	?>
+	<div class="rv-admin-card">
+		<h2><?php echo $icon; // safe static markup ?> <?php echo esc_html( $title ); ?></h2>
+		<p class="rv-card-desc"><?php echo esc_html( $desc ); ?></p>
+
+		<div class="rv-link-head">
+			<span>Label</span>
+			<span>URL</span>
+		</div>
+
+		<?php foreach ( $display as $row ) : ?>
+		<div class="rv-link-row">
+			<input type="text" name="<?php echo esc_attr( $prefix ); ?>_label[]" class="rv-text-input" value="<?php echo esc_attr( $row['label'] ); ?>" placeholder="e.g. Home">
+			<input type="url"  name="<?php echo esc_attr( $prefix ); ?>_url[]"   class="rv-text-input" value="<?php echo esc_attr( $row['url'] ); ?>" placeholder="https://...">
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
+
 /* ── Settings link on Plugins page ──────────────────────────── */
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'rv_hf_plugin_action_links' );
 
@@ -343,11 +474,77 @@ function rv_hf_page_url( $slug ) {
 	return $page ? get_permalink( $page->ID ) : home_url( '/' . $slug . '/' );
 }
 
+/* ── Branding & contact getters (option with fallback default) ── */
+function rv_hf_get_logo() {
+	$v = trim( (string) get_option( 'rv_hf_logo_url', '' ) );
+	return $v !== '' ? $v : RV_HF_LOGO_URL;
+}
+
+function rv_hf_get_whatsapp() {
+	$v = trim( (string) get_option( 'rv_hf_whatsapp', '' ) );
+	return $v !== '' ? $v : RV_HF_DEF_WHATSAPP;
+}
+
+function rv_hf_get_email() {
+	$v = trim( (string) get_option( 'rv_hf_email', '' ) );
+	return $v !== '' ? $v : RV_HF_DEF_EMAIL;
+}
+
+function rv_hf_get_instagram() {
+	$v = trim( (string) get_option( 'rv_hf_instagram', '' ) );
+	return $v !== '' ? $v : RV_HF_DEF_INSTAGRAM;
+}
+
+/* WhatsApp number formatted for display, e.g. "+44 7908 369765" → falls
+   back to a "+<digits>" form for custom numbers we can't pattern-match. */
+function rv_hf_whatsapp_display() {
+	$d = preg_replace( '/[^0-9]/', '', rv_hf_get_whatsapp() );
+	if ( strpos( $d, '44' ) === 0 && strlen( $d ) === 12 ) {
+		return '+44 ' . substr( $d, 2, 4 ) . ' ' . substr( $d, 6 );
+	}
+	return '+' . $d;
+}
+
+/* Instagram @handle pulled from the configured profile URL */
+function rv_hf_instagram_handle() {
+	$url = rv_hf_get_instagram();
+	$seg = basename( untrailingslashit( wp_parse_url( $url, PHP_URL_PATH ) ?: '' ) );
+	return $seg !== '' ? '@' . ltrim( $seg, '@' ) : 'Instagram';
+}
+
+/* Header nav links — custom rows from settings, else the page defaults */
+function rv_hf_get_nav_links() {
+	$opt = get_option( 'rv_hf_nav_links', [] );
+	if ( ! empty( $opt ) && is_array( $opt ) ) {
+		return $opt;
+	}
+	return [
+		[ 'label' => 'Home',     'url' => rv_hf_page_url( 'rv-home' )  ],
+		[ 'label' => 'About Us', 'url' => rv_hf_page_url( 'about-us' ) ],
+		[ 'label' => 'Services', 'url' => rv_hf_page_url( 'services' ) ],
+		[ 'label' => 'Contact',  'url' => rv_hf_page_url( 'contact' )  ],
+	];
+}
+
+/* Footer "Quick Links" — custom rows from settings, else page defaults */
+function rv_hf_get_quick_links() {
+	$opt = get_option( 'rv_hf_quick_links', [] );
+	if ( ! empty( $opt ) && is_array( $opt ) ) {
+		return $opt;
+	}
+	return [
+		[ 'label' => 'Home',     'url' => rv_hf_page_url( 'rv-home' )  ],
+		[ 'label' => 'About Us', 'url' => rv_hf_page_url( 'about-us' ) ],
+		[ 'label' => 'Services', 'url' => rv_hf_page_url( 'services' ) ],
+		[ 'label' => 'Contact',  'url' => rv_hf_page_url( 'contact' )  ],
+	];
+}
+
 /* ══════════════════════════════════════════════════════════════
    HEADER RENDER
 ══════════════════════════════════════════════════════════════ */
 function rv_render_header() {
-	$logo_src = esc_url( RV_HF_LOGO_URL );
+	$logo_src = esc_url( rv_hf_get_logo() );
 	$home_url = esc_url( home_url( '/' ) );
 
 	$wc_active     = class_exists( 'WooCommerce' );
@@ -355,12 +552,7 @@ function rv_render_header() {
 	$cart_count    = $wc_active ? (int) WC()->cart->get_cart_contents_count() : 0;
 	$account_url   = $wc_active ? esc_url( wc_get_page_permalink( 'myaccount' ) ) : esc_url( wp_login_url() );
 
-	$nav_links = [
-		'Home'     => esc_url( rv_hf_page_url( 'rv-home' ) ),
-		'About Us' => esc_url( rv_hf_page_url( 'about-us' ) ),
-		'Services' => esc_url( rv_hf_page_url( 'services' ) ),
-		'Contact'  => esc_url( rv_hf_page_url( 'contact' ) ),
-	];
+	$nav_links = rv_hf_get_nav_links();
 
 	ob_start();
 	?>
@@ -408,8 +600,8 @@ function rv_render_header() {
   </div>
 
   <nav class="rv-hdr-mobile-nav" id="rv-mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
-    <?php foreach ( $nav_links as $label => $url ) : ?>
-    <a href="<?php echo $url; ?>"><?php echo esc_html( $label ); ?></a>
+    <?php foreach ( $nav_links as $link ) : ?>
+    <a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
     <?php endforeach; ?>
     <?php if ( $wc_active ) : ?>
     <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">Shop</a>
@@ -478,16 +670,18 @@ function rv_render_header() {
    FOOTER RENDER
 ══════════════════════════════════════════════════════════════ */
 function rv_render_footer() {
-	$logo_src     = esc_url( RV_HF_LOGO_URL );
+	$logo_src     = esc_url( rv_hf_get_logo() );
 	$current_year = gmdate( 'Y' );
 	$site_name    = esc_html( get_bloginfo( 'name' ) );
 
-	$quick_links = [
-		'Home'     => rv_hf_page_url( 'rv-home' ),
-		'About Us' => rv_hf_page_url( 'about-us' ),
-		'Services' => rv_hf_page_url( 'services' ),
-		'Contact'  => rv_hf_page_url( 'contact' ),
-	];
+	$wa_number    = rv_hf_get_whatsapp();
+	$wa_url       = esc_url( 'https://wa.me/' . $wa_number );
+	$wa_display   = esc_html( rv_hf_whatsapp_display() );
+	$email        = rv_hf_get_email();
+	$insta_url    = esc_url( rv_hf_get_instagram() );
+	$insta_handle = esc_html( rv_hf_instagram_handle() );
+
+	$quick_links = rv_hf_get_quick_links();
 
 	$policy_links = [
 		'Privacy Policy'         => rv_hf_page_url( 'privacy-policy' ),
@@ -511,10 +705,10 @@ function rv_render_footer() {
       <p class="rv-ftr-tagline">Premium Fashion Wear</p>
       <p class="rv-ftr-brand-desc">Your destination for stylish, trendy, and premium fashion wear. High-quality clothing with modern designs at affordable prices — comfort, style, and confidence for everyday wear.</p>
       <div class="rv-ftr-socials">
-        <a href="https://www.instagram.com/royalvastar" class="rv-ftr-social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+        <a href="<?php echo $insta_url; ?>" class="rv-ftr-social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
           <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/447908369765" class="rv-ftr-social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a href="<?php echo $wa_url; ?>" class="rv-ftr-social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
       </div>
@@ -524,8 +718,8 @@ function rv_render_footer() {
     <div class="rv-ftr-col">
       <h4>Quick Links</h4>
       <ul>
-        <?php foreach ( $quick_links as $label => $url ) : ?>
-        <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $label ); ?></a></li>
+        <?php foreach ( $quick_links as $link ) : ?>
+        <li><a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -545,15 +739,15 @@ function rv_render_footer() {
       <h4>Contact Us</h4>
       <div class="rv-ftr-contact-item">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        <a href="https://wa.me/447908369765" target="_blank" rel="noopener noreferrer">+44 7908 369765</a>
+        <a href="<?php echo $wa_url; ?>" target="_blank" rel="noopener noreferrer"><?php echo $wa_display; ?></a>
       </div>
       <div class="rv-ftr-contact-item">
         <i class="fas fa-envelope" aria-hidden="true"></i>
-        <a href="mailto:royalvastar@icloud.com">royalvastar@icloud.com</a>
+        <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
       </div>
       <div class="rv-ftr-contact-item">
         <i class="fab fa-instagram" aria-hidden="true"></i>
-        <a href="https://www.instagram.com/royalvastar" target="_blank" rel="noopener noreferrer">@royalvastar</a>
+        <a href="<?php echo $insta_url; ?>" target="_blank" rel="noopener noreferrer"><?php echo $insta_handle; ?></a>
       </div>
       <div class="rv-ftr-contact-item">
         <i class="fas fa-clock" aria-hidden="true"></i>
@@ -572,7 +766,7 @@ function rv_render_footer() {
 </footer>
 
 <!-- WhatsApp floating button -->
-<a href="https://wa.me/447908369765" class="rv-wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+<a href="<?php echo $wa_url; ?>" class="rv-wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 	<?php
