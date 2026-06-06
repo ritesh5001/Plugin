@@ -97,4 +97,39 @@
     var initial = root.querySelector('.a24-logos__tab.is-active') || tabs[0];
     if (initial) activate(initial);
   });
+
+  /* ---- 8. Client dashboard videos: lazy load + themed play/pause ---- */
+  document.querySelectorAll('.a24-vid').forEach(function (card) {
+    var video = card.querySelector('.a24-vid__player');
+    var btn = card.querySelector('.a24-vid__toggle');
+    if (!video || !btn) return;
+
+    var toggle = function () {
+      if (video.paused || video.ended) {
+        // Only ever one clip playing at a time.
+        document.querySelectorAll('.a24-vid__player').forEach(function (v) {
+          if (v !== video) v.pause();
+        });
+        // Reveal native scrub / volume / fullscreen once the user has chosen to watch.
+        if (!video.controls) video.controls = true;
+        video.play();
+      } else {
+        video.pause();
+      }
+    };
+
+    btn.addEventListener('click', toggle);
+    video.addEventListener('play', function () {
+      card.classList.add('is-playing');
+      btn.setAttribute('aria-label', 'Pause video');
+    });
+    video.addEventListener('pause', function () {
+      card.classList.remove('is-playing');
+      btn.setAttribute('aria-label', 'Play video');
+    });
+    video.addEventListener('ended', function () {
+      card.classList.remove('is-playing');
+      btn.setAttribute('aria-label', 'Play video');
+    });
+  });
 })();
