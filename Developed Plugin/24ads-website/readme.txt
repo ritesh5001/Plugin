@@ -15,7 +15,7 @@ Activate the plugin and the entire 24 Ads Marketing website is built automatical
 
 * Home page (set as the site front page, so it loads at the root URL)
 * About, Services, Clients & Results, Contact, Career
-* All 7 service pages (Performance Marketing, Shopify, Social, SEO, Marketplace, Graphics, Scaling)
+* All 6 service pages (Performance Marketing, Shopify, Social, Marketplace, Graphics, Scaling)
 
 Every page is served with the original design — the same HTML, the same
 styles.css and script.js — at the original URLs (e.g. /about/, /services/,

@@ -37,7 +37,6 @@ function a24_routes() {
 		'service-performance' => array( 'D2C Performance Marketing',            'service-performance.html', false ),
 		'service-shopify'     => array( 'Shopify Website Development',          'service-shopify.html',     false ),
 		'service-social'      => array( 'Social Media Management',              'service-social.html',      false ),
-		'service-seo'         => array( 'SEO – Search Engine Optimization',     'service-seo.html',         false ),
 		'service-marketplace' => array( 'E-commerce Marketplace Management',    'service-marketplace.html', false ),
 		'service-graphics'    => array( 'Performance Graphics',                 'service-graphics.html',    false ),
 		'service-scaling'     => array( 'Scaling Strategies',                   'service-scaling.html',     false ),
