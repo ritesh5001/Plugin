@@ -189,23 +189,23 @@ function sp_hf_render_header() {
 
     // Nav slugs → permalinks
     $nav = array(
-        'Home'            => sp_hf_get_url_override( 'sp_hf_header_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
-        'About Us'        => sp_hf_get_url_override( 'sp_hf_header_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
-        'Our Collections' => sp_hf_get_url_override( 'sp_hf_header_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
-        'Contact'         => sp_hf_get_url_override( 'sp_hf_header_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
+      'Home'            => sp_hf_get_url_override( 'sp_hf_header_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
+      'Chi siamo'       => sp_hf_get_url_override( 'sp_hf_header_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
+      'Collezioni'      => sp_hf_get_url_override( 'sp_hf_header_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
+      'Contatti'        => sp_hf_get_url_override( 'sp_hf_header_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
     );
 
     ob_start(); ?>
 <header class="sp-hdr-bar" role="banner">
   <div class="sp-hdr-inner">
-    <a class="sp-hdr-logo" href="<?php echo $logo_link; ?>" aria-label="Souk Profumi Home">
+    <a class="sp-hdr-logo" href="<?php echo $logo_link; ?>" aria-label="Home Souk Profumi">
       <img src="<?php echo $logo; ?>" alt="Souk Profumi" />
     </a>
 
     <form class="sp-hdr-search" method="get" action="<?php echo $search_action; ?>" role="search">
-      <input type="search" name="s" placeholder="Search fragrances..." value="<?php echo esc_attr( get_search_query() ); ?>" />
+      <input type="search" name="s" placeholder="Cerca fragranze..." value="<?php echo esc_attr( get_search_query() ); ?>" />
       <?php echo $search_hidden; ?>
-      <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button type="submit" aria-label="Cerca"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
     <nav class="sp-hdr-nav-desktop" aria-label="Primary">
@@ -215,21 +215,21 @@ function sp_hf_render_header() {
     </nav>
 
     <div class="sp-hdr-icons">
-      <button class="sp-hdr-icon" id="spHdrSearchToggle" aria-label="Open search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="sp-hdr-icon" id="spHdrSearchToggle" aria-label="Apri ricerca"><i class="fa-solid fa-magnifying-glass"></i></button>
       <?php if ( function_exists( 'WC' ) ) : ?>
-        <a class="sp-hdr-icon sp-hdr-cart" href="<?php echo $cart_url; ?>" aria-label="Cart">
+        <a class="sp-hdr-icon sp-hdr-cart" href="<?php echo $cart_url; ?>" aria-label="Carrello">
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="sp-hdr-cart-count"><?php echo (int) $cart_count; ?></span>
         </a>
       <?php endif; ?>
       <a class="sp-hdr-icon" href="<?php echo $account_url; ?>" aria-label="Account"><i class="fa-regular fa-user"></i></a>
-      <button class="sp-hdr-icon sp-hdr-burger" id="spHdrBurger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      <button class="sp-hdr-icon sp-hdr-burger" id="spHdrBurger" aria-label="Apri menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
 
   <div class="sp-hdr-mobile-search" id="spHdrMobileSearch">
     <form method="get" action="<?php echo $search_action; ?>" role="search">
-      <input type="search" name="s" placeholder="Search fragrances..." />
+      <input type="search" name="s" placeholder="Cerca fragranze..." />
       <?php echo $search_hidden; ?>
       <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
@@ -282,17 +282,17 @@ function sp_hf_render_footer() {
 
     $quick = array(
         'Home'            => sp_hf_get_url_override( 'sp_hf_footer_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
-        'About Us'        => sp_hf_get_url_override( 'sp_hf_footer_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
-        'Our Collections' => sp_hf_get_url_override( 'sp_hf_footer_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
-        'Contact'         => sp_hf_get_url_override( 'sp_hf_footer_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
+        'Chi siamo'       => sp_hf_get_url_override( 'sp_hf_footer_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
+        'Collezioni'      => sp_hf_get_url_override( 'sp_hf_footer_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
+        'Contatti'        => sp_hf_get_url_override( 'sp_hf_footer_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
     );
     $policies = array(
-        'Privacy Policy'             => sp_hf_get_url_override( 'sp_hf_footer_privacy_url', sp_hf_url_for( 'privacy-policy', home_url( '/' ) ) ),
-        'Terms of Service'           => sp_hf_get_url_override( 'sp_hf_footer_terms_service_url', sp_hf_url_for( 'terms-of-service', home_url( '/' ) ) ),
-        'Terms & Conditions'         => sp_hf_get_url_override( 'sp_hf_footer_terms_conditions_url', sp_hf_url_for( 'terms-and-conditions', home_url( '/' ) ) ),
-        'Refund Policy'              => sp_hf_get_url_override( 'sp_hf_footer_refund_url', sp_hf_url_for( 'refund-policy', home_url( '/' ) ) ),
-        'Cancellation Policy'        => sp_hf_get_url_override( 'sp_hf_footer_cancellation_url', sp_hf_url_for( 'cancellation-policy', home_url( '/' ) ) ),
-        'Shipping & Handling Policy' => sp_hf_get_url_override( 'sp_hf_footer_shipping_url', sp_hf_url_for( 'shipping-policy', home_url( '/' ) ) ),
+        'Informativa privacy'                 => sp_hf_get_url_override( 'sp_hf_footer_privacy_url', sp_hf_url_for( 'privacy-policy', home_url( '/' ) ) ),
+        'Termini di servizio'                 => sp_hf_get_url_override( 'sp_hf_footer_terms_service_url', sp_hf_url_for( 'terms-of-service', home_url( '/' ) ) ),
+        'Termini e condizioni'                => sp_hf_get_url_override( 'sp_hf_footer_terms_conditions_url', sp_hf_url_for( 'terms-and-conditions', home_url( '/' ) ) ),
+        'Politica dei rimborsi'               => sp_hf_get_url_override( 'sp_hf_footer_refund_url', sp_hf_url_for( 'refund-policy', home_url( '/' ) ) ),
+        'Politica di cancellazione'           => sp_hf_get_url_override( 'sp_hf_footer_cancellation_url', sp_hf_url_for( 'cancellation-policy', home_url( '/' ) ) ),
+        'Politica di spedizione e gestione'   => sp_hf_get_url_override( 'sp_hf_footer_shipping_url', sp_hf_url_for( 'shipping-policy', home_url( '/' ) ) ),
     );
 
     $instagram = sp_hf_get_social_url( 'sp_hf_instagram_url', SP_HF_INSTAGRAM );
@@ -305,9 +305,9 @@ function sp_hf_render_footer() {
   <div class="sp-ftr-inner">
 
     <div class="sp-ftr-col sp-ftr-brand">
-      <a href="<?php echo $logo_link; ?>" aria-label="Souk Profumi Home"><img class="sp-ftr-logo" src="<?php echo $logo; ?>" alt="Souk Profumi"/></a>
+      <a href="<?php echo $logo_link; ?>" aria-label="Home Souk Profumi"><img class="sp-ftr-logo" src="<?php echo $logo; ?>" alt="Souk Profumi"/></a>
       <p class="sp-ftr-tag">Profumi Arabi di Nicchia</p>
-      <p class="sp-ftr-desc">An independent atelier of authentic Arabian and niche fragrances, curated for those who seek the extraordinary.</p>
+      <p class="sp-ftr-desc">Un atelier indipendente di fragranze arabe autentiche e di nicchia, curato per chi cerca qualcosa di straordinario.</p>
       <div class="sp-ftr-socials">
         <?php if ( $instagram ) : ?><a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><?php endif; ?>
         <?php if ( $facebook )  : ?><a href="<?php echo esc_url( $facebook ); ?>" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><?php endif; ?>
@@ -317,7 +317,7 @@ function sp_hf_render_footer() {
     </div>
 
     <div class="sp-ftr-col">
-      <h4>Quick Links</h4>
+      <h4>Link rapidi</h4>
       <ul>
         <?php foreach ( $quick as $label => $url ) : ?>
           <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $label ); ?></a></li>
@@ -326,7 +326,7 @@ function sp_hf_render_footer() {
     </div>
 
     <div class="sp-ftr-col">
-      <h4>Policies</h4>
+      <h4>Politiche</h4>
       <ul>
         <?php foreach ( $policies as $label => $url ) : ?>
           <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $label ); ?></a></li>
@@ -335,25 +335,25 @@ function sp_hf_render_footer() {
     </div>
 
     <div class="sp-ftr-col">
-      <h4>Reach Us</h4>
-      <p class="sp-ftr-reach">Have a question about our fragrances or an order? Chat with our team using the floating WhatsApp button — we respond quickly and personally.</p>
+      <h4>Contattaci</h4>
+      <p class="sp-ftr-reach">Hai una domanda sulle nostre fragranze o su un ordine? Scrivi al nostro team tramite il pulsante WhatsApp flottante: rispondiamo in modo rapido e personale.</p>
       <?php if ( $wa ) : ?>
         <a class="sp-ftr-wa-btn" href="https://wa.me/<?php echo esc_attr( $wa ); ?>" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Chatta su WhatsApp
         </a>
       <?php endif; ?>
-      <p class="sp-ftr-reach sp-ftr-reach--muted">Based in Italy · Shipping nationwide &amp; internationally</p>
+      <p class="sp-ftr-reach sp-ftr-reach--muted">Con sede in Italia · Spedizioni in tutta Italia e all'estero</p>
     </div>
 
   </div>
 
   <div class="sp-ftr-bottom">
-    © <?php echo esc_html( date('Y') ); ?> Souk Profumi – Profumi Arabi di Nicchia. All Rights Reserved.
+    © <?php echo esc_html( date('Y') ); ?> Souk Profumi – Profumi Arabi di Nicchia. Tutti i diritti riservati.
   </div>
 </footer>
 
 <?php if ( $wa ) : ?>
-<a class="sp-wa-fab" href="https://wa.me/<?php echo esc_attr( $wa ); ?>" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a class="sp-wa-fab" href="https://wa.me/<?php echo esc_attr( $wa ); ?>" target="_blank" rel="noopener" aria-label="Chatta su WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 <?php endif;
@@ -433,89 +433,89 @@ function sp_hf_render_settings_page() {
       <h1 style="font-family:Cinzel,serif;color:#8B6A2E;">Souk Profumi — Header &amp; Footer</h1>
 
       <?php if ( $saved ) : ?>
-        <div class="notice notice-success is-dismissible" style="border-left-color:#C99A4B;"><p><strong>Settings saved.</strong> Hard-refresh your front-end (Cmd/Ctrl + Shift + R) to see changes.</p></div>
+        <div class="notice notice-success is-dismissible" style="border-left-color:#C99A4B;"><p><strong>Impostazioni salvate.</strong> Esegui un aggiornamento forzato del front-end (Cmd/Ctrl + Shift + R) per vedere le modifiche.</p></div>
       <?php endif; ?>
 
       <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="background:#fff;border:1px solid #E8C77E;border-radius:14px;padding:28px;max-width:980px;margin-top:18px;box-shadow:0 10px 30px rgba(139,106,46,.08);">
         <?php wp_nonce_field( 'sp_hf_save_nonce' ); ?>
         <input type="hidden" name="action" value="sp_hf_save"/>
 
-        <h2 style="font-family:Cinzel,serif;margin-top:0;">Display Settings</h2>
-        <p style="color:#5C5C5C;">Toggle the branded header and footer site-wide. When OFF, the corresponding section is no longer auto-injected.</p>
+        <h2 style="font-family:Cinzel,serif;margin-top:0;">Impostazioni di visualizzazione</h2>
+        <p style="color:#5C5C5C;">Attiva o disattiva l'header e il footer brandizzati su tutto il sito. Quando è OFF, la sezione corrispondente non viene più inserita automaticamente.</p>
 
         <table class="form-table" role="presentation">
           <tr>
-            <th scope="row"><label for="sp_hf_enable_header">Enable Header</label></th>
+            <th scope="row"><label for="sp_hf_enable_header">Attiva header</label></th>
             <td>
               <label class="sp-switch">
                 <input type="checkbox" name="sp_hf_enable_header" id="sp_hf_enable_header" value="1" <?php checked( $header, '1' ); ?>/>
                 <span class="sp-slider"></span>
               </label>
-              <p class="description">Injects the branded navigation bar on every page.</p>
+              <p class="description">Inserisce la barra di navigazione brandizzata in ogni pagina.</p>
             </td>
           </tr>
           <tr>
-            <th scope="row"><label for="sp_hf_enable_footer">Enable Footer</label></th>
+            <th scope="row"><label for="sp_hf_enable_footer">Attiva footer</label></th>
             <td>
               <label class="sp-switch">
                 <input type="checkbox" name="sp_hf_enable_footer" id="sp_hf_enable_footer" value="1" <?php checked( $footer, '1' ); ?>/>
                 <span class="sp-slider"></span>
               </label>
-              <p class="description">Injects the 4-column footer and the floating WhatsApp button.</p>
+              <p class="description">Inserisce il footer a 4 colonne e il pulsante WhatsApp flottante.</p>
             </td>
           </tr>
         </table>
 
         <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
-        <h2 style="font-family:Cinzel,serif;">Logo &amp; Header Icon Links</h2>
-        <p style="color:#5C5C5C;">Leave a URL field empty to use the plugin's automatic default.</p>
+        <h2 style="font-family:Cinzel,serif;">Logo e collegamenti delle icone dell'header</h2>
+        <p style="color:#5C5C5C;">Lascia vuoto un campo URL per usare il valore predefinito automatico del plugin.</p>
         <table class="form-table" role="presentation">
           <?php
-            $url_field( 'sp_hf_logo_image_url', 'Logo Image URL', 'Changes the logo image used in both header and footer.', SP_HF_LOGO_URL );
-            $url_field( 'sp_hf_logo_link_url', 'Logo Click URL', 'Changes where the header and footer logos link.', home_url( '/' ) );
-            $url_field( 'sp_hf_search_action_url', 'Search Form URL', 'Changes where the search form submits. Empty uses the WooCommerce shop page when available.', home_url( '/' ) );
-            $url_field( 'sp_hf_account_url', 'Account Icon URL', 'Changes the user/account icon link. Empty uses My Account or WordPress login.', wp_login_url() );
-            $url_field( 'sp_hf_cart_url', 'Cart Icon URL', 'Changes the cart icon link. Empty uses the WooCommerce cart when available.', home_url( '/' ) );
+            $url_field( 'sp_hf_logo_image_url', 'URL immagine logo', 'Cambia l\'immagine del logo usata nell\'header e nel footer.', SP_HF_LOGO_URL );
+            $url_field( 'sp_hf_logo_link_url', 'URL clic del logo', 'Cambia la destinazione del logo nell\'header e nel footer.', home_url( '/' ) );
+            $url_field( 'sp_hf_search_action_url', 'URL modulo di ricerca', 'Cambia la destinazione del modulo di ricerca. Se vuoto usa la pagina shop di WooCommerce quando disponibile.', home_url( '/' ) );
+            $url_field( 'sp_hf_account_url', 'URL icona account', 'Cambia il link dell\'icona utente/account. Se vuoto usa My Account o il login di WordPress.', wp_login_url() );
+            $url_field( 'sp_hf_cart_url', 'URL icona carrello', 'Cambia il link dell\'icona carrello. Se vuoto usa il carrello WooCommerce quando disponibile.', home_url( '/' ) );
           ?>
         </table>
 
         <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
-        <h2 style="font-family:Cinzel,serif;">Header Navigation Links</h2>
+        <h2 style="font-family:Cinzel,serif;">Link di navigazione dell'header</h2>
         <table class="form-table" role="presentation">
           <?php
-            $url_field( 'sp_hf_header_home_url', 'Header Home URL', '', home_url( '/' ) );
-            $url_field( 'sp_hf_header_about_url', 'Header About URL', '', home_url( '/about-us/' ) );
-            $url_field( 'sp_hf_header_collections_url', 'Header Collections URL', '', home_url( '/services/' ) );
-            $url_field( 'sp_hf_header_contact_url', 'Header Contact URL', '', home_url( '/contact/' ) );
+            $url_field( 'sp_hf_header_home_url', 'URL home header', '', home_url( '/' ) );
+            $url_field( 'sp_hf_header_about_url', 'URL chi siamo header', '', home_url( '/about-us/' ) );
+            $url_field( 'sp_hf_header_collections_url', 'URL collezioni header', '', home_url( '/services/' ) );
+            $url_field( 'sp_hf_header_contact_url', 'URL contatti header', '', home_url( '/contact/' ) );
           ?>
         </table>
 
         <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
-        <h2 style="font-family:Cinzel,serif;">Footer Quick Links</h2>
+        <h2 style="font-family:Cinzel,serif;">Link rapidi del footer</h2>
         <table class="form-table" role="presentation">
           <?php
-            $url_field( 'sp_hf_footer_home_url', 'Footer Home URL', '', home_url( '/' ) );
-            $url_field( 'sp_hf_footer_about_url', 'Footer About URL', '', home_url( '/about-us/' ) );
-            $url_field( 'sp_hf_footer_collections_url', 'Footer Collections URL', '', home_url( '/services/' ) );
-            $url_field( 'sp_hf_footer_contact_url', 'Footer Contact URL', '', home_url( '/contact/' ) );
+            $url_field( 'sp_hf_footer_home_url', 'URL home footer', '', home_url( '/' ) );
+            $url_field( 'sp_hf_footer_about_url', 'URL chi siamo footer', '', home_url( '/about-us/' ) );
+            $url_field( 'sp_hf_footer_collections_url', 'URL collezioni footer', '', home_url( '/services/' ) );
+            $url_field( 'sp_hf_footer_contact_url', 'URL contatti footer', '', home_url( '/contact/' ) );
           ?>
         </table>
 
         <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
-        <h2 style="font-family:Cinzel,serif;">Footer Policy Links</h2>
+        <h2 style="font-family:Cinzel,serif;">Link alle politiche del footer</h2>
         <table class="form-table" role="presentation">
           <?php
-            $url_field( 'sp_hf_footer_privacy_url', 'Privacy Policy URL', '', home_url( '/privacy-policy/' ) );
-            $url_field( 'sp_hf_footer_terms_service_url', 'Terms of Service URL', '', home_url( '/terms-of-service/' ) );
-            $url_field( 'sp_hf_footer_terms_conditions_url', 'Terms & Conditions URL', '', home_url( '/terms-and-conditions/' ) );
-            $url_field( 'sp_hf_footer_refund_url', 'Refund Policy URL', '', home_url( '/refund-policy/' ) );
-            $url_field( 'sp_hf_footer_cancellation_url', 'Cancellation Policy URL', '', home_url( '/cancellation-policy/' ) );
-            $url_field( 'sp_hf_footer_shipping_url', 'Shipping & Handling Policy URL', '', home_url( '/shipping-policy/' ) );
+            $url_field( 'sp_hf_footer_privacy_url', 'URL informativa privacy', '', home_url( '/privacy-policy/' ) );
+            $url_field( 'sp_hf_footer_terms_service_url', 'URL termini di servizio', '', home_url( '/terms-of-service/' ) );
+            $url_field( 'sp_hf_footer_terms_conditions_url', 'URL termini e condizioni', '', home_url( '/terms-and-conditions/' ) );
+            $url_field( 'sp_hf_footer_refund_url', 'URL politica dei rimborsi', '', home_url( '/refund-policy/' ) );
+            $url_field( 'sp_hf_footer_cancellation_url', 'URL politica di cancellazione', '', home_url( '/cancellation-policy/' ) );
+            $url_field( 'sp_hf_footer_shipping_url', 'URL politica di spedizione e gestione', '', home_url( '/shipping-policy/' ) );
           ?>
         </table>
 
         <hr style="margin:24px 0;border:none;border-top:1px solid rgba(201,154,75,.3);"/>
-        <h2 style="font-family:Cinzel,serif;">Footer Social &amp; WhatsApp Links</h2>
+        <h2 style="font-family:Cinzel,serif;">Link social e WhatsApp del footer</h2>
         <table class="form-table" role="presentation">
           <?php
             $url_field( 'sp_hf_instagram_url', 'Instagram URL', 'Leave blank to hide the Instagram icon.', 'https://www.instagram.com/yourprofile/' );
