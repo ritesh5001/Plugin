@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       24 Ads Website
  * Plugin URI:        https://24adsmarketing.com/
- * Description:        One-click installer for the full 24 Ads Marketing website. On activation it creates every page (home, about, services, all service pages, clients, contact, career) with the exact same design, and serves them at the original URLs. Just activate and you're live.
+ * Description:        One-click installer for the full 24 Ads Marketing website. On activation it creates every page (home, about, services, all service pages, clients, developed websites, contact, career) with the exact same design, and serves them at the original URLs. Just activate and you're live.
  * Version:           2.0.0
  * Author:            24 Ads Marketing
  * Author URI:        https://24adsmarketing.com/
@@ -32,6 +32,7 @@ function a24_routes() {
 		'about'               => array( 'About Us',                             'about.html',               false ),
 		'services'            => array( 'Services',                             'services.html',            false ),
 		'clients'             => array( 'Clients & Results',                    'clients.html',             false ),
+		'developed-websites'  => array( 'Developed Websites',                   'developed-websites.html',  false ),
 		'contact'             => array( 'Contact Us',                           'contact.html',             false ),
 		'career'              => array( 'Career',                               'career.html',              false ),
 		'service-performance' => array( 'D2C Performance Marketing',            'service-performance.html', false ),

@@ -14,7 +14,7 @@ One-click installer for the complete 24 Ads Marketing website.
 Activate the plugin and the entire 24 Ads Marketing website is built automatically:
 
 * Home page (set as the site front page, so it loads at the root URL)
-* About, Services, Clients & Results, Contact, Career
+* About, Services, Clients & Results, Developed Websites, Contact, Career
 * All 6 service pages (Performance Marketing, Shopify, Social, Marketplace, Graphics, Scaling)
 
 Every page is served with the original design — the same HTML, the same

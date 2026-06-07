@@ -98,7 +98,69 @@
     if (initial) activate(initial);
   });
 
-  /* ---- 8. Client dashboard videos: lazy load + themed play/pause ---- */
+  /* ---- 8. Stat cards: count up when visible ---- */
+  var statNums = Array.prototype.slice.call(document.querySelectorAll('.a24-statblock__num'));
+  if (statNums.length) {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var formatStat = function (value, decimals) {
+      return decimals ? value.toFixed(decimals) : Math.round(value).toString();
+    };
+    var setStat = function (el, value) {
+      el.innerHTML = formatStat(value, el._a24Decimals) + '<em>' + el._a24Suffix + '</em>';
+    };
+    var animateStat = function (el) {
+      if (el._a24Done) return;
+      el._a24Done = true;
+
+      if (reduceMotion) {
+        setStat(el, el._a24Target);
+        return;
+      }
+
+      var start = null;
+      var duration = 1400;
+      var tick = function (time) {
+        if (!start) start = time;
+        var progress = Math.min((time - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        setStat(el, el._a24Target * eased);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          setStat(el, el._a24Target);
+        }
+      };
+      requestAnimationFrame(tick);
+    };
+
+    statNums.forEach(function (el) {
+      var raw = el.textContent.trim();
+      var match = raw.match(/^([\d.]+)\s*([^0-9.]*)$/);
+      if (!match) return;
+
+      el._a24Target = parseFloat(match[1]);
+      el._a24Decimals = (match[1].split('.')[1] || '').length;
+      el._a24Suffix = match[2] || '';
+      setStat(el, 0);
+    });
+
+    if ('IntersectionObserver' in window) {
+      var statObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('.a24-statblock__num').forEach(animateStat);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll('.a24-statblocks').forEach(function (section) {
+        statObserver.observe(section);
+      });
+    } else {
+      statNums.forEach(animateStat);
+    }
+  }
+
+  /* ---- 9. Client dashboard videos: lazy load + themed play/pause ---- */
   document.querySelectorAll('.a24-vid').forEach(function (card) {
     var video = card.querySelector('.a24-vid__player');
     var btn = card.querySelector('.a24-vid__toggle');
