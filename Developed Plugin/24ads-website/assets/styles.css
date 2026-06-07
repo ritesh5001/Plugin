@@ -2421,9 +2421,12 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background: #000;
   cursor: pointer;
+}
+.a24-vid.is-playing .a24-vid__player {
+  object-fit: contain;
 }
 
 /* Themed play / pause control */
