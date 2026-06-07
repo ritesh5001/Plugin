@@ -1353,9 +1353,7 @@
 .a24-case__dash img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
 }
 .a24-case__dash figcaption {
   font-size: 11px;
