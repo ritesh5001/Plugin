@@ -189,7 +189,7 @@ function sp_hf_render_header() {
 
     // Nav slugs → permalinks
     $nav = array(
-      'Home'            => sp_hf_get_url_override( 'sp_hf_header_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
+      'Pagina iniziale' => sp_hf_get_url_override( 'sp_hf_header_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
       'Chi siamo'       => sp_hf_get_url_override( 'sp_hf_header_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
       'Collezioni'      => sp_hf_get_url_override( 'sp_hf_header_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
       'Contatti'        => sp_hf_get_url_override( 'sp_hf_header_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
@@ -281,7 +281,7 @@ function sp_hf_render_footer() {
     $logo_link = esc_url( sp_hf_get_url_override( 'sp_hf_logo_link_url', home_url( '/' ) ) );
 
     $quick = array(
-        'Home'            => sp_hf_get_url_override( 'sp_hf_footer_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
+        'Pagina iniziale' => sp_hf_get_url_override( 'sp_hf_footer_home_url', sp_hf_url_for( 'sp-home', home_url( '/' ) ) ),
         'Chi siamo'       => sp_hf_get_url_override( 'sp_hf_footer_about_url', sp_hf_url_for( 'about-us', home_url( '/' ) ) ),
         'Collezioni'      => sp_hf_get_url_override( 'sp_hf_footer_collections_url', sp_hf_url_for( 'services', home_url( '/' ) ) ),
         'Contatti'        => sp_hf_get_url_override( 'sp_hf_footer_contact_url', sp_hf_url_for( 'contact', home_url( '/' ) ) ),
@@ -474,7 +474,7 @@ function sp_hf_render_settings_page() {
             $url_field( 'sp_hf_logo_image_url', 'URL immagine logo', 'Cambia l\'immagine del logo usata nell\'header e nel footer.', SP_HF_LOGO_URL );
             $url_field( 'sp_hf_logo_link_url', 'URL clic del logo', 'Cambia la destinazione del logo nell\'header e nel footer.', home_url( '/' ) );
             $url_field( 'sp_hf_search_action_url', 'URL modulo di ricerca', 'Cambia la destinazione del modulo di ricerca. Se vuoto usa la pagina shop di WooCommerce quando disponibile.', home_url( '/' ) );
-            $url_field( 'sp_hf_account_url', 'URL icona account', 'Cambia il link dell\'icona utente/account. Se vuoto usa My Account o il login di WordPress.', wp_login_url() );
+            $url_field( 'sp_hf_account_url', 'URL icona account', 'Cambia il link dell\'icona utente/account. Se vuoto usa la pagina account oppure il login di WordPress.', wp_login_url() );
             $url_field( 'sp_hf_cart_url', 'URL icona carrello', 'Cambia il link dell\'icona carrello. Se vuoto usa il carrello WooCommerce quando disponibile.', home_url( '/' ) );
           ?>
         </table>
