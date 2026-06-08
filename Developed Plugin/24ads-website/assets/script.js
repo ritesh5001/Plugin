@@ -55,7 +55,22 @@
     if (href === 'services.html' && path.indexOf('service') === 0) a.classList.add('is-active');
   });
 
-  /* ---- 6. Hero typewriter (types then deletes, loops) ---- */
+  /* ---- 6. Shared mobile bottom CTA ---- */
+  if (!document.querySelector('.a24-sticky-cta')) {
+    var headerCta = document.querySelector('.a24-header__cta .btn--primary');
+    if (headerCta) {
+      var stickyCta = document.createElement('div');
+      var stickyLink = document.createElement('a');
+      stickyCta.className = 'a24-sticky-cta';
+      stickyLink.className = 'a24-sticky-cta__btn';
+      stickyLink.href = headerCta.getAttribute('href') || 'contact.html';
+      stickyLink.innerHTML = '<svg class="icon"><use href="#i-phone"/></svg><span>Book a Call</span><svg class="icon arr"><use href="#i-arrow"/></svg>';
+      stickyCta.appendChild(stickyLink);
+      document.body.appendChild(stickyCta);
+    }
+  }
+
+  /* ---- 7. Hero typewriter (types then deletes, loops) ---- */
   var tw = document.querySelector('[data-typewriter]');
   if (tw) {
     var phrases = [];
@@ -75,7 +90,7 @@
     }
   }
 
-  /* ---- 7. Client logo category tabs ---- */
+  /* ---- 8. Client logo category tabs ---- */
   document.querySelectorAll('[data-logos]').forEach(function (root) {
     var tabs = root.querySelectorAll('.a24-logos__tab');
     var panels = root.querySelectorAll('.a24-logos__cat');
@@ -98,7 +113,7 @@
     if (initial) activate(initial);
   });
 
-  /* ---- 8. Stat cards: count up when visible ---- */
+  /* ---- 9. Stat cards: count up when visible ---- */
   var statNums = Array.prototype.slice.call(document.querySelectorAll('.a24-statblock__num'));
   if (statNums.length) {
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -160,7 +175,7 @@
     }
   }
 
-  /* ---- 9. Client dashboard videos: lazy load + themed play/pause ---- */
+  /* ---- 10. Client dashboard videos: lazy load + themed play/pause ---- */
   document.querySelectorAll('.a24-vid').forEach(function (card) {
     var video = card.querySelector('.a24-vid__player');
     var btn = card.querySelector('.a24-vid__toggle');
