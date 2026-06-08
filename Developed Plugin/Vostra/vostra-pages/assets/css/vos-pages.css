@@ -1,0 +1,664 @@
+/* ============================================================================
+ * VOSTRA Pages — Design System
+ * Palette extracted from the VOSTRA brand banners (not the logo file):
+ * deep black grounds, warm charcoal surfaces, bronze-gold accent,
+ * cream / off-white type, discipline-navy and eternal-brown supports.
+ * Every colour below is a banner colour. Text contrast kept high.
+ * ========================================================================== */
+
+:root {
+	/* Raw palette from the banners */
+	--vos-color-1:  #0a0a0a; /* deep black ground */
+	--vos-color-2:  #161412; /* warm charcoal */
+	--vos-color-3:  #211d18; /* raised surface (brown-black) */
+	--vos-color-4:  #b8893f; /* bronze gold — the "MATTERS" accent */
+	--vos-color-5:  #d8b06a; /* light gold highlight */
+	--vos-color-6:  #ece4d2; /* BLUR cream */
+	--vos-color-7:  #f5f2ea; /* off white */
+	--vos-color-8:  #1e2a4a; /* Discipline navy */
+	--vos-color-9:  #3a281f; /* Eternal brown */
+	--vos-color-10: #a39a8c; /* muted stone */
+
+	/* Semantic aliases */
+	--vos-bg:        var(--vos-color-1);
+	--vos-surface:   var(--vos-color-2);
+	--vos-surface-2: var(--vos-color-3);
+	--vos-primary:   var(--vos-color-7);
+	--vos-cream:     var(--vos-color-6);
+	--vos-accent:    var(--vos-color-4);
+	--vos-accent-2:  var(--vos-color-5);
+	--vos-navy:      var(--vos-color-8);
+	--vos-brown:     var(--vos-color-9);
+	--vos-muted:     var(--vos-color-10);
+	--vos-border:    rgba(184, 137, 63, 0.22);
+	--vos-border-soft: rgba(245, 242, 234, 0.08);
+
+	--vos-radius: 16px;
+	--vos-radius-sm: 10px;
+	--vos-maxw: 1200px;
+	--vos-font-head: "Cinzel", Georgia, serif;
+	--vos-font-body: "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+/* ----------------------------------------------------------------------------
+ * Full-width override (works with Astra, GeneratePress, Elementor, etc.)
+ * Hide theme title, remove content constraints, paint the brand background.
+ * -------------------------------------------------------------------------- */
+body.vos-page {
+	background: var(--vos-bg) !important;
+	color: var(--vos-primary);
+	font-family: var(--vos-font-body);
+	margin: 0;
+}
+
+body.vos-page .entry-title,
+body.vos-page .page-title,
+body.vos-page .wp-block-post-title {
+	display: none !important;
+}
+
+body.vos-page .entry-content,
+body.vos-page .site-content,
+body.vos-page .content-area,
+body.vos-page .wp-block-post-content,
+body.vos-page main,
+body.vos-page #primary,
+body.vos-page .ast-container,
+body.vos-page .elementor,
+body.vos-page article {
+	max-width: 100% !important;
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+body.vos-page .ast-separate-container .ast-article-single,
+body.vos-page .entry-content {
+	background: transparent !important;
+	box-shadow: none !important;
+	border: 0 !important;
+}
+
+/* ----------------------------------------------------------------------------
+ * Base wrap + typography
+ * -------------------------------------------------------------------------- */
+.vos-wrap {
+	font-family: var(--vos-font-body);
+	color: var(--vos-primary);
+	background: var(--vos-bg);
+	line-height: 1.65;
+	font-size: 17px;
+	overflow-x: hidden;
+}
+.vos-wrap *,
+.vos-wrap *::before,
+.vos-wrap *::after { box-sizing: border-box; }
+
+.vos-wrap h1, .vos-wrap h2, .vos-wrap h3, .vos-wrap h4 {
+	font-family: var(--vos-font-head);
+	color: var(--vos-primary);
+	line-height: 1.15;
+	letter-spacing: 0.5px;
+	margin: 0 0 0.5em;
+}
+.vos-wrap p { margin: 0 0 1.1em; color: var(--vos-cream); }
+.vos-wrap a { color: var(--vos-accent-2); text-decoration: none; transition: color .25s ease; }
+.vos-wrap a:hover { color: var(--vos-accent); }
+
+.vos-accent-text { color: var(--vos-accent); }
+
+/* Section frame */
+.vos-section {
+	max-width: var(--vos-maxw);
+	margin: 0 auto;
+	padding: 90px 24px;
+}
+.vos-section--alt {
+	max-width: 100%;
+	background:
+		radial-gradient(120% 100% at 50% 0%, rgba(184,137,63,0.07), transparent 60%),
+		var(--vos-surface);
+	border-top: 1px solid var(--vos-border);
+	border-bottom: 1px solid var(--vos-border);
+}
+.vos-section--alt > * { max-width: var(--vos-maxw); margin-inline: auto; }
+
+.vos-section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.vos-section-title {
+	font-size: clamp(28px, 4vw, 44px);
+	text-transform: uppercase;
+}
+.vos-section-title.vos-left { text-align: left; }
+.vos-section-sub { color: var(--vos-muted); font-size: 1.05rem; }
+
+/* Eyebrow chip */
+.vos-eyebrow {
+	display: inline-block;
+	font-family: var(--vos-font-body);
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--vos-accent-2);
+	background: rgba(184,137,63,0.10);
+	border: 1px solid var(--vos-border);
+	padding: 7px 16px;
+	border-radius: 999px;
+	margin-bottom: 22px;
+}
+
+/* Buttons */
+.vos-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	font-family: var(--vos-font-body);
+	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	padding: 15px 30px;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+	border: 1px solid transparent;
+}
+.vos-btn-primary {
+	background: linear-gradient(135deg, var(--vos-accent), var(--vos-accent-2));
+	color: #1a1208;
+	box-shadow: 0 10px 30px -10px rgba(184,137,63,0.6);
+}
+.vos-btn-primary:hover { transform: translateY(-2px); color: #1a1208; box-shadow: 0 16px 38px -10px rgba(216,176,106,0.7); }
+.vos-btn-ghost {
+	background: transparent;
+	color: var(--vos-primary);
+	border-color: var(--vos-border);
+}
+.vos-btn-ghost:hover { border-color: var(--vos-accent); color: var(--vos-accent-2); transform: translateY(-2px); }
+
+/* ----------------------------------------------------------------------------
+ * Hero
+ * -------------------------------------------------------------------------- */
+.vos-hero {
+	position: relative;
+	text-align: center;
+	padding: 120px 24px 90px;
+	background:
+		radial-gradient(90% 70% at 50% -10%, rgba(184,137,63,0.16), transparent 60%),
+		radial-gradient(70% 60% at 80% 120%, rgba(30,42,74,0.30), transparent 60%),
+		linear-gradient(180deg, var(--vos-bg), var(--vos-surface));
+	border-bottom: 1px solid var(--vos-border);
+	overflow: hidden;
+}
+.vos-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(245,242,234,0.025) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(245,242,234,0.025) 1px, transparent 1px);
+	background-size: 44px 44px;
+	mask-image: radial-gradient(70% 70% at 50% 30%, #000, transparent 80%);
+	pointer-events: none;
+}
+.vos-hero-inner { position: relative; max-width: 860px; margin: 0 auto; z-index: 1; }
+.vos-hero-logo {
+	height: 64px;
+	width: auto;
+	margin-bottom: 26px;
+	filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5));
+}
+.vos-hero-title {
+	font-size: clamp(38px, 7vw, 76px);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 22px;
+	text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.vos-hero-text {
+	font-size: clamp(16px, 2.1vw, 20px);
+	color: var(--vos-cream);
+	max-width: 660px;
+	margin: 0 auto 32px;
+}
+.vos-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.vos-hero--home .vos-hero-title { line-height: 1.05; }
+.vos-hero--policy { padding-bottom: 70px; }
+.vos-updated { color: var(--vos-muted); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+
+/* ----------------------------------------------------------------------------
+ * Card grid
+ * -------------------------------------------------------------------------- */
+.vos-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 22px;
+}
+.vos-card {
+	background: linear-gradient(180deg, var(--vos-surface-2), var(--vos-surface));
+	border: 1px solid var(--vos-border-soft);
+	border-radius: var(--vos-radius);
+	padding: 32px 28px;
+	transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+	position: relative;
+	overflow: hidden;
+}
+.vos-card::after {
+	content: "";
+	position: absolute;
+	left: 0; top: 0;
+	height: 3px; width: 100%;
+	background: linear-gradient(90deg, var(--vos-accent), var(--vos-accent-2));
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform .35s ease;
+}
+.vos-card:hover {
+	transform: translateY(-6px);
+	border-color: var(--vos-border);
+	box-shadow: 0 24px 50px -24px rgba(0,0,0,0.8);
+}
+.vos-card:hover::after { transform: scaleX(1); }
+.vos-card-icon {
+	width: 56px; height: 56px;
+	display: grid; place-items: center;
+	border-radius: 14px;
+	background: rgba(184,137,63,0.12);
+	border: 1px solid var(--vos-border);
+	color: var(--vos-accent-2);
+	font-size: 22px;
+	margin-bottom: 20px;
+}
+.vos-card-num {
+	display: inline-block;
+	font-family: var(--vos-font-head);
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--vos-accent);
+	margin-bottom: 14px;
+}
+.vos-card-title { font-size: 20px; text-transform: uppercase; letter-spacing: .5px; }
+.vos-card-text { color: var(--vos-muted); font-size: 15.5px; margin-bottom: 0; }
+.vos-card--num .vos-card-text { margin-bottom: 16px; }
+
+/* ----------------------------------------------------------------------------
+ * Stats bar
+ * -------------------------------------------------------------------------- */
+.vos-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 1px;
+	background: var(--vos-border);
+	border-top: 1px solid var(--vos-border);
+	border-bottom: 1px solid var(--vos-border);
+}
+.vos-stat {
+	background: var(--vos-bg);
+	padding: 44px 20px;
+	text-align: center;
+}
+.vos-stat-num {
+	display: block;
+	font-family: var(--vos-font-head);
+	font-size: clamp(28px, 4vw, 42px);
+	font-weight: 700;
+	color: var(--vos-accent-2);
+	line-height: 1;
+	margin-bottom: 10px;
+}
+.vos-stat-label {
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--vos-muted);
+}
+
+/* ----------------------------------------------------------------------------
+ * Two-column (About)
+ * -------------------------------------------------------------------------- */
+.vos-two-col {
+	display: grid;
+	grid-template-columns: 1.6fr 1fr;
+	gap: 48px;
+	align-items: start;
+}
+.vos-two-col-main p { font-size: 16.5px; }
+.vos-signoff { color: var(--vos-accent-2) !important; font-weight: 600; font-style: italic; }
+.vos-two-col-side {
+	background: linear-gradient(180deg, var(--vos-surface-2), var(--vos-surface));
+	border: 1px solid var(--vos-border);
+	border-radius: var(--vos-radius);
+	padding: 34px 30px;
+	position: sticky;
+	top: 24px;
+}
+.vos-side-head {
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	color: var(--vos-primary);
+}
+.vos-features { list-style: none; margin: 0; padding: 0; }
+.vos-features li {
+	display: flex; gap: 12px;
+	align-items: flex-start;
+	color: var(--vos-cream);
+	padding: 9px 0;
+	font-size: 15.5px;
+	border-bottom: 1px solid var(--vos-border-soft);
+}
+.vos-features li:last-child { border-bottom: 0; }
+.vos-features i { color: var(--vos-accent); margin-top: 4px; }
+.vos-features--sm li { padding: 6px 0; font-size: 14.5px; border: 0; }
+.vos-side-quote {
+	margin-top: 24px;
+	padding: 18px 20px;
+	border-left: 3px solid var(--vos-accent);
+	background: rgba(184,137,63,0.08);
+	border-radius: var(--vos-radius-sm);
+	font-family: var(--vos-font-head);
+	color: var(--vos-accent-2);
+	font-size: 15px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Steps (Services)
+ * -------------------------------------------------------------------------- */
+.vos-steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 22px;
+}
+.vos-step {
+	text-align: center;
+	padding: 30px 22px;
+	border: 1px solid var(--vos-border-soft);
+	border-radius: var(--vos-radius);
+	background: var(--vos-bg);
+}
+.vos-step-num {
+	display: inline-grid;
+	place-items: center;
+	width: 52px; height: 52px;
+	border-radius: 50%;
+	font-family: var(--vos-font-head);
+	font-weight: 700;
+	font-size: 22px;
+	color: #1a1208;
+	background: linear-gradient(135deg, var(--vos-accent), var(--vos-accent-2));
+	margin-bottom: 16px;
+}
+.vos-step h4 { font-size: 17px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+.vos-step p { color: var(--vos-muted); font-size: 14.5px; margin: 0; }
+
+/* ----------------------------------------------------------------------------
+ * Contact
+ * -------------------------------------------------------------------------- */
+.vos-contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	gap: 40px;
+	align-items: start;
+}
+.vos-contact-info, .vos-contact-form {
+	background: linear-gradient(180deg, var(--vos-surface-2), var(--vos-surface));
+	border: 1px solid var(--vos-border);
+	border-radius: var(--vos-radius);
+	padding: 38px 34px;
+}
+.vos-contact-list { list-style: none; margin: 0 0 28px; padding: 0; }
+.vos-contact-list li {
+	display: flex; gap: 16px; align-items: center;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--vos-border-soft);
+}
+.vos-contact-list li:last-child { border-bottom: 0; }
+.vos-contact-ic {
+	flex: none;
+	width: 46px; height: 46px;
+	display: grid; place-items: center;
+	border-radius: 12px;
+	background: rgba(184,137,63,0.12);
+	border: 1px solid var(--vos-border);
+	color: var(--vos-accent-2);
+	font-size: 18px;
+}
+.vos-contact-list span span,
+.vos-contact-list li > span:last-child { display: flex; flex-direction: column; }
+.vos-contact-list strong {
+	font-size: 12px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: var(--vos-muted);
+	margin-bottom: 2px;
+	font-weight: 700;
+}
+.vos-contact-collab { margin-bottom: 24px; }
+.vos-contact-collab p { color: var(--vos-muted); font-size: 15px; }
+
+/* CF7 form theming */
+.vos-contact-form input[type="text"],
+.vos-contact-form input[type="email"],
+.vos-contact-form input[type="tel"],
+.vos-contact-form input[type="url"],
+.vos-contact-form input[type="number"],
+.vos-contact-form select,
+.vos-contact-form textarea {
+	width: 100%;
+	background: var(--vos-bg);
+	border: 1px solid var(--vos-border);
+	border-radius: var(--vos-radius-sm);
+	color: var(--vos-primary);
+	font-family: var(--vos-font-body);
+	font-size: 15px;
+	padding: 13px 15px;
+	margin-top: 6px;
+	margin-bottom: 14px;
+	transition: border-color .25s ease, box-shadow .25s ease;
+}
+.vos-contact-form textarea { min-height: 140px; resize: vertical; }
+.vos-contact-form input:focus,
+.vos-contact-form textarea:focus,
+.vos-contact-form select:focus {
+	outline: none;
+	border-color: var(--vos-accent);
+	box-shadow: 0 0 0 3px rgba(184,137,63,0.18);
+}
+.vos-contact-form input::placeholder,
+.vos-contact-form textarea::placeholder { color: var(--vos-muted); }
+.vos-contact-form label { color: var(--vos-cream); font-size: 14px; font-weight: 600; display: block; }
+.vos-contact-form .wpcf7-submit {
+	background: linear-gradient(135deg, var(--vos-accent), var(--vos-accent-2));
+	color: #1a1208;
+	border: 0;
+	font-weight: 700;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	padding: 14px 30px;
+	border-radius: 999px;
+	cursor: pointer;
+	width: auto;
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+.vos-contact-form .wpcf7-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -10px rgba(216,176,106,0.7); }
+
+/* Social row */
+.vos-social { display: flex; gap: 12px; flex-wrap: wrap; }
+.vos-social-link {
+	width: 44px; height: 44px;
+	display: grid; place-items: center;
+	border-radius: 50%;
+	background: rgba(184,137,63,0.10);
+	border: 1px solid var(--vos-border);
+	color: var(--vos-accent-2);
+	font-size: 18px;
+	transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+.vos-social-link:hover {
+	transform: translateY(-3px);
+	background: var(--vos-accent);
+	color: #1a1208;
+}
+
+/* ----------------------------------------------------------------------------
+ * CTA panel
+ * -------------------------------------------------------------------------- */
+.vos-cta {
+	max-width: 100%;
+	padding: 80px 24px;
+	background:
+		radial-gradient(80% 120% at 50% 0%, rgba(184,137,63,0.16), transparent 60%),
+		var(--vos-surface);
+	border-top: 1px solid var(--vos-border);
+}
+.vos-cta-inner {
+	max-width: 760px;
+	margin: 0 auto;
+	text-align: center;
+	background: linear-gradient(180deg, var(--vos-surface-2), var(--vos-bg));
+	border: 1px solid var(--vos-border);
+	border-radius: 22px;
+	padding: 52px 36px;
+	box-shadow: 0 30px 70px -40px rgba(0,0,0,0.9);
+}
+.vos-cta-title { font-size: clamp(26px, 4vw, 40px); text-transform: uppercase; }
+.vos-cta-text { color: var(--vos-cream); max-width: 540px; margin: 0 auto 28px; }
+.vos-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ----------------------------------------------------------------------------
+ * Policy prose
+ * -------------------------------------------------------------------------- */
+.vos-policy {
+	max-width: 860px;
+	margin: 0 auto;
+	background: linear-gradient(180deg, var(--vos-surface-2), var(--vos-surface));
+	border: 1px solid var(--vos-border);
+	border-radius: var(--vos-radius);
+	padding: 50px 48px;
+}
+.vos-policy h2 {
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	margin: 34px 0 14px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--vos-border);
+	color: var(--vos-accent-2);
+}
+.vos-policy h2:first-child { margin-top: 0; }
+.vos-policy p { color: var(--vos-cream); }
+.vos-policy ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
+.vos-policy li {
+	position: relative;
+	padding: 8px 0 8px 26px;
+	color: var(--vos-cream);
+	border-bottom: 1px solid var(--vos-border-soft);
+}
+.vos-policy li:last-child { border-bottom: 0; }
+.vos-policy li::before {
+	content: "\f054";
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	position: absolute;
+	left: 0; top: 9px;
+	font-size: 11px;
+	color: var(--vos-accent);
+}
+
+/* ----------------------------------------------------------------------------
+ * Footer (Home page only)
+ * -------------------------------------------------------------------------- */
+.vos-footer {
+	background: var(--vos-bg);
+	border-top: 1px solid var(--vos-accent);
+	padding: 64px 24px 0;
+}
+.vos-footer-grid {
+	max-width: var(--vos-maxw);
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+	gap: 40px;
+	padding-bottom: 50px;
+}
+.vos-footer-logo { width: 155px; height: auto; margin-bottom: 16px; }
+.vos-footer-tag {
+	font-family: var(--vos-font-head);
+	color: var(--vos-accent-2);
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-size: 13px;
+	margin-bottom: 12px;
+}
+.vos-footer-desc { color: var(--vos-muted); font-size: 14.5px; max-width: 320px; }
+.vos-footer-head {
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 22px;
+	position: relative;
+	padding-bottom: 12px;
+	color: var(--vos-primary);
+}
+.vos-footer-head::after {
+	content: "";
+	position: absolute;
+	left: 0; bottom: 0;
+	width: 40px; height: 2px;
+	background: var(--vos-accent);
+	transform-origin: left;
+	animation: vosUnderline 2.6s ease-in-out infinite;
+}
+@keyframes vosUnderline {
+	0%, 100% { transform: scaleX(1); opacity: 1; }
+	50% { transform: scaleX(1.8); opacity: .6; }
+}
+.vos-footer-links, .vos-footer-contact { list-style: none; margin: 0; padding: 0; }
+.vos-footer-links li, .vos-footer-contact li { margin-bottom: 12px; font-size: 14.5px; }
+.vos-footer-links a, .vos-footer-contact a { color: var(--vos-cream); transition: color .25s ease, text-shadow .25s ease; }
+.vos-footer-links a:hover, .vos-footer-contact a:hover {
+	color: var(--vos-accent-2);
+	text-shadow: 0 0 12px rgba(216,176,106,0.6);
+}
+.vos-footer-contact li { display: flex; gap: 10px; align-items: flex-start; color: var(--vos-cream); }
+.vos-footer-contact i { color: var(--vos-accent); margin-top: 4px; width: 16px; text-align: center; }
+.vos-footer-brand .vos-social { margin-top: 20px; }
+.vos-footer-bottom {
+	max-width: var(--vos-maxw);
+	margin: 0 auto;
+	border-top: 1px solid var(--vos-border-soft);
+	padding: 22px 0;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.vos-footer-bottom p { margin: 0; color: var(--vos-muted); font-size: 13.5px; }
+.vos-footer-bottom a { color: var(--vos-accent-2); }
+
+/* ----------------------------------------------------------------------------
+ * Responsive
+ * -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+	.vos-two-col { grid-template-columns: 1fr; }
+	.vos-two-col-side { position: static; }
+	.vos-contact-grid { grid-template-columns: 1fr; }
+	.vos-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+	.vos-section { padding: 64px 20px; }
+	.vos-hero { padding: 96px 20px 64px; }
+	.vos-policy { padding: 34px 24px; }
+	.vos-section-head { margin-bottom: 40px; }
+}
+@media (max-width: 540px) {
+	.vos-wrap { font-size: 16px; }
+	.vos-footer-grid { grid-template-columns: 1fr; }
+	.vos-cta-inner { padding: 38px 22px; }
+	.vos-btn { width: 100%; justify-content: center; }
+	.vos-hero-actions, .vos-cta-actions { width: 100%; }
+	.vos-footer-bottom { justify-content: center; text-align: center; }
+}
