@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Header & Footer
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Souk Profumi Header & Footer. Shortcodes [sp_header] and [sp_footer] also available.
- * Version:     1.0.4
+ * Version:     1.0.5
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -20,7 +20,7 @@ define( 'SP_HF_INSTAGRAM', '' );
 define( 'SP_HF_FACEBOOK',  '' );
 define( 'SP_HF_TIKTOK',    '' );
 
-define( 'SP_HF_VERSION', '1.0.4' );
+define( 'SP_HF_VERSION', '1.0.5' );
 define( 'SP_HF_URL',  plugin_dir_url( __FILE__ ) );
 define( 'SP_HF_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -197,7 +197,48 @@ function sp_hf_render_header() {
 
     ob_start(); ?>
 <header class="sp-hdr-bar" role="banner">
+  <div class="sp-hdr-offer-wrapper" aria-label="Vantaggi Souk Profumi">
+    <div class="sp-hdr-offer-track">
+      <?php for ( $i = 0; $i < 2; $i++ ) : ?>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          <span class="sp-hdr-offer-highlight">100%</span> Prodotti Autentici
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Spedizione in tutta Italia
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Spedizione Gratis da €100
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Consegna stimata 3-4 giorni lavorativi
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Tracking via Email
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Imballaggio Sicuro
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Assistenza via WhatsApp
+        </div>
+        <div class="sp-hdr-offer-item">
+          <span class="sp-hdr-offer-dot"></span>
+          Profumi Arabi di Nicchia
+        </div>
+      <?php endfor; ?>
+    </div>
+  </div>
+
   <div class="sp-hdr-inner">
+    <button class="sp-hdr-icon sp-hdr-burger" id="spHdrBurger" aria-label="Apri menu"><i class="fa-solid fa-bars"></i></button>
+
     <a class="sp-hdr-logo" href="<?php echo $logo_link; ?>" aria-label="Home Souk Profumi">
       <img src="<?php echo $logo; ?>" alt="Souk Profumi" />
     </a>
@@ -223,7 +264,6 @@ function sp_hf_render_header() {
         </a>
       <?php endif; ?>
       <a class="sp-hdr-icon" href="<?php echo $account_url; ?>" aria-label="Account"><i class="fa-regular fa-user"></i></a>
-      <button class="sp-hdr-icon sp-hdr-burger" id="spHdrBurger" aria-label="Apri menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
 
