@@ -3,7 +3,7 @@
  * Plugin Name: Royal Vastar Header & Footer
  * Plugin URI:  https://royalvastar.com/
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Royal Vastar Header & Footer. Shortcodes [rv_header] and [rv_footer] also available for manual placement.
- * Version:     1.1.0
+ * Version:     1.1.2
  * Author:      Royal Vastar
  * Author URI:  https://royalvastar.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'RV_HF_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'RV_HF_URL',     plugin_dir_url( __FILE__ ) );
-define( 'RV_HF_VERSION', '1.1.0' );
+define( 'RV_HF_VERSION', '1.1.2' );
+define( 'RV_HF_CSS_FILE', RV_HF_DIR . 'assets/css/rv-hf.css' );
+define( 'RV_HF_ASSET_VERSION', RV_HF_VERSION . '-' . filemtime( RV_HF_CSS_FILE ) );
 define( 'RV_HF_LOGO_URL', 'https://limegreen-gaur-701943.hostingersite.com/wp-content/uploads/2026/05/Royal-Vaster-1.png' );
 
 /* ── Default contact details (overridable in settings) ───────── */
@@ -59,8 +61,66 @@ function rv_hf_enqueue_assets() {
 		'rv-hf',
 		RV_HF_URL . 'assets/css/rv-hf.css',
 		[ 'rv-font-awesome', 'rv-hf-google-fonts' ],
-		RV_HF_VERSION
+		RV_HF_ASSET_VERSION
 	);
+	wp_add_inline_style( 'rv-hf', rv_hf_palette_override_css() );
+}
+
+function rv_hf_palette_override_css() {
+	return <<<'CSS'
+:root {
+  --rv-color-1: #f7f1e8 !important;
+  --rv-color-2: #eee2d2 !important;
+  --rv-color-3: #171717 !important;
+  --rv-color-4: #5b5148 !important;
+  --rv-bg: #f7f1e8 !important;
+  --rv-gradient: #eee2d2 !important;
+  --rv-primary: #171717 !important;
+  --rv-accent: #b08a4a !important;
+  --rv-surface: #ffffff !important;
+  --rv-surface2: #eee2d2 !important;
+  --rv-border: #d8c3a1 !important;
+  --rv-gold-light: #d8c3a1 !important;
+  --rv-gold-dark: #b08a4a !important;
+  --rv-white: #ffffff !important;
+  --rv-text: #171717 !important;
+  --rv-muted: #5b5148 !important;
+  --rv-glow: rgba(176,138,74,0.25) !important;
+  --rv-glow-strong: rgba(176,138,74,0.45) !important;
+  --rv-wa-green: #b08a4a !important;
+}
+.rv-hdr-bar,
+.rv-ftr-wrap {
+  background: #f7f1e8 !important;
+  border-color: #d8c3a1 !important;
+}
+.rv-hdr-search,
+.rv-hdr-mobile-nav,
+.rv-hdr-mobile-search,
+.rv-ftr-social-link {
+  background: #ffffff !important;
+  border-color: #d8c3a1 !important;
+}
+.rv-hdr-search input,
+.rv-hdr-mobile-search input,
+.rv-ftr-heading {
+  color: #171717 !important;
+}
+.rv-hdr-icon-btn,
+.rv-hdr-mobile-nav a,
+.rv-ftr-desc,
+.rv-ftr-link,
+.rv-ftr-contact-text {
+  color: #5b5148 !important;
+}
+.rv-hdr-icon-btn:hover,
+.rv-hdr-mobile-nav a:hover,
+.rv-ftr-link:hover,
+.rv-ftr-contact-icon,
+.rv-ftr-brand-name {
+  color: #b08a4a !important;
+}
+CSS;
 }
 
 /* ── Body class: adds padding-top offset for fixed header ─────── */
@@ -760,7 +820,7 @@ function rv_render_footer() {
   <div class="rv-ftr-bottom">
     <span>&copy; <?php echo $current_year; ?> <?php echo $site_name; ?>. All rights reserved.</span>
     <span>&nbsp;&mdash;&nbsp;</span>
-    <span>Developed by <a href="https://royalvastar.com/" target="_blank" rel="noopener">Royal Vastar</a></span>
+    <span>Developed by <a href="https://nextgenfusion.in/" target="_blank" rel="noopener">NextGen Fusion</a></span>
   </div>
 
 </footer>

@@ -175,9 +175,67 @@
     }
   }
 
-  /* ---- 10. Client dashboard videos: lazy load + themed play/pause ---- */
-  /* No poster image — a styled CSS placeholder (.a24-vid) shows until the clip is played. */
-  document.querySelectorAll('.a24-vid').forEach(function (card) {
+  /* ---- 10. Client dashboard videos: per-clip frame thumbnails + themed play/pause ---- */
+  /* Each card grabs a real still frame from its own video — a unique thumbnail with no
+     poster images and no extra files. The clip is loaded only far enough to decode one
+     frame, which is painted to a <canvas>. (drawImage works even for cross-origin video;
+     we never read the pixels back, so it never taints anything.) The styled CSS
+     placeholder stays visible until that frame is ready, and as a fallback if a browser
+     blocks off-screen decoding. */
+  var vidCards = document.querySelectorAll('.a24-vid');
+
+  function buildThumb(card, video) {
+    if (!video || card.dataset.thumbStarted) return;
+    card.dataset.thumbStarted = '1';
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'a24-vid__thumb';
+    canvas.setAttribute('aria-hidden', 'true');
+    card.insertBefore(canvas, video);
+
+    var done = false;
+    var grab = function () {
+      if (done) return;
+      var w = video.videoWidth, h = video.videoHeight;
+      if (!w || !h) return;
+      done = true;
+      canvas.width = w;
+      canvas.height = h;
+      try {
+        canvas.getContext('2d').drawImage(video, 0, 0, w, h);
+        card.classList.add('has-thumb');
+      } catch (e) { /* leave the CSS placeholder in place */ }
+      video.removeEventListener('seeked', grab);
+      // Rewind so a later click plays the clip from the start.
+      try { if (video.currentTime) video.currentTime = 0; } catch (e2) {}
+    };
+
+    video.addEventListener('loadedmetadata', function () {
+      // The very first frame is often blank/transitional, so step a little way in.
+      var t = Math.min(1.2, (video.duration || 4) * 0.12) || 0.1;
+      video.addEventListener('seeked', grab);
+      try { video.currentTime = t; } catch (e) { grab(); }
+    }, { once: true });
+
+    // Load just metadata + a frame, not the whole file.
+    video.preload = 'metadata';
+    try { video.load(); } catch (e) {}
+  }
+
+  if ('IntersectionObserver' in window) {
+    var thumbIO = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        buildThumb(entry.target, entry.target.querySelector('.a24-vid__player'));
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '300px 0px' });
+    vidCards.forEach(function (card) { thumbIO.observe(card); });
+  } else {
+    vidCards.forEach(function (card) { buildThumb(card, card.querySelector('.a24-vid__player')); });
+  }
+
+  vidCards.forEach(function (card) {
     var video = card.querySelector('.a24-vid__player');
     var btn = card.querySelector('.a24-vid__toggle');
     if (!video || !btn) return;

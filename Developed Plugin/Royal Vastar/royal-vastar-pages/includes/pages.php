@@ -200,7 +200,8 @@ function rv_page_home() {
   <div class="rv-home-footer-bottom">
     &copy; 2026 Royal Vastar. All rights reserved. &mdash;
     <a href="%%URL_PRIVACY%%">Privacy Policy</a> &middot;
-    <a href="%%URL_TERMS%%">Terms of Service</a>
+    <a href="%%URL_TERMS%%">Terms of Service</a> &middot;
+    Developed by <a href="https://nextgenfusion.in/" target="_blank" rel="noopener">NextGen Fusion</a>
   </div>
 </div>
 <!-- /wp:html -->

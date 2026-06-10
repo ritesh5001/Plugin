@@ -4,7 +4,7 @@ Tags: landing page, agency, one-click, pages
 Requires at least: 5.5
 Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 2.1.0
+Stable tag: 2.3.0
 License: GPLv2 or later
 
 One-click installer for the complete 24 Ads Marketing website.
@@ -43,6 +43,16 @@ Deleting the plugin removes the pages it created and resets the front-page
 setting. Deactivating alone leaves your pages untouched.
 
 == Changelog ==
+
+= 2.3.0 =
+* Clients page — renamed the "Bags and Luggage" brand tab to "Beauty and
+  Cosmetics".
+
+= 2.2.0 =
+* Clients page — each dashboard video now shows a unique thumbnail captured
+  from its own first seconds (a real still frame, generated in the browser, no
+  image files needed). The styled CSS placeholder remains as the loading/
+  fallback state.
 
 = 2.1.0 =
 * Clients page — replaced the dashboard video thumbnail images with a styled,
