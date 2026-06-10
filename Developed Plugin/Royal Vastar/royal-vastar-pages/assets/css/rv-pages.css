@@ -1,28 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
 
-/* ── Variables (all colors extracted from the Royal Vastar logo) ── */
+/* ── Variables (Royal Vastar luxury beige palette) ── */
 :root {
-  /* Raw logo colors */
-  --rv-color-1:      #0D3320;    /* darkest green — shield interior */
-  --rv-color-2:      #C9A040;    /* rich gold — crown, arrows, laurel, text */
-  --rv-color-3:      #1B4332;    /* forest green — banner & shield background */
-  --rv-color-4:      #2D6A4F;    /* medium emerald — lighter green areas */
+  /* Raw palette colors */
+  --rv-color-1:      #f7f1e8;    /* luxury beige background */
+  --rv-color-2:      #eee2d2;    /* warm beige gradient */
+  --rv-color-3:      #171717;    /* premium black text */
+  --rv-color-4:      #5b5148;    /* warm grey-brown secondary text */
 
   /* Semantic aliases */
-  --rv-bg:           #0D3320;    /* page background */
-  --rv-primary:      #C9A040;    /* primary text accent */
-  --rv-accent:       #C9A040;    /* borders, glows, hover states */
-  --rv-surface:      #1B4332;    /* card/panel backgrounds */
-  --rv-surface2:     #2D6A4F;    /* slightly lighter panels */
+  --rv-bg:           #f7f1e8;    /* page background */
+  --rv-gradient:     #eee2d2;    /* background gradient second color */
+  --rv-primary:      #171717;    /* primary heading text */
+  --rv-accent:       #b08a4a;    /* eyebrow text, accents, highlights */
+  --rv-surface:      #ffffff;    /* card/panel backgrounds */
+  --rv-surface2:     #eee2d2;    /* slightly lighter panels */
+  --rv-border:       #d8c3a1;    /* light gold border lines */
 
   /* Derived utilities */
-  --rv-gold-light:   #E8C96E;
-  --rv-gold-dark:    #8B6914;
-  --rv-white:        #FFFFFF;
-  --rv-text:         #EAEFE9;    /* soft off-white for body copy */
-  --rv-muted:        #C2CFBE;    /* light sage for secondary text */
-  --rv-glow:         rgba(201,160,64,0.25);
-  --rv-glow-strong:  rgba(201,160,64,0.45);
+  --rv-gold-light:   #d8c3a1;
+  --rv-gold-dark:    #b08a4a;
+  --rv-white:        #ffffff;
+  --rv-text:         #171717;    /* primary body copy */
+  --rv-muted:        #5b5148;    /* secondary text */
+  --rv-glow:         rgba(176,138,74,0.25);
+  --rv-glow-strong:  rgba(176,138,74,0.45);
   --rv-radius:       8px;
   --rv-radius-lg:    16px;
   --rv-transition:   0.3s ease;
@@ -158,7 +160,7 @@ body.rv-page .rv-h2,
 body.rv-page .rv-h3 {
   font-family: 'Cinzel', serif !important;
   font-weight: 700 !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   line-height: 1.2 !important;
   margin: 0 0 16px !important;
   text-transform: none !important;
@@ -202,19 +204,19 @@ body.rv-page .rv-chip {
 
 /* ── Hero section ────────────────────────────────────────────── */
 body.rv-page .rv-hero {
-  background: linear-gradient(160deg, #0D3320 0%, #1B4332 50%, #0D2A18 100%) !important;
+  background: linear-gradient(160deg, #f7f1e8 0%, #eee2d2 50%, #f7f1e8 100%) !important;
   text-align: center;
   padding: 100px 24px 80px;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(201,160,64,0.3);
+  border-bottom: 1px solid rgba(216,195,161,0.3);
 }
 
 body.rv-page .rv-hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,160,64,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(176,138,74,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -231,7 +233,7 @@ body.rv-page .rv-hero-logo {
 }
 
 body.rv-page .rv-hero h1 {
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
 }
 
 body.rv-page .rv-hero-intro {
@@ -245,8 +247,8 @@ body.rv-page .rv-hero-intro {
 /* ── Stats bar ───────────────────────────────────────────────── */
 body.rv-page .rv-stats {
   background: var(--rv-surface) !important;
-  border-top: 1px solid rgba(201,160,64,0.2);
-  border-bottom: 1px solid rgba(201,160,64,0.2);
+  border-top: 1px solid rgba(216,195,161,0.2);
+  border-bottom: 1px solid rgba(216,195,161,0.2);
   padding: 40px 24px;
 }
 
@@ -291,7 +293,7 @@ body.rv-page .rv-grid {
 
 body.rv-page .rv-card {
   background: var(--rv-surface) !important;
-  border: 1px solid rgba(201,160,64,0.25);
+  border: 1px solid rgba(216,195,161,0.25);
   border-radius: var(--rv-radius-lg);
   padding: 36px 28px;
   transition: border-color var(--rv-transition), box-shadow var(--rv-transition), transform var(--rv-transition);
@@ -330,7 +332,7 @@ body.rv-page .rv-card h3 {
   font-family: 'Cinzel', serif !important;
   font-size: 1.2rem !important;
   font-weight: 600 !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 12px !important;
 }
 
@@ -394,7 +396,7 @@ body.rv-page .rv-why-list li {
   align-items: flex-start;
   gap: 16px;
   background: var(--rv-bg) !important;
-  border: 1px solid rgba(201,160,64,0.2);
+  border: 1px solid rgba(216,195,161,0.2);
   border-radius: var(--rv-radius);
   padding: 20px;
   margin: 0;
@@ -411,7 +413,7 @@ body.rv-page .rv-why-text strong {
   display: block;
   font-family: 'Cinzel', serif !important;
   font-size: 0.95rem;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin-bottom: 4px;
 }
 
@@ -422,8 +424,8 @@ body.rv-page .rv-why-text span {
 
 /* ── CTA panel ───────────────────────────────────────────────── */
 body.rv-page .rv-cta {
-  background: linear-gradient(135deg, #1B4332 0%, #0D3A1E 100%) !important;
-  border: 1px solid rgba(201,160,64,0.35);
+  background: linear-gradient(135deg, #ffffff 0%, #eee2d2 100%) !important;
+  border: 1px solid rgba(216,195,161,0.35);
   border-radius: var(--rv-radius-lg);
   text-align: center;
   padding: 64px 32px;
@@ -435,7 +437,7 @@ body.rv-page .rv-cta::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,160,64,0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(176,138,74,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -447,7 +449,7 @@ body.rv-page .rv-cta > * {
 body.rv-page .rv-cta h2 {
   font-family: 'Cinzel', serif !important;
   font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 12px !important;
 }
 
@@ -471,7 +473,7 @@ body.rv-page .rv-btn {
   align-items: center;
   gap: 8px;
   background: var(--rv-accent) !important;
-  color: var(--rv-bg) !important;
+  color: var(--rv-primary) !important;
   font-family: 'Manrope', sans-serif !important;
   font-size: 0.95rem;
   font-weight: 700;
@@ -498,7 +500,7 @@ body.rv-page .rv-btn-outline {
 
 body.rv-page .rv-btn-outline:hover {
   background: var(--rv-accent) !important;
-  color: var(--rv-bg) !important;
+  color: var(--rv-primary) !important;
 }
 
 /* ── Two-column layout ───────────────────────────────────────── */
@@ -512,7 +514,7 @@ body.rv-page .rv-two-col {
 body.rv-page .rv-two-col-content h2 {
   font-family: 'Cinzel', serif !important;
   font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 20px !important;
 }
 
@@ -535,7 +537,7 @@ body.rv-page .rv-feature-list li {
   gap: 14px;
   padding: 16px 0;
   margin: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(216,195,161,0.08);
 }
 
 body.rv-page .rv-feature-list li:last-child {
@@ -545,7 +547,7 @@ body.rv-page .rv-feature-list li:last-child {
 body.rv-page .rv-feature-icon {
   width: 36px;
   height: 36px;
-  background: rgba(201,160,64,0.15);
+  background: rgba(176,138,74,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -558,7 +560,7 @@ body.rv-page .rv-feature-icon {
 body.rv-page .rv-feature-text strong {
   display: block;
   font-size: 0.95rem;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -615,7 +617,7 @@ body.rv-page .rv-step h4 {
   font-family: 'Cinzel', serif !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 8px !important;
 }
 
@@ -635,7 +637,7 @@ body.rv-page .rv-section-heading {
 body.rv-page .rv-section-heading h2 {
   font-family: 'Cinzel', serif !important;
   font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 12px !important;
 }
 
@@ -656,7 +658,7 @@ body.rv-page .rv-divider {
 /* ── Contact section ─────────────────────────────────────────── */
 body.rv-page .rv-contact-panel {
   background: var(--rv-surface) !important;
-  border: 1px solid rgba(201,160,64,0.25);
+  border: 1px solid rgba(216,195,161,0.25);
   border-radius: var(--rv-radius-lg);
   padding: 40px 36px;
   height: 100%;
@@ -665,7 +667,7 @@ body.rv-page .rv-contact-panel {
 body.rv-page .rv-contact-panel h3 {
   font-family: 'Cinzel', serif !important;
   font-size: 1.4rem !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 28px !important;
 }
 
@@ -683,7 +685,7 @@ body.rv-page .rv-contact-item:last-child {
 body.rv-page .rv-contact-item-icon {
   width: 40px;
   height: 40px;
-  background: rgba(201,160,64,0.15);
+  background: rgba(176,138,74,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -704,7 +706,7 @@ body.rv-page .rv-contact-item-text strong {
 body.rv-page .rv-contact-item-text a,
 body.rv-page .rv-contact-item-text span {
   font-size: 1rem;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   text-decoration: none;
   transition: color var(--rv-transition);
 }
@@ -725,7 +727,7 @@ body.rv-page .rv-social-link {
   align-items: center;
   gap: 8px;
   background: var(--rv-surface2) !important;
-  border: 1px solid rgba(201,160,64,0.25);
+  border: 1px solid rgba(216,195,161,0.25);
   color: var(--rv-muted) !important;
   font-size: 0.88rem;
   text-decoration: none !important;
@@ -743,7 +745,7 @@ body.rv-page .rv-social-link:hover {
 /* ── CF7 form wrapper ────────────────────────────────────────── */
 body.rv-page .rv-form-panel {
   background: var(--rv-surface) !important;
-  border: 1px solid rgba(201,160,64,0.25);
+  border: 1px solid rgba(216,195,161,0.25);
   border-radius: var(--rv-radius-lg);
   padding: 40px 36px;
 }
@@ -751,7 +753,7 @@ body.rv-page .rv-form-panel {
 body.rv-page .rv-form-panel h3 {
   font-family: 'Cinzel', serif !important;
   font-size: 1.4rem !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 0 0 28px !important;
 }
 
@@ -769,9 +771,9 @@ body.rv-page .rv-form-panel .wpcf7-form textarea,
 body.rv-page .rv-form-panel .wpcf7-form select {
   width: 100%;
   background: var(--rv-surface2) !important;
-  border: 1px solid rgba(201,160,64,0.25) !important;
+  border: 1px solid rgba(216,195,161,0.25) !important;
   border-radius: var(--rv-radius);
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   font-family: 'Manrope', sans-serif !important;
   font-size: 0.95rem;
   padding: 12px 16px;
@@ -789,7 +791,7 @@ body.rv-page .rv-form-panel .wpcf7-form textarea:focus {
 
 body.rv-page .rv-form-panel .wpcf7-form input[type="submit"] {
   background: var(--rv-accent) !important;
-  color: var(--rv-bg) !important;
+  color: var(--rv-primary) !important;
   font-family: 'Manrope', sans-serif !important;
   font-size: 0.95rem;
   font-weight: 700;
@@ -819,7 +821,7 @@ body.rv-page .rv-policy-meta {
   flex-wrap: wrap;
   margin-bottom: 40px;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(201,160,64,0.2);
+  border-bottom: 1px solid rgba(216,195,161,0.2);
 }
 
 body.rv-page .rv-policy-meta span {
@@ -841,13 +843,13 @@ body.rv-page .rv-policy-section h2 {
   color: var(--rv-accent) !important;
   margin: 0 0 16px !important;
   padding-bottom: 10px !important;
-  border-bottom: 1px solid rgba(201,160,64,0.2);
+  border-bottom: 1px solid rgba(216,195,161,0.2);
 }
 
 body.rv-page .rv-policy-section h3 {
   font-family: 'Cinzel', serif !important;
   font-size: 1rem !important;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
   margin: 24px 0 8px !important;
 }
 
@@ -882,7 +884,7 @@ body.rv-page .rv-policy-section a:hover {
 }
 
 body.rv-page .rv-policy-highlight {
-  background: rgba(201,160,64,0.1) !important;
+  background: rgba(176,138,74,0.1) !important;
   border-left: 3px solid var(--rv-accent);
   border-radius: 0 var(--rv-radius) var(--rv-radius) 0;
   padding: 16px 20px;
@@ -892,13 +894,13 @@ body.rv-page .rv-policy-highlight {
 body.rv-page .rv-policy-highlight p {
   margin: 0;
   font-weight: 500;
-  color: var(--rv-white) !important;
+  color: var(--rv-primary) !important;
 }
 
 /* ── Home page inline footer links ───────────────────────────── */
 body.rv-page .rv-home-footer {
   background: var(--rv-bg) !important;
-  border-top: 1px solid rgba(201,160,64,0.2);
+  border-top: 1px solid rgba(216,195,161,0.2);
   padding: 40px 24px;
 }
 
@@ -944,7 +946,7 @@ body.rv-page .rv-home-footer-bottom {
   max-width: 1200px;
   margin: 24px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(216,195,161,0.08);
   text-align: center;
   font-size: 0.85rem;
   color: var(--rv-muted) !important;

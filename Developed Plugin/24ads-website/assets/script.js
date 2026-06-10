@@ -176,12 +176,11 @@
   }
 
   /* ---- 10. Client dashboard videos: lazy load + themed play/pause ---- */
-  var dashboardPoster = 'https://24adsmarketing.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-05-at-23.06.53.jpeg';
+  /* No poster image — a styled CSS placeholder (.a24-vid) shows until the clip is played. */
   document.querySelectorAll('.a24-vid').forEach(function (card) {
     var video = card.querySelector('.a24-vid__player');
     var btn = card.querySelector('.a24-vid__toggle');
     if (!video || !btn) return;
-    video.setAttribute('poster', dashboardPoster);
 
     var toggle = function () {
       if (video.paused || video.ended) {

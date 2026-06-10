@@ -246,40 +246,40 @@ function rv_hf_render_settings_page() {
 	?>
 	<style>
 		.rv-admin-wrap { max-width: 680px; margin: 32px 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-		.rv-admin-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-		.rv-admin-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #1a1a1a; display: flex; align-items: center; gap: 8px; }
-		.rv-admin-card .rv-card-desc { color: #666; font-size: 0.85rem; margin: 0 0 22px; line-height: 1.6; }
-		.rv-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-top: 1px solid #f0f0f0; gap: 24px; }
+		.rv-admin-card { background: #ffffff; border: 1px solid #d8c3a1; border-radius: 8px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(23,23,23,.06); }
+		.rv-admin-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #171717; display: flex; align-items: center; gap: 8px; }
+		.rv-admin-card .rv-card-desc { color: #5b5148; font-size: 0.85rem; margin: 0 0 22px; line-height: 1.6; }
+		.rv-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-top: 1px solid #d8c3a1; gap: 24px; }
 		.rv-toggle-info { flex: 1; }
-		.rv-toggle-info strong { font-size: 0.95rem; color: #1a1a1a; display: flex; align-items: center; gap: 8px; }
-		.rv-toggle-info p { margin: 4px 0 0; font-size: 0.82rem; color: #777; }
+		.rv-toggle-info strong { font-size: 0.95rem; color: #171717; display: flex; align-items: center; gap: 8px; }
+		.rv-toggle-info p { margin: 4px 0 0; font-size: 0.82rem; color: #5b5148; }
 		.rv-switch { position: relative; display: inline-block; width: 52px; height: 28px; flex-shrink: 0; }
 		.rv-switch input { opacity: 0; width: 0; height: 0; }
-		.rv-switch-track { position: absolute; inset: 0; background: #ccc; border-radius: 28px; cursor: pointer; transition: background .25s; }
-		.rv-switch-track::before { content: ''; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: transform .25s; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
-		.rv-switch input:checked + .rv-switch-track { background: #C9A040; }
+		.rv-switch-track { position: absolute; inset: 0; background: #d8c3a1; border-radius: 28px; cursor: pointer; transition: background .25s; }
+		.rv-switch-track::before { content: ''; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: #ffffff; border-radius: 50%; transition: transform .25s; box-shadow: 0 1px 4px rgba(23,23,23,.2); }
+		.rv-switch input:checked + .rv-switch-track { background: #b08a4a; }
 		.rv-switch input:checked + .rv-switch-track::before { transform: translateX(24px); }
 		.rv-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: .04em; padding: 2px 8px; border-radius: 100px; }
-		.rv-badge-on  { background: #e6f4ea; color: #137333; }
-		.rv-badge-off { background: #fce8e6; color: #c0392b; }
-		.rv-admin-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding: 20px 24px; background: #0D3320; border-radius: 8px; }
+		.rv-badge-on  { background: #f7f1e8; color: #b08a4a; }
+		.rv-badge-off { background: #eee2d2; color: #5b5148; }
+		.rv-admin-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding: 20px 24px; background: #f7f1e8; border-radius: 8px; }
 		.rv-admin-header img { height: 44px; width: auto; }
-		.rv-admin-header h1 { font-size: 1.15rem; font-weight: 700; color: #C9A040; margin: 0; font-family: Georgia, serif; }
-		.rv-admin-header p  { font-size: 0.8rem; color: #A0C4A8; margin: 2px 0 0; }
-		.rv-sc-box { display: inline-block; background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #333; padding: 6px 12px; margin: 4px 0 12px; }
+		.rv-admin-header h1 { font-size: 1.15rem; font-weight: 700; color: #b08a4a; margin: 0; font-family: Georgia, serif; }
+		.rv-admin-header p  { font-size: 0.8rem; color: #5b5148; margin: 2px 0 0; }
+		.rv-sc-box { display: inline-block; background: #f7f1e8; border: 1px solid #d8c3a1; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #171717; padding: 6px 12px; margin: 4px 0 12px; }
 		.rv-submit-row { margin-top: 6px; }
-		.rv-field-label { display: block; font-size: 0.85rem; font-weight: 600; color: #1a1a1a; margin: 16px 0 6px; }
+		.rv-field-label { display: block; font-size: 0.85rem; font-weight: 600; color: #171717; margin: 16px 0 6px; }
 		.rv-field-label:first-of-type { margin-top: 0; }
-		.rv-field-note { font-weight: 400; color: #999; font-size: 0.78rem; }
-		.rv-text-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid #cfcfcf; border-radius: 6px; font-size: 0.9rem; color: #1a1a1a; transition: border-color .2s, box-shadow .2s; }
-		.rv-text-input:focus { outline: none; border-color: #C9A040; box-shadow: 0 0 0 3px rgba(201,160,64,.18); }
-		.rv-field-hint { font-size: 0.8rem; color: #777; margin: 8px 0 0; }
-		.rv-logo-preview { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: #0D3320; border-radius: 6px; }
-		.rv-logo-preview span { font-size: 0.78rem; color: #A0C4A8; }
+		.rv-field-note { font-weight: 400; color: #5b5148; font-size: 0.78rem; }
+		.rv-text-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid #d8c3a1; border-radius: 6px; font-size: 0.9rem; color: #171717; transition: border-color .2s, box-shadow .2s; }
+		.rv-text-input:focus { outline: none; border-color: #b08a4a; box-shadow: 0 0 0 3px rgba(176,138,74,.18); }
+		.rv-field-hint { font-size: 0.8rem; color: #5b5148; margin: 8px 0 0; }
+		.rv-logo-preview { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: #f7f1e8; border-radius: 6px; }
+		.rv-logo-preview span { font-size: 0.78rem; color: #5b5148; }
 		.rv-logo-preview img { max-height: 40px; max-width: 200px; width: auto; height: auto; }
 		.rv-link-row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 10px; }
 		.rv-link-row .rv-text-input { margin: 0; }
-		.rv-link-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #999; }
+		.rv-link-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5b5148; }
 	</style>
 
 	<div class="wrap rv-admin-wrap">
@@ -293,7 +293,7 @@ function rv_hf_render_settings_page() {
 		</div>
 
 		<?php if ( $just_saved ) : ?>
-		<div class="notice notice-success is-dismissible" style="border-left-color:#C9A040;">
+		<div class="notice notice-success is-dismissible" style="border-left-color:#b08a4a;">
 			<p><strong>&#10003; Settings saved.</strong> Cache cleared automatically. If you still see the old state, hard-refresh your browser (<kbd>Ctrl+Shift+R</kbd> / <kbd>Cmd+Shift+R</kbd>) and clear any server-side cache.</p>
 		</div>
 		<?php endif; ?>
@@ -405,12 +405,12 @@ function rv_hf_render_settings_page() {
 			<div class="rv-sc-box">[rv_header]</div>
 			<p><strong>Footer:</strong></p>
 			<div class="rv-sc-box">[rv_footer]</div>
-			<p style="font-size:0.82rem;color:#777;">In PHP templates: <code>&lt;?php echo do_shortcode('[rv_header]'); ?&gt;</code></p>
+			<p style="font-size:0.82rem;color:#5b5148;">In PHP templates: <code>&lt;?php echo do_shortcode('[rv_header]'); ?&gt;</code></p>
 		</div>
 
 		<div class="rv-admin-card">
 			<h2>&#8505; How Injection Works</h2>
-			<ul style="color:#555;font-size:0.85rem;line-height:1.8;padding-left:20px;">
+			<ul style="color:#5b5148;font-size:0.85rem;line-height:1.8;padding-left:20px;">
 				<li>Settings are saved via a secure custom handler — toggling OFF correctly disables injection.</li>
 				<li>After saving, all common caches (LiteSpeed, WP Rocket, W3TC, WP Super Cache, Autoptimize) are cleared automatically.</li>
 				<li>Header uses <code>wp_body_open</code> (modern themes) with <code>wp_footer</code> as automatic fallback for older themes. The header is <code>position: fixed</code> so it always appears at the top of the viewport.</li>
