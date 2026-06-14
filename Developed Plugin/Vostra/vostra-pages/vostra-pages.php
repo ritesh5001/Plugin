@@ -49,7 +49,7 @@ define( 'VOSTRA_COUNTRY', 'India' );
  * BOOTSTRAP
  * ========================================================================== */
 
-define( 'VOSTRA_PAGES_VERSION', '1.0.0' );
+define( 'VOSTRA_PAGES_VERSION', '1.0.1' );
 define( 'VOSTRA_PAGES_URL', plugin_dir_url( __FILE__ ) );
 define( 'VOSTRA_PAGES_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -115,6 +115,13 @@ function vostra_pages_activate() {
 
 		if ( $page_id && ! is_wp_error( $page_id ) ) {
 			$ids[ $slug ] = (int) $page_id;
+		}
+	}
+
+	// Force Elementor Full Width template on every plugin page (new + existing).
+	foreach ( $ids as $page_id ) {
+		if ( $page_id ) {
+			update_post_meta( (int) $page_id, '_wp_page_template', 'elementor_header_footer' );
 		}
 	}
 
