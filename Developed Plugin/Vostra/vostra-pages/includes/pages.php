@@ -23,9 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function vostra_social_links( $variant = 'footer' ) {
+	$wa_url  = VOSTRA_WHATSAPP ? 'https://wa.me/' . preg_replace( '/\D/', '', VOSTRA_WHATSAPP ) : '';
 	$socials = array(
 		'instagram' => array( VOSTRA_INSTAGRAM, 'fa-instagram', 'Instagram' ),
-		'facebook'  => array( VOSTRA_FACEBOOK, 'fa-facebook-f', 'Facebook' ),
+		'whatsapp'  => array( $wa_url, 'fa-whatsapp', 'WhatsApp' ),
 		'twitter'   => array( VOSTRA_TWITTER, 'fa-x-twitter', 'X' ),
 		'youtube'   => array( VOSTRA_YOUTUBE, 'fa-youtube', 'YouTube' ),
 		'linkedin'  => array( VOSTRA_LINKEDIN, 'fa-linkedin-in', 'LinkedIn' ),
