@@ -749,7 +749,7 @@ function rv_render_footer() {
 		'Terms &amp; Conditions' => rv_hf_page_url( 'terms-and-conditions' ),
 		'Refund Policy'          => rv_hf_page_url( 'refund-policy' ),
 		'Cancellation Policy'    => rv_hf_page_url( 'cancellation-policy' ),
-		'Shipping Policy'        => rv_hf_page_url( 'shipping-policy' ),
+		'Delivery Policy'        => rv_hf_page_url( 'shipping-policy' ),
 	];
 
 	ob_start();

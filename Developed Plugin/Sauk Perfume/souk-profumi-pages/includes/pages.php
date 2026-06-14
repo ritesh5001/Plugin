@@ -75,16 +75,16 @@ function sp_page_home() {
     <span class="sp-eyebrow">Marchi che trattiamo</span>
     <div class="sp-brand-strip__viewport">
       <div class="sp-brand-strip__track">
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/4.png" alt="Logo marchio 1"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/5.png" alt="Logo marchio 2"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/3.png" alt="Logo marchio 3"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/2.png" alt="Logo marchio 4"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/1.png" alt="Logo marchio 5"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/4.png" alt="Logo marchio 1"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/5.png" alt="Logo marchio 2"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/3.png" alt="Logo marchio 3"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/2.png" alt="Logo marchio 4"/></div>
-        <div class="sp-brand-strip__item"><img src="https://peachpuff-gaur-234217.hostingersite.com/wp-content/uploads/2026/06/1.png" alt="Logo marchio 5"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/4.png" alt="Logo marchio 1"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/5.png" alt="Logo marchio 2"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/3.png" alt="Logo marchio 3"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/2.png" alt="Logo marchio 4"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/1.png" alt="Logo marchio 5"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/4.png" alt="Logo marchio 1"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/5.png" alt="Logo marchio 2"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/3.png" alt="Logo marchio 3"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/2.png" alt="Logo marchio 4"/></div>
+        <div class="sp-brand-strip__item"><img src="https://soukprofumi.it/wp-content/uploads/2026/06/1.png" alt="Logo marchio 5"/></div>
       </div>
     </div>
   </div>
@@ -353,99 +353,99 @@ function sp_page_privacy() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>In Souk Profumi (soukprofumi.it) rispettiamo la privacy dei nostri clienti e ci impegniamo a proteggere i loro dati personali. La presente informativa spiega come raccogliamo, utilizziamo, conserviamo e proteggiamo i tuoi dati quando visiti il nostro sito o acquisti i nostri prodotti.</p>
-  <p>Questa informativa è stata redatta in conformità al Regolamento generale sulla protezione dei dati (UE) 2016/679 (GDPR) e alla normativa italiana applicabile in materia di protezione dei dati.</p>
+  <p>Da Souk Profumi (soukprofumi.it) teniamo davvero alla riservatezza di chi ci sceglie e facciamo il possibile per custodire con cura i dati personali dei nostri clienti. In questa pagina ti spieghiamo, senza giri di parole, quali informazioni raccogliamo, perché lo facciamo e come le proteggiamo quando navighi sul sito o acquisti una delle nostre fragranze.</p>
+  <p>Tutto ciò che leggi qui è conforme al Regolamento europeo sulla protezione dei dati (UE) 2016/679, meglio noto come GDPR, e alle norme italiane vigenti in materia di privacy.</p>
 
-  <h2>Informazioni che raccogliamo</h2>
+  <h2>Quali dati raccogliamo</h2>
 
-  <h3>Informazioni di contatto</h3>
-  <p>Possiamo raccogliere:</p>
+  <h3>Dati di contatto</h3>
+  <p>In base a ciò che ci comunichi, possiamo trattare:</p>
   <ul>
     <li>Nome e cognome</li>
     <li>Indirizzo email</li>
-    <li>Indirizzo di spedizione e fatturazione</li>
-    <li>Numero di telefono o WhatsApp</li>
+    <li>Indirizzo di spedizione e di fatturazione</li>
+    <li>Numero di telefono o di WhatsApp</li>
   </ul>
 
-  <h3>Informazioni di pagamento</h3>
-  <p>Le informazioni di pagamento sono raccolte e trattate in modo sicuro da provider di pagamento terzi affidabili. Souk Profumi non memorizza sui propri server i dati completi della carta di credito o debito.</p>
+  <h3>Dati di pagamento</h3>
+  <p>I pagamenti vengono gestiti in totale sicurezza da provider esterni specializzati e affidabili. I dati completi della tua carta non transitano né vengono conservati sui server di Souk Profumi.</p>
 
-  <h3>Informazioni di navigazione</h3>
-  <p>Possiamo raccogliere informazioni tramite cookie e tecnologie simili, tra cui:</p>
+  <h3>Dati di navigazione</h3>
+  <p>Quando visiti il sito, attraverso i cookie e strumenti analoghi possiamo raccogliere alcune informazioni tecniche, ad esempio:</p>
   <ul>
     <li>Indirizzo IP</li>
-    <li>Tipo di browser</li>
-    <li>Informazioni sul dispositivo</li>
-    <li>Pagine visitate</li>
-    <li>Statistiche di utilizzo del sito</li>
+    <li>Tipo di browser utilizzato</li>
+    <li>Dati relativi al dispositivo</li>
+    <li>Pagine consultate</li>
+    <li>Statistiche sull'utilizzo del sito</li>
   </ul>
 
-  <h2>Come utilizziamo le tue informazioni</h2>
+  <h2>Come utilizziamo i tuoi dati</h2>
 
   <h3>Gestione degli ordini</h3>
-  <p>Utilizziamo i tuoi dati per:</p>
+  <p>Le informazioni che ci fornisci ci servono per:</p>
   <ul>
-    <li>Elaborare ed evadere gli ordini</li>
-    <li>Organizzare spedizione e consegna</li>
-    <li>Fornire assistenza clienti</li>
-    <li>Comunicare aggiornamenti sugli ordini</li>
+    <li>Elaborare e preparare i tuoi ordini</li>
+    <li>Organizzare la spedizione e la consegna</li>
+    <li>Offrirti assistenza quando ne hai bisogno</li>
+    <li>Tenerti aggiornato sullo stato dell'ordine</li>
   </ul>
 
   <h3>Miglioramento del servizio</h3>
-  <p>Possiamo usare i tuoi dati per:</p>
+  <p>In alcuni casi utilizziamo i dati anche per:</p>
   <ul>
-    <li>Migliorare il funzionamento del sito</li>
-    <li>Rendere migliore l'esperienza cliente</li>
-    <li>Analizzare prestazioni e utilizzo del sito</li>
+    <li>Far funzionare meglio il sito</li>
+    <li>Rendere più piacevole l'esperienza di acquisto</li>
+    <li>Capire come viene usato il sito e dove possiamo migliorare</li>
   </ul>
 
   <h3>Comunicazioni promozionali</h3>
-  <p>Con il tuo consenso, possiamo inviarti email promozionali, newsletter, aggiornamenti sui prodotti e offerte speciali. Puoi annullare l'iscrizione in qualsiasi momento.</p>
+  <p>Soltanto se ci dai il tuo consenso, di tanto in tanto potremmo scriverti per condividere novità, newsletter, anteprime sui prodotti e offerte dedicate. Puoi cambiare idea e disiscriverti quando vuoi, in qualsiasi momento.</p>
 
-  <h2>Condivisione dei dati</h2>
-  <p>Non vendiamo, affittiamo o cediamo i tuoi dati personali a terzi.</p>
-  <p>Le tue informazioni possono essere condivise solo con fornitori di servizi affidabili quando necessario per:</p>
+  <h2>A chi comunichiamo i dati</h2>
+  <p>I tuoi dati personali non vengono mai venduti, ceduti o dati in affitto a terzi: su questo non transigiamo.</p>
+  <p>Le tue informazioni vengono condivise solo con collaboratori fidati e unicamente quando è davvero necessario, ad esempio per:</p>
   <ul>
-    <li>Elaborare i pagamenti</li>
+    <li>Gestire i pagamenti</li>
     <li>Consegnare gli ordini</li>
-    <li>Fornire servizi tecnici e di hosting</li>
-    <li>Rispettare gli obblighi di legge</li>
+    <li>Garantire i servizi tecnici e di hosting</li>
+    <li>Adempiere agli obblighi previsti dalla legge</li>
   </ul>
-  <p>Tutti i fornitori di servizi sono tenuti a proteggere le tue informazioni e a trattarle in conformità alle leggi applicabili sulla privacy.</p>
+  <p>Ognuno di questi partner è vincolato a proteggere i tuoi dati e a trattarli nel pieno rispetto della normativa sulla privacy.</p>
 
   <h2>Sicurezza dei dati</h2>
-  <p>Adottiamo misure di sicurezza tecniche e organizzative adeguate per proteggere i tuoi dati personali da accessi non autorizzati, perdita, uso improprio, divulgazione o alterazione.</p>
+  <p>Mettiamo in campo misure tecniche e organizzative adeguate per difendere i tuoi dati da accessi non autorizzati, smarrimenti, usi impropri, divulgazioni o modifiche indesiderate.</p>
 
-  <h2>Conservazione dei dati</h2>
-  <p>Conserviamo i dati personali solo per il tempo necessario a:</p>
+  <h2>Per quanto tempo conserviamo i dati</h2>
+  <p>Manteniamo i dati personali solo per il tempo strettamente necessario a:</p>
   <ul>
-    <li>Adempiere agli obblighi contrattuali</li>
-    <li>Fornire assistenza clienti</li>
-    <li>Rispettare gli obblighi legali, contabili e fiscali</li>
-    <li>Risolvere controversie e far valere gli accordi</li>
+    <li>Rispettare gli impegni contrattuali presi con te</li>
+    <li>Garantirti l'assistenza clienti</li>
+    <li>Adempiere agli obblighi di legge, contabili e fiscali</li>
+    <li>Gestire eventuali controversie e tutelare i nostri accordi</li>
   </ul>
 
-  <h2>I tuoi diritti ai sensi del GDPR</h2>
-  <p>Ai sensi della normativa applicabile, hai il diritto di:</p>
+  <h2>I diritti che ti riconosce il GDPR</h2>
+  <p>La normativa vigente ti garantisce, in ogni momento, il diritto di:</p>
   <ul>
     <li>Accedere ai tuoi dati personali</li>
-    <li>Correggere informazioni inesatte o incomplete</li>
-    <li>Richiedere la cancellazione dei tuoi dati personali ("diritto all'oblio")</li>
-    <li>Limitare o opporti al trattamento</li>
-    <li>Revocare il consenso in qualsiasi momento</li>
-    <li>Richiedere la portabilità dei dati</li>
+    <li>Correggere informazioni sbagliate o incomplete</li>
+    <li>Chiedere la cancellazione dei tuoi dati (il cosiddetto "diritto all'oblio")</li>
+    <li>Limitare il trattamento oppure opporti ad esso</li>
+    <li>Revocare il consenso quando lo desideri</li>
+    <li>Richiedere la portabilità dei tuoi dati</li>
     <li>Presentare un reclamo al Garante per la protezione dei dati personali</li>
   </ul>
-  <p>Per maggiori informazioni, visita: <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">https://www.garanteprivacy.it/</a></p>
+  <p>Se vuoi approfondire, trovi maggiori informazioni qui: <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">https://www.garanteprivacy.it/</a></p>
 
   <h2>Cookie</h2>
-  <p>Il nostro sito utilizza cookie e tecnologie simili per migliorare le funzionalità, analizzare il traffico e rendere migliore l'esperienza utente. Puoi gestire o disabilitare i cookie dalle impostazioni del browser; tuttavia, alcune funzioni del sito potrebbero non funzionare correttamente.</p>
+  <p>Il nostro sito si avvale di cookie e tecnologie analoghe per funzionare al meglio, analizzare il traffico e offrirti un'esperienza più fluida. Puoi sempre gestirli o disattivarli dalle impostazioni del browser; tieni però presente che, così facendo, alcune parti del sito potrebbero non funzionare come dovrebbero.</p>
 
-  <h2>Modifiche alla presente informativa</h2>
-  <p>Ci riserviamo il diritto di aggiornare o modificare questa informativa in qualsiasi momento. Eventuali modifiche saranno pubblicate su questa pagina con una data di revisione aggiornata.</p>
+  <h2>Aggiornamenti di questa informativa</h2>
+  <p>Potremmo rivedere o aggiornare questa informativa di tanto in tanto. Quando succede, pubblichiamo la versione aggiornata su questa stessa pagina, indicando la nuova data di revisione.</p>
 
-  <h2>Contattaci</h2>
-  <p>Se hai domande sulla presente informativa o sul trattamento dei tuoi dati personali, contattaci via WhatsApp utilizzando i recapiti presenti sul nostro sito.</p>
+  <h2>Scrivici</h2>
+  <p>Hai dubbi su come trattiamo i tuoi dati o su questa informativa? Scrivici pure su WhatsApp ai recapiti che trovi sul sito: ti risponderemo volentieri.</p>
 
   <p><strong>Souk Profumi – Profumi Arabi di Nicchia</strong><br/>
   Website: <a href="https://soukprofumi.it" target="_blank" rel="noopener">https://soukprofumi.it</a></p>
@@ -453,7 +453,7 @@ function sp_page_privacy() {
   <hr/>
 
   <p>© 2026 Souk Profumi – Profumi Arabi di Nicchia. Tutti i diritti riservati.</p>
-  <p>Tutti i marchi, nomi commerciali, loghi e nomi dei prodotti mostrati su questo sito sono di proprietà dei rispettivi titolari e sono utilizzati esclusivamente a fini identificativi e descrittivi. Il loro utilizzo non implica alcuna affiliazione, approvazione o sponsorizzazione da parte dei rispettivi titolari dei marchi.</p>
+  <p>Tutti i marchi, i nomi commerciali, i loghi e i nomi dei prodotti presenti su questo sito appartengono ai rispettivi titolari e vengono citati unicamente a scopo identificativo e descrittivo. Il loro impiego non sottintende alcun legame, approvazione o sponsorizzazione da parte dei titolari dei marchi.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -474,46 +474,46 @@ function sp_page_tos() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>Benvenuto su Souk Profumi (soukprofumi.it). Accedendo o usando il nostro sito accetti di essere vincolato dai presenti Termini di servizio. Ti invitiamo a leggerli attentamente prima di utilizzare i nostri servizi.</p>
+  <p>Ti diamo il benvenuto su Souk Profumi (soukprofumi.it). Navigando e utilizzando il nostro sito accetti i presenti Termini di servizio: ti chiediamo perciò di leggerli con attenzione prima di servirti dei nostri servizi.</p>
 
   <h2>1. Accettazione dei termini</h2>
-  <p>Utilizzando il sito di Souk Profumi confermi di avere almeno 18 anni e di essere legalmente in grado di stipulare un contratto vincolante ai sensi della legge italiana e dell'UE. Se non accetti questi Termini, non devi utilizzare il sito.</p>
+  <p>Utilizzando il sito di Souk Profumi dichiari di avere almeno 18 anni e di possedere la capacità giuridica per assumere un impegno vincolante ai sensi della normativa italiana ed europea. Se non condividi questi Termini, ti invitiamo a non proseguire nell'uso del sito.</p>
 
-  <h2>2. Informazioni su Souk Profumi</h2>
-  <p>Souk Profumi è un rivenditore indipendente di profumi genuini e autentici, specializzato in fragranze arabe e di nicchia. Non siamo affiliati, approvati o sponsorizzati da alcun marchio o produttore di profumi, salvo diversa indicazione esplicita.</p>
+  <h2>2. Chi siamo</h2>
+  <p>Souk Profumi è un rivenditore indipendente di profumi autentici e originali, con una passione particolare per le fragranze arabe e di nicchia. Salvo dove diversamente e chiaramente indicato, non abbiamo alcun legame, accordo o sponsorizzazione con i marchi o le case produttrici di profumi.</p>
 
   <h2>3. Uso del sito</h2>
-  <p>Accetti di utilizzare il sito solo per scopi leciti. Non devi:</p>
+  <p>Ti chiediamo di utilizzare il sito esclusivamente per finalità lecite. In particolare, ti impegni a non:</p>
   <ul>
-    <li>Utilizzare il sito in modo che violi leggi o regolamenti applicabili</li>
-    <li>Tentare di ottenere accesso non autorizzato ai nostri sistemi o dati</li>
-    <li>Usare il sito per trasmettere codice malevolo, virus o materiale dannoso</li>
-    <li>Copiare, riprodurre o ridistribuire contenuti senza autorizzazione scritta</li>
+    <li>Usare il sito in violazione di leggi o regolamenti vigenti</li>
+    <li>Tentare di accedere senza autorizzazione ai nostri sistemi o ai nostri dati</li>
+    <li>Servirti del sito per diffondere codice dannoso, virus o contenuti nocivi</li>
+    <li>Copiare, riprodurre o ridistribuire i nostri contenuti senza il nostro consenso scritto</li>
   </ul>
 
   <h2>4. Informazioni sui prodotti</h2>
-  <p>Facciamo ogni ragionevole sforzo per garantire che descrizioni, immagini e prezzi dei prodotti sul sito siano accurati. Tuttavia, possono verificarsi lievi variazioni nel colore, nel packaging o nel lotto, e non garantiamo che tutti i contenuti siano completamente privi di errori.</p>
+  <p>Lavoriamo con cura affinché descrizioni, immagini e prezzi pubblicati sul sito siano il più possibile corretti e aggiornati. Possono comunque presentarsi piccole differenze di colore, di confezione o di lotto produttivo, e non possiamo garantire che ogni contenuto sia del tutto privo di sviste.</p>
 
   <h2>5. Ordini e prezzi</h2>
-  <p>Tutti i prezzi sono mostrati in Euro (€) e possono essere soggetti a IVA in conformità alla normativa fiscale italiana. Gli ordini sono confermati solo dopo il buon esito del pagamento. Ci riserviamo il diritto di rifiutare o annullare qualsiasi ordine a nostra esclusiva discrezione.</p>
+  <p>Tutti i prezzi sono espressi in Euro (€) e possono essere soggetti a IVA secondo la normativa fiscale italiana. Un ordine si intende confermato solo dopo l'avvenuto buon esito del pagamento. Ci riserviamo la facoltà di rifiutare o annullare un ordine a nostra discrezione.</p>
 
   <h2>6. Proprietà intellettuale</h2>
-  <p>Tutti i contenuti del sito, inclusi testi, grafica, fotografie, layout, nome e logo Souk Profumi, sono di proprietà di Souk Profumi o dei suoi fornitori di contenuti e sono protetti dalle leggi italiane e internazionali sulla proprietà intellettuale. Tutti i marchi di terzi restano di proprietà dei rispettivi titolari.</p>
+  <p>Tutti i contenuti del sito – testi, grafiche, fotografie, impaginazione, oltre al nome e al logo Souk Profumi – appartengono a Souk Profumi o ai suoi fornitori di contenuti e sono tutelati dalle leggi italiane e internazionali sulla proprietà intellettuale. I marchi di terzi restano di proprietà dei rispettivi titolari.</p>
 
   <h2>7. Limitazione di responsabilità</h2>
-  <p>Nella misura massima consentita dalla legge, Souk Profumi non sarà responsabile per danni indiretti, incidentali, speciali o consequenziali derivanti o connessi all'uso del sito o dei prodotti acquistati.</p>
+  <p>Nei limiti massimi consentiti dalla legge, Souk Profumi non potrà essere ritenuta responsabile per danni indiretti, incidentali, speciali o consequenziali legati all'uso del sito o dei prodotti acquistati.</p>
 
   <h2>8. Manleva</h2>
-  <p>Accetti di manlevare e tenere indenne Souk Profumi, i suoi proprietari, dipendenti e partner da qualsiasi richiesta o pretesa derivante dalla violazione dei presenti Termini o di qualsiasi legge applicabile.</p>
+  <p>Accetti di tenere indenne Souk Profumi, i suoi titolari, collaboratori e partner da qualsiasi pretesa o richiesta che dovesse derivare dalla violazione dei presenti Termini o di una qualunque norma applicabile.</p>
 
   <h2>9. Modifiche</h2>
-  <p>Ci riserviamo il diritto di aggiornare i presenti Termini di servizio in qualsiasi momento. Le modifiche saranno efficaci immediatamente dopo la pubblicazione su questa pagina.</p>
+  <p>Ci riserviamo la facoltà di aggiornare questi Termini di servizio in qualunque momento. Le eventuali modifiche diventano efficaci nel momento stesso in cui vengono pubblicate su questa pagina.</p>
 
   <h2>10. Legge applicabile</h2>
-  <p>Questi Termini sono regolati dalla legge italiana. Qualsiasi controversia connessa ai presenti Termini sarà soggetta alla giurisdizione esclusiva dei tribunali italiani competenti.</p>
+  <p>I presenti Termini sono disciplinati dalla legge italiana. Ogni eventuale controversia ad essi collegata sarà devoluta alla competenza esclusiva del foro italiano competente.</p>
 
   <h2>11. Contatti</h2>
-  <p>Per domande su questi Termini, contattaci tramite il pulsante WhatsApp sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
+  <p>Per qualsiasi domanda su questi Termini, scrivici tramite il pulsante WhatsApp presente sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -534,46 +534,46 @@ function sp_page_tc() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>I presenti Termini e condizioni regolano l'acquisto dei prodotti di Souk Profumi (soukprofumi.it). Effettuando un ordine accetti le condizioni riportate di seguito.</p>
+  <p>I presenti Termini e condizioni disciplinano l'acquisto dei prodotti di Souk Profumi (soukprofumi.it). Quando effettui un ordine, accetti le condizioni che trovi qui di seguito.</p>
 
   <h2>1. Requisiti del cliente</h2>
-  <p>Per effettuare un ordine devi avere almeno 18 anni e fornire informazioni accurate, aggiornate e complete durante il checkout.</p>
+  <p>Per poter ordinare devi aver compiuto 18 anni e inserire durante il checkout dati corretti, completi e aggiornati.</p>
 
   <h2>2. Accettazione dell'ordine</h2>
-  <p>Un ordine è considerato accettato solo dopo l'invio dell'email di conferma e il buon esito del pagamento. Ci riserviamo il diritto di rifiutare o annullare qualsiasi ordine per motivi che includono, senza limitazioni, disponibilità del prodotto, errori di prezzo o sospetta frode.</p>
+  <p>Un ordine si considera accettato soltanto dopo l'invio dell'email di conferma e l'esito positivo del pagamento. Ci riserviamo la facoltà di rifiutare o annullare un ordine per diverse ragioni, tra cui – a titolo di esempio – l'indisponibilità del prodotto, un errore di prezzo o il sospetto di una frode.</p>
 
   <h2>3. Prezzi e pagamenti</h2>
-  <p>Tutti i prezzi sono indicati in Euro (€) e comprendono l'IVA italiana applicabile, salvo diversa indicazione. Accettiamo pagamenti solo tramite provider terzi sicuri. Inviando i dati di pagamento autorizzi il provider competente ad addebitare l'importo totale dell'ordine.</p>
+  <p>Tutti i prezzi sono indicati in Euro (€) e, salvo diversa indicazione, comprendono l'IVA italiana applicabile. I pagamenti vengono accettati esclusivamente tramite provider esterni sicuri. Trasmettendo i dati di pagamento, autorizzi il provider competente ad addebitare l'importo complessivo dell'ordine.</p>
 
   <h2>4. Garanzia di autenticità</h2>
-  <p>Souk Profumi garantisce che ogni fragranza offerta sul nostro sito è autentica al 100% e proviene da fornitori affidabili. Siamo un rivenditore indipendente e i nostri prodotti sono presentati esclusivamente a fini identificativi e descrittivi.</p>
+  <p>Souk Profumi assicura che ogni fragranza proposta sul sito è autentica al 100% e proviene da fornitori affidabili. Operiamo come rivenditore indipendente e presentiamo i prodotti unicamente a fini identificativi e descrittivi.</p>
 
   <h2>5. Disponibilità dei prodotti</h2>
-  <p>I prodotti sono soggetti a disponibilità. Nel raro caso in cui un articolo non sia più disponibile dopo l'invio dell'ordine, ti informeremo e ti offriremo un rimborso completo oppure un'alternativa adeguata.</p>
+  <p>Tutti gli articoli sono proposti salvo disponibilità. Nel raro caso in cui un prodotto non risultasse più disponibile dopo l'invio dell'ordine, ti avviseremo proponendoti il rimborso completo oppure una valida alternativa.</p>
 
   <h2>6. Spedizione e gestione</h2>
-  <p>Le condizioni, i tempi e i costi di spedizione sono descritti nella nostra <a href="%%URL_SHIPPING%%">Politica di spedizione e gestione</a>. I tempi di consegna sono indicativi e possono variare per sdoganamento, ritardi del corriere o altri fattori fuori dal nostro controllo.</p>
+  <p>Modalità, tempi e costi di spedizione sono illustrati nella nostra <a href="%%URL_SHIPPING%%">Politica di spedizione e gestione</a>. I tempi di consegna sono puramente indicativi e possono subire variazioni per via di operazioni doganali, ritardi del corriere o altri fattori che esulano dal nostro controllo.</p>
 
   <h2>7. Resi e rimborsi</h2>
-  <p>La nostra procedura di rimborso è descritta nella <a href="%%URL_REFUND%%">Politica dei rimborsi</a>. A causa della natura dei prodotti di profumeria e delle normative igieniche applicabili, si applicano condizioni specifiche.</p>
+  <p>Le modalità di rimborso sono descritte nella nostra <a href="%%URL_REFUND%%">Politica dei rimborsi</a>. Trattandosi di prodotti di profumeria, e nel rispetto delle norme igieniche applicabili, valgono alcune condizioni specifiche.</p>
 
   <h2>8. Annullamenti</h2>
-  <p>Gli annullamenti degli ordini sono soggetti alla nostra <a href="%%URL_CANCEL%%">Politica di cancellazione</a>.</p>
+  <p>L'annullamento degli ordini è regolato dalla nostra <a href="%%URL_CANCEL%%">Politica di cancellazione</a>.</p>
 
   <h2>9. Proprietà intellettuale e marchi</h2>
-  <p>Tutti i marchi, nomi commerciali, loghi, nomi dei prodotti e diritti d'autore mostrati su questo sito sono di proprietà dei rispettivi titolari e sono utilizzati esclusivamente a fini identificativi, informativi e descrittivi. Il loro utilizzo non implica alcuna affiliazione, approvazione o sponsorizzazione da parte dei titolari dei marchi.</p>
+  <p>Tutti i marchi, i nomi commerciali, i loghi, i nomi dei prodotti e i diritti d'autore presenti sul sito appartengono ai rispettivi titolari e vengono citati esclusivamente a fini identificativi, informativi e descrittivi. Il loro utilizzo non sottintende alcun legame, approvazione o sponsorizzazione da parte dei titolari dei marchi.</p>
 
   <h2>10. Responsabilità</h2>
-  <p>Souk Profumi non è responsabile per reazioni allergiche, sensibilità o qualsiasi danno indiretto derivante dall'uso dei prodotti di profumeria. Si consiglia ai clienti di verificare l'elenco degli ingredienti, quando disponibile, e di interrompere l'uso in caso di irritazione.</p>
+  <p>Souk Profumi non risponde di reazioni allergiche, sensibilità cutanee o di qualsiasi danno indiretto derivante dall'uso dei prodotti di profumeria. Consigliamo sempre di leggere l'elenco degli ingredienti, quando disponibile, e di sospendere l'utilizzo in caso di irritazione.</p>
 
   <h2>11. Forza maggiore</h2>
-  <p>Non siamo responsabili per ritardi o mancati adempimenti causati da circostanze al di fuori del nostro ragionevole controllo, inclusi, a titolo esemplificativo, scioperi, disservizi nei trasporti, eventi naturali o restrizioni governative.</p>
+  <p>Non potremo essere ritenuti responsabili per ritardi o inadempimenti dovuti a circostanze che sfuggono al nostro ragionevole controllo, come ad esempio scioperi, disservizi nei trasporti, eventi naturali o provvedimenti delle autorità.</p>
 
   <h2>12. Legge applicabile e foro competente</h2>
-  <p>I presenti Termini e condizioni sono regolati dalla legge italiana. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali italiani competenti, fatti salvi i diritti inderogabili di tutela del consumatore previsti dal diritto dell'UE.</p>
+  <p>I presenti Termini e condizioni sono disciplinati dalla legge italiana. Ogni eventuale controversia sarà devoluta alla competenza esclusiva del foro italiano competente, fatti salvi i diritti inderogabili riconosciuti al consumatore dal diritto dell'UE.</p>
 
   <h2>13. Contatti</h2>
-  <p>Per qualsiasi domanda su questi Termini e condizioni, contattaci tramite il pulsante WhatsApp sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
+  <p>Per qualunque domanda sui presenti Termini e condizioni, scrivici tramite il pulsante WhatsApp sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -594,50 +594,50 @@ function sp_page_refund() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>Per Souk Profumi – Profumi Arabi di Nicchia, la soddisfazione del cliente è importante. Data la natura dei nostri prodotti e per motivi igienici, di sicurezza e di autenticità, tutte le vendite sono generalmente considerate definitive.</p>
+  <p>Per Souk Profumi – Profumi Arabi di Nicchia la soddisfazione di chi acquista conta davvero. Vista la natura dei nostri prodotti e per ragioni di igiene, sicurezza e autenticità, le vendite si intendono di norma definitive.</p>
 
-  <h2>Nessun rimborso</h2>
-  <p>Non offriamo rimborsi per:</p>
+  <h2>Quando non è previsto il rimborso</h2>
+  <p>Non possiamo procedere al rimborso nei seguenti casi:</p>
   <ul>
-    <li>Cambio idea dopo l'acquisto</li>
-    <li>Preferenze personali in fatto di profumo</li>
-    <li>Scelta errata del prodotto da parte del cliente</li>
-    <li>Prodotti aperti, usati o danneggiati dopo la consegna</li>
-    <li>Ordini con informazioni di spedizione errate fornite dal cliente</li>
+    <li>Ripensamento dopo l'acquisto</li>
+    <li>Gusti personali in fatto di fragranze</li>
+    <li>Scelta sbagliata del prodotto da parte del cliente</li>
+    <li>Prodotti aperti, utilizzati o danneggiati dopo la consegna</li>
+    <li>Ordini con dati di spedizione errati indicati dal cliente</li>
   </ul>
-  <p>Ti invitiamo a controllare con attenzione il tuo ordine prima di completare l'acquisto.</p>
+  <p>Ti consigliamo di rivedere con calma il tuo ordine prima di confermare l'acquisto.</p>
 
-  <h2>Articoli danneggiati o errati</h2>
-  <p>Se ricevi:</p>
+  <h2>Prodotti danneggiati o errati</h2>
+  <p>Se dovessi ricevere:</p>
   <ul>
     <li>Un prodotto danneggiato</li>
     <li>Un prodotto difettoso</li>
-    <li>Un articolo non corretto</li>
+    <li>Un articolo diverso da quello ordinato</li>
   </ul>
-  <p>Contattaci entro 48 ore dalla consegna e fornisci:</p>
+  <p>Scrivici entro 48 ore dalla consegna, allegando:</p>
   <ul>
     <li>Il numero dell'ordine</li>
-    <li>Foto chiare del prodotto e dell'imballaggio</li>
-    <li>Una descrizione del problema</li>
+    <li>Foto nitide del prodotto e della confezione</li>
+    <li>Una breve descrizione del problema</li>
   </ul>
-  <p>Dopo aver valutato la richiesta, potremo, a nostra esclusiva discrezione:</p>
+  <p>Dopo aver esaminato la tua segnalazione, potremo decidere, a nostra discrezione, di:</p>
   <ul>
-    <li>Inviare un prodotto sostitutivo</li>
-    <li>Rilasciare un credito da utilizzare sul negozio</li>
-    <li>Fornire un'altra soluzione adeguata</li>
+    <li>Inviarti un prodotto sostitutivo</li>
+    <li>Riconoscerti un credito da spendere sul negozio</li>
+    <li>Proporti un'altra soluzione adeguata</li>
   </ul>
 
   <h2>Pacchi smarriti</h2>
-  <p>Souk Profumi non è responsabile per ritardi o smarrimenti causati dai corrieri una volta che l'ordine è stato affidato alla consegna. Tuttavia, assisteremo i clienti nell'apertura di un'indagine con il corriere ogni volta che sarà possibile.</p>
+  <p>Souk Profumi non risponde di ritardi o smarrimenti imputabili al corriere una volta che l'ordine è stato affidato per la consegna. Faremo comunque il possibile per aiutarti ad aprire una segnalazione presso il corriere ogniqualvolta sarà possibile.</p>
 
   <h2>Annullamento degli ordini</h2>
-  <p>Gli ordini non possono essere annullati una volta che sono stati elaborati o spediti.</p>
+  <p>Una volta che un ordine è stato elaborato o spedito, non è più possibile annullarlo.</p>
 
-  <h2>Contattaci</h2>
-  <p>Per assistenza su un ordine, contattaci tramite WhatsApp o utilizzando i recapiti disponibili sul nostro sito.</p>
+  <h2>Scrivici</h2>
+  <p>Per assistenza su un ordine, contattaci su WhatsApp oppure utilizza i recapiti che trovi sul nostro sito.</p>
   <p>Souk Profumi – Profumi Arabi di Nicchia<br>Website: <a href="https://soukprofumi.it">https://soukprofumi.it</a></p>
 
-  <p><strong>Avviso importante:</strong> effettuando un ordine su soukprofumi.it, riconosci e accetti la presente Politica dei rimborsi.</p>
+  <p><strong>Nota importante:</strong> effettuando un ordine su soukprofumi.it dichiari di aver letto e accettato la presente Politica dei rimborsi.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -658,32 +658,32 @@ function sp_page_cancel() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>La presente Politica di cancellazione indica come e quando un ordine effettuato su soukprofumi.it può essere annullato.</p>
+  <p>Questa Politica di cancellazione spiega come e quando è possibile annullare un ordine effettuato su soukprofumi.it.</p>
 
-  <h2>1. Finestra di cancellazione</h2>
-  <p>Gli ordini possono essere annullati gratuitamente entro <strong>12 ore</strong> dall'invio, a condizione che non siano ancora stati imballati o spediti.</p>
+  <h2>1. Tempi per l'annullamento</h2>
+  <p>Puoi annullare un ordine senza alcun costo entro <strong>12 ore</strong> dall'invio, a patto che non sia ancora stato preparato o spedito.</p>
 
   <h2>2. Come annullare</h2>
-  <p>Per annullare un ordine, contattaci il prima possibile tramite il pulsante WhatsApp sul sito. Indica il numero di riferimento del tuo ordine. Confermeremo l'annullamento per iscritto una volta elaborato.</p>
+  <p>Per annullare, scrivici il prima possibile tramite il pulsante WhatsApp presente sul sito, indicando il numero di riferimento del tuo ordine. Una volta gestita la richiesta, ti invieremo conferma scritta dell'avvenuto annullamento.</p>
 
   <h2>3. Ordini già spediti</h2>
-  <p>Se un ordine è già stato imballato o spedito, non può più essere annullato. In quel caso, consulta la nostra <a href="%%URL_REFUND%%">Politica dei rimborsi</a>.</p>
+  <p>Se l'ordine è già stato preparato o spedito, non è più possibile annullarlo. In questa eventualità, ti invitiamo a consultare la nostra <a href="%%URL_REFUND%%">Politica dei rimborsi</a>.</p>
 
-  <h2>4. Rimborsi per ordini annullati</h2>
-  <p>I rimborsi degli ordini annullati correttamente vengono elaborati sul metodo di pagamento originale entro <strong>7–14 giorni lavorativi</strong>, a seconda della tua banca o del provider di pagamento.</p>
+  <h2>4. Rimborsi per gli ordini annullati</h2>
+  <p>I rimborsi relativi agli ordini annullati correttamente vengono accreditati sullo stesso metodo di pagamento utilizzato, entro <strong>7–14 giorni lavorativi</strong>, in base ai tempi della tua banca o del provider di pagamento.</p>
 
   <h2>5. Annullamento da parte di Souk Profumi</h2>
-  <p>Ci riserviamo il diritto di annullare qualsiasi ordine, con rimborso completo, nei seguenti casi:</p>
+  <p>Ci riserviamo il diritto di annullare un ordine, con rimborso completo, nei seguenti casi:</p>
   <ul>
-    <li>Prodotto non disponibile dopo l'invio dell'ordine</li>
-    <li>Errori di prezzo o descrizione</li>
-    <li>Transazioni sospette o fraudolente</li>
-    <li>Mancato rispetto dei requisiti di spedizione o verifica del pagamento</li>
-    <li>Circostanze al di fuori del nostro ragionevole controllo</li>
+    <li>Prodotto non più disponibile dopo l'invio dell'ordine</li>
+    <li>Errori di prezzo o nella descrizione</li>
+    <li>Transazioni sospette o potenzialmente fraudolente</li>
+    <li>Mancato rispetto dei requisiti di spedizione o di verifica del pagamento</li>
+    <li>Circostanze che esulano dal nostro ragionevole controllo</li>
   </ul>
 
   <h2>6. Contatti</h2>
-  <p>Per richieste di annullamento, contattaci tramite il pulsante WhatsApp sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
+  <p>Per richieste di annullamento, scrivici tramite il pulsante WhatsApp sul sito oppure usa il modulo nella nostra <a href="%%URL_CONTACT%%">pagina Contatti</a>.</p>
 </section>
 <!-- /wp:html -->
 HTML;
@@ -704,42 +704,42 @@ function sp_page_shipping() {
 </section>
 
 <section class="sp-section sp-legal">
-  <p>Per Souk Profumi – Profumi Arabi di Nicchia ci impegniamo a consegnare le tue fragranze in modo rapido, sicuro e in condizioni perfette. Ti invitiamo a leggere la nostra Politica di spedizione e gestione qui sotto.</p>
+  <p>Per Souk Profumi – Profumi Arabi di Nicchia, far arrivare le tue fragranze in fretta, integre e in perfette condizioni è una priorità. Qui sotto trovi tutti i dettagli della nostra Politica di spedizione e gestione.</p>
 
-  <h2>Tariffe di spedizione</h2>
-  <p>Offriamo una struttura di spedizione trasparente per le consegne in Italia:</p>
+  <h2>Costi di spedizione</h2>
+  <p>Per le consegne in Italia applichiamo tariffe chiare e trasparenti:</p>
   <h3>Italia</h3>
   <ul>
-    <li>Ordini inferiori a €30,00: costo spedizione €5,15</li>
-    <li>Ordini da €30,00 a €74,99: costo spedizione €5,00</li>
+    <li>Ordini sotto i €30,00: spedizione €5,15</li>
+    <li>Ordini da €30,00 a €74,99: spedizione €5,00</li>
     <li>Ordini da €100,00 in su: spedizione gratuita</li>
   </ul>
-  <p>Le spese di spedizione vengono calcolate automaticamente e mostrate al checkout.</p>
+  <p>Il costo di spedizione viene calcolato in automatico e mostrato al momento del checkout.</p>
 
   <h2>Tempi di consegna</h2>
   <h3>Consegna standard (Italia)</h3>
   <ul>
-    <li>Tempo di consegna stimato: 3–4 giorni lavorativi dopo la spedizione.</li>
-    <li>I tempi di consegna sono indicativi e possono variare per condizioni meteo, festività, ritardi del corriere o circostanze al di fuori del nostro controllo.</li>
+    <li>Tempo di consegna stimato: 3–4 giorni lavorativi dalla spedizione.</li>
+    <li>Si tratta di tempi indicativi, che possono variare a causa del meteo, delle festività, di ritardi del corriere o di circostanze che non dipendono da noi.</li>
   </ul>
 
-  <h2>Elaborazione degli ordini</h2>
+  <h2>Preparazione degli ordini</h2>
   <ul>
-    <li>Gli ordini vengono generalmente elaborati entro 3 giorni lavorativi.</li>
-    <li>Gli ordini effettuati nel fine settimana o nei giorni festivi vengono elaborati il primo giorno lavorativo utile.</li>
-    <li>Una volta elaborato l'ordine, riceverai un'email di conferma della spedizione.</li>
+    <li>In genere gli ordini vengono preparati entro 3 giorni lavorativi.</li>
+    <li>Gli ordini ricevuti nel fine settimana o nei giorni festivi vengono lavorati a partire dal primo giorno lavorativo utile.</li>
+    <li>Appena l'ordine è pronto, riceverai un'email di conferma della spedizione.</li>
   </ul>
 
   <h2>Corrieri</h2>
-  <p>Collaboriamo con partner di spedizione affidabili.</p>
+  <p>Ci affidiamo a partner di spedizione affidabili.</p>
 
   <h2>Tracciamento dell'ordine</h2>
-  <p>Una volta spedito l'ordine, riceverai via email un numero di tracciamento.</p>
-  <p>Potrai usare queste informazioni per monitorare la spedizione e la data di consegna stimata.</p>
+  <p>Una volta spedito l'ordine, ti invieremo via email il relativo codice di tracciamento.</p>
+  <p>Con quel codice potrai seguire la spedizione e conoscere la data di consegna stimata.</p>
 
-  <h2>Limitazioni di spedizione</h2>
-  <p>Al momento spediamo solo in Europa.</p>
-  <p>Non effettuiamo spedizioni verso:</p>
+  <h2>Dove spediamo</h2>
+  <p>Al momento effettuiamo spedizioni soltanto all'interno dell'Europa.</p>
+  <p>Non spediamo invece verso:</p>
   <ul>
     <li>Caselle postali</li>
     <li>Indirizzi militari</li>
@@ -747,51 +747,51 @@ function sp_page_shipping() {
   </ul>
 
   <h2>Imballaggio e gestione</h2>
-  <p>Tutti gli ordini vengono imballati con cura per proteggere i prodotti durante il trasporto.</p>
-  <p>Le nostre spese di spedizione coprono solo i costi di trasporto e non includono eventuali costi aggiuntivi di gestione o imballaggio, salvo diversa indicazione al checkout.</p>
+  <p>Ogni ordine viene confezionato con attenzione per proteggere i prodotti durante il viaggio.</p>
+  <p>Le spese di spedizione coprono unicamente il trasporto e non includono eventuali costi aggiuntivi di gestione o imballaggio, salvo quanto diversamente indicato al checkout.</p>
 
   <h2>Merce danneggiata e reclami</h2>
-  <h3>Tempistica per la segnalazione</h3>
-  <p>Se il tuo ordine arriva danneggiato, devi comunicarcelo entro 48 ore (2 giorni) dalla consegna.</p>
-  <p>Le richieste presentate dopo questo periodo potrebbero non essere prese in considerazione o non essere idonee a compensazione.</p>
+  <h3>Entro quando segnalare</h3>
+  <p>Se il tuo ordine dovesse arrivare danneggiato, ti chiediamo di segnalarcelo entro 48 ore (2 giorni) dalla consegna.</p>
+  <p>Le richieste inoltrate oltre questo termine potrebbero non essere accolte o non dare diritto ad alcun indennizzo.</p>
 
-  <h3>Documentazione dell'unboxing richiesta</h3>
-  <p>Per supportare qualsiasi richiesta relativa ad articoli danneggiati o mancanti, i clienti devono:</p>
+  <h3>Cosa ci serve per la verifica</h3>
+  <p>Per poter valutare una richiesta relativa a prodotti danneggiati o mancanti, ti chiediamo di:</p>
   <ul>
-    <li>Registrare un video continuo mentre aprono il pacco.</li>
-    <li>Scattare foto chiare del pacco e dei prodotti.</li>
+    <li>Riprendere un video continuo, senza interruzioni, mentre apri il pacco.</li>
+    <li>Scattare foto nitide del pacco e dei prodotti.</li>
     <li>Conservare tutto il materiale di imballaggio originale.</li>
   </ul>
-  <p>Le richieste presentate senza adeguate prove fotografiche o video potrebbero essere respinte.</p>
+  <p>Le segnalazioni prive di adeguate prove fotografiche o video potrebbero non essere accolte.</p>
 
   <h2>Pacchi smarriti o danneggiati</h2>
-  <p>Se il tuo pacco si smarrisce o arriva danneggiato durante il trasporto:</p>
+  <p>Se il tuo pacco va smarrito o arriva danneggiato durante il trasporto:</p>
   <h3>Contattaci subito</h3>
   <p>Tramite WhatsApp</p>
-  <p>Oppure contattaci tramite la <a href="%%URL_CONTACT%%">pagina Contatti</a> del nostro sito.</p>
+  <p>oppure scrivici dalla <a href="%%URL_CONTACT%%">pagina Contatti</a> del nostro sito.</p>
 
-  <h3>Indica</h3>
+  <h3>Indicaci</h3>
   <ul>
-    <li>Numero dell'ordine</li>
-    <li>Foto o video che mostrino il problema</li>
-    <li>Descrizione del danno o della perdita</li>
+    <li>Il numero dell'ordine</li>
+    <li>Foto o video che documentino il problema</li>
+    <li>Una descrizione del danno o dello smarrimento</li>
   </ul>
 
-  <h3>Procedura di risoluzione</h3>
-  <p>Indagheremo sulla questione con il corriere e lavoreremo a una soluzione adeguata, che può includere:</p>
+  <h3>Come risolviamo</h3>
+  <p>Apriremo una verifica con il corriere e ci impegneremo a trovare una soluzione adeguata, che potrà consistere in:</p>
   <ul>
     <li>Sostituzione del prodotto</li>
-    <li>Credito da utilizzare sul negozio</li>
-    <li>Altre soluzioni ragionevoli a nostra discrezione</li>
+    <li>Credito da spendere sul negozio</li>
+    <li>Altre soluzioni ragionevoli, a nostra discrezione</li>
   </ul>
 
-  <h2>Informazioni di spedizione errate</h2>
-  <p>I clienti sono responsabili di fornire informazioni di spedizione accurate.</p>
-  <p>Souk Profumi non è responsabile per ritardi, mancate consegne o costi di spedizione aggiuntivi derivanti da indirizzi errati o incompleti forniti dal cliente.</p>
+  <h2>Dati di spedizione errati</h2>
+  <p>È responsabilità del cliente fornire dati di spedizione corretti e completi.</p>
+  <p>Souk Profumi non risponde di ritardi, mancate consegne o costi di spedizione aggiuntivi dovuti a indirizzi sbagliati o incompleti comunicati dal cliente.</p>
 
-  <h2>Aggiornamenti della politica</h2>
-  <p>Ci riserviamo il diritto di aggiornare o modificare la presente Politica di spedizione e gestione in qualsiasi momento.</p>
-  <p>Eventuali modifiche saranno pubblicate su questa pagina ed entreranno in vigore immediatamente dopo la pubblicazione.</p>
+  <h2>Aggiornamenti della policy</h2>
+  <p>Ci riserviamo il diritto di aggiornare o modificare in qualsiasi momento la presente Politica di spedizione e gestione.</p>
+  <p>Le eventuali modifiche verranno pubblicate su questa pagina ed entreranno in vigore non appena rese disponibili.</p>
 
   <h2>Contatti</h2>
   <p>Souk Profumi – Profumi Arabi di Nicchia<br>Website: <a href="https://soukprofumi.it">https://soukprofumi.it</a></p>

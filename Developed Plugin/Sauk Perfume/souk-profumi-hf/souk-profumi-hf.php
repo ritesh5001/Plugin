@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Header & Footer
  * Description: Auto-injects branded header and footer site-wide. Configure under Appearance → Souk Profumi Header & Footer. Shortcodes [sp_header] and [sp_footer] also available.
- * Version:     1.0.5
+ * Version:     1.0.6
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* =====================================================================
  * EDIT THESE CONSTANTS WITH YOUR REAL DATA
  * ===================================================================== */
-define( 'SP_HF_LOGO_URL',  'https://pink-bat-240785.hostingersite.com/wp-content/uploads/2026/06/Sauk.png' );
+define( 'SP_HF_LOGO_URL',  'https://soukprofumi.it/wp-content/uploads/2026/06/Sauk.png' );
 define( 'SP_HF_WHATSAPP',  '393000000000' );   // intl format, no + (used ONLY in the WhatsApp button)
 
 // Social URLs — leave blank to hide that icon
@@ -20,7 +20,7 @@ define( 'SP_HF_INSTAGRAM', '' );
 define( 'SP_HF_FACEBOOK',  '' );
 define( 'SP_HF_TIKTOK',    '' );
 
-define( 'SP_HF_VERSION', '1.0.5' );
+define( 'SP_HF_VERSION', '1.0.6' );
 define( 'SP_HF_URL',  plugin_dir_url( __FILE__ ) );
 define( 'SP_HF_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -388,7 +388,7 @@ function sp_hf_render_footer() {
   </div>
 
   <div class="sp-ftr-bottom">
-    © <?php echo esc_html( date('Y') ); ?> Souk Profumi – Profumi Arabi di Nicchia. Tutti i diritti riservati.
+    © <?php echo esc_html( date('Y') ); ?> Souk Profumi. Developed by <a href="https://nextgenfusion.in" target="_blank" rel="noopener">NextGen Fusion</a>.
   </div>
 </footer>
 

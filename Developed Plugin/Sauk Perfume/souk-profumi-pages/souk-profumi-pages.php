@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Souk Profumi Pages
  * Description: Creates all website content pages on activation.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Souk Profumi
  * Author URI:  https://soukprofumi.it/
  */
@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ===== EDIT THIS CONSTANT WITH YOUR REAL LOGO URL =====
-define( 'SP_LOGO_URL', 'https://pink-bat-240785.hostingersite.com/wp-content/uploads/2026/06/Sauk.png' );
+define( 'SP_LOGO_URL', 'https://soukprofumi.it/wp-content/uploads/2026/06/Sauk.png' );
 
 define( 'SP_PAGES_VERSION', '1.0.2' );
 define( 'SP_PAGES_PATH', plugin_dir_path( __FILE__ ) );

@@ -36,7 +36,7 @@ define( 'VOSTRA_PHONE', '+91 99999 99999' ); // Display phone. CHANGE THIS.
 define( 'VOSTRA_ADDRESS', 'India' );
 
 // Social links — leave any value as an empty string '' to hide that icon.
-define( 'VOSTRA_INSTAGRAM', 'https://www.instagram.com/vostra.in/' );
+define( 'VOSTRA_INSTAGRAM', 'https://www.instagram.com/vostra.in?igsh=MWV3ZDM1dGM0Y2xhdw%3D%3D&utm_source=qr' );
 define( 'VOSTRA_FACEBOOK', '' );
 define( 'VOSTRA_TWITTER', '' );
 define( 'VOSTRA_YOUTUBE', '' );

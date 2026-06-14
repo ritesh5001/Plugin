@@ -12,7 +12,7 @@ function rv_get_all_pages() {
 		'terms-and-conditions' => [ 'title' => 'Terms &amp; Conditions',     'content' => rv_page_tandc() ],
 		'refund-policy'        => [ 'title' => 'Refund &amp; Return Policy', 'content' => rv_page_refund() ],
 		'cancellation-policy'  => [ 'title' => 'Cancellation Policy',        'content' => rv_page_cancel() ],
-		'shipping-policy'      => [ 'title' => 'Shipping &amp; Delivery Policy', 'content' => rv_page_shipping() ],
+		'shipping-policy'      => [ 'title' => 'Delivery Policy', 'content' => rv_page_shipping() ],
 	];
 }
 
@@ -185,7 +185,7 @@ function rv_page_home() {
         <li><a href="%%URL_TERMS_C%%">Terms &amp; Conditions</a></li>
         <li><a href="%%URL_REFUND%%">Refund &amp; Return Policy</a></li>
         <li><a href="%%URL_CANCEL%%">Cancellation Policy</a></li>
-        <li><a href="%%URL_SHIPPING%%">Shipping Policy</a></li>
+        <li><a href="%%URL_SHIPPING%%">Delivery Policy</a></li>
       </ul>
     </div>
     <div class="rv-home-footer-col">
@@ -513,7 +513,7 @@ function rv_page_privacy() {
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
     <h1 class="rv-h1">Privacy <span class="rv-gold-text">Policy</span></h1>
-    <p class="rv-hero-intro">How Royal Vastar collects, uses, and protects your personal information.</p>
+    <p class="rv-hero-intro">How Royal Vastar collects, uses and looks after your personal information.</p>
   </div>
 </div>
 
@@ -529,27 +529,27 @@ function rv_page_privacy() {
 
       <div class="rv-policy-section">
         <h2>1. Introduction</h2>
-        <p>Royal Vastar ("we", "us", "our") is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website royalvastar.com or make a purchase from us.</p>
-        <p>This policy complies with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. By using our website or purchasing from us, you agree to the terms of this policy. If you do not agree, please do not use our services.</p>
+        <p>Royal Vastar ("we", "us", "our") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains what information we collect, why we collect it, how we use it and the rights you have in relation to your data when you visit royalvastar.com, contact us or place an order.</p>
+        <p>We handle personal information in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. Please read this policy carefully so you understand how and why we use your information.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>2. Information We Collect</h2>
-        <p>We collect personal information that you voluntarily provide when placing an order, contacting us, or interacting with our website, including:</p>
+        <p>We collect information that you give to us directly when you place an order, contact us or use our website. This may include:</p>
         <ul>
           <li><strong>Identity Data:</strong> First name, last name</li>
           <li><strong>Contact Data:</strong> Email address, phone number, WhatsApp number</li>
           <li><strong>Address Data:</strong> Delivery address and billing address</li>
-          <li><strong>Transaction Data:</strong> Products purchased, order amounts, payment method used</li>
+          <li><strong>Order Data:</strong> products purchased, order value, delivery details and payment method used</li>
           <li><strong>Communication Data:</strong> Messages sent via email, Instagram DM, or WhatsApp</li>
-          <li><strong>Technical Data:</strong> IP address, browser type, pages visited (collected automatically via cookies)</li>
+          <li><strong>Technical Data:</strong> IP address, browser type and pages visited, where collected through cookies or similar technologies</li>
         </ul>
-        <p>We do not collect or store sensitive personal data (such as health or full financial account data) unless explicitly required and consented to.</p>
+        <p>We do not knowingly collect special category data, such as health information, and we do not store full payment card details.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>3. How We Collect Your Information</h2>
-        <p>We collect personal data through:</p>
+        <p>We may collect personal information through:</p>
         <ul>
           <li>Order forms and checkout processes on our website</li>
           <li>Emails, WhatsApp messages, and Instagram DMs you send to us</li>
@@ -560,45 +560,46 @@ function rv_page_privacy() {
 
       <div class="rv-policy-section">
         <h2>4. Legal Basis for Processing</h2>
-        <p>Under UK GDPR, we rely on the following legal bases for processing your personal data:</p>
+        <p>Under UK GDPR, we only use your personal information where we have a lawful basis to do so. This will usually be one or more of the following:</p>
         <ul>
-          <li><strong>Contract:</strong> Processing is necessary to fulfil your order.</li>
-          <li><strong>Legitimate Interests:</strong> To improve our services, respond to enquiries, and prevent fraud.</li>
-          <li><strong>Consent:</strong> Where you have explicitly agreed to marketing communications.</li>
-          <li><strong>Legal Obligation:</strong> Where required to comply with a legal duty.</li>
+          <li><strong>Contract:</strong> where we need your information to process, fulfil and deliver your order.</li>
+          <li><strong>Legitimate Interests:</strong> where it is necessary for running and improving our business, responding to enquiries and helping prevent fraud.</li>
+          <li><strong>Consent:</strong> where you have asked to receive marketing or have agreed to optional cookies.</li>
+          <li><strong>Legal Obligation:</strong> where we need to keep or share information to comply with the law.</li>
         </ul>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. How We Use Your Information</h2>
-        <p>We use your personal data to:</p>
+        <p>We use your personal information to:</p>
         <ul>
-          <li>Process and fulfil your orders</li>
-          <li>Send order confirmations and dispatch notifications</li>
-          <li>Respond to customer service enquiries</li>
+          <li>Process, fulfil and deliver your orders</li>
+          <li>Send order confirmations, delivery updates and dispatch notifications</li>
+          <li>Respond to enquiries and customer service requests</li>
           <li>Process returns, refunds, and complaints</li>
           <li>Improve our website and services</li>
-          <li>Comply with legal and regulatory obligations</li>
-          <li>Send marketing communications (only with your explicit consent)</li>
+          <li>Meet our legal, tax and accounting obligations</li>
+          <li>Send marketing communications, where you have given consent</li>
         </ul>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Sharing Your Information</h2>
-        <p>We do not sell, trade, or rent your personal information to third parties. We may share your data only in the following limited circumstances:</p>
+        <p>We do not sell, trade or rent your personal information. We may share it only where necessary, including with:</p>
         <ul>
-          <li><strong>Delivery Partners:</strong> We share your name, address, and phone number with our courier or delivery partner to fulfil your order.</li>
-          <li><strong>Payment Processors:</strong> Secure payment providers who process transactions on our behalf. We do not store full payment card details.</li>
-          <li><strong>Legal Compliance:</strong> Where required by law, regulation, or court order.</li>
+          <li><strong>Delivery Partners:</strong> couriers or delivery partners who need your name, address and contact number to deliver your order.</li>
+          <li><strong>Payment Providers:</strong> secure payment providers who process transactions on our behalf. We do not store full payment card details.</li>
+          <li><strong>Professional or Legal Advisers:</strong> where this is needed for accounting, tax, legal or business purposes.</li>
+          <li><strong>Legal Compliance:</strong> where disclosure is required by law, regulation or court order.</li>
         </ul>
-        <p>All third parties are required to keep your information confidential and to process it only as instructed by us.</p>
+        <p>Any third party we use must handle your information securely and only for the purpose for which it was shared.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Data Retention</h2>
-        <p>We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, including legal, accounting, or reporting requirements:</p>
+        <p>We keep personal information only for as long as reasonably necessary for the purpose it was collected, including legal, tax, accounting and reporting requirements:</p>
         <ul>
-          <li>Order and transaction data: retained for 7 years (HMRC requirement)</li>
+          <li>Order and transaction records: normally retained for up to 7 years for tax and accounting record purposes</li>
           <li>Customer service communications: retained for 2 years</li>
           <li>Marketing consent records: retained until you withdraw consent</li>
         </ul>
@@ -606,12 +607,12 @@ function rv_page_privacy() {
 
       <div class="rv-policy-section">
         <h2>8. Cookies</h2>
-        <p>Our website uses cookies to enhance your browsing experience. Cookies are small files placed on your device that help us remember your preferences, understand usage patterns, and improve site functionality. You can control cookies through your browser settings. Disabling certain cookies may affect your experience on our site.</p>
+        <p>Our website uses cookies and similar technologies to help the site work properly, remember preferences, understand how visitors use the site and improve our services. You can manage or block cookies through your browser settings. Some parts of the website may not work as intended if certain cookies are disabled.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>9. Your Rights Under UK GDPR</h2>
-        <p>You have the following rights regarding your personal data:</p>
+        <p>Under UK GDPR, you have a number of rights in relation to your personal information, including:</p>
         <ul>
           <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you.</li>
           <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data.</li>
@@ -621,33 +622,33 @@ function rv_page_privacy() {
           <li><strong>Right to Object:</strong> Object to processing based on legitimate interests or for direct marketing.</li>
           <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you may withdraw it at any time.</li>
         </ul>
-        <p>To exercise any of these rights, please contact us at royalvastar@icloud.com. We will respond within one calendar month.</p>
+        <p>To exercise any of these rights, please contact us at royalvastar@icloud.com. We will usually respond within one calendar month.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>10. Data Security</h2>
-        <p>We implement appropriate technical and organisational measures to protect your personal data against accidental loss, unauthorised access, disclosure, or destruction, including secure HTTPS connections and restricted internal access to personal data.</p>
-        <p>Despite these measures, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+        <p>We use appropriate technical and organisational measures to help protect your personal information from accidental loss, misuse, unauthorised access, disclosure or alteration. These include secure website connections and limiting access to personal information where possible.</p>
+        <p>No method of transmission over the internet is completely secure, so we cannot guarantee absolute security.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>11. Third-Party Links</h2>
-        <p>Our website may contain links to third-party websites (including social media profiles). We are not responsible for the privacy practices of those sites and encourage you to review their own privacy policies.</p>
+        <p>Our website may contain links to third-party websites, including social media profiles. We are not responsible for the content or privacy practices of those websites, and we recommend reading their privacy policies before sharing any personal information with them.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>12. Children's Privacy</h2>
-        <p>Our services are not directed at children under the age of 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+        <p>Our products and services are not aimed at children under the age of 16. We do not knowingly collect personal information from children. If you believe a child has provided information to us, please contact us so we can take appropriate steps.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>13. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date, so please check back periodically.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>14. Contact &amp; Complaints</h2>
-        <p>For questions, requests, or complaints about this Privacy Policy, please contact us:</p>
+        <p>For questions, requests or complaints about this Privacy Policy, please contact us:</p>
         <div class="rv-policy-highlight">
           <p><strong>Royal Vastar</strong><br>
           Email: royalvastar@icloud.com<br>
@@ -674,7 +675,7 @@ function rv_page_tos() {
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
     <h1 class="rv-h1">Terms of <span class="rv-gold-text">Service</span></h1>
-    <p class="rv-hero-intro">The terms that govern your use of the Royal Vastar website and services.</p>
+    <p class="rv-hero-intro">The terms that apply when you use the Royal Vastar website and services.</p>
   </div>
 </div>
 
@@ -690,18 +691,18 @@ function rv_page_tos() {
 
       <div class="rv-policy-section">
         <h2>1. Agreement to Terms</h2>
-        <p>By accessing or using the Royal Vastar website (royalvastar.com), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
-        <p>These Terms of Service constitute a legally binding agreement between you and Royal Vastar. We reserve the right to update these terms at any time. Continued use of our website constitutes acceptance of any revised terms.</p>
+        <p>By accessing or using the Royal Vastar website (royalvastar.com), you agree to these Terms of Service. If you do not agree with them, you should not use our website or services.</p>
+        <p>These terms set out the rules for using our website and buying from us. We may update them from time to time, and the version displayed on this page will apply from the effective date shown above.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>2. Use of the Website</h2>
-        <p>You agree to use our website only for lawful purposes and in a manner that does not infringe the rights of others. You must not:</p>
+        <p>You agree to use our website only for lawful purposes and in a way that does not infringe the rights of, restrict or prevent anyone else from using the website. You must not:</p>
         <ul>
           <li>Use the website in any unlawful or fraudulent manner</li>
           <li>Transmit unsolicited or unauthorised advertising or promotional material</li>
           <li>Attempt to gain unauthorised access to our website, servers, or databases</li>
-          <li>Reproduce, duplicate, copy, or resell any part of our website in violation of these terms</li>
+          <li>Reproduce, duplicate, copy or resell any part of our website without permission</li>
           <li>Upload or transmit any malicious code, viruses, or harmful content</li>
           <li>Collect or harvest personal data of other users without consent</li>
         </ul>
@@ -709,41 +710,41 @@ function rv_page_tos() {
 
       <div class="rv-policy-section">
         <h2>3. Intellectual Property</h2>
-        <p>All content on this website — including text, images, logos, designs, graphics, and other materials — is the property of Royal Vastar or its content suppliers and is protected by applicable intellectual property laws.</p>
-        <p>You may not copy, reproduce, distribute, modify, or create derivative works from any content on our website without our prior written consent. The Royal Vastar name, logo, and branding are protected trademarks.</p>
+        <p>All content on this website, including text, images, logos, designs, graphics and other materials, belongs to Royal Vastar or our content suppliers and is protected by applicable intellectual property laws.</p>
+        <p>You must not copy, reproduce, distribute, modify or create derivative works from any website content without our prior written permission. The Royal Vastar name, logo and branding may not be used without consent.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>4. Product Information</h2>
-        <p>We make every effort to ensure that the information on our website is accurate and up to date. However:</p>
+        <p>We take reasonable care to ensure that product information on our website is accurate and up to date. However:</p>
         <ul>
-          <li>Product images are for illustrative purposes and actual colours may vary slightly from screen to screen.</li>
+          <li>Product images are for guidance only and actual colours may vary slightly depending on screen settings.</li>
           <li>Product descriptions, prices, and availability are subject to change without notice.</li>
-          <li>We reserve the right to refuse or cancel any order if a product is out of stock or a pricing error has occurred.</li>
+          <li>We may refuse or cancel an order if a product is unavailable or a genuine pricing or product error has occurred.</li>
         </ul>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. Orders and Payment</h2>
-        <p>By placing an order, you confirm that you are legally capable of entering into binding contracts and are at least 18 years of age, or have parental/guardian consent. Payment must be received in full before any order is processed and dispatched.</p>
+        <p>By placing an order, you confirm that you are legally able to enter into a contract and that you are at least 18 years old, or that you have permission from a parent or guardian. Payment must be received in full before an order is processed and dispatched.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Limitation of Liability</h2>
-        <p>To the fullest extent permitted by applicable law, Royal Vastar shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of our website or services.</p>
-        <p>Our total liability to you for any claim shall not exceed the amount paid by you for the specific product or service that is the subject of the claim.</p>
-        <p>Nothing in these terms shall limit or exclude our liability for death or personal injury caused by our negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded by law.</p>
+        <p>To the fullest extent permitted by law, Royal Vastar will not be liable for indirect or consequential loss arising from your use of our website or services.</p>
+        <p>Our total liability for any claim relating to an order will not exceed the amount you paid for the product or service that gave rise to the claim.</p>
+        <p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot lawfully be limited or excluded.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Third-Party Links</h2>
-        <p>Our website may contain links to third-party websites. These links are provided for your convenience only. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage arising from your use of them.</p>
+        <p>Our website may contain links to third-party websites. These links are provided for convenience only. We do not control those websites and are not responsible for their content, availability or privacy practices.</p>
       </div>
 
       <div class="rv-policy-section">
-        <h2>8. Disclaimer of Warranties</h2>
-        <p>Our website and services are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
-        <p>We do not warrant that the website will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+        <h2>8. Website Availability</h2>
+        <p>We aim to keep our website available and secure, but we cannot guarantee that it will always be uninterrupted, error-free or free from harmful components.</p>
+        <p>Where permitted by law, the website is provided on an "as is" and "as available" basis. This does not affect any statutory rights you may have when buying goods from us.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -753,12 +754,12 @@ function rv_page_tos() {
 
       <div class="rv-policy-section">
         <h2>10. Governing Law and Jurisdiction</h2>
-        <p>These Terms of Service shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        <p>These Terms of Service are governed by the laws of England and Wales. Any dispute arising in connection with these terms will be subject to the courts of England and Wales, subject to any mandatory consumer rights that apply to you.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>11. Changes to These Terms</h2>
-        <p>We reserve the right to modify these Terms of Service at any time. Changes will be posted on this page with an updated effective date. Your continued use of our website after such changes constitutes your acceptance of the new terms.</p>
+        <p>We may update these Terms of Service from time to time. Any changes will be posted on this page with an updated effective date.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -789,7 +790,7 @@ function rv_page_tandc() {
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
     <h1 class="rv-h1">Terms &amp; <span class="rv-gold-text">Conditions</span></h1>
-    <p class="rv-hero-intro">The specific terms governing orders, payments, and your relationship with Royal Vastar.</p>
+    <p class="rv-hero-intro">The terms that apply to orders, payments, delivery and your purchase from Royal Vastar.</p>
   </div>
 </div>
 
@@ -805,7 +806,7 @@ function rv_page_tandc() {
 
       <div class="rv-policy-section">
         <h2>1. Acceptance of Terms</h2>
-        <p>By placing an order with Royal Vastar, browsing our website, or contacting us for the purpose of purchasing, you accept and agree to be bound by these Terms and Conditions in full. If you do not agree, you must not use our services.</p>
+        <p>By placing an order with Royal Vastar, browsing our website or contacting us to make a purchase, you agree to these Terms and Conditions. If you do not agree with them, you should not place an order or use our services.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -820,49 +821,49 @@ function rv_page_tandc() {
 
       <div class="rv-policy-section">
         <h2>3. Products and Availability</h2>
-        <p>All products are subject to availability. We reserve the right to discontinue any product at any time without notice. Product images on our website or social media are for illustrative purposes only; actual colours, shades, and sizing may vary slightly.</p>
-        <p>We make every reasonable effort to ensure product descriptions are accurate. However, we do not warrant that product descriptions or other content on our website are accurate, complete, or error-free.</p>
+        <p>All products are subject to availability. We may withdraw or discontinue a product at any time. Product images on our website or social media are provided for guidance; colours, shades and sizing may vary slightly depending on lighting, screen settings and product batches.</p>
+        <p>We take reasonable care to ensure product descriptions are accurate. If we identify a genuine error in a product description, price or availability, we will contact you as soon as possible.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>4. Pricing</h2>
-        <p>All prices are quoted in British Pounds Sterling (GBP) and are inclusive of any applicable VAT where stated. Prices may change without notice. The price payable for an order is the price confirmed at the time the order is accepted.</p>
-        <p>We reserve the right to correct any pricing errors. If a pricing error is identified after an order is placed, we will contact you to either confirm the correct price or cancel the order with a full refund.</p>
+        <p>All prices are quoted in British Pounds Sterling (GBP). Where VAT applies and is stated, it is included in the displayed price. Prices may change from time to time, but the price payable for an order is the price confirmed when your order is accepted.</p>
+        <p>If a genuine pricing error is identified after you place an order, we will contact you to confirm whether you wish to proceed at the correct price or cancel the order for a full refund.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. Placing an Order</h2>
-        <p>Orders may be placed via our website, WhatsApp, email, or Instagram DM. By submitting an order, you are making an offer to purchase the relevant products. An order is only accepted by us when we confirm it in writing (via email, WhatsApp, or DM) and receive payment.</p>
-        <p>You must provide accurate and complete information when placing an order, including your full name, delivery address, and contact details. We are not liable for orders that cannot be delivered due to inaccurate information provided by you.</p>
+        <p>Orders may be placed through our website, WhatsApp, email or Instagram DM. When you submit an order, you are making an offer to buy the relevant product. Your order is accepted only when we confirm it in writing and payment has been received.</p>
+        <p>You must provide accurate and complete information when placing an order, including your full name, delivery address and contact details. We are not responsible for delay or non-delivery caused by incorrect or incomplete information provided by you.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Payment</h2>
-        <p>Payment is required in full before your order is processed and dispatched. We accept payments via the methods communicated to you at time of order. All transactions are processed securely.</p>
-        <p>We do not store your full payment card or bank details. Any payment information shared with us is used solely to process your order.</p>
+        <p>Payment is required in full before your order is processed and dispatched. We accept the payment methods confirmed to you at the time of order. Transactions are processed securely.</p>
+        <p>We do not store full payment card or bank details. Any payment information shared with us is used only to process your order.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Cancellations</h2>
-        <p>Orders may be cancelled within 12 hours of being placed, provided the order has not already been processed or dispatched. To cancel, contact us immediately via email or Instagram DM.</p>
+        <p>You may request to cancel an order within 12 hours of placing it, provided it has not already been processed or dispatched. To request cancellation, contact us as soon as possible by email, WhatsApp or Instagram DM.</p>
         <p>Once an order has been processed or dispatched, cancellation may not be possible. Please refer to our Cancellation Policy for full details.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>8. Delivery</h2>
-        <p>We aim to dispatch orders within 1–3 working days of confirmed payment. UK standard delivery typically takes 2–5 working days after dispatch. Delivery timescales are estimates and may be affected by factors outside our control (such as courier delays or extreme weather).</p>
-        <p>Royal Vastar is not responsible for delays caused by third-party courier services or events outside our reasonable control. Please refer to our Shipping Policy for full details.</p>
+        <p>We aim to dispatch orders within 1-3 working days of confirmed payment. UK standard delivery usually takes 2-5 working days after dispatch. Delivery times are estimates and may be affected by matters outside our reasonable control, including courier delays, adverse weather or public holidays.</p>
+        <p>Royal Vastar is not responsible for delays caused by third-party delivery services or events outside our reasonable control. Please refer to our Delivery Policy for full details.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>9. Returns and Refunds</h2>
-        <p>We accept returns within 7 days of delivery. Items must be unused, unworn, and in their original packaging with all tags attached. Sale items and undergarments are non-returnable. Customers are responsible for return shipping costs unless the item received is damaged or incorrect.</p>
+        <p>We accept eligible returns within 7 days of delivery. Items must be unused, unworn and returned in their original packaging with all tags attached. Sale items, undergarments and other excluded items are non-returnable unless faulty. Customers are responsible for return postage unless the item received is damaged, faulty or incorrect.</p>
         <p>Please refer to our Refund &amp; Return Policy for full details.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>10. Damaged or Incorrect Items</h2>
-        <p>If you receive a damaged or incorrect product, you must contact us within 48 hours of delivery with supporting photographic evidence. We will arrange a replacement or full refund at no additional cost to you.</p>
+        <p>If you receive a damaged, faulty or incorrect product, please contact us within 48 hours of delivery with clear photographs of the issue. We will arrange a suitable replacement, refund or other remedy at no additional cost to you.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -872,12 +873,12 @@ function rv_page_tandc() {
 
       <div class="rv-policy-section">
         <h2>12. Limitation of Liability</h2>
-        <p>Our total liability to you arising from or in connection with any order shall not exceed the total amount you paid for that order. We shall not be liable for any indirect, consequential, or incidental loss or damage howsoever caused.</p>
+        <p>Our total liability to you arising from or in connection with an order will not exceed the total amount paid for that order. We will not be liable for indirect or consequential loss, except where liability cannot be limited or excluded by law.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>13. Intellectual Property</h2>
-        <p>All content on the Royal Vastar website and social media platforms — including text, images, logos, branding, and product photography — is the intellectual property of Royal Vastar. Unauthorised use, reproduction, or distribution is strictly prohibited.</p>
+        <p>All content on the Royal Vastar website and social media platforms, including text, images, logos, branding and product photography, belongs to Royal Vastar or is used with permission. Unauthorised use, reproduction or distribution is not permitted.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -887,7 +888,7 @@ function rv_page_tandc() {
 
       <div class="rv-policy-section">
         <h2>15. Governing Law</h2>
-        <p>These Terms and Conditions are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        <p>These Terms and Conditions are governed by the laws of England and Wales. Any dispute will be subject to the courts of England and Wales, subject to any mandatory consumer rights that apply to you.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -918,7 +919,7 @@ function rv_page_refund() {
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
     <h1 class="rv-h1">Refund &amp; Return <span class="rv-gold-text">Policy</span></h1>
-    <p class="rv-hero-intro">Your satisfaction is our priority. Here's everything you need to know about returns and refunds.</p>
+    <p class="rv-hero-intro">Clear information about returns, refunds and what to do if there is an issue with your order.</p>
   </div>
 </div>
 
@@ -933,26 +934,26 @@ function rv_page_refund() {
       </div>
 
       <div class="rv-policy-highlight">
-        <p>At Royal Vastar, we want you to be completely satisfied with your purchase. If you are not happy with your order for any eligible reason, we offer a straightforward returns process.</p>
+        <p>We want you to be happy with your Royal Vastar purchase. If something is not right, this policy explains when a return may be accepted, how to request one and how refunds are handled.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>1. Return Eligibility</h2>
-        <p>Returns are accepted within <strong>7 days of the delivery date</strong>. To be eligible for a return, items must meet all of the following criteria:</p>
+        <p>Eligible returns must be requested within <strong>7 days of the delivery date</strong>. To qualify for a return, the item must meet all of the following conditions:</p>
         <ul>
-          <li>Returned within 7 calendar days of delivery</li>
+          <li>The return is requested within 7 calendar days of delivery</li>
           <li>Items must be unused and unworn</li>
-          <li>Items must be in their original condition and packaging</li>
+          <li>The item is in its original condition and packaging</li>
           <li>All original tags must be attached and intact</li>
-          <li>Items must not be washed, altered, or damaged by the customer</li>
+          <li>The item has not been washed, altered or damaged after delivery</li>
         </ul>
       </div>
 
       <div class="rv-policy-section">
         <h2>2. Non-Returnable Items</h2>
-        <p>The following items are not eligible for return or refund under any circumstances:</p>
+        <p>The following items cannot be returned or refunded unless they are faulty, damaged on arrival or incorrectly supplied:</p>
         <ul>
-          <li>Sale items and items purchased with a discount code (unless faulty)</li>
+          <li>Sale items and items purchased with a discount code</li>
           <li>Undergarments, swimwear, and intimate apparel (for hygiene reasons)</li>
           <li>Items that have been worn, washed, or altered</li>
           <li>Items without original tags or packaging</li>
@@ -962,56 +963,56 @@ function rv_page_refund() {
 
       <div class="rv-policy-section">
         <h2>3. How to Request a Return</h2>
-        <p>To initiate a return, please follow these steps:</p>
+        <p>To request a return, please follow these steps:</p>
         <ul>
-          <li>Contact us within 7 days of delivery via email (royalvastar@icloud.com) or Instagram DM (@royalvastar)</li>
+          <li>Contact us within 7 days of delivery by email (royalvastar@icloud.com), WhatsApp or Instagram DM (@royalvastar)</li>
           <li>Include your order details, the item(s) you wish to return, and the reason for the return</li>
-          <li>We will respond with return instructions and the return address</li>
+          <li>We will review the request and, if approved, provide return instructions and the return address</li>
           <li>Securely package your items and send them back using a tracked postal service</li>
         </ul>
-        <p>We strongly recommend using a tracked delivery service for your return, as we cannot be held responsible for items lost in transit.</p>
+        <p>We strongly recommend using a tracked postal service for returns, as we cannot accept responsibility for items lost in transit before they reach us.</p>
       </div>
 
       <div class="rv-policy-section">
-        <h2>4. Return Shipping Costs</h2>
-        <p>Customers are responsible for the cost of return shipping, except in the following circumstances:</p>
+        <h2>4. Return Postage Costs</h2>
+        <p>Customers are responsible for return postage costs, except where:</p>
         <ul>
-          <li>You received a damaged or defective item</li>
+          <li>You received a damaged or faulty item</li>
           <li>You received an incorrect item (wrong product or size from your order)</li>
         </ul>
-        <p>In these cases, we will cover the return shipping cost or arrange a collection. Please contact us within <strong>48 hours of delivery</strong> with photographic evidence of the issue.</p>
+        <p>In these cases, we will cover reasonable return postage costs or arrange a suitable return method. Please contact us within <strong>48 hours of delivery</strong> with clear photographs of the issue.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. Refund Process</h2>
-        <p>Once we receive your returned items and complete an inspection, we will notify you of the outcome. If approved, your refund will be processed within <strong>5–7 working days</strong>.</p>
-        <p>Refunds will be issued via the original payment method used for the purchase. Please note that the time taken for the refund to appear in your account may vary depending on your bank or payment provider.</p>
+        <p>Once we receive your returned item and inspect it, we will let you know whether the refund has been approved. If approved, your refund will be processed within <strong>5-7 working days</strong>.</p>
+        <p>Refunds are issued to the original payment method used for the purchase. The time taken for funds to appear in your account may vary depending on your bank or payment provider.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Partial Refunds</h2>
-        <p>In certain circumstances, a partial refund may be issued where only part of an order is eligible for return, or where items show signs of use that do not warrant a full refund.</p>
+        <p>In some circumstances, a partial refund may be issued where only part of an order is eligible for return, or where an item is returned in a condition that reduces its value.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Exchanges</h2>
-        <p>We do not operate a direct exchange programme at this time. If you would like a different size or colour, please return your original item for a refund and place a new order for your preferred item.</p>
+        <p>We do not currently offer direct exchanges. If you would like a different size or colour, please return the original item, where eligible, and place a new order for your preferred item.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>8. Damaged or Incorrect Items</h2>
-        <p>If you receive a damaged, defective, or incorrect item, please contact us within <strong>48 hours of delivery</strong>. Send us:</p>
+        <p>If you receive a damaged, faulty or incorrect item, please contact us within <strong>48 hours of delivery</strong>. Please send:</p>
         <ul>
           <li>Your order confirmation details</li>
-          <li>Clear photographs of the damaged/incorrect item</li>
+          <li>Clear photographs of the damaged, faulty or incorrect item</li>
           <li>A brief description of the issue</li>
         </ul>
-        <p>We will arrange a replacement or full refund, including return shipping costs, at no additional cost to you.</p>
+        <p>We will arrange an appropriate remedy, such as a replacement or refund, including reasonable return postage costs where applicable.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>9. Your Statutory Rights</h2>
-        <p>This Returns Policy does not affect your statutory rights under UK consumer law, including your rights under the Consumer Rights Act 2015. If goods are not of satisfactory quality, not as described, or not fit for purpose, you are entitled to a repair, replacement, or refund.</p>
+        <p>This Returns Policy does not affect your statutory rights under UK consumer law, including your rights under the Consumer Rights Act 2015. If goods are faulty, not as described or not fit for purpose, you may be entitled to a repair, replacement or refund.</p>
       </div>
 
       <div class="rv-policy-section">
@@ -1042,7 +1043,7 @@ function rv_page_cancel() {
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
     <h1 class="rv-h1">Cancellation <span class="rv-gold-text">Policy</span></h1>
-    <p class="rv-hero-intro">Everything you need to know about cancelling an order with Royal Vastar.</p>
+    <p class="rv-hero-intro">How to request an order cancellation and what happens if your order has already been dispatched.</p>
   </div>
 </div>
 
@@ -1052,65 +1053,65 @@ function rv_page_cancel() {
 
       <div class="rv-policy-meta">
         <span><strong>Business:</strong> Royal Vastar</span>
-        <span><strong>Cancellation Window:</strong> Within 12 Hours of Order</span>
+        <span><strong>Cancellation Window:</strong> Within 12 Hours of Placing an Order</span>
         <span><strong>Governing Law:</strong> England &amp; Wales</span>
       </div>
 
       <div class="rv-policy-section">
         <h2>1. Cancellation Window</h2>
-        <p>Orders may be cancelled within <strong>12 hours</strong> of being placed, provided the order has not yet been processed or dispatched. To request a cancellation, contact us immediately via email or Instagram DM as soon as possible after placing the order.</p>
+        <p>You may request to cancel an order within <strong>12 hours</strong> of placing it, provided it has not already been processed or dispatched. Please contact us as soon as possible by email, WhatsApp or Instagram DM.</p>
         <div class="rv-policy-highlight">
-          <p><strong>Important:</strong> Once your order has been processed and dispatched, it can no longer be cancelled. In this case, you may be able to return the item once it has been delivered — please refer to our Refund &amp; Return Policy.</p>
+          <p><strong>Important:</strong> Once your order has been processed or dispatched, we may no longer be able to cancel it. You may still be able to return eligible items after delivery under our Refund &amp; Return Policy.</p>
         </div>
       </div>
 
       <div class="rv-policy-section">
         <h2>2. How to Request a Cancellation</h2>
-        <p>To cancel your order within the 12-hour window, contact us immediately via one of the following:</p>
+        <p>To request cancellation within the 12-hour window, contact us using one of the following methods:</p>
         <ul>
-          <li><strong>Email:</strong> royalvastar@icloud.com — include your order details and the subject line "Order Cancellation"</li>
-          <li><strong>Instagram DM:</strong> @royalvastar — send your order reference and request for cancellation</li>
+          <li><strong>Email:</strong> royalvastar@icloud.com - include your order details and use the subject line "Order Cancellation"</li>
+          <li><strong>Instagram DM:</strong> @royalvastar - send your order reference and cancellation request</li>
           <li><strong>WhatsApp:</strong> +44 7908 369765</li>
         </ul>
-        <p>We will confirm cancellation by return message. Please do not assume your order is cancelled until you have received written confirmation from us.</p>
+        <p>We will confirm whether cancellation is possible by return message. Please do not assume your order has been cancelled until you have received written confirmation from us.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>3. Cancellation After Dispatch</h2>
-        <p>If your order has already been dispatched, we are unable to cancel or recall it. In this case:</p>
+        <p>If your order has already been dispatched, we are usually unable to cancel or recall it. In this case:</p>
         <ul>
           <li>Please accept the delivery as normal</li>
           <li>Then contact us to initiate a return under our Refund &amp; Return Policy</li>
-          <li>Ensure the item is returned unused, unworn, and in original packaging within 7 days of delivery</li>
+          <li>Make sure the item is returned unused, unworn and in its original packaging within 7 days of delivery</li>
         </ul>
       </div>
 
       <div class="rv-policy-section">
         <h2>4. Refund for Cancelled Orders</h2>
-        <p>If a cancellation is approved and payment has already been made, a full refund will be processed within <strong>5–7 working days</strong> via the original payment method. Processing times may vary depending on your bank or payment provider.</p>
+        <p>If a cancellation is approved and payment has already been made, a full refund will be processed within <strong>5-7 working days</strong> to the original payment method. Processing times may vary depending on your bank or payment provider.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. Our Right to Cancel</h2>
-        <p>Royal Vastar reserves the right to cancel any order in the following circumstances:</p>
+        <p>Royal Vastar may cancel an order in the following circumstances:</p>
         <ul>
           <li>The item is out of stock or no longer available</li>
           <li>A pricing or product description error has occurred</li>
           <li>There are concerns about fraudulent activity or payment irregularities</li>
           <li>We are unable to deliver to the address provided</li>
         </ul>
-        <p>In any such case, we will notify you promptly and provide a full refund if payment has been received.</p>
+        <p>If this happens, we will notify you promptly and provide a full refund if payment has already been received.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Consumer Rights</h2>
-        <p>Under the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, you have a right to cancel distance contracts within 14 days of receiving your goods without giving any reason. This is your statutory right and is separate from our commercial cancellation window described above.</p>
-        <p>To exercise your statutory right, you must inform us in writing (email or written notice) within 14 days of delivery. You must then return the goods within 14 days of notifying us. Return shipping costs are your responsibility unless the goods are faulty or incorrect.</p>
+        <p>Under the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, you may have a statutory right to cancel certain distance purchases within 14 days of receiving the goods. This right is separate from our 12-hour order cancellation window above.</p>
+        <p>To exercise this statutory right, you must tell us in writing within 14 days of delivery. You must then return the goods within 14 days of notifying us. Return postage costs are your responsibility unless the goods are faulty, damaged on arrival or incorrect.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Contact Us</h2>
-        <p>For cancellation requests or queries about this policy, please contact us urgently:</p>
+        <p>For cancellation requests or questions about this policy, please contact us as soon as possible:</p>
         <div class="rv-policy-highlight">
           <p><strong>Royal Vastar</strong><br>
           Email: royalvastar@icloud.com<br>
@@ -1136,8 +1137,8 @@ function rv_page_shipping() {
 <div class="rv-hero">
   <div class="rv-wrap">
     <span class="rv-chip">Legal</span>
-    <h1 class="rv-h1">Shipping &amp; Delivery <span class="rv-gold-text">Policy</span></h1>
-    <p class="rv-hero-intro">Fast, reliable delivery across the United Kingdom. Here's everything you need to know.</p>
+    <h1 class="rv-h1">Delivery <span class="rv-gold-text">Policy</span></h1>
+    <p class="rv-hero-intro">Delivery information for Royal Vastar orders within the United Kingdom.</p>
   </div>
 </div>
 
@@ -1147,21 +1148,21 @@ function rv_page_shipping() {
 
       <div class="rv-policy-meta">
         <span><strong>Business:</strong> Royal Vastar</span>
-        <span><strong>Processing Time:</strong> 1–3 Working Days</span>
-        <span><strong>Standard UK Delivery:</strong> 2–5 Working Days</span>
+        <span><strong>Processing Time:</strong> 1-3 Working Days</span>
+        <span><strong>Standard UK Delivery:</strong> 2-5 Working Days</span>
       </div>
 
       <div class="rv-policy-section">
         <h2>1. Order Processing</h2>
-        <p>Orders are processed within <strong>1–3 working days</strong> of confirmed payment. Working days are Monday to Friday, excluding UK public holidays. Orders placed on weekends or public holidays will be processed on the next working day.</p>
-        <p>You will receive a dispatch notification (via email, WhatsApp, or Instagram DM) once your order has been packed and handed to our courier partner, including any available tracking information.</p>
+        <p>Orders are usually processed within <strong>1-3 working days</strong> of confirmed payment. Working days are Monday to Friday, excluding UK public holidays. Orders placed at weekends or on public holidays will be processed on the next working day.</p>
+        <p>Once your order has been packed and passed to our delivery partner, we will send a dispatch update by email, WhatsApp or Instagram DM, including tracking details where available.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>2. UK Standard Delivery</h2>
-        <p>We deliver to all addresses within the United Kingdom. Standard UK delivery typically takes <strong>2–5 working days</strong> after dispatch. Please note:</p>
+        <p>We deliver to addresses within the United Kingdom. Standard UK delivery usually takes <strong>2-5 working days</strong> after dispatch. Please note:</p>
         <ul>
-          <li>Delivery timescales are estimates and may be affected by courier workload or unforeseen circumstances</li>
+          <li>Delivery timeframes are estimates and may be affected by courier workload or unforeseen circumstances</li>
           <li>Remote areas (including certain Scottish Highlands, islands, and Northern Ireland postcodes) may experience slightly longer delivery times</li>
           <li>We do not currently offer guaranteed next-day delivery</li>
         </ul>
@@ -1169,52 +1170,52 @@ function rv_page_shipping() {
 
       <div class="rv-policy-section">
         <h2>3. Delivery Costs</h2>
-        <p>Shipping costs, if any, will be clearly communicated to you at the time of ordering. Any applicable delivery charges will be confirmed before payment is collected. We aim to keep delivery costs as low as possible for our customers.</p>
+        <p>Delivery costs, if applicable, will be clearly confirmed at the time of ordering and before payment is collected. We aim to keep delivery charges fair and transparent.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>4. Tracking Your Order</h2>
-        <p>Where tracking is available, we will share tracking details with you via WhatsApp or email once your order has been dispatched. You can use the provided tracking number on the courier's website to monitor your delivery status.</p>
-        <p>If you have not received tracking information within 5 working days of placing your order, please contact us immediately.</p>
+        <p>Where tracking is available, we will share the tracking details with you once your order has been dispatched. You can use the tracking number on the courier's website to check the delivery status.</p>
+        <p>If you have not received a dispatch update within 5 working days of placing your order, please contact us so we can check the status for you.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>5. Failed Deliveries</h2>
-        <p>If a delivery attempt is made and no one is available to receive the parcel, the courier will typically leave a calling card or make alternative arrangements (such as leaving with a neighbour or at a local depot). Please follow the instructions provided by the courier.</p>
-        <p>If an order is returned to us due to an incorrect address, failed delivery attempts, or refusal of delivery, we will contact you to arrange re-delivery. Additional shipping costs may apply.</p>
+        <p>If a delivery attempt is made and no one is available to receive the parcel, the courier may leave a calling card or make alternative arrangements, such as leaving it with a neighbour or at a local collection point. Please follow the courier's instructions.</p>
+        <p>If an order is returned to us because of an incorrect address, failed delivery attempts or refusal of delivery, we will contact you to arrange re-delivery. Additional delivery charges may apply.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>6. Delivery Address Accuracy</h2>
-        <p>It is your responsibility to provide a complete and accurate delivery address at the time of ordering. Royal Vastar cannot be held responsible for orders that are delayed or undelivered due to incorrect or incomplete address information provided by the customer.</p>
-        <p>If you realise you have entered an incorrect address, please contact us immediately via WhatsApp or email. We will do our best to update the address if the order has not yet been dispatched.</p>
+        <p>It is your responsibility to provide a complete and accurate delivery address when placing your order. Royal Vastar is not responsible for delay or non-delivery caused by incorrect or incomplete address information supplied by you.</p>
+        <p>If you notice that your address is incorrect, please contact us immediately by WhatsApp or email. We will do our best to update it if the order has not yet been dispatched.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>7. Courier Delays</h2>
-        <p>While we always aim to dispatch within our stated timeframes, Royal Vastar is not responsible for delays caused by third-party courier services, adverse weather conditions, industrial action, or other circumstances beyond our control.</p>
-        <p>If your order has not arrived within 10 working days of dispatch notification, please contact us and we will investigate with the courier on your behalf.</p>
+        <p>We aim to dispatch within the stated timeframe, but Royal Vastar is not responsible for delays caused by third-party delivery services, adverse weather, industrial action, public holidays or other circumstances outside our reasonable control.</p>
+        <p>If your order has not arrived within 10 working days of the dispatch notification, please contact us and we will check with the courier on your behalf.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>8. Lost or Stolen Parcels</h2>
-        <p>If your tracking shows a parcel has been delivered but you have not received it, please check with neighbours and any safe locations on your property first. If the parcel cannot be located, contact us within <strong>7 days of the marked delivery date</strong> so we can raise a claim with the courier.</p>
-        <p>We cannot be held responsible for parcels that are reported as delivered by the courier but claimed as not received, unless there is clear evidence of an error on the courier's part.</p>
+        <p>If tracking shows that your parcel has been delivered but you have not received it, please first check with neighbours, household members and any safe places around the property. If the parcel still cannot be found, contact us within <strong>7 days of the marked delivery date</strong> so we can raise a query with the courier.</p>
+        <p>We cannot accept responsibility for parcels marked as delivered by the courier unless there is clear evidence of an error by the courier or delivery service.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>9. Damaged Parcels</h2>
-        <p>If your parcel arrives visibly damaged, please take photographs of the packaging and contents before opening, and contact us within <strong>48 hours of delivery</strong>. We will raise a claim with the courier and arrange a replacement or refund as appropriate.</p>
+        <p>If your parcel arrives visibly damaged, please take clear photographs of the packaging and contents and contact us within <strong>48 hours of delivery</strong>. We will review the issue and arrange a suitable replacement, refund or courier claim where appropriate.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>10. International Delivery</h2>
-        <p>At this time, Royal Vastar ships within the United Kingdom only. We do not currently offer international shipping. We hope to expand our delivery coverage in the future — follow us on Instagram (@royalvastar) for updates.</p>
+        <p>At this time, Royal Vastar delivers within the United Kingdom only. We do not currently offer international delivery. We hope to expand our delivery coverage in the future - follow us on Instagram (@royalvastar) for updates.</p>
       </div>
 
       <div class="rv-policy-section">
         <h2>11. Contact Us</h2>
-        <p>For any shipping or delivery queries, please contact us:</p>
+        <p>For any delivery questions, please contact us:</p>
         <div class="rv-policy-highlight">
           <p><strong>Royal Vastar</strong><br>
           Email: royalvastar@icloud.com<br>
