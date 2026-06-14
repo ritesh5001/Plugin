@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VOSTRA Pages
  * Description: Creates all website content pages on activation. Self-contained branded pages with baked-in HTML/CSS (no page builder). Includes the full site footer inside the Home page.
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:      VOSTRA
  * Author URI:  https://vostra.in/
  *
@@ -31,8 +31,8 @@ define( 'VOSTRA_SITE_URL', 'https://vostra.in/' );
 
 // Contact details (used on Contact page + footer).
 define( 'VOSTRA_EMAIL', 'supportvostra@gmail.com' );
-define( 'VOSTRA_WHATSAPP', '919999999999' ); // Full number, country code, no '+'. CHANGE THIS.
-define( 'VOSTRA_PHONE', '+91 99999 99999' ); // Display phone. CHANGE THIS.
+define( 'VOSTRA_WHATSAPP', '919341464570' ); // Full number, country code, no '+'.
+define( 'VOSTRA_PHONE', '+91 93414 64570' ); // Display phone.
 define( 'VOSTRA_ADDRESS', 'India' );
 
 // Social links — leave any value as an empty string '' to hide that icon.
