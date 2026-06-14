@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VOSTRA Pages
  * Description: Creates all website content pages on activation. Self-contained branded pages with baked-in HTML/CSS (no page builder). Includes the full site footer inside the Home page.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      VOSTRA
  * Author URI:  https://vostra.in/
  *
@@ -49,7 +49,7 @@ define( 'VOSTRA_COUNTRY', 'India' );
  * BOOTSTRAP
  * ========================================================================== */
 
-define( 'VOSTRA_PAGES_VERSION', '1.0.1' );
+define( 'VOSTRA_PAGES_VERSION', '1.0.3' );
 define( 'VOSTRA_PAGES_URL', plugin_dir_url( __FILE__ ) );
 define( 'VOSTRA_PAGES_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -83,20 +83,14 @@ function vostra_pages_map() {
 register_activation_hook( __FILE__, 'vostra_pages_activate' );
 
 function vostra_pages_activate() {
-	$ids = get_option( 'vostra_page_ids', array() );
-	if ( ! is_array( $ids ) ) {
-		$ids = array();
-	}
+	$ids = array();
 
 	foreach ( vostra_pages_map() as $slug => $data ) {
 		list( $title, $callback ) = $data;
 
-		// Skip silently if the slug already exists — never duplicate.
-		$existing = get_page_by_path( $slug, OBJECT, 'page' );
-		if ( $existing instanceof WP_Post ) {
-			$ids[ $slug ] = (int) $existing->ID;
-			continue;
-		}
+		// Remove ANY existing page with this slug (any status — published,
+		// draft, trashed, pending). Force-delete so we get a clean install.
+		vostra_force_delete_pages_by_slug( $slug );
 
 		$content = '<!-- wp:html -->' . "\n" . call_user_func( $callback ) . "\n" . '<!-- /wp:html -->';
 
@@ -134,6 +128,35 @@ function vostra_pages_activate() {
 	}
 
 	flush_rewrite_rules();
+}
+
+/**
+ * Force-delete every page (any status, including trashed) that uses the given
+ * slug. WordPress allows duplicate post_names across statuses, so we query the
+ * DB directly to make sure nothing is left behind before we re-insert.
+ */
+function vostra_force_delete_pages_by_slug( $slug ) {
+	global $wpdb;
+
+	$slug = sanitize_title( $slug );
+	if ( '' === $slug ) {
+		return;
+	}
+
+	$post_ids = $wpdb->get_col(
+		$wpdb->prepare(
+			"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'page' AND post_name = %s",
+			$slug
+		)
+	);
+
+	if ( empty( $post_ids ) ) {
+		return;
+	}
+
+	foreach ( $post_ids as $post_id ) {
+		wp_delete_post( (int) $post_id, true );
+	}
 }
 
 // NOTE: pages are intentionally NOT deleted on deactivation.
