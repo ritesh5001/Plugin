@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VOSTRA Pages
  * Description: Creates all website content pages on activation. Self-contained branded pages with baked-in HTML/CSS (no page builder). Includes the full site footer inside the Home page.
- * Version:     1.0.3
+ * Version:     1.0.4
  * Author:      VOSTRA
  * Author URI:  https://vostra.in/
  *
@@ -49,7 +49,7 @@ define( 'VOSTRA_COUNTRY', 'India' );
  * BOOTSTRAP
  * ========================================================================== */
 
-define( 'VOSTRA_PAGES_VERSION', '1.0.3' );
+define( 'VOSTRA_PAGES_VERSION', '1.0.4' );
 define( 'VOSTRA_PAGES_URL', plugin_dir_url( __FILE__ ) );
 define( 'VOSTRA_PAGES_PATH', plugin_dir_path( __FILE__ ) );
 
@@ -121,13 +121,33 @@ function vostra_pages_activate() {
 
 	update_option( 'vostra_page_ids', $ids );
 
-	// Set the Home page as the static front page if one isn't already chosen.
-	if ( ! empty( $ids['vostra-home'] ) && 'page' !== get_option( 'show_on_front' ) ) {
+	// Always re-pin the Home page as the static front page — the previous one
+	// was just deleted, so page_on_front would otherwise point at a dead ID.
+	if ( ! empty( $ids['vostra-home'] ) ) {
 		update_option( 'show_on_front', 'page' );
-		update_option( 'page_on_front', $ids['vostra-home'] );
+		update_option( 'page_on_front', (int) $ids['vostra-home'] );
 	}
 
+	// Record which version of the plugin produced these pages so we can
+	// auto-refresh on overwrite-style updates (no manual reactivation needed).
+	update_option( 'vostra_pages_installed_version', VOSTRA_PAGES_VERSION );
+
 	flush_rewrite_rules();
+}
+
+/* ----------------------------------------------------------------------------
+ * Auto re-install on update — WordPress does NOT re-fire the activation hook
+ * when a plugin is overwritten via "Upload" or auto-update, so we mirror it on
+ * a normal request whenever the file version differs from the stored version.
+ * Runs only in admin to keep the front-end request path cheap.
+ * -------------------------------------------------------------------------- */
+add_action( 'admin_init', 'vostra_pages_maybe_upgrade' );
+
+function vostra_pages_maybe_upgrade() {
+	if ( get_option( 'vostra_pages_installed_version' ) === VOSTRA_PAGES_VERSION ) {
+		return;
+	}
+	vostra_pages_activate();
 }
 
 /**
