@@ -1381,7 +1381,7 @@ body {
 }
 .a24-case__image-tag {
   position: absolute;
-  top: 24px; left: 24px;
+  top: 24px; right: 24px; left: auto;
   background: var(--cream);
   color: var(--ink);
   padding: 6px 12px;
