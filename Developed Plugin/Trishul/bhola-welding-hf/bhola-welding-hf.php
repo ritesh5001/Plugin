@@ -579,7 +579,7 @@ function bww_render_footer() {
   <div class="bww-ftr-bottom">
     <span>&copy; <?php echo $current_year; ?> <?php echo $site_name; ?>. All rights reserved.</span>
     <span>&nbsp;&mdash;&nbsp;</span>
-    <span>Developed by <a href="https://bholaweldingworks.in/" target="_blank" rel="noopener">Bhola Welding Works</a></span>
+    <span>Developed by <a href="https://nextgenfusion.in/" target="_blank" rel="noopener">NextGen Fusion</a></span>
   </div>
 
 </footer>

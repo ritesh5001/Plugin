@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SLOWY Header & Footer
  * Description: Auto-injects SLOWY branded header and footer site-wide with editable logo, contact, social, navigation, and policy links.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      SLOWY
  * Author URI:  http://slowy.in/
  * License:     GPL-2.0-or-later
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SLOWY_HF_VERSION', '1.0.0' );
+define( 'SLOWY_HF_VERSION', '1.0.1' );
 define( 'SLOWY_HF_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SLOWY_HF_URL', plugin_dir_url( __FILE__ ) );
 define( 'SLOWY_HF_CSS_FILE', SLOWY_HF_PATH . 'assets/css/slowy-hf.css' );
@@ -139,7 +139,7 @@ add_action( 'wp_enqueue_scripts', 'slowy_hf_enqueue_assets' );
 function slowy_hf_enqueue_assets() {
 	wp_enqueue_style(
 		'slowy-hf-fonts',
-		'https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@500;600&display=swap',
 		array(),
 		null
 	);
@@ -159,7 +159,7 @@ function slowy_hf_enqueue_assets() {
 	wp_enqueue_script( 'slowy-hf-js' );
 	wp_add_inline_script(
 		'slowy-hf-js',
-		"document.addEventListener('click',function(e){var b=e.target.closest('[data-slowy-menu]');if(b){document.body.classList.toggle('slowy-menu-open');}var c=e.target.closest('[data-slowy-close]');if(c){document.body.classList.remove('slowy-menu-open');}});",
+		"document.addEventListener('click',function(e){var b=e.target.closest('[data-slowy-menu]');if(b){document.body.classList.toggle('slowy-menu-open');}var c=e.target.closest('[data-slowy-close]');if(c){document.body.classList.remove('slowy-menu-open');}var s=e.target.closest('[data-slowy-search]');if(s){e.preventDefault();document.body.classList.toggle('slowy-search-open');}});",
 		'after'
 	);
 }
@@ -223,10 +223,20 @@ function slowy_hf_render_header() {
 	ob_start();
 	?>
 	<header class="slowy-hf-header" role="banner">
-	  <div class="slowy-hf-topbar" aria-label="Store benefits">
-	    <span>Free shipping above Rs. 799</span>
-	    <span>Secure prepaid payments</span>
-	    <span>Easy eligible returns</span>
+	  <div class="slowy-hf-marquee" aria-label="Store offers">
+	    <div class="slowy-hf-marquee__track">
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Free Shipping Above &#8377;799</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Easy Returns</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Premium Quality Jewellery</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Hypoallergenic &amp; Skin-Friendly</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Gift Packaging Available</div>
+
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Free Shipping Above &#8377;799</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Easy Returns</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Premium Quality Jewellery</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Hypoallergenic &amp; Skin-Friendly</div>
+	      <div class="slowy-hf-marquee__item"><span class="slowy-hf-marquee__spark">&#10038;</span>Gift Packaging Available</div>
+	    </div>
 	  </div>
 	  <div class="slowy-hf-main">
 	    <button class="slowy-hf-icon slowy-hf-menu-button" type="button" aria-label="Open menu" data-slowy-menu><i class="fa-solid fa-bars"></i></button>
@@ -244,6 +254,7 @@ function slowy_hf_render_header() {
 	      <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
 	    </form>
 	    <div class="slowy-hf-actions">
+	      <button class="slowy-hf-icon slowy-hf-search-toggle" type="button" aria-label="Search" data-slowy-search><i class="fa-solid fa-magnifying-glass"></i></button>
 	      <a class="slowy-hf-icon" href="<?php echo esc_url( slowy_hf_url_for( 'account' ) ); ?>" aria-label="Account"><i class="fa-regular fa-user"></i></a>
 	      <a class="slowy-hf-icon slowy-hf-cart" href="<?php echo esc_url( slowy_hf_url_for( 'cart' ) ); ?>" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span><?php echo esc_html( (string) $cart_count ); ?></span></a>
 	    </div>
@@ -324,7 +335,7 @@ function slowy_hf_render_footer() {
 	    </div>
 	  </div>
 	  <div class="slowy-hf-footer-bottom">
-	    <span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> SLOWY. All rights reserved.</span>
+	    <span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> SLOWY. Developed by <a href="https://nextgenfusion.in" target="_blank" rel="noopener">NextGen Fusion</a>.</span>
 	    <span>www.slowy.in</span>
 	  </div>
 	</footer>
