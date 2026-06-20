@@ -1,0 +1,1169 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+/* ════════════════════════════════════════════════════════════════
+   Orange Lilies — palette extracted from the brand colour schema.
+   beige (#FCF5C7) is replaced by pure white per brand direction.
+
+     #EC7505  Safety Orange   — brand accent / highlights
+     #FFFFFF  White           — page & card background
+     #7D7ABC  Tropical Indigo — soft secondary accent
+     #6457A6  Ultra Violet    — primary buttons / links (high contrast)
+     #223843  Gunmetal        — headings & body text (maximum legibility)
+
+   No colour is used that is not one of the five above (or a tint/shade
+   derived from them). Light, fresh and fully legible on white.
+════════════════════════════════════════════════════════════════ */
+:root {
+  /* Raw palette colours */
+  --ol-color-1:      #ec7505;    /* safety orange  */
+  --ol-color-2:      #ffffff;    /* white (was beige) */
+  --ol-color-3:      #7d7abc;    /* tropical indigo */
+  --ol-color-4:      #6457a6;    /* ultra violet */
+  --ol-color-5:      #223843;    /* gunmetal */
+
+  /* Semantic aliases */
+  --ol-bg:           #ffffff;    /* page background */
+  --ol-gradient:     #f4f2fb;    /* hero gradient — lavender tint of indigo */
+  --ol-gradient2:    #fff3e6;    /* hero gradient — peach tint of orange */
+  --ol-primary:      #223843;    /* primary headings (gunmetal) */
+  --ol-accent:       #ec7505;    /* eyebrow text, accents, highlights */
+  --ol-violet:       #6457a6;    /* primary action / links */
+  --ol-indigo:       #7d7abc;    /* secondary accent */
+  --ol-surface:      #ffffff;    /* card / panel background */
+  --ol-surface2:     #f6f4fc;    /* tinted lavender panel */
+  --ol-border:       #e6e1f4;    /* soft lavender border line */
+
+  /* Derived utilities */
+  --ol-white:        #ffffff;
+  --ol-text:         #2f3e48;    /* primary body copy (dark slate) */
+  --ol-muted:        #5a6772;    /* secondary text (5.7:1 on white) */
+  --ol-link:         #6457a6;    /* in-content links (6.2:1 on white) */
+  --ol-glow:         rgba(236,117,5,0.20);
+  --ol-glow-strong:  rgba(236,117,5,0.38);
+  --ol-glow-violet:  rgba(100,87,166,0.22);
+  --ol-radius:       10px;
+  --ol-radius-lg:    18px;
+  --ol-transition:   0.3s ease;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THEME RESET — force our look over the active theme (Elementor,
+   XStore, Astra, etc.). Everything is scoped to body.ol-page and
+   forced with !important so theme heading/text colours never bleed.
+════════════════════════════════════════════════════════════════ */
+body.ol-page {
+  background-color: var(--ol-bg) !important;
+  color: var(--ol-text) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Hide the theme's default page title */
+body.ol-page .entry-title,
+body.ol-page h1.entry-title,
+body.ol-page .page-title,
+body.ol-page .page-header,
+body.ol-page .et_post_meta_wrapper > h1,
+body.ol-page .elementor-heading-title.entry-title {
+  display: none !important;
+}
+
+/* Force full-width content area, strip theme padding / max-width.
+   This makes every plugin page run edge-to-edge ("Elementor full
+   width") regardless of the active theme's default content frame. */
+body.ol-page .entry-content,
+body.ol-page .entry-content.wp-block-post-content,
+body.ol-page .et_builder_inner_content,
+body.ol-page .site-content,
+body.ol-page .content-area,
+body.ol-page #primary,
+body.ol-page #content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--ol-bg) !important;
+  border: none !important;
+}
+
+body.ol-page .site-main,
+body.ol-page article,
+body.ol-page .hentry,
+body.ol-page main {
+  background: var(--ol-bg) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Full-width override for XStore / Bootstrap-grid themes ─────
+   XStore wraps page content in:
+   .container.content-page > .sidebar-position-* > .row > .content.col-md-9
+   plus a .col-md-3 sidebar. Strip the container, expand the content
+   column to 100%, and remove the sidebar so pages run edge-to-edge. */
+body.ol-page .container.content-page,
+body.ol-page .content-page,
+body.ol-page .sidebar-position-right,
+body.ol-page .sidebar-position-left,
+body.ol-page .template-content,
+body.ol-page .page-content,
+body.ol-page #main-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.ol-page .content-page > .row,
+body.ol-page .content-page .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.ol-page .content-page .content[class*="col-"],
+body.ol-page .content-page .col-md-9.content,
+body.ol-page .content-page .content {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove the theme sidebar (search / widgets) on our branded pages */
+body.ol-page .content-page .sidebar,
+body.ol-page .content-page .col-md-3,
+body.ol-page .sidebar-enabled,
+body.ol-page .sidebar-right,
+body.ol-page .sidebar-left,
+body.ol-page .widget-area {
+  display: none !important;
+}
+
+/* Kill any theme box-shadow / borders on our containers */
+body.ol-page .ol-card,
+body.ol-page .ol-contact-panel,
+body.ol-page .ol-form-panel,
+body.ol-page .ol-cta {
+  box-shadow: none;
+}
+
+/* ── Layout helpers ──────────────────────────────────────────── */
+body.ol-page .ol-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+body.ol-page .ol-section {
+  padding: 80px 0;
+}
+
+body.ol-page .ol-section-sm {
+  padding: 48px 0;
+}
+
+/* ── Typography — forced so the theme cannot recolour headings ── */
+body.ol-page h1,
+body.ol-page h2,
+body.ol-page h3,
+body.ol-page h4,
+body.ol-page .ol-h1,
+body.ol-page .ol-h2,
+body.ol-page .ol-h3 {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  color: var(--ol-primary) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 16px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+body.ol-page .ol-h1 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
+body.ol-page .ol-h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; }
+body.ol-page .ol-h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem) !important; }
+
+body.ol-page p,
+body.ol-page li,
+body.ol-page span {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+body.ol-page .ol-accent-text { color: var(--ol-accent) !important; }
+body.ol-page .ol-violet-text { color: var(--ol-violet) !important; }
+body.ol-page .ol-muted-text  { color: var(--ol-muted) !important; }
+
+/* Links inside our content default to ultra-violet for legibility */
+body.ol-page a {
+  color: var(--ol-link);
+}
+
+/* ── Chip / eyebrow label ────────────────────────────────────── */
+body.ol-page .ol-chip {
+  display: inline-block;
+  background: rgba(236,117,5,0.10);
+  border: 1px solid var(--ol-accent);
+  color: var(--ol-accent) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+body.ol-page .ol-chip-violet {
+  background: rgba(100,87,166,0.10);
+  border-color: var(--ol-violet);
+  color: var(--ol-violet) !important;
+}
+
+/* ── Hero section ────────────────────────────────────────────── */
+body.ol-page .ol-hero {
+  background: linear-gradient(160deg, #ffffff 0%, var(--ol-gradient) 50%, var(--ol-gradient2) 100%) !important;
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ol-border);
+}
+
+body.ol-page .ol-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(236,117,5,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+body.ol-page .ol-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40%; left: -10%;
+  width: 60%; height: 120%;
+  background: radial-gradient(ellipse at center, rgba(100,87,166,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+body.ol-page .ol-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.ol-page .ol-hero-logo {
+  display: block;
+  margin: 0 auto 32px;
+  max-width: 200px;
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgba(100,87,166,0.18));
+}
+
+body.ol-page .ol-hero h1 {
+  color: var(--ol-primary) !important;
+}
+
+body.ol-page .ol-hero-intro {
+  font-size: 1.1rem;
+  color: var(--ol-muted) !important;
+  max-width: 700px;
+  margin: 16px auto 0;
+  line-height: 1.8;
+}
+
+/* ── Stats bar ───────────────────────────────────────────────── */
+body.ol-page .ol-stats {
+  background: var(--ol-surface2) !important;
+  border-top: 1px solid var(--ol-border);
+  border-bottom: 1px solid var(--ol-border);
+  padding: 44px 24px;
+}
+
+body.ol-page .ol-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+body.ol-page .ol-stat-item {
+  text-align: center;
+  flex: 1 1 180px;
+}
+
+body.ol-page .ol-stat-number {
+  display: block;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ol-accent) !important;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+body.ol-page .ol-stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ol-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Card grid (auto-fit + minmax = mobile-responsive) ─────────── */
+body.ol-page .ol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+body.ol-page .ol-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+body.ol-page .ol-card {
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 36px 28px;
+  transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+body.ol-page .ol-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ol-accent), var(--ol-violet));
+  opacity: 0;
+  transition: opacity var(--ol-transition);
+}
+
+body.ol-page .ol-card:hover {
+  border-color: var(--ol-accent);
+  box-shadow: 0 14px 40px rgba(100,87,166,0.16);
+  transform: translateY(-4px);
+}
+
+body.ol-page .ol-card:hover::before {
+  opacity: 1;
+}
+
+body.ol-page .ol-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  display: block;
+  line-height: 1;
+}
+
+body.ol-page .ol-card h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 12px !important;
+}
+
+body.ol-page .ol-card p {
+  font-size: 0.95rem;
+  color: var(--ol-muted) !important;
+  margin: 0;
+  line-height: 1.7;
+}
+
+body.ol-page .ol-card ul {
+  list-style: none !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+}
+
+body.ol-page .ol-card ul li {
+  font-size: 0.9rem;
+  color: var(--ol-muted) !important;
+  padding: 5px 0 5px 22px;
+  position: relative;
+  margin: 0;
+}
+
+body.ol-page .ol-card ul li::before {
+  content: '✿';
+  position: absolute;
+  left: 0;
+  color: var(--ol-accent);
+  font-size: 0.85rem;
+}
+
+/* ── Card number badge ───────────────────────────────────────── */
+body.ol-page .ol-card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--ol-accent), var(--ol-violet));
+  border-radius: 50%;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  margin-bottom: 20px;
+}
+
+/* ── Why Us / feature pill list ──────────────────────────────── */
+body.ol-page .ol-why-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+body.ol-page .ol-why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius);
+  padding: 22px;
+  margin: 0;
+  transition: border-color var(--ol-transition), box-shadow var(--ol-transition);
+}
+
+body.ol-page .ol-why-list li:hover {
+  border-color: var(--ol-violet);
+  box-shadow: 0 8px 24px rgba(100,87,166,0.12);
+}
+
+body.ol-page .ol-why-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+body.ol-page .ol-why-text strong {
+  display: block;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.98rem;
+  color: var(--ol-primary) !important;
+  margin-bottom: 4px;
+}
+
+body.ol-page .ol-why-text span {
+  font-size: 0.9rem;
+  color: var(--ol-muted) !important;
+}
+
+/* ── Values grid (icon tiles) ────────────────────────────────── */
+body.ol-page .ol-value-card {
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 30px 26px;
+  text-align: left;
+  transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
+}
+
+body.ol-page .ol-value-card:hover {
+  border-color: var(--ol-accent);
+  box-shadow: 0 14px 36px rgba(236,117,5,0.12);
+  transform: translateY(-4px);
+}
+
+body.ol-page .ol-value-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(100,87,166,0.14));
+}
+
+body.ol-page .ol-value-card h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.1rem !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 8px !important;
+}
+
+body.ol-page .ol-value-card p {
+  font-size: 0.92rem;
+  color: var(--ol-muted) !important;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ── Team grid ───────────────────────────────────────────────── */
+body.ol-page .ol-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+body.ol-page .ol-team-card {
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 36px 30px;
+  transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
+}
+
+body.ol-page .ol-team-card:hover {
+  border-color: var(--ol-violet);
+  box-shadow: 0 16px 40px rgba(100,87,166,0.15);
+  transform: translateY(-4px);
+}
+
+body.ol-page .ol-team-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+body.ol-page .ol-team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--ol-accent), var(--ol-violet));
+  box-shadow: 0 6px 18px rgba(100,87,166,0.25);
+}
+
+body.ol-page .ol-team-name {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.25rem !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 4px !important;
+}
+
+body.ol-page .ol-team-role {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ol-accent) !important;
+}
+
+body.ol-page .ol-team-card p {
+  font-size: 0.94rem;
+  color: var(--ol-muted) !important;
+  line-height: 1.75;
+  margin: 0 0 12px;
+}
+
+body.ol-page .ol-team-card p:last-child { margin-bottom: 0; }
+
+/* ── CTA panel ───────────────────────────────────────────────── */
+body.ol-page .ol-cta {
+  background: linear-gradient(135deg, var(--ol-violet) 0%, var(--ol-indigo) 100%) !important;
+  border-radius: var(--ol-radius-lg);
+  text-align: center;
+  padding: 64px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.ol-page .ol-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(236,117,5,0.30) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+body.ol-page .ol-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.ol-page .ol-cta h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  color: #ffffff !important;
+  margin: 0 0 12px !important;
+}
+
+body.ol-page .ol-cta p {
+  color: rgba(255,255,255,0.92) !important;
+  font-size: 1.05rem;
+  margin: 0 auto 32px;
+  max-width: 560px;
+}
+
+body.ol-page .ol-cta .ol-btn {
+  background: var(--ol-accent) !important;
+  border-color: var(--ol-accent) !important;
+  color: #ffffff !important;
+}
+
+body.ol-page .ol-cta .ol-btn:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: var(--ol-violet) !important;
+}
+
+body.ol-page .ol-cta .ol-btn-outline {
+  background: transparent !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+body.ol-page .ol-cta .ol-btn-outline:hover {
+  background: #ffffff !important;
+  color: var(--ol-violet) !important;
+}
+
+body.ol-page .ol-btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Button ──────────────────────────────────────────────────── */
+body.ol-page .ol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ol-accent) !important;
+  color: #ffffff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  padding: 14px 32px;
+  border-radius: 6px;
+  border: 2px solid var(--ol-accent) !important;
+  transition: background var(--ol-transition), color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
+  cursor: pointer;
+}
+
+body.ol-page .ol-btn:hover {
+  background: var(--ol-violet) !important;
+  border-color: var(--ol-violet) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 28px var(--ol-glow-violet);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+body.ol-page .ol-btn-outline {
+  background: transparent !important;
+  color: var(--ol-violet) !important;
+  border-color: var(--ol-violet) !important;
+}
+
+body.ol-page .ol-btn-outline:hover {
+  background: var(--ol-violet) !important;
+  border-color: var(--ol-violet) !important;
+  color: #ffffff !important;
+}
+
+/* ── Two-column layout ───────────────────────────────────────── */
+body.ol-page .ol-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+body.ol-page .ol-two-col-content h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 20px !important;
+}
+
+body.ol-page .ol-two-col-content p {
+  color: var(--ol-muted) !important;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+body.ol-page .ol-feature-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.ol-page .ol-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--ol-border);
+}
+
+body.ol-page .ol-feature-list li:last-child {
+  border-bottom: none;
+}
+
+body.ol-page .ol-feature-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, rgba(236,117,5,0.16), rgba(100,87,166,0.16));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+body.ol-page .ol-feature-text strong {
+  display: block;
+  font-size: 0.96rem;
+  color: var(--ol-primary) !important;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+body.ol-page .ol-feature-text span {
+  font-size: 0.9rem;
+  color: var(--ol-muted) !important;
+}
+
+/* ── Process steps ───────────────────────────────────────────── */
+body.ol-page .ol-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+body.ol-page .ol-process::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ol-accent), var(--ol-violet), transparent);
+  opacity: 0.5;
+}
+
+body.ol-page .ol-step {
+  text-align: center;
+  padding: 24px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+body.ol-page .ol-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #ffffff !important;
+  border: 2px solid var(--ol-accent);
+  border-radius: 50%;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ol-accent) !important;
+  margin: 0 auto 16px;
+  box-shadow: 0 6px 18px var(--ol-glow);
+}
+
+body.ol-page .ol-step h4 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 8px !important;
+}
+
+body.ol-page .ol-step p {
+  font-size: 0.88rem;
+  color: var(--ol-muted) !important;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Section heading ─────────────────────────────────────────── */
+body.ol-page .ol-section-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+body.ol-page .ol-section-heading h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 12px !important;
+}
+
+body.ol-page .ol-section-heading p {
+  color: var(--ol-muted) !important;
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+body.ol-page .ol-divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ol-accent), var(--ol-violet));
+  border-radius: 2px;
+  margin: 16px auto;
+}
+
+/* ── Contact section ─────────────────────────────────────────── */
+body.ol-page .ol-contact-panel {
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 40px 36px;
+  height: 100%;
+}
+
+body.ol-page .ol-contact-panel h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.4rem !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 28px !important;
+}
+
+body.ol-page .ol-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+body.ol-page .ol-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+body.ol-page .ol-contact-item-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(100,87,166,0.14));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+body.ol-page .ol-contact-item-text strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--ol-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+body.ol-page .ol-contact-item-text a,
+body.ol-page .ol-contact-item-text span {
+  font-size: 1rem;
+  color: var(--ol-primary) !important;
+  text-decoration: none;
+  transition: color var(--ol-transition);
+}
+
+body.ol-page .ol-contact-item-text a:hover {
+  color: var(--ol-accent) !important;
+}
+
+body.ol-page .ol-social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+body.ol-page .ol-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ol-surface2) !important;
+  border: 1px solid var(--ol-border);
+  color: var(--ol-muted) !important;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all var(--ol-transition);
+}
+
+body.ol-page .ol-social-link:hover {
+  border-color: var(--ol-accent);
+  color: var(--ol-accent) !important;
+  background: rgba(236,117,5,0.06) !important;
+  text-decoration: none !important;
+}
+
+/* ── CF7 form wrapper ────────────────────────────────────────── */
+body.ol-page .ol-form-panel {
+  background: var(--ol-surface) !important;
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 40px 36px;
+}
+
+body.ol-page .ol-form-panel h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.4rem !important;
+  color: var(--ol-primary) !important;
+  margin: 0 0 28px !important;
+}
+
+body.ol-page .ol-form-panel label {
+  color: var(--ol-muted) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.9rem;
+  display: block;
+}
+
+body.ol-page .ol-form-panel .wpcf7-form input[type="text"],
+body.ol-page .ol-form-panel .wpcf7-form input[type="email"],
+body.ol-page .ol-form-panel .wpcf7-form input[type="tel"],
+body.ol-page .ol-form-panel .wpcf7-form input[type="number"],
+body.ol-page .ol-form-panel .wpcf7-form textarea,
+body.ol-page .ol-form-panel .wpcf7-form select {
+  width: 100%;
+  background: var(--ol-surface2) !important;
+  border: 1px solid var(--ol-border) !important;
+  border-radius: var(--ol-radius);
+  color: var(--ol-primary) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  transition: border-color var(--ol-transition), box-shadow var(--ol-transition);
+  margin-bottom: 4px;
+}
+
+body.ol-page .ol-form-panel .wpcf7-form input:focus,
+body.ol-page .ol-form-panel .wpcf7-form textarea:focus {
+  outline: none;
+  border-color: var(--ol-violet) !important;
+  box-shadow: 0 0 0 3px var(--ol-glow-violet);
+}
+
+body.ol-page .ol-form-panel .wpcf7-form input[type="submit"] {
+  background: var(--ol-accent) !important;
+  color: #ffffff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid var(--ol-accent) !important;
+  padding: 14px 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--ol-transition);
+  width: auto;
+  margin-top: 8px;
+}
+
+body.ol-page .ol-form-panel .wpcf7-form input[type="submit"]:hover {
+  background: var(--ol-violet) !important;
+  border-color: var(--ol-violet) !important;
+  color: #ffffff !important;
+}
+
+/* ── Policy prose section ────────────────────────────────────── */
+body.ol-page .ol-policy {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+body.ol-page .ol-policy-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--ol-border);
+}
+
+body.ol-page .ol-policy-meta span {
+  font-size: 0.85rem;
+  color: var(--ol-muted) !important;
+}
+
+body.ol-page .ol-policy-meta span strong {
+  color: var(--ol-accent) !important;
+}
+
+body.ol-page .ol-policy-section {
+  margin-bottom: 40px;
+}
+
+body.ol-page .ol-policy-section h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.3rem !important;
+  color: var(--ol-violet) !important;
+  margin: 0 0 16px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid var(--ol-border);
+}
+
+body.ol-page .ol-policy-section h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1rem !important;
+  color: var(--ol-primary) !important;
+  margin: 24px 0 8px !important;
+}
+
+body.ol-page .ol-policy-section p {
+  font-size: 0.95rem;
+  color: var(--ol-text) !important;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+body.ol-page .ol-policy-section ul,
+body.ol-page .ol-policy-section ol {
+  margin: 0 0 14px 20px !important;
+  padding: 0;
+}
+
+body.ol-page .ol-policy-section ul li,
+body.ol-page .ol-policy-section ol li {
+  font-size: 0.95rem;
+  color: var(--ol-text) !important;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+body.ol-page .ol-policy-section a {
+  color: var(--ol-violet) !important;
+  text-decoration: none;
+}
+
+body.ol-page .ol-policy-section a:hover {
+  text-decoration: underline;
+}
+
+body.ol-page .ol-policy-highlight {
+  background: var(--ol-surface2) !important;
+  border-left: 4px solid var(--ol-accent);
+  border-radius: 0 var(--ol-radius) var(--ol-radius) 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+body.ol-page .ol-policy-highlight p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--ol-primary) !important;
+}
+
+/* ── Banner strip (e.g. ISO certification) ───────────────────── */
+body.ol-page .ol-banner {
+  background: linear-gradient(135deg, var(--ol-surface2), #ffffff);
+  border: 1px solid var(--ol-border);
+  border-radius: var(--ol-radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+body.ol-page .ol-banner .ol-banner-icon {
+  font-size: 1.6rem;
+}
+
+body.ol-page .ol-banner strong {
+  font-family: 'Cinzel', serif !important;
+  color: var(--ol-primary) !important;
+  font-size: 1.05rem;
+}
+
+body.ol-page .ol-banner span {
+  color: var(--ol-muted) !important;
+  font-size: 0.95rem;
+}
+
+/* ── Utility ──────────────────────────────────────────────────── */
+body.ol-page .ol-text-center { text-align: center; }
+body.ol-page .ol-mt-0  { margin-top: 0; }
+body.ol-page .ol-mt-8  { margin-top: 8px; }
+body.ol-page .ol-mt-16 { margin-top: 16px; }
+body.ol-page .ol-mt-32 { margin-top: 32px; }
+body.ol-page .ol-mb-0  { margin-bottom: 0; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  body.ol-page .ol-two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.ol-page .ol-section { padding: 56px 0; }
+  body.ol-page .ol-hero { padding: 72px 20px 60px; }
+
+  body.ol-page .ol-stats-inner {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  body.ol-page .ol-stat-item {
+    flex: 1 1 140px;
+  }
+
+  body.ol-page .ol-grid,
+  body.ol-page .ol-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  body.ol-page .ol-process {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.ol-page .ol-process::before { display: none; }
+
+  body.ol-page .ol-cta { padding: 48px 20px; }
+  body.ol-page .ol-contact-panel,
+  body.ol-page .ol-form-panel { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  body.ol-page .ol-hero { padding: 56px 16px 48px; }
+  body.ol-page .ol-section { padding: 40px 0; }
+  body.ol-page .ol-wrap { padding: 0 16px; }
+  body.ol-page .ol-process { grid-template-columns: 1fr; }
+  body.ol-page .ol-why-list { grid-template-columns: 1fr; }
+  body.ol-page .ol-stats-inner { flex-direction: column; align-items: center; }
+  body.ol-page .ol-team-head { flex-direction: column; text-align: center; align-items: center; }
+}
