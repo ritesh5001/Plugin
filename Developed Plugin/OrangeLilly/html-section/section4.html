@@ -3,170 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SLOWY · Shop by Category</title>
-<style>body{margin:0;background:#ffffff;}</style>
+<title>Orange Lilies · Shop by Category</title>
+<style>body{margin:0;background:#fffaf3;}</style>
 
 <!-- ============================================================= -->
-<!--  SLOWY · SHOP BY CATEGORY                                     -->
-<!--  Paste everything between START and END into your page        -->
-<!--  (WordPress -> Custom HTML block, or any HTML section).       -->
-<!--  Images are free Unsplash hotlinks; swap to your own product  -->
-<!--  photos and edit the href links to your real category URLs.   -->
+<!--  ORANGE LILIES · SHOP BY CATEGORY                             -->
+<!--  Paste everything between START and END into your page         -->
+<!--  (Elementor HTML widget, or WordPress -> Custom HTML block).   -->
+<!--  Images are free Unsplash hotlinks marked REPLACE IMAGE — swap -->
+<!--  to your own product photos and edit href to real category URLs.-->
 <!-- ============================================================= -->
 
 <!-- ======================= START ======================= -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600&display=swap');
 
-.slowy-cat{
-  --slowy-ink:#1a1a1a;        /* title */
-  --slowy-label:#5a5a5a;      /* category labels */
-  --slowy-gold:#c89b6a;       /* champagne / rose-gold accent */
-  --slowy-disc:#f7f4f1;       /* pale circle fill */
-  --slowy-line:#e4ddd5;       /* hairline rules */
-  --slowy-bg:#ffffff;
+.ol-cat{
+  --ol-ink:#2f2a24;          /* title */
+  --ol-label:#6f665b;        /* category labels */
+  --ol-orange:#e8780a;       /* brand accent */
+  --ol-disc:#fbeeda;         /* pale circle fill */
+  --ol-line:#f1e3cd;         /* hairline rules */
+  --ol-bg:#fffaf3;
 
   display:block;
   width:100%;
   padding:60px 20px;
-  background:var(--slowy-bg);
-  font-family:'Poppins',sans-serif;
+  background:var(--ol-bg);
+  font-family:'Manrope',sans-serif;
   text-align:center;
   box-sizing:border-box;
 }
-.slowy-cat__inner{max-width:1080px;width:100%;margin:0 auto;}
+.ol-cat__inner{max-width:1080px;width:100%;margin:0 auto;}
 
 /* ---- Title row: hairline — ✦ SHOP BY CATEGORY ✦ — hairline ---- */
-.slowy-cat__head{
+.ol-cat__head{
   display:flex;align-items:center;justify-content:center;gap:14px;
   margin:0 auto 46px;
   width:100%;
 }
-.slowy-cat__line{flex:1 1 auto;max-width:150px;height:1px;background:var(--slowy-line);}
-.slowy-cat__spark{color:var(--slowy-gold);font-size:13px;line-height:1;}
-.slowy-cat__title{
+.ol-cat__line{flex:1 1 auto;max-width:150px;height:1px;background:var(--ol-line);}
+.ol-cat__spark{color:var(--ol-orange);font-size:13px;line-height:1;}
+.ol-cat__title{
   margin:0;white-space:nowrap;
   font-family:'Playfair Display',serif;font-weight:600;
   font-size:24px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--slowy-ink);
+  color:var(--ol-ink);
 }
 
 /* ---- Row of categories ---- */
-.slowy-cat__grid{
+.ol-cat__grid{
   display:flex;flex-wrap:wrap;justify-content:center;
-  gap:14px;
-  max-width:980px;width:100%;margin:0 auto;
+  gap:18px;
+  max-width:900px;width:100%;margin:0 auto;
   overflow:visible;
 }
 
-.slowy-cat__item{
+.ol-cat__item{
   text-decoration:none;
   display:flex;flex-direction:column;align-items:center;gap:14px;
-  flex:0 0 calc((100% - 6 * 14px) / 7);   /* 7 equal columns, same math as repeat(7,1fr) */
-  min-width:90px;
+  flex:0 0 calc((100% - 5 * 18px) / 6);   /* 6 equal columns */
+  min-width:100px;
 }
 
 /* Pale disc holding the product image */
-.slowy-cat__disc{
+.ol-cat__disc{
   width:100%;max-width:128px;aspect-ratio:1/1;border-radius:50%;
-  background:var(--slowy-disc);overflow:hidden;position:relative;
-  transition:transform .35s ease, box-shadow .35s ease;
+  background:var(--ol-disc);overflow:hidden;position:relative;
+  border:2px solid #f6dcb8;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-.slowy-cat__disc img{
+.ol-cat__disc img{
   width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
   transition:transform .5s ease;
 }
-.slowy-cat__item:hover .slowy-cat__disc{
+.ol-cat__item:hover .ol-cat__disc{
   transform:translateY(-6px);
-  box-shadow:0 12px 26px rgba(26,26,26,.12);
+  border-color:var(--ol-orange);
+  box-shadow:0 12px 26px rgba(232,120,10,.22);
 }
-.slowy-cat__item:hover .slowy-cat__disc img{transform:scale(1.08);}
+.ol-cat__item:hover .ol-cat__disc img{transform:scale(1.08);}
 
 /* Label */
-.slowy-cat__name{
-  font-size:12px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--slowy-label);transition:color .3s ease;
+.ol-cat__name{
+  font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--ol-label);transition:color .3s ease;
 }
-.slowy-cat__item:hover .slowy-cat__name{color:var(--slowy-gold);}
+.ol-cat__item:hover .ol-cat__name{color:var(--ol-orange);}
 
 /* ---- Responsive ---- */
 @media(max-width:860px){
-  .slowy-cat{padding:48px 20px 56px;}
-  .slowy-cat__grid{gap:26px 16px;}
-  .slowy-cat__item{flex:0 0 calc((100% - 3 * 16px) / 4);min-width:80px;}   /* 4 per row */
-  .slowy-cat__line{max-width:80px;}
-  .slowy-cat__title{font-size:20px;letter-spacing:2px;}
+  .ol-cat{padding:48px 20px 56px;}
+  .ol-cat__grid{gap:26px 16px;}
+  .ol-cat__item{flex:0 0 calc((100% - 3 * 16px) / 4);min-width:80px;}   /* 4 per row */
+  .ol-cat__line{max-width:80px;}
+  .ol-cat__title{font-size:20px;letter-spacing:2px;}
 }
 @media(max-width:520px){
-  .slowy-cat{padding:36px 16px 48px;}
-  .slowy-cat__grid{gap:24px 10px;row-gap:30px;}
-  .slowy-cat__item{flex:0 0 calc((100% - 2 * 10px) / 3);min-width:0;gap:10px;}   /* 3 per row */
-  .slowy-cat__title{font-size:16px;letter-spacing:1.5px;white-space:normal;}
-  .slowy-cat__line{max-width:30px;}
-  .slowy-cat__name{font-size:11px;letter-spacing:.6px;}
+  .ol-cat{padding:36px 16px 48px;}
+  .ol-cat__grid{gap:24px 10px;row-gap:30px;}
+  .ol-cat__item{flex:0 0 calc((100% - 2 * 10px) / 3);min-width:0;gap:10px;}   /* 3 per row */
+  .ol-cat__title{font-size:16px;letter-spacing:1.5px;white-space:normal;}
+  .ol-cat__line{max-width:30px;}
+  .ol-cat__name{font-size:11px;letter-spacing:.6px;}
 }
 </style>
 
-<section class="slowy-cat">
-  <div class="slowy-cat__inner">
+<section class="ol-cat">
+  <div class="ol-cat__inner">
 
-    <div class="slowy-cat__head">
-      <span class="slowy-cat__line"></span>
-      <span class="slowy-cat__spark">&#10038;</span>
-      <h2 class="slowy-cat__title">Shop by Category</h2>
-      <span class="slowy-cat__spark">&#10038;</span>
-      <span class="slowy-cat__line"></span>
+    <div class="ol-cat__head">
+      <span class="ol-cat__line"></span>
+      <span class="ol-cat__spark">&#10038;</span>
+      <h2 class="ol-cat__title">Shop by Category</h2>
+      <span class="ol-cat__spark">&#10038;</span>
+      <span class="ol-cat__line"></span>
     </div>
 
-    <div class="slowy-cat__grid">
+    <div class="ol-cat__grid">
 
-      <a class="slowy-cat__item" href="/product-category/rings/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1655707063513-a08dad26440e?auto=format&fit=crop&w=400&h=400&q=70" alt="Rings">
+      <a class="ol-cat__item" href="/product-category/disposable-panties/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&h=400&q=70" alt="Disposable Panties">
         </div>
-        <span class="slowy-cat__name">Rings</span>
+        <span class="ol-cat__name">Disposable Panties</span>
       </a>
 
-      <a class="slowy-cat__item" href="/product-category/earrings/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1671644730555-916aa8d8157f?auto=format&fit=crop&w=400&h=400&q=70" alt="Earrings">
+      <a class="ol-cat__item" href="/product-category/overnight-protection/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=400&h=400&q=70" alt="Overnight Protection">
         </div>
-        <span class="slowy-cat__name">Earrings</span>
+        <span class="ol-cat__name">Overnight</span>
       </a>
 
-      <a class="slowy-cat__item" href="/product-category/necklaces/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1611107683227-e9060eccd846?auto=format&fit=crop&w=400&h=400&q=70" alt="Necklaces">
+      <a class="ol-cat__item" href="/product-category/travel-packs/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=400&q=70" alt="Travel Packs">
         </div>
-        <span class="slowy-cat__name">Necklaces</span>
+        <span class="ol-cat__name">Travel Packs</span>
       </a>
 
-      <a class="slowy-cat__item" href="/product-category/bracelets/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=400&h=400&q=70" alt="Bracelets">
+      <a class="ol-cat__item" href="/product-category/teen-care/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&h=400&q=70" alt="Teen Care">
         </div>
-        <span class="slowy-cat__name">Bracelets</span>
+        <span class="ol-cat__name">Teen Care</span>
       </a>
 
-      <a class="slowy-cat__item" href="/product-category/pendants/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1569397288884-4d43d6738fbd?auto=format&fit=crop&w=400&h=400&q=70" alt="Pendants">
+      <a class="ol-cat__item" href="/product-category/combo-packs/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=400&h=400&q=70" alt="Combo Packs">
         </div>
-        <span class="slowy-cat__name">Pendants</span>
+        <span class="ol-cat__name">Combo Packs</span>
       </a>
 
-      <a class="slowy-cat__item" href="/product-category/anklets/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1588658163621-f853df4bbe86?auto=format&fit=crop&w=400&h=400&q=70" alt="Anklets">
+      <a class="ol-cat__item" href="/product-category/new-arrivals/">
+        <div class="ol-cat__disc">
+          <!-- REPLACE IMAGE -->
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&h=400&q=70" alt="New Arrivals">
         </div>
-        <span class="slowy-cat__name">Anklets</span>
-      </a>
-
-      <a class="slowy-cat__item" href="/product-category/combos/">
-        <div class="slowy-cat__disc">
-          <img src="https://images.unsplash.com/photo-1722410180687-b05b50922362?auto=format&fit=crop&w=400&h=400&q=70" alt="Combos">
-        </div>
-        <span class="slowy-cat__name">Combos</span>
+        <span class="ol-cat__name">New Arrivals</span>
       </a>
 
     </div>

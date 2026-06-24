@@ -1,5 +1,10 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · FULL-WIDTH OFFER MARQUEE                      -->
+<!--  Paste into an Elementor "HTML" widget inside a FULL-WIDTH     -->
+<!--  section (so the 100vw bleed reaches the screen edges).        -->
+<!-- ============================================================= -->
 <style>
-  .fullwidth-marquee-wrapper {
+  .ol-marquee-wrapper {
     position: relative;
     left: 50%;
     right: 50%;
@@ -7,60 +12,63 @@
     margin-right: -50vw;
     width: 100vw;
     overflow: hidden;
-    background: #fff;
-    border-top: 1px solid #d63c3c;
-    border-bottom: 1px solid #d63c3c;
+    background: #fffaf3;
+    border-top: 1px solid #f3c896;
+    border-bottom: 1px solid #f3c896;
     padding: 10px 0;
   }
 
-  .saree-offer-track {
+  .ol-offer-track {
     display: flex;
     gap: 14px;
     width: max-content;
     white-space: nowrap;
-    animation: sareeScroll 18s linear infinite;
+    animation: olOfferScroll 18s linear infinite;
   }
 
-  .saree-offer-item {
+  .ol-offer-item {
     font-size: 13px;
     font-weight: 600;
-    padding: 5px 12px;yuf ca la f
-    background: #fff5f5;
+    color: #4a443d;
+    padding: 5px 14px;
+    background: #fff6ea;
     border-radius: 30px;
-    border: 1px solid #ffd4d4;
+    border: 1px solid #f6dcb8;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     flex-shrink: 0;
   }
 
-  .saree-offer-dot {
+  .ol-offer-dot {
     width: 7px;
     height: 7px;
-    background: #d63c3c;
+    background: #e8780a;
     border-radius: 50%;
-    box-shadow: 0 0 4px rgba(214,60,60,0.5);
+    box-shadow: 0 0 4px rgba(232,120,10,0.5);
   }
 
-  @keyframes sareeScroll {
+  @keyframes olOfferScroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 </style>
 
-<div class="fullwidth-marquee-wrapper">
-  <div class="saree-offer-track">
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Partial COD Available</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Free Delivery Over ₹3999</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Easy Return</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Premium Saree Fabrics</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Gift Packaging Available</div>
+<div class="ol-marquee-wrapper">
+  <div class="ol-offer-track">
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Free Delivery Across India</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Cash on Delivery Available</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Easy Returns on Sealed Packs</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Dermatologically Tested</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>100% Discreet Packaging</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Women-Led &middot; Made in India</div>
 
     <!-- DUPLICATE FOR INFINITE LOOP -->
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Partial COD Available</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Free Delivery Over ₹3999</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Easy Return</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Premium Saree Fabrics</div>
-    <div class="saree-offer-item"><span class="saree-offer-dot"></span>Gift Packaging Available</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Free Delivery Across India</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Cash on Delivery Available</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Easy Returns on Sealed Packs</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Dermatologically Tested</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>100% Discreet Packaging</div>
+    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Women-Led &middot; Made in India</div>
   </div>
 </div>

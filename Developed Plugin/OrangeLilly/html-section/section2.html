@@ -1,137 +1,143 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · SCROLLING TRUST / FEATURE STRIP              -->
+<!--  Paste into an Elementor "HTML" widget. Icons use Font Awesome -->
+<!--  (loaded below). The site header plugin also loads FA, so the  -->
+<!--  duplicate link is harmless.                                   -->
+<!-- ============================================================= -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  .scroll-container {
+  .ol-scroll-container {
     width: 100%;
     overflow: hidden;
-    padding: 12px 0; /* Perfectly balanced top and bottom padding */
-    background: #ffffff;
-    border-bottom: 1px solid #9c845b; 
+    padding: 14px 0;
+    background: #fffaf3;
+    border-top: 1px solid #f1e3cd;
+    border-bottom: 1px solid #f1e3cd;
   }
 
-  .scroll-track {
+  .ol-scroll-track {
     display: flex;
     width: max-content;
-    align-items: center; /* Keeps items vertically centered */
-    animation: loopScroll 40s linear infinite;
+    align-items: center;
+    animation: olLoopScroll 40s linear infinite;
   }
 
-  .scroll-item {
+  .ol-scroll-item {
     text-align: center;
     margin: 0 20px;
-    min-width: 150px; 
+    min-width: 150px;
   }
 
-  .scroll-item i {
-    font-size: 34px; 
-    color: #9c845b; 
+  .ol-scroll-item i {
+    font-size: 32px;
+    color: #e8780a;
   }
 
-  .scroll-item p {
-    margin-top: 8px; 
-    margin-bottom: 0 !important; /* Forces the hidden bottom margin to zero */
+  .ol-scroll-item p {
+    margin-top: 8px;
+    margin-bottom: 0 !important;
     font-size: 13px;
-    color: #2c2c2c; 
+    color: #2f2a24;
     font-weight: 700;
     font-family: inherit;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
-  @keyframes loopScroll {
+  @keyframes olLoopScroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* ---------------------------------- */
-  /* RESPONSIVE RULES                   */
-  /* ---------------------------------- */
-
   /* TABLET */
   @media (max-width: 768px) {
-    .scroll-item {
-      min-width: calc(100vw / 5); 
-      margin: 0 10px;
-    }
-
-    .scroll-item i {
-      font-size: 28px;
-    }
-
-    .scroll-item p {
-      font-size: 11px;
-    }
+    .ol-scroll-item { min-width: calc(100vw / 5); margin: 0 10px; }
+    .ol-scroll-item i { font-size: 27px; }
+    .ol-scroll-item p { font-size: 11px; }
   }
 
   /* MOBILE */
   @media (max-width: 480px) {
-    .scroll-item {
-      min-width: calc(100vw / 3.5); 
-      margin: 0 8px;
-    }
-
-    .scroll-item i {
-      font-size: 24px;
-    }
-
-    .scroll-item p {
-      font-size: 10px;
-    }
+    .ol-scroll-item { min-width: calc(100vw / 3.5); margin: 0 8px; }
+    .ol-scroll-item i { font-size: 23px; }
+    .ol-scroll-item p { font-size: 10px; }
   }
 </style>
 
-<div class="scroll-container">
-  <div class="scroll-track">
+<div class="ol-scroll-container">
+  <div class="ol-scroll-track">
 
-    <div class="scroll-item">
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-truck-fast"></i>
       <p>Free Delivery</p>
     </div>
 
-    <div class="scroll-item">
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-hand-holding-dollar"></i>
       <p>COD Available</p>
     </div>
 
-    <div class="scroll-item">
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-arrow-rotate-left"></i>
       <p>Easy Returns</p>
     </div>
 
-    <div class="scroll-item">
-      <i class="fa-solid fa-award"></i>
-      <p>Premium Quality</p>
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-shield-heart"></i>
+      <p>Dermatologically Tested</p>
     </div>
 
-    <div class="scroll-item">
-      <i class="fa-solid fa-shield-halved"></i>
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-box"></i>
+      <p>Discreet Packaging</p>
+    </div>
+
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-leaf"></i>
+      <p>Eco-Friendly</p>
+    </div>
+
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-lock"></i>
       <p>Secure Payments</p>
     </div>
 
-    <div class="scroll-item">
+    <!-- DUPLICATE FOR INFINITE LOOP -->
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-truck-fast"></i>
       <p>Free Delivery</p>
     </div>
 
-    <div class="scroll-item">
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-hand-holding-dollar"></i>
       <p>COD Available</p>
     </div>
 
-    <div class="scroll-item">
+    <div class="ol-scroll-item">
       <i class="fa-solid fa-arrow-rotate-left"></i>
       <p>Easy Returns</p>
     </div>
 
-    <div class="scroll-item">
-      <i class="fa-solid fa-award"></i>
-      <p>Premium Quality</p>
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-shield-heart"></i>
+      <p>Dermatologically Tested</p>
     </div>
 
-    <div class="scroll-item">
-      <i class="fa-solid fa-shield-halved"></i>
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-box"></i>
+      <p>Discreet Packaging</p>
+    </div>
+
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-leaf"></i>
+      <p>Eco-Friendly</p>
+    </div>
+
+    <div class="ol-scroll-item">
+      <i class="fa-solid fa-lock"></i>
       <p>Secure Payments</p>
     </div>
-    
+
   </div>
 </div>

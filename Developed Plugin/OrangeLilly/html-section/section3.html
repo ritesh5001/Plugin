@@ -1,255 +1,313 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · CUSTOMER REVIEWS MARQUEE                      -->
+<!--  Paste into an Elementor "HTML" widget. Cards auto-scroll and  -->
+<!--  pause on hover. Edit the review text / names freely.          -->
+<!-- ============================================================= -->
 <style>
-  .luntra-review-section {
-    padding: 40px 20px;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
-    background: #fafafa; /* Slight grey background to separate from white page */
-    font-family: inherit;
-    overflow: hidden; /* Critical for marquee */
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+  .ol-review-section {
+    padding: 56px 20px;
+    border-top: 1px solid #f1e3cd;
+    border-bottom: 1px solid #f1e3cd;
+    background: #fbeeda;
+    font-family: 'Manrope', sans-serif;
+    overflow: hidden;
   }
 
-  .luntra-heading-box {
+  .ol-review-headbox {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
     padding: 0 15px;
   }
 
-  .luntra-eyebrow {
+  .ol-review-eyebrow {
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #888;
-    font-weight: 600;
+    color: #7a7065;
+    font-weight: 700;
     display: block;
     margin-bottom: 8px;
   }
 
-  .luntra-title {
+  .ol-review-title {
     margin: 0;
-    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
     font-weight: 700;
-    color: #2c3e50; /* Deep blue-grey */
+    color: #2f2a24;
   }
 
-  /* Scroll Logic */
-  .luntra-scroll-container {
+  /* Scroll logic */
+  .ol-review-scroll {
     width: 100%;
     overflow: hidden;
     padding: 10px 0;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 
-  .luntra-track {
+  .ol-review-track {
     display: flex;
     width: max-content;
-    animation: luntraLoop 40s linear infinite;
+    animation: olReviewLoop 48s linear infinite;
   }
 
-  .luntra-review-item {
+  .ol-review-item {
     margin: 0 15px;
-    /* Flex logic to ensure cards don't shrink */
-    flex: 0 0 auto; 
+    flex: 0 0 auto;
   }
 
-  /* Card Styling */
-  .luntra-card {
-    width: 300px;
+  .ol-review-card {
+    width: 320px;
     background: #ffffff;
-    border-radius: 12px;
-    padding: 24px;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 16px;
+    padding: 26px;
+    border: 1px solid #f1e3cd;
+    box-shadow: 0 8px 22px rgba(120,60,0,0.07);
     display: flex;
     flex-direction: column;
-    height: 100%; /* varying heights handled by content */
+    height: 100%;
   }
 
-  .luntra-stars {
-    color: #b8c27b; /* The Olive Green from your previous request */
+  .ol-review-stars {
+    color: #e8780a;
     font-size: 18px;
+    letter-spacing: 2px;
     margin-bottom: 12px;
   }
 
-  .luntra-review-text {
+  .ol-review-text {
     font-size: 15px;
-    line-height: 1.6;
-    color: #444;
+    line-height: 1.65;
+    color: #4a443d;
     margin-bottom: 20px;
     font-style: italic;
-    flex-grow: 1; /* Pushes author to bottom */
+    flex-grow: 1;
   }
 
-  .luntra-author {
+  .ol-review-author {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-top: 1px solid #f5f5f5;
+    border-top: 1px solid #f4ece0;
     padding-top: 15px;
   }
 
-  .luntra-avatar {
-    width: 38px;
-    height: 38px;
+  .ol-review-avatar {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #2c3e50;
+    background: linear-gradient(135deg, #f0982a, #cf6f08);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
+    flex-shrink: 0;
   }
 
-  .luntra-meta strong {
+  .ol-review-meta strong {
     display: block;
     font-size: 14px;
-    color: #222;
+    color: #2f2a24;
   }
 
-  .luntra-meta span {
+  .ol-review-meta span {
     font-size: 12px;
-    color: #777;
+    color: #7a7065;
   }
 
-  @keyframes luntraLoop {
+  @keyframes olReviewLoop {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* Pause on hover for readability */
-  .luntra-track:hover {
+  .ol-review-track:hover {
     animation-play-state: paused;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
-    .luntra-card {
-      width: 260px; /* Slightly smaller cards on mobile */
-      padding: 18px;
-    }
-    .luntra-title {
-      font-size: 24px;
-    }
+    .ol-review-card { width: 270px; padding: 20px; }
+    .ol-review-title { font-size: 25px; }
   }
 </style>
 
-<section class="luntra-review-section">
-  <div class="luntra-heading-box">
-    <span class="luntra-eyebrow">Real Stories</span>
-    <h3 class="luntra-title">Women who love Luntra.in</h3>
+<section class="ol-review-section">
+  <div class="ol-review-headbox">
+    <span class="ol-review-eyebrow">Real Stories</span>
+    <h3 class="ol-review-title">Women Who Love Orange Lilies</h3>
   </div>
 
-  <div class="luntra-scroll-container">
-    <div class="luntra-track">
-    
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"I was skeptical about buying Co-ords online, but the fabric quality blew me away. It's breathable, not see-through, and fits my curves perfectly."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">SK</div>
-            <div class="luntra-meta">
-              <strong>Simran K.</strong>
-              <span>Pune | Co-ord Set</span>
+  <div class="ol-review-scroll">
+    <div class="ol-review-track">
+
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">SR</div>
+            <div class="ol-review-meta">
+              <strong>Sneha R.</strong>
+              <span>Mumbai | Travel Days</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Finally found a brand that understands Indian body types! The maxi dress length was just right for my height (5'3"). Will order again."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">PM</div>
-            <div class="luntra-meta">
-              <strong>Priya M.</strong>
-              <span>Delhi | Floral Maxi</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">AK</div>
+            <div class="ol-review-meta">
+              <strong>Aisha K.</strong>
+              <span>Delhi | Everyday Comfort</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Wore the Luntra linen kurta to work and got so many compliments. It looks professional yet feels so comfortable for a 9-5 day."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">AD</div>
-            <div class="luntra-meta">
-              <strong>Ananya D.</strong>
-              <span>Bangalore | Office Wear</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"Perfect for my gym days — secure, breathable and zero worry during workouts. A total game-changer."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">RP</div>
+            <div class="ol-review-meta">
+              <strong>Riya P.</strong>
+              <span>Bangalore | Active Days</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Delivery was super fast (2 days!), and the packaging was eco-friendly. The color of the top is exactly as shown on the website."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">ZR</div>
-            <div class="luntra-meta">
-              <strong>Zoya R.</strong>
-              <span>Mumbai | Casual Top</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"As a working mom the convenience is unreal. Wear, change, dispose — done. No washing, no fuss."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">MS</div>
+            <div class="ol-review-meta">
+              <strong>Meera S.</strong>
+              <span>Pune | Working Women</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"I was skeptical about buying Co-ords online, but the fabric quality blew me away. It's breathable, not see-through, and fits my curves perfectly."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">SK</div>
-            <div class="luntra-meta">
-              <strong>Simran K.</strong>
-              <span>Pune | Co-ord Set</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"My daughter just started her periods and these made her so much more confident at school. Thank you!"</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">KN</div>
+            <div class="ol-review-meta">
+              <strong>Kavya N.</strong>
+              <span>Hyderabad | Teen Care</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Finally found a brand that understands Indian body types! The maxi dress length was just right for my height (5'3"). Will order again."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">PM</div>
-            <div class="luntra-meta">
-              <strong>Priya M.</strong>
-              <span>Delhi | Floral Maxi</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"Discreet packaging and super soft material. Finally, period care that truly understands women."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">FA</div>
+            <div class="ol-review-meta">
+              <strong>Fatima A.</strong>
+              <span>Chennai | First-Time User</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Wore the Luntra linen kurta to work and got so many compliments. It looks professional yet feels so comfortable for a 9-5 day."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">AD</div>
-            <div class="luntra-meta">
-              <strong>Ananya D.</strong>
-              <span>Bangalore | Office Wear</span>
+      <!-- DUPLICATE SET FOR INFINITE LOOP -->
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">SR</div>
+            <div class="ol-review-meta">
+              <strong>Sneha R.</strong>
+              <span>Mumbai | Travel Days</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="luntra-review-item">
-        <div class="luntra-card">
-          <div class="luntra-stars">★★★★★</div>
-          <p class="luntra-review-text">"Delivery was super fast (2 days!), and the packaging was eco-friendly. The color of the top is exactly as shown on the website."</p>
-          <div class="luntra-author">
-            <div class="luntra-avatar">ZR</div>
-            <div class="luntra-meta">
-              <strong>Zoya R.</strong>
-              <span>Mumbai | Casual Top</span>
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">AK</div>
+            <div class="ol-review-meta">
+              <strong>Aisha K.</strong>
+              <span>Delhi | Everyday Comfort</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"Perfect for my gym days — secure, breathable and zero worry during workouts. A total game-changer."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">RP</div>
+            <div class="ol-review-meta">
+              <strong>Riya P.</strong>
+              <span>Bangalore | Active Days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"As a working mom the convenience is unreal. Wear, change, dispose — done. No washing, no fuss."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">MS</div>
+            <div class="ol-review-meta">
+              <strong>Meera S.</strong>
+              <span>Pune | Working Women</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"My daughter just started her periods and these made her so much more confident at school. Thank you!"</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">KN</div>
+            <div class="ol-review-meta">
+              <strong>Kavya N.</strong>
+              <span>Hyderabad | Teen Care</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ol-review-item">
+        <div class="ol-review-card">
+          <div class="ol-review-stars">★★★★★</div>
+          <p class="ol-review-text">"Discreet packaging and super soft material. Finally, period care that truly understands women."</p>
+          <div class="ol-review-author">
+            <div class="ol-review-avatar">FA</div>
+            <div class="ol-review-meta">
+              <strong>Fatima A.</strong>
+              <span>Chennai | First-Time User</span>
             </div>
           </div>
         </div>

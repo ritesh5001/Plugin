@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Header & Footer
  * Plugin URI:  https://orangelilies.com/
  * Description: Auto-injects a branded header and footer site-wide. Configure logo, contact details and all header/footer links under Appearance → Orange Lilies Header & Footer. Shortcodes [ol_header] and [ol_footer] also available for manual placement.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_HF_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_HF_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_HF_VERSION', '1.0.0' );
+define( 'OL_HF_VERSION', '1.1.0' );
 define( 'OL_HF_CSS_FILE', OL_HF_DIR . 'assets/css/ol-hf.css' );
 define( 'OL_HF_ASSET_VERSION', OL_HF_VERSION . '-' . ( file_exists( OL_HF_CSS_FILE ) ? filemtime( OL_HF_CSS_FILE ) : OL_HF_VERSION ) );
 define( 'OL_HF_LOGO_URL', 'https://mistyrose-chamois-793959.hostingersite.com/wp-content/uploads/2026/06/logo-1.png' );
@@ -78,22 +78,24 @@ function ol_hf_enqueue_assets() {
 function ol_hf_palette_override_css() {
 	return <<<'CSS'
 :root {
-  --ol-color-1: #ec7505 !important;
-  --ol-color-2: #ffffff !important;
-  --ol-color-3: #7d7abc !important;
-  --ol-color-4: #6457a6 !important;
-  --ol-color-5: #223843 !important;
-  --ol-bg: #ffffff !important;
-  --ol-primary: #223843 !important;
-  --ol-accent: #ec7505 !important;
-  --ol-violet: #6457a6 !important;
-  --ol-indigo: #7d7abc !important;
+  --ol-color-1: #e8780a !important;
+  --ol-color-2: #fffaf3 !important;
+  --ol-color-3: #f3a44e !important;
+  --ol-color-4: #cf6f08 !important;
+  --ol-color-5: #34302b !important;
+  --ol-bg: #fffaf3 !important;
+  --ol-primary: #2f2a24 !important;
+  --ol-accent: #e8780a !important;
+  --ol-violet: #cf6f08 !important;
+  --ol-indigo: #f3a44e !important;
   --ol-surface: #ffffff !important;
-  --ol-surface2: #f6f4fc !important;
-  --ol-border: #e6e1f4 !important;
+  --ol-surface2: #fbeeda !important;
+  --ol-border: #f1e3cd !important;
+  --ol-hdr-grad-a: #f0982a !important;
+  --ol-hdr-grad-b: #e8780a !important;
   --ol-white: #ffffff !important;
-  --ol-text: #2f3e48 !important;
-  --ol-muted: #5a6772 !important;
+  --ol-text: #3c3833 !important;
+  --ol-muted: #6f665b !important;
   --ol-wa-green: #25d366 !important;
 }
 CSS;
@@ -295,41 +297,41 @@ function ol_hf_render_settings_page() {
 	?>
 	<style>
 		.ol-admin-wrap { max-width: 720px; margin: 32px 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-		.ol-admin-card { background: #ffffff; border: 1px solid #e6e1f4; border-radius: 10px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(34,56,67,.06); }
-		.ol-admin-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #223843; display: flex; align-items: center; gap: 8px; }
-		.ol-admin-card .ol-card-desc { color: #5a6772; font-size: 0.85rem; margin: 0 0 22px; line-height: 1.6; }
-		.ol-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-top: 1px solid #e6e1f4; gap: 24px; }
+		.ol-admin-card { background: #ffffff; border: 1px solid #f1e3cd; border-radius: 10px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(120,60,0,.06); }
+		.ol-admin-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #2f2a24; display: flex; align-items: center; gap: 8px; }
+		.ol-admin-card .ol-card-desc { color: #6f665b; font-size: 0.85rem; margin: 0 0 22px; line-height: 1.6; }
+		.ol-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-top: 1px solid #f1e3cd; gap: 24px; }
 		.ol-toggle-info { flex: 1; }
-		.ol-toggle-info strong { font-size: 0.95rem; color: #223843; display: flex; align-items: center; gap: 8px; }
-		.ol-toggle-info p { margin: 4px 0 0; font-size: 0.82rem; color: #5a6772; }
+		.ol-toggle-info strong { font-size: 0.95rem; color: #2f2a24; display: flex; align-items: center; gap: 8px; }
+		.ol-toggle-info p { margin: 4px 0 0; font-size: 0.82rem; color: #6f665b; }
 		.ol-switch { position: relative; display: inline-block; width: 52px; height: 28px; flex-shrink: 0; }
 		.ol-switch input { opacity: 0; width: 0; height: 0; }
-		.ol-switch-track { position: absolute; inset: 0; background: #cfc9e6; border-radius: 28px; cursor: pointer; transition: background .25s; }
-		.ol-switch-track::before { content: ''; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: #ffffff; border-radius: 50%; transition: transform .25s; box-shadow: 0 1px 4px rgba(34,56,67,.2); }
-		.ol-switch input:checked + .ol-switch-track { background: #6457a6; }
+		.ol-switch-track { position: absolute; inset: 0; background: #ecd9bd; border-radius: 28px; cursor: pointer; transition: background .25s; }
+		.ol-switch-track::before { content: ''; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: #ffffff; border-radius: 50%; transition: transform .25s; box-shadow: 0 1px 4px rgba(120,60,0,.2); }
+		.ol-switch input:checked + .ol-switch-track { background: #e8780a; }
 		.ol-switch input:checked + .ol-switch-track::before { transform: translateX(24px); }
 		.ol-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: .04em; padding: 2px 8px; border-radius: 100px; }
 		.ol-badge-on  { background: #fff1e2; color: #c45f00; }
-		.ol-badge-off { background: #f0eef8; color: #5a6772; }
-		.ol-admin-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding: 20px 24px; background: linear-gradient(135deg,#f6f4fc,#fff3e6); border: 1px solid #e6e1f4; border-radius: 10px; }
+		.ol-badge-off { background: #f4ece0; color: #6f665b; }
+		.ol-admin-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding: 20px 24px; background: linear-gradient(135deg,#fbeeda,#fff3e6); border: 1px solid #f1e3cd; border-radius: 10px; }
 		.ol-admin-header img { height: 46px; width: auto; }
-		.ol-admin-header h1 { font-size: 1.15rem; font-weight: 700; color: #6457a6; margin: 0; font-family: Georgia, serif; }
-		.ol-admin-header p  { font-size: 0.8rem; color: #5a6772; margin: 2px 0 0; }
-		.ol-sc-box { display: inline-block; background: #f6f4fc; border: 1px solid #e6e1f4; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #223843; padding: 6px 12px; margin: 4px 0 12px; }
+		.ol-admin-header h1 { font-size: 1.15rem; font-weight: 700; color: #cf6f08; margin: 0; font-family: Georgia, serif; }
+		.ol-admin-header p  { font-size: 0.8rem; color: #6f665b; margin: 2px 0 0; }
+		.ol-sc-box { display: inline-block; background: #fbeeda; border: 1px solid #f1e3cd; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.88rem; color: #2f2a24; padding: 6px 12px; margin: 4px 0 12px; }
 		.ol-submit-row { margin-top: 6px; }
-		.ol-field-label { display: block; font-size: 0.85rem; font-weight: 600; color: #223843; margin: 16px 0 6px; }
+		.ol-field-label { display: block; font-size: 0.85rem; font-weight: 600; color: #2f2a24; margin: 16px 0 6px; }
 		.ol-field-label:first-of-type { margin-top: 0; }
-		.ol-field-note { font-weight: 400; color: #5a6772; font-size: 0.78rem; }
-		.ol-text-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid #d9d3ec; border-radius: 6px; font-size: 0.9rem; color: #223843; transition: border-color .2s, box-shadow .2s; }
-		.ol-text-input:focus { outline: none; border-color: #6457a6; box-shadow: 0 0 0 3px rgba(100,87,166,.18); }
+		.ol-field-note { font-weight: 400; color: #6f665b; font-size: 0.78rem; }
+		.ol-text-input { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid #e7d5ba; border-radius: 6px; font-size: 0.9rem; color: #2f2a24; transition: border-color .2s, box-shadow .2s; }
+		.ol-text-input:focus { outline: none; border-color: #e8780a; box-shadow: 0 0 0 3px rgba(232,120,10,.18); }
 		textarea.ol-text-input { min-height: 70px; resize: vertical; }
-		.ol-field-hint { font-size: 0.8rem; color: #5a6772; margin: 8px 0 0; }
-		.ol-logo-preview { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: #f6f4fc; border-radius: 6px; }
-		.ol-logo-preview span { font-size: 0.78rem; color: #5a6772; }
+		.ol-field-hint { font-size: 0.8rem; color: #6f665b; margin: 8px 0 0; }
+		.ol-logo-preview { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: #fbeeda; border-radius: 6px; }
+		.ol-logo-preview span { font-size: 0.78rem; color: #6f665b; }
 		.ol-logo-preview img { max-height: 44px; max-width: 220px; width: auto; height: auto; }
 		.ol-link-row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 10px; }
 		.ol-link-row .ol-text-input { margin: 0; }
-		.ol-link-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5a6772; }
+		.ol-link-head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; margin-bottom: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #6f665b; }
 		.ol-grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; }
 		@media (max-width:600px){ .ol-grid-2col { grid-template-columns: 1fr; } }
 	</style>
@@ -345,7 +347,7 @@ function ol_hf_render_settings_page() {
 		</div>
 
 		<?php if ( $just_saved ) : ?>
-		<div class="notice notice-success is-dismissible" style="border-left-color:#6457a6;">
+		<div class="notice notice-success is-dismissible" style="border-left-color:#e8780a;">
 			<p><strong>&#10003; Settings saved.</strong> Cache cleared automatically. If you still see the old state, hard-refresh your browser (<kbd>Ctrl+Shift+R</kbd> / <kbd>Cmd+Shift+R</kbd>) and clear any server-side cache.</p>
 		</div>
 		<?php endif; ?>
@@ -501,12 +503,12 @@ function ol_hf_render_settings_page() {
 			<div class="ol-sc-box">[ol_header]</div>
 			<p><strong>Footer:</strong></p>
 			<div class="ol-sc-box">[ol_footer]</div>
-			<p style="font-size:0.82rem;color:#5a6772;">In PHP templates: <code>&lt;?php echo do_shortcode('[ol_header]'); ?&gt;</code></p>
+			<p style="font-size:0.82rem;color:#6f665b;">In PHP templates: <code>&lt;?php echo do_shortcode('[ol_header]'); ?&gt;</code></p>
 		</div>
 
 		<div class="ol-admin-card">
 			<h2>&#8505; How Injection Works</h2>
-			<ul style="color:#5a6772;font-size:0.85rem;line-height:1.8;padding-left:20px;">
+			<ul style="color:#6f665b;font-size:0.85rem;line-height:1.8;padding-left:20px;">
 				<li>Settings are saved via a secure custom handler — toggling OFF correctly disables injection.</li>
 				<li>After saving, all common caches (LiteSpeed, WP Rocket, W3TC, WP Super Cache, Autoptimize) are cleared automatically.</li>
 				<li>Header uses <code>wp_body_open</code> (modern themes) with <code>wp_footer</code> as automatic fallback for older themes. The header is <code>position: fixed</code> so it always appears at the top of the viewport.</li>
@@ -672,10 +674,15 @@ function ol_render_header() {
 	$logo_src = esc_url( ol_hf_get_logo() );
 	$home_url = esc_url( home_url( '/' ) );
 
-	$wc_active     = class_exists( 'WooCommerce' );
-	$search_action = $wc_active ? esc_url( wc_get_page_permalink( 'shop' ) ) : esc_url( home_url( '/' ) );
-	$cart_count    = $wc_active ? (int) WC()->cart->get_cart_contents_count() : 0;
-	$account_url   = $wc_active ? esc_url( wc_get_page_permalink( 'myaccount' ) ) : esc_url( wp_login_url() );
+	$wc_active = class_exists( 'WooCommerce' );
+	/* "Shop Now" → WooCommerce shop if present, else the Our Products page,
+	   else the site root. */
+	if ( $wc_active && function_exists( 'wc_get_page_permalink' ) ) {
+		$shop_url = wc_get_page_permalink( 'shop' );
+	} else {
+		$shop_url = ol_hf_page_url( 'services' );
+	}
+	$shop_url = esc_url( $shop_url ? $shop_url : home_url( '/' ) );
 
 	$nav_links = ol_hf_get_nav_links();
 
@@ -685,7 +692,7 @@ function ol_render_header() {
   <div class="ol-hdr-inner">
 
     <a href="<?php echo $home_url; ?>" class="ol-hdr-logo" aria-label="Orange Lilies – Home">
-      <img src="<?php echo $logo_src; ?>" alt="Orange Lilies" height="44" width="auto">
+      <img src="<?php echo $logo_src; ?>" alt="Orange Lilies" height="46" width="auto">
     </a>
 
     <nav class="ol-hdr-nav" aria-label="Primary navigation">
@@ -694,102 +701,45 @@ function ol_render_header() {
       <?php endforeach; ?>
     </nav>
 
-    <form class="ol-hdr-search" action="<?php echo $search_action; ?>" method="get" role="search" aria-label="Site search">
-      <?php if ( $wc_active ) : ?>
-        <input type="hidden" name="post_type" value="product">
-      <?php endif; ?>
-      <input type="search" name="s" placeholder="Search..." aria-label="Search" value="<?php echo esc_attr( get_search_query() ); ?>">
-      <button type="submit" aria-label="Submit search">
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
+    <a href="<?php echo $shop_url; ?>" class="ol-hdr-shop">Shop Now</a>
 
-    <div class="ol-hdr-icons">
+    <button class="ol-hdr-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="ol-mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
 
-      <button class="ol-hdr-icon-btn ol-hdr-search-toggle" aria-label="Toggle search" aria-expanded="false" aria-controls="ol-mobile-search">
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </button>
-
-      <?php if ( $wc_active ) : ?>
-      <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="ol-hdr-icon-btn" aria-label="Cart (<?php echo $cart_count; ?> items)">
-        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
-        <?php if ( $cart_count > 0 ) : ?>
-        <span class="ol-hdr-cart-badge"><?php echo $cart_count; ?></span>
-        <?php endif; ?>
-      </a>
-      <?php endif; ?>
-
-      <a href="<?php echo $account_url; ?>" class="ol-hdr-icon-btn" aria-label="Account">
-        <i class="fas fa-user" aria-hidden="true"></i>
-      </a>
-
-      <button class="ol-hdr-icon-btn ol-hdr-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="ol-mobile-nav">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
-
-    </div>
   </div>
 
   <nav class="ol-hdr-mobile-nav" id="ol-mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
     <?php foreach ( $nav_links as $link ) : ?>
     <a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
     <?php endforeach; ?>
-    <?php if ( $wc_active ) : ?>
-    <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">Shop</a>
-    <?php endif; ?>
+    <a class="ol-mobile-shop" href="<?php echo $shop_url; ?>">Shop Now</a>
   </nav>
-
-  <div class="ol-hdr-mobile-search" id="ol-mobile-search" aria-hidden="true">
-    <form action="<?php echo $search_action; ?>" method="get" role="search">
-      <?php if ( $wc_active ) : ?>
-        <input type="hidden" name="post_type" value="product">
-      <?php endif; ?>
-      <input type="search" name="s" placeholder="Search Orange Lilies..." aria-label="Search" value="<?php echo esc_attr( get_search_query() ); ?>">
-      <button type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
-    </form>
-  </div>
 
 </header>
 
 <script>
 (function () {
-  var ham   = document.querySelector('.ol-hdr-hamburger');
-  var nav   = document.getElementById('ol-mobile-nav');
-  var stog  = document.querySelector('.ol-hdr-search-toggle');
-  var srch  = document.getElementById('ol-mobile-search');
+  var ham = document.querySelector('.ol-hdr-hamburger');
+  var nav = document.getElementById('ol-mobile-nav');
 
-  function closeAll() {
-    if (nav)  { nav.classList.remove('ol-open');  nav.setAttribute('aria-hidden','true'); }
-    if (srch) { srch.classList.remove('ol-open'); srch.setAttribute('aria-hidden','true'); }
-    if (ham)  ham.setAttribute('aria-expanded','false');
-    if (stog) stog.setAttribute('aria-expanded','false');
+  function closeNav() {
+    if (nav) { nav.classList.remove('ol-open'); nav.setAttribute('aria-hidden','true'); }
+    if (ham) ham.setAttribute('aria-expanded','false');
   }
 
   if (ham && nav) {
-    ham.addEventListener('click', function () {
+    ham.addEventListener('click', function (e) {
+      e.stopPropagation();
       var open = nav.classList.toggle('ol-open');
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
       nav.setAttribute('aria-hidden', open ? 'false' : 'true');
-      if (open && srch) { srch.classList.remove('ol-open'); srch.setAttribute('aria-hidden','true'); }
-    });
-  }
-
-  if (stog && srch) {
-    stog.addEventListener('click', function () {
-      var open = srch.classList.toggle('ol-open');
-      stog.setAttribute('aria-expanded', open ? 'true' : 'false');
-      srch.setAttribute('aria-hidden', open ? 'false' : 'true');
-      if (open) {
-        var inp = srch.querySelector('input[type="search"]');
-        if (inp) inp.focus();
-        if (nav) { nav.classList.remove('ol-open'); nav.setAttribute('aria-hidden','true'); }
-      }
     });
   }
 
   document.addEventListener('click', function (e) {
     var hdr = document.querySelector('.ol-hdr-bar');
-    if (hdr && !hdr.contains(e.target)) closeAll();
+    if (hdr && !hdr.contains(e.target)) closeNav();
   });
 })();
 </script>

@@ -1,0 +1,352 @@
+<!--
+  ════════════════════════════════════════════════════════════════
+  ORANGE LILIES — HOME PAGE  (self-contained HTML + CSS)
+  ════════════════════════════════════════════════════════════════
+  HOW TO USE
+    • Elementor:  add an "HTML" widget to a full-width / canvas
+                  template and paste everything below into it.
+    • Gutenberg:  add a "Custom HTML" block and paste it in.
+    • The site header & footer are injected automatically by the
+      "Orange Lilies Header & Footer" plugin — this file is ONLY the
+      page body, so do NOT add another header/footer here.
+
+  IMAGES
+    • The two photos use Unsplash placeholders. Replace the two
+      src="https://images.unsplash.com/..." URLs with your own brand
+      photos (look for  REPLACE IMAGE  comments below).
+
+  All styles are scoped under .ollp-home so they won't affect the
+  rest of the site. Palette matches the warm orange + cream brand.
+  ════════════════════════════════════════════════════════════════
+-->
+<div class="ollp-home">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&display=swap');
+
+    .ollp-home{
+      --ollp-orange:#e8780a;
+      --ollp-orange-deep:#d2750a;
+      --ollp-amber:#f0982a;
+      --ollp-charcoal:#2f2a24;
+      --ollp-body:#4a443d;
+      --ollp-muted:#7a7065;
+      --ollp-cream:#fffaf3;
+      --ollp-cream2:#fbeeda;
+      --ollp-cream3:#fcefd9;
+      --ollp-border:#f1e3cd;
+      --ollp-peach:#f8e2c4;
+      font-family:'Manrope',sans-serif;
+      color:var(--ollp-body);
+      line-height:1.7;
+      background:var(--ollp-cream);
+      overflow-x:hidden;
+    }
+    .ollp-home *{box-sizing:border-box;}
+    .ollp-home h1,.ollp-home h2,.ollp-home h3{
+      font-family:'Playfair Display',Georgia,serif;
+      color:var(--ollp-charcoal);
+      line-height:1.15;
+      margin:0;
+    }
+    .ollp-home p{margin:0;}
+    .ollp-home img{max-width:100%;display:block;}
+    .ollp-wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
+
+    /* eyebrow + divider */
+    .ollp-eyebrow{
+      display:inline-block;
+      font-size:.78rem;font-weight:700;letter-spacing:.22em;
+      text-transform:uppercase;color:var(--ollp-muted);
+      margin-bottom:14px;
+    }
+    .ollp-rule{width:64px;height:4px;border-radius:4px;
+      background:linear-gradient(90deg,var(--ollp-amber),var(--ollp-orange));
+      margin:0 0 26px;}
+    .ollp-accent{color:var(--ollp-orange);font-weight:700;}
+
+    /* buttons */
+    .ollp-btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px;}
+    .ollp-btn{
+      display:inline-flex;align-items:center;gap:9px;
+      font-family:'Manrope',sans-serif;font-size:.98rem;font-weight:700;
+      text-decoration:none;cursor:pointer;
+      padding:15px 34px;border-radius:60px;border:2px solid transparent;
+      transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
+    }
+    .ollp-btn-solid{
+      background:linear-gradient(90deg,var(--ollp-amber),var(--ollp-orange-deep));
+      color:#fff;box-shadow:0 10px 24px rgba(216,124,12,.32);
+    }
+    .ollp-btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(216,124,12,.42);color:#fff;}
+    .ollp-btn-ghost{
+      background:#fff;color:var(--ollp-orange);border-color:var(--ollp-peach);
+      box-shadow:0 6px 16px rgba(120,60,0,.08);
+    }
+    .ollp-btn-ghost:hover{transform:translateY(-2px);border-color:var(--ollp-orange);color:var(--ollp-orange-deep);}
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .ollp-hero{
+      position:relative;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 15%,rgba(232,120,10,.07),transparent 60%),
+        linear-gradient(180deg,#fffaf3 0%,#fff6ea 100%);
+      padding:74px 0 96px;
+      overflow:hidden;
+    }
+    .ollp-blob{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+    .ollp-blob.b1{width:340px;height:340px;right:-120px;top:-90px;
+      background:radial-gradient(circle,rgba(240,152,42,.18),transparent 70%);}
+    .ollp-blob.b2{width:180px;height:180px;left:-70px;bottom:40px;
+      background:radial-gradient(circle,rgba(248,226,196,.55),transparent 70%);}
+    .ollp-blob.b3{width:90px;height:90px;right:42%;bottom:60px;
+      background:radial-gradient(circle,rgba(232,120,10,.12),transparent 70%);}
+
+    .ollp-hero-grid{
+      position:relative;z-index:1;
+      display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;
+    }
+    .ollp-hero h1{font-size:clamp(2.5rem,5.4vw,4rem);font-weight:800;}
+    .ollp-hero h1 .ollp-brand{
+      font-style:italic;font-weight:700;color:var(--ollp-orange);
+      display:inline;
+    }
+    .ollp-hero-lead{font-size:1.08rem;color:var(--ollp-body);margin-top:8px;}
+    .ollp-hero-lead+.ollp-hero-lead{margin-top:18px;}
+
+    /* hero image card */
+    .ollp-hero-media{position:relative;}
+    .ollp-hero-card{
+      position:relative;z-index:1;border-radius:26px;overflow:hidden;
+      background:linear-gradient(160deg,var(--ollp-amber),var(--ollp-orange));
+      box-shadow:0 30px 60px rgba(216,124,12,.30);
+      aspect-ratio:4/4.4;
+    }
+    .ollp-hero-card img{width:100%;height:100%;object-fit:cover;mix-blend-mode:normal;}
+    .ollp-hero-media::after{
+      content:'';position:absolute;width:120px;height:120px;border-radius:50%;
+      right:-26px;bottom:-26px;z-index:2;
+      background:radial-gradient(circle,var(--ollp-peach),#fff 70%);
+      box-shadow:0 10px 26px rgba(120,60,0,.12);
+    }
+
+    /* ── ABOUT OUR PRODUCTS ───────────────────────────────── */
+    .ollp-about{background:var(--ollp-cream3);padding:96px 0;}
+    .ollp-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .ollp-about h2{font-size:clamp(2rem,3.6vw,2.7rem);font-weight:800;color:var(--ollp-orange);}
+    .ollp-about p{margin-top:18px;color:var(--ollp-body);}
+    .ollp-checks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:12px;}
+    .ollp-checks li{display:flex;align-items:flex-start;gap:12px;font-weight:600;color:var(--ollp-charcoal);}
+    .ollp-checks .ollp-tick{
+      flex-shrink:0;width:24px;height:24px;border-radius:50%;
+      background:rgba(232,120,10,.14);color:var(--ollp-orange);
+      display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;margin-top:1px;
+    }
+    .ollp-about-media{position:relative;}
+    .ollp-about-card{
+      border-radius:26px;overflow:hidden;aspect-ratio:5/4;
+      box-shadow:0 26px 54px rgba(120,60,0,.16);
+      border:8px solid #fff;
+    }
+    .ollp-about-card img{width:100%;height:100%;object-fit:cover;}
+    .ollp-about-badge{
+      position:absolute;left:-20px;bottom:-22px;z-index:2;
+      background:linear-gradient(90deg,var(--ollp-amber),var(--ollp-orange-deep));
+      color:#fff;border-radius:18px;padding:18px 24px;text-align:center;
+      box-shadow:0 16px 32px rgba(216,124,12,.34);
+    }
+    .ollp-about-badge strong{display:block;font-family:'Playfair Display',serif;font-size:1.7rem;line-height:1;}
+    .ollp-about-badge span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;opacity:.92;}
+
+    /* ── WHY CHOOSE US ────────────────────────────────────── */
+    .ollp-why{background:var(--ollp-cream);padding:96px 0;}
+    .ollp-head{text-align:center;max-width:680px;margin:0 auto 56px;}
+    .ollp-head .ollp-rule{margin:14px auto 22px;}
+    .ollp-head h2{font-size:clamp(2rem,3.6vw,2.7rem);font-weight:800;}
+    .ollp-head p{margin-top:14px;color:var(--ollp-muted);font-size:1.05rem;}
+    .ollp-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+    .ollp-card{
+      background:#fff;border:1px solid var(--ollp-border);border-radius:20px;
+      padding:34px 28px;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+    }
+    .ollp-card:hover{transform:translateY(-6px);border-color:var(--ollp-peach);
+      box-shadow:0 22px 44px rgba(216,124,12,.16);}
+    .ollp-ic{
+      width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+      font-size:1.7rem;margin-bottom:20px;
+      background:linear-gradient(135deg,rgba(240,152,42,.18),rgba(232,120,10,.14));
+    }
+    .ollp-card h3{font-size:1.28rem;font-weight:700;margin-bottom:10px;}
+    .ollp-card p{color:var(--ollp-muted);font-size:.96rem;}
+
+    /* ── STATS STRIP ──────────────────────────────────────── */
+    .ollp-stats{background:linear-gradient(90deg,#fff3e2,#fde6cb);padding:54px 0;}
+    .ollp-stats-grid{display:flex;flex-wrap:wrap;justify-content:space-around;gap:30px;text-align:center;}
+    .ollp-stat strong{display:block;font-family:'Playfair Display',serif;font-weight:800;
+      font-size:clamp(2rem,4vw,2.8rem);color:var(--ollp-orange);line-height:1;}
+    .ollp-stat span{display:block;margin-top:8px;font-size:.82rem;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--ollp-muted);font-weight:600;}
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .ollp-cta{padding:90px 0;background:var(--ollp-cream);}
+    .ollp-cta-inner{
+      position:relative;overflow:hidden;border-radius:30px;text-align:center;
+      padding:72px 32px;
+      background:linear-gradient(120deg,var(--ollp-amber) 0%,var(--ollp-orange-deep) 100%);
+      box-shadow:0 30px 60px rgba(216,124,12,.30);
+    }
+    .ollp-cta-inner::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;
+      right:-90px;top:-110px;background:rgba(255,255,255,.12);}
+    .ollp-cta-inner::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;
+      left:-70px;bottom:-80px;background:rgba(255,255,255,.10);}
+    .ollp-cta h2{position:relative;z-index:1;color:#fff;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;}
+    .ollp-cta p{position:relative;z-index:1;color:rgba(255,255,255,.94);max-width:560px;margin:14px auto 0;font-size:1.08rem;}
+    .ollp-cta .ollp-btns{position:relative;z-index:1;justify-content:center;}
+    .ollp-cta .ollp-btn-solid{background:#fff;color:var(--ollp-orange-deep);box-shadow:0 12px 26px rgba(80,40,0,.22);}
+    .ollp-cta .ollp-btn-solid:hover{background:#fff4e3;color:var(--ollp-orange-deep);}
+    .ollp-cta .ollp-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7);box-shadow:none;}
+    .ollp-cta .ollp-btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff;border-color:#fff;}
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width:980px){
+      .ollp-hero-grid,.ollp-about-grid{grid-template-columns:1fr;gap:48px;}
+      .ollp-hero-media{max-width:460px;margin:0 auto;}
+      .ollp-about-media{order:-1;max-width:520px;margin:0 auto;}
+      .ollp-cards{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:640px){
+      .ollp-wrap{padding:0 20px;}
+      .ollp-hero{padding:54px 0 70px;}
+      .ollp-about,.ollp-why,.ollp-cta{padding:64px 0;}
+      .ollp-cards{grid-template-columns:1fr;}
+      .ollp-btns{gap:12px;}
+      .ollp-btn{padding:14px 26px;}
+      .ollp-cta-inner{padding:54px 22px;}
+    }
+  </style>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="ollp-hero">
+    <span class="ollp-blob b1"></span>
+    <span class="ollp-blob b2"></span>
+    <span class="ollp-blob b3"></span>
+    <div class="ollp-wrap ollp-hero-grid">
+      <div class="ollp-hero-copy">
+        <h1><span class="ollp-brand">Orange Lilies</span> Disposable Panties</h1>
+        <div class="ollp-rule" style="margin-top:26px;"></div>
+        <p class="ollp-hero-lead"><span class="ollp-accent">Period Care Redefined&ndash;</span> the ultimate blend of comfort, hygiene, and freedom. Say goodbye to leaks, discomfort, and bulky products.</p>
+        <p class="ollp-hero-lead"><span class="ollp-accent">Designed for young girls, working women, travellers, and athletes</span> &mdash; Orange Lilies make period days worry-free, anywhere, anytime.</p>
+        <div class="ollp-btns">
+          <a href="/shop/" class="ollp-btn ollp-btn-solid">Shop Now</a>
+          <a href="/about-us/" class="ollp-btn ollp-btn-ghost">Learn More &rarr;</a>
+        </div>
+      </div>
+      <div class="ollp-hero-media">
+        <div class="ollp-hero-card">
+          <!-- REPLACE IMAGE: swap this URL for your own hero photo -->
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Happy, confident woman">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT OUR PRODUCTS ═══════════════ -->
+  <section class="ollp-about">
+    <div class="ollp-wrap ollp-about-grid">
+      <div class="ollp-about-copy">
+        <span class="ollp-eyebrow">About Our Products</span>
+        <div class="ollp-rule"></div>
+        <h2>Transforming Period Comfort</h2>
+        <p>Orange Lilies is committed to offering high-quality, innovative period care that puts your comfort and confidence first. Our disposable period panties blend reliable, leak-proof protection with all-day softness &mdash; so your cycle never holds you back.</p>
+        <ul class="ollp-checks">
+          <li><span class="ollp-tick">&#10003;</span> High-absorbency, leak-proof protection</li>
+          <li><span class="ollp-tick">&#10003;</span> Breathable, skin-friendly, dermatologically tested</li>
+          <li><span class="ollp-tick">&#10003;</span> Discreet, single-use hygiene &mdash; wear, change, dispose</li>
+          <li><span class="ollp-tick">&#10003;</span> Eco-conscious materials &amp; responsible packaging</li>
+        </ul>
+        <div class="ollp-btns">
+          <a href="/services/" class="ollp-btn ollp-btn-solid">Explore Products</a>
+        </div>
+      </div>
+      <div class="ollp-about-media">
+        <div class="ollp-about-card">
+          <!-- REPLACE IMAGE: swap this URL for your own product/lifestyle photo -->
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Comfort and confidence, every day">
+        </div>
+        <div class="ollp-about-badge">
+          <strong>100%</strong>
+          <span>Leak Confidence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
+  <section class="ollp-why" id="why">
+    <div class="ollp-wrap">
+      <div class="ollp-head">
+        <span class="ollp-eyebrow">Why Choose Us</span>
+        <div class="ollp-rule"></div>
+        <h2>Confidence of Freshness</h2>
+        <p>Thoughtfully engineered period care &mdash; designed for real life, tested for your safety, and made with the planet in mind.</p>
+      </div>
+      <div class="ollp-cards">
+        <div class="ollp-card">
+          <div class="ollp-ic">&#128150;</div>
+          <h3>All-Day Comfort</h3>
+          <p>Soft, body-hugging and breathable &mdash; it feels just like regular underwear, only better.</p>
+        </div>
+        <div class="ollp-card">
+          <div class="ollp-ic">&#128167;</div>
+          <h3>Leak-Proof Protection</h3>
+          <p>High-absorbency layers keep you secure and dry through work, travel, sport and sleep.</p>
+        </div>
+        <div class="ollp-card">
+          <div class="ollp-ic">&#129516;</div>
+          <h3>Hygiene First</h3>
+          <p>Single-use and individually packed. Dermatologically tested and GMP-certified for peace of mind.</p>
+        </div>
+        <div class="ollp-card">
+          <div class="ollp-ic">&#127807;</div>
+          <h3>Eco-Conscious</h3>
+          <p>Responsibly sourced materials and recycled packaging that keep plastic to a minimum.</p>
+        </div>
+        <div class="ollp-card">
+          <div class="ollp-ic">&#9992;&#65039;</div>
+          <h3>Freedom to Move</h3>
+          <p>Lightweight and discreet &mdash; made for young girls, working women, travellers and athletes.</p>
+        </div>
+        <div class="ollp-card">
+          <div class="ollp-ic">&#128170;</div>
+          <h3>Women-Led Care</h3>
+          <p>Built by women who understand what real comfort and dignity during periods truly mean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STATS STRIP ═══════════════ -->
+  <section class="ollp-stats">
+    <div class="ollp-wrap ollp-stats-grid">
+      <div class="ollp-stat"><strong>100%</strong><span>Leak Confidence</span></div>
+      <div class="ollp-stat"><strong>Soft</strong><span>Skin-Friendly Feel</span></div>
+      <div class="ollp-stat"><strong>Eco</strong><span>Responsible Materials</span></div>
+      <div class="ollp-stat"><strong>Tested</strong><span>Dermatologically Safe</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="ollp-cta">
+    <div class="ollp-wrap">
+      <div class="ollp-cta-inner">
+        <h2>Join the Movement &mdash; Ditch the Pad</h2>
+        <p>Embrace the comfort of Orange Lilies. Period care that puts you, your confidence and the planet first.</p>
+        <div class="ollp-btns">
+          <a href="/shop/" class="ollp-btn ollp-btn-solid">Shop Now</a>
+          <a href="/contact/" class="ollp-btn ollp-btn-ghost">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
