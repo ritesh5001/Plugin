@@ -255,8 +255,8 @@ body.ol-header-active {
    FOOTER
 ════════════════════════════════════════════════════════════════ */
 .ol-ftr-wrap {
-  background: var(--ol-bg);
-  border-top: 3px solid var(--ol-accent);
+  background: linear-gradient(90deg, var(--ol-hdr-grad-a) 0%, var(--ol-hdr-grad-b) 100%);
+  border-top: 3px solid rgba(255,255,255,0.35);
   padding: 64px 0 0;
 }
 
@@ -285,7 +285,7 @@ body.ol-header-active {
 .ol-ftr-tagline {
   font-family: 'Cinzel', serif;
   font-size: 0.85rem;
-  color: var(--ol-accent);
+  color: #ffffff;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0 0 12px;
@@ -294,7 +294,7 @@ body.ol-header-active {
 .ol-ftr-brand-desc {
   font-family: 'Manrope', sans-serif;
   font-size: 0.88rem;
-  color: var(--ol-muted);
+  color: rgba(255,255,255,0.9);
   line-height: 1.7;
   margin: 0 0 24px;
 }
@@ -312,20 +312,20 @@ body.ol-header-active {
   justify-content: center;
   width: 38px;
   height: 38px;
-  background: var(--ol-surface2);
-  border: 1px solid var(--ol-border);
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.35);
   border-radius: 8px;
-  color: var(--ol-violet);
+  color: #ffffff;
   font-size: 1rem;
   text-decoration: none;
   transition: all var(--ol-transition);
 }
 
 .ol-ftr-social-link:hover {
-  background: var(--ol-violet);
-  border-color: var(--ol-violet);
-  color: #ffffff;
-  box-shadow: 0 8px 18px var(--ol-glow-violet);
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--ol-accent);
+  box-shadow: 0 8px 18px rgba(120,60,0,0.22);
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -335,7 +335,7 @@ body.ol-header-active {
   font-family: 'Cinzel', serif;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--ol-primary);
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin: 0 0 20px;
@@ -350,7 +350,7 @@ body.ol-header-active {
   left: 0;
   width: 38px;
   height: 2px;
-  background: linear-gradient(90deg, var(--ol-accent), var(--ol-violet));
+  background: rgba(255,255,255,0.8);
   border-radius: 1px;
   transform-origin: left;
   animation: olUnderlineGrow 0.6s ease forwards;
@@ -374,7 +374,7 @@ body.ol-header-active {
 .ol-ftr-col ul li a {
   font-family: 'Manrope', sans-serif;
   font-size: 0.88rem;
-  color: var(--ol-muted);
+  color: rgba(255,255,255,0.92);
   text-decoration: none;
   transition: color var(--ol-transition), text-shadow var(--ol-transition);
   display: inline-flex;
@@ -384,20 +384,20 @@ body.ol-header-active {
 
 .ol-ftr-col ul li a::before {
   content: '\203A';
-  color: var(--ol-accent);
+  color: rgba(255,255,255,0.7);
   font-size: 1rem;
   transition: color var(--ol-transition), transform var(--ol-transition);
   transform: translateX(0);
 }
 
 .ol-ftr-col ul li a:hover {
-  color: var(--ol-accent);
-  text-shadow: 0 0 10px var(--ol-glow);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.35);
   text-decoration: none;
 }
 
 .ol-ftr-col ul li a:hover::before {
-  color: var(--ol-violet);
+  color: #ffffff;
   transform: translateX(3px);
 }
 
@@ -409,11 +409,11 @@ body.ol-header-active {
   margin-bottom: 16px;
   font-family: 'Manrope', sans-serif;
   font-size: 0.88rem;
-  color: var(--ol-muted);
+  color: rgba(255,255,255,0.92);
 }
 
 .ol-ftr-contact-item i {
-  color: var(--ol-accent);
+  color: #ffffff;
   font-size: 0.9rem;
   margin-top: 3px;
   flex-shrink: 0;
@@ -422,14 +422,14 @@ body.ol-header-active {
 }
 
 .ol-ftr-contact-item a {
-  color: var(--ol-muted);
+  color: rgba(255,255,255,0.92);
   text-decoration: none;
   transition: color var(--ol-transition);
 }
 
 .ol-ftr-contact-item a:hover {
-  color: var(--ol-accent);
-  text-decoration: none;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Bottom bar */
@@ -437,7 +437,7 @@ body.ol-header-active {
   max-width: 1280px;
   margin: 48px auto 0;
   padding: 20px 24px;
-  border-top: 1px solid var(--ol-border);
+  border-top: 1px solid rgba(255,255,255,0.28);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -446,19 +446,60 @@ body.ol-header-active {
   text-align: center;
   font-family: 'Manrope', sans-serif;
   font-size: 0.82rem;
-  color: var(--ol-muted);
+  color: rgba(255,255,255,0.85);
 }
 
 .ol-ftr-bottom a {
-  color: var(--ol-violet);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: color var(--ol-transition);
 }
 
 .ol-ftr-bottom a:hover {
-  color: var(--ol-accent);
-  text-decoration: none;
+  color: #fff4e3;
+  text-decoration: underline;
+}
+
+/* ── Legibility lock ──────────────────────────────────────────────
+   The footer now sits on the orange brand gradient, so every bit of
+   text must read white. Themes like XStore colour footer text/links
+   with their own (sometimes !important) rules, so we re-assert white
+   with higher specificity ( .ol-ftr-wrap prefix ) + !important. */
+.ol-ftr-wrap,
+.ol-ftr-wrap p,
+.ol-ftr-wrap span,
+.ol-ftr-wrap li,
+.ol-ftr-wrap a,
+.ol-ftr-wrap h4,
+.ol-ftr-wrap i,
+.ol-ftr-wrap strong {
+  color: #ffffff !important;
+}
+
+.ol-ftr-wrap .ol-ftr-brand-desc,
+.ol-ftr-wrap .ol-ftr-col ul li a,
+.ol-ftr-wrap .ol-ftr-contact-item,
+.ol-ftr-wrap .ol-ftr-contact-item a,
+.ol-ftr-wrap .ol-ftr-contact-item span,
+.ol-ftr-wrap .ol-ftr-bottom,
+.ol-ftr-wrap .ol-ftr-bottom span {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+.ol-ftr-wrap .ol-ftr-col ul li a::before {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* Social tiles: white icon on a translucent tile; invert on hover */
+.ol-ftr-wrap .ol-ftr-social-link,
+.ol-ftr-wrap .ol-ftr-social-link i {
+  color: #ffffff !important;
+}
+
+.ol-ftr-wrap .ol-ftr-social-link:hover,
+.ol-ftr-wrap .ol-ftr-social-link:hover i {
+  color: var(--ol-accent) !important;
 }
 
 /* ════════════════════════════════════════════════════════════════

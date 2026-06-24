@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Header & Footer
  * Plugin URI:  https://orangelilies.com/
  * Description: Auto-injects a branded header and footer site-wide. Configure logo, contact details and all header/footer links under Appearance → Orange Lilies Header & Footer. Shortcodes [ol_header] and [ol_footer] also available for manual placement.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_HF_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_HF_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_HF_VERSION', '1.1.0' );
+define( 'OL_HF_VERSION', '1.1.1' );
 define( 'OL_HF_CSS_FILE', OL_HF_DIR . 'assets/css/ol-hf.css' );
 define( 'OL_HF_ASSET_VERSION', OL_HF_VERSION . '-' . ( file_exists( OL_HF_CSS_FILE ) ? filemtime( OL_HF_CSS_FILE ) : OL_HF_VERSION ) );
 define( 'OL_HF_LOGO_URL', 'https://mistyrose-chamois-793959.hostingersite.com/wp-content/uploads/2026/06/logo-1.png' );
@@ -54,9 +54,9 @@ add_action( 'wp_enqueue_scripts', 'ol_hf_enqueue_assets' );
 function ol_hf_enqueue_assets() {
 	wp_enqueue_style(
 		'ol-font-awesome',
-		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
 		[],
-		'6.4.0'
+		'6.5.2'
 	);
 	wp_enqueue_style(
 		'ol-hf-google-fonts',
