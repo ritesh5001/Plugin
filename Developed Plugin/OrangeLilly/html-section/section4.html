@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLOWY · Shop by Category</title>
+<style>body{margin:0;background:#ffffff;}</style>
+
+<!-- ============================================================= -->
+<!--  SLOWY · SHOP BY CATEGORY                                     -->
+<!--  Paste everything between START and END into your page        -->
+<!--  (WordPress -> Custom HTML block, or any HTML section).       -->
+<!--  Images are free Unsplash hotlinks; swap to your own product  -->
+<!--  photos and edit the href links to your real category URLs.   -->
+<!-- ============================================================= -->
+
+<!-- ======================= START ======================= -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500&display=swap');
+
+.slowy-cat{
+  --slowy-ink:#1a1a1a;        /* title */
+  --slowy-label:#5a5a5a;      /* category labels */
+  --slowy-gold:#c89b6a;       /* champagne / rose-gold accent */
+  --slowy-disc:#f7f4f1;       /* pale circle fill */
+  --slowy-line:#e4ddd5;       /* hairline rules */
+  --slowy-bg:#ffffff;
+
+  display:block;
+  width:100%;
+  padding:60px 20px;
+  background:var(--slowy-bg);
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  box-sizing:border-box;
+}
+.slowy-cat__inner{max-width:1080px;width:100%;margin:0 auto;}
+
+/* ---- Title row: hairline — ✦ SHOP BY CATEGORY ✦ — hairline ---- */
+.slowy-cat__head{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin:0 auto 46px;
+  width:100%;
+}
+.slowy-cat__line{flex:1 1 auto;max-width:150px;height:1px;background:var(--slowy-line);}
+.slowy-cat__spark{color:var(--slowy-gold);font-size:13px;line-height:1;}
+.slowy-cat__title{
+  margin:0;white-space:nowrap;
+  font-family:'Playfair Display',serif;font-weight:600;
+  font-size:24px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--slowy-ink);
+}
+
+/* ---- Row of categories ---- */
+.slowy-cat__grid{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:14px;
+  max-width:980px;width:100%;margin:0 auto;
+  overflow:visible;
+}
+
+.slowy-cat__item{
+  text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  flex:0 0 calc((100% - 6 * 14px) / 7);   /* 7 equal columns, same math as repeat(7,1fr) */
+  min-width:90px;
+}
+
+/* Pale disc holding the product image */
+.slowy-cat__disc{
+  width:100%;max-width:128px;aspect-ratio:1/1;border-radius:50%;
+  background:var(--slowy-disc);overflow:hidden;position:relative;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.slowy-cat__disc img{
+  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+  transition:transform .5s ease;
+}
+.slowy-cat__item:hover .slowy-cat__disc{
+  transform:translateY(-6px);
+  box-shadow:0 12px 26px rgba(26,26,26,.12);
+}
+.slowy-cat__item:hover .slowy-cat__disc img{transform:scale(1.08);}
+
+/* Label */
+.slowy-cat__name{
+  font-size:12px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--slowy-label);transition:color .3s ease;
+}
+.slowy-cat__item:hover .slowy-cat__name{color:var(--slowy-gold);}
+
+/* ---- Responsive ---- */
+@media(max-width:860px){
+  .slowy-cat{padding:48px 20px 56px;}
+  .slowy-cat__grid{gap:26px 16px;}
+  .slowy-cat__item{flex:0 0 calc((100% - 3 * 16px) / 4);min-width:80px;}   /* 4 per row */
+  .slowy-cat__line{max-width:80px;}
+  .slowy-cat__title{font-size:20px;letter-spacing:2px;}
+}
+@media(max-width:520px){
+  .slowy-cat{padding:36px 16px 48px;}
+  .slowy-cat__grid{gap:24px 10px;row-gap:30px;}
+  .slowy-cat__item{flex:0 0 calc((100% - 2 * 10px) / 3);min-width:0;gap:10px;}   /* 3 per row */
+  .slowy-cat__title{font-size:16px;letter-spacing:1.5px;white-space:normal;}
+  .slowy-cat__line{max-width:30px;}
+  .slowy-cat__name{font-size:11px;letter-spacing:.6px;}
+}
+</style>
+
+<section class="slowy-cat">
+  <div class="slowy-cat__inner">
+
+    <div class="slowy-cat__head">
+      <span class="slowy-cat__line"></span>
+      <span class="slowy-cat__spark">&#10038;</span>
+      <h2 class="slowy-cat__title">Shop by Category</h2>
+      <span class="slowy-cat__spark">&#10038;</span>
+      <span class="slowy-cat__line"></span>
+    </div>
+
+    <div class="slowy-cat__grid">
+
+      <a class="slowy-cat__item" href="/product-category/rings/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1655707063513-a08dad26440e?auto=format&fit=crop&w=400&h=400&q=70" alt="Rings">
+        </div>
+        <span class="slowy-cat__name">Rings</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/earrings/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1671644730555-916aa8d8157f?auto=format&fit=crop&w=400&h=400&q=70" alt="Earrings">
+        </div>
+        <span class="slowy-cat__name">Earrings</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/necklaces/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1611107683227-e9060eccd846?auto=format&fit=crop&w=400&h=400&q=70" alt="Necklaces">
+        </div>
+        <span class="slowy-cat__name">Necklaces</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/bracelets/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=400&h=400&q=70" alt="Bracelets">
+        </div>
+        <span class="slowy-cat__name">Bracelets</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/pendants/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1569397288884-4d43d6738fbd?auto=format&fit=crop&w=400&h=400&q=70" alt="Pendants">
+        </div>
+        <span class="slowy-cat__name">Pendants</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/anklets/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1588658163621-f853df4bbe86?auto=format&fit=crop&w=400&h=400&q=70" alt="Anklets">
+        </div>
+        <span class="slowy-cat__name">Anklets</span>
+      </a>
+
+      <a class="slowy-cat__item" href="/product-category/combos/">
+        <div class="slowy-cat__disc">
+          <img src="https://images.unsplash.com/photo-1722410180687-b05b50922362?auto=format&fit=crop&w=400&h=400&q=70" alt="Combos">
+        </div>
+        <span class="slowy-cat__name">Combos</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ======================== END ======================== -->
+
+</body>
+</html>

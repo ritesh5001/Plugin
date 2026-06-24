@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Pages
  * Plugin URI:  https://orangelilies.com/
  * Description: Creates all Orange Lilies content pages on activation — About, Our Products, Sustainability, Contact, and all policy pages — with branded, full-width styling baked in. No page builder required.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_PAGES_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_PAGES_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_PAGES_VERSION', '1.0.0' );
+define( 'OL_PAGES_VERSION', '1.1.0' );
 define( 'OL_PAGES_CSS_FILE', OL_PAGES_DIR . 'assets/css/ol-pages.css' );
 define( 'OL_PAGES_ASSET_VERSION', OL_PAGES_VERSION . '-' . ( file_exists( OL_PAGES_CSS_FILE ) ? filemtime( OL_PAGES_CSS_FILE ) : OL_PAGES_VERSION ) );
 
@@ -141,29 +141,29 @@ function ol_enqueue_page_assets() {
 function ol_pages_palette_override_css() {
 	return <<<'CSS'
 :root {
-  --ol-color-1: #ec7505 !important;
-  --ol-color-2: #ffffff !important;
-  --ol-color-3: #7d7abc !important;
-  --ol-color-4: #6457a6 !important;
-  --ol-color-5: #223843 !important;
-  --ol-bg: #ffffff !important;
-  --ol-gradient: #f4f2fb !important;
-  --ol-gradient2: #fff3e6 !important;
-  --ol-primary: #223843 !important;
-  --ol-accent: #ec7505 !important;
-  --ol-violet: #6457a6 !important;
-  --ol-indigo: #7d7abc !important;
+  --ol-color-1: #e8780a !important;
+  --ol-color-2: #fffaf3 !important;
+  --ol-color-3: #f3a44e !important;
+  --ol-color-4: #cf6f08 !important;
+  --ol-color-5: #34302b !important;
+  --ol-bg: #fffaf3 !important;
+  --ol-gradient: #fdeede !important;
+  --ol-gradient2: #fde3c6 !important;
+  --ol-primary: #2f2a24 !important;
+  --ol-accent: #e8780a !important;
+  --ol-violet: #cf6f08 !important;
+  --ol-indigo: #f3a44e !important;
   --ol-surface: #ffffff !important;
-  --ol-surface2: #f6f4fc !important;
-  --ol-border: #e6e1f4 !important;
+  --ol-surface2: #fbeeda !important;
+  --ol-border: #f1e3cd !important;
   --ol-white: #ffffff !important;
-  --ol-text: #2f3e48 !important;
-  --ol-muted: #5a6772 !important;
-  --ol-link: #6457a6 !important;
+  --ol-text: #3c3833 !important;
+  --ol-muted: #6f665b !important;
+  --ol-link: #cf6f08 !important;
 }
 body.ol-page {
-  background-color: #ffffff !important;
-  color: #2f3e48 !important;
+  background-color: #fffaf3 !important;
+  color: #3c3833 !important;
 }
 body.ol-page h1,
 body.ol-page h2,
@@ -174,13 +174,13 @@ body.ol-page .ol-h2,
 body.ol-page .ol-h3,
 body.ol-page .ol-card h3,
 body.ol-page .ol-why-text strong {
-  color: #223843 !important;
+  color: #2f2a24 !important;
 }
 body.ol-page p,
 body.ol-page li,
 body.ol-page .ol-hero-intro,
 body.ol-page .ol-muted-text {
-  color: #2f3e48 !important;
+  color: #3c3833 !important;
 }
 body.ol-page .ol-cta h2 { color: #ffffff !important; }
 body.ol-page .ol-cta p  { color: rgba(255,255,255,0.92) !important; }

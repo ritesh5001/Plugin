@@ -1,46 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
 
 /* ════════════════════════════════════════════════════════════════
-   Orange Lilies — palette extracted from the brand colour schema.
-   beige (#FCF5C7) is replaced by pure white per brand direction.
+   Orange Lilies — WARM palette (orange + cream).
+   Refreshed to match the brand reference: a confident, sunny orange
+   on soft cream, with a warm near-black for type. Cool violet/indigo
+   accents from the previous scheme are re-mapped to warm orange tones
+   so every rule below stays on-brand without being rewritten.
 
-     #EC7505  Safety Orange   — brand accent / highlights
-     #FFFFFF  White           — page & card background
-     #7D7ABC  Tropical Indigo — soft secondary accent
-     #6457A6  Ultra Violet    — primary buttons / links (high contrast)
-     #223843  Gunmetal        — headings & body text (maximum legibility)
+     #E8780A  Safety Orange   — brand accent / highlights
+     #FFFAF3  Cream White     — page background
+     #F3A44E  Amber           — soft secondary accent
+     #CF6F08  Deep Orange     — primary buttons / links (high contrast)
+     #34302B  Warm Charcoal   — headings & body text (maximum legibility)
 
-   No colour is used that is not one of the five above (or a tint/shade
-   derived from them). Light, fresh and fully legible on white.
+   Light, fresh and fully legible on cream.
 ════════════════════════════════════════════════════════════════ */
 :root {
   /* Raw palette colours */
-  --ol-color-1:      #ec7505;    /* safety orange  */
-  --ol-color-2:      #ffffff;    /* white (was beige) */
-  --ol-color-3:      #7d7abc;    /* tropical indigo */
-  --ol-color-4:      #6457a6;    /* ultra violet */
-  --ol-color-5:      #223843;    /* gunmetal */
+  --ol-color-1:      #e8780a;    /* safety orange  */
+  --ol-color-2:      #fffaf3;    /* cream white */
+  --ol-color-3:      #f3a44e;    /* amber (was indigo) */
+  --ol-color-4:      #cf6f08;    /* deep orange (was ultra violet) */
+  --ol-color-5:      #34302b;    /* warm charcoal (was gunmetal) */
 
   /* Semantic aliases */
-  --ol-bg:           #ffffff;    /* page background */
-  --ol-gradient:     #f4f2fb;    /* hero gradient — lavender tint of indigo */
-  --ol-gradient2:    #fff3e6;    /* hero gradient — peach tint of orange */
-  --ol-primary:      #223843;    /* primary headings (gunmetal) */
-  --ol-accent:       #ec7505;    /* eyebrow text, accents, highlights */
-  --ol-violet:       #6457a6;    /* primary action / links */
-  --ol-indigo:       #7d7abc;    /* secondary accent */
+  --ol-bg:           #fffaf3;    /* page background — warm cream */
+  --ol-gradient:     #fdeede;    /* hero gradient — soft cream tint */
+  --ol-gradient2:    #fde3c6;    /* hero gradient — peach tint of orange */
+  --ol-primary:      #2f2a24;    /* primary headings (warm near-black) */
+  --ol-accent:       #e8780a;    /* eyebrow text, accents, highlights */
+  --ol-violet:       #cf6f08;    /* primary action / links (deep orange) */
+  --ol-indigo:       #f3a44e;    /* secondary accent (amber) */
   --ol-surface:      #ffffff;    /* card / panel background */
-  --ol-surface2:     #f6f4fc;    /* tinted lavender panel */
-  --ol-border:       #e6e1f4;    /* soft lavender border line */
+  --ol-surface2:     #fbeeda;    /* tinted warm cream panel */
+  --ol-border:       #f1e3cd;    /* soft warm border line */
 
   /* Derived utilities */
   --ol-white:        #ffffff;
-  --ol-text:         #2f3e48;    /* primary body copy (dark slate) */
-  --ol-muted:        #5a6772;    /* secondary text (5.7:1 on white) */
-  --ol-link:         #6457a6;    /* in-content links (6.2:1 on white) */
-  --ol-glow:         rgba(236,117,5,0.20);
-  --ol-glow-strong:  rgba(236,117,5,0.38);
-  --ol-glow-violet:  rgba(100,87,166,0.22);
+  --ol-text:         #3c3833;    /* primary body copy (warm slate) */
+  --ol-muted:        #6f665b;    /* secondary text (warm grey) */
+  --ol-link:         #cf6f08;    /* in-content links (deep orange) */
+  --ol-glow:         rgba(232,120,10,0.20);
+  --ol-glow-strong:  rgba(232,120,10,0.38);
+  --ol-glow-violet:  rgba(207,111,8,0.22);
   --ol-radius:       10px;
   --ol-radius-lg:    18px;
   --ol-transition:   0.3s ease;
@@ -222,7 +224,7 @@ body.ol-page .ol-chip {
 }
 
 body.ol-page .ol-chip-violet {
-  background: rgba(100,87,166,0.10);
+  background: rgba(207,111,8,0.10);
   border-color: var(--ol-violet);
   color: var(--ol-violet) !important;
 }
@@ -250,7 +252,7 @@ body.ol-page .ol-hero::after {
   position: absolute;
   bottom: -40%; left: -10%;
   width: 60%; height: 120%;
-  background: radial-gradient(ellipse at center, rgba(100,87,166,0.10) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(207,111,8,0.10) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -264,7 +266,7 @@ body.ol-page .ol-hero-logo {
   margin: 0 auto 32px;
   max-width: 200px;
   height: auto;
-  filter: drop-shadow(0 6px 18px rgba(100,87,166,0.18));
+  filter: drop-shadow(0 6px 18px rgba(207,111,8,0.18));
 }
 
 body.ol-page .ol-hero h1 {
@@ -354,7 +356,7 @@ body.ol-page .ol-card::before {
 
 body.ol-page .ol-card:hover {
   border-color: var(--ol-accent);
-  box-shadow: 0 14px 40px rgba(100,87,166,0.16);
+  box-shadow: 0 14px 40px rgba(207,111,8,0.16);
   transform: translateY(-4px);
 }
 
@@ -446,7 +448,7 @@ body.ol-page .ol-why-list li {
 
 body.ol-page .ol-why-list li:hover {
   border-color: var(--ol-violet);
-  box-shadow: 0 8px 24px rgba(100,87,166,0.12);
+  box-shadow: 0 8px 24px rgba(207,111,8,0.12);
 }
 
 body.ol-page .ol-why-icon {
@@ -494,7 +496,7 @@ body.ol-page .ol-value-icon {
   justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 18px;
-  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(100,87,166,0.14));
+  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(207,111,8,0.14));
 }
 
 body.ol-page .ol-value-card h3 {
@@ -528,7 +530,7 @@ body.ol-page .ol-team-card {
 
 body.ol-page .ol-team-card:hover {
   border-color: var(--ol-violet);
-  box-shadow: 0 16px 40px rgba(100,87,166,0.15);
+  box-shadow: 0 16px 40px rgba(207,111,8,0.15);
   transform: translateY(-4px);
 }
 
@@ -552,7 +554,7 @@ body.ol-page .ol-team-avatar {
   color: #ffffff;
   flex-shrink: 0;
   background: linear-gradient(135deg, var(--ol-accent), var(--ol-violet));
-  box-shadow: 0 6px 18px rgba(100,87,166,0.25);
+  box-shadow: 0 6px 18px rgba(207,111,8,0.25);
 }
 
 body.ol-page .ol-team-name {
@@ -731,7 +733,7 @@ body.ol-page .ol-feature-list li:last-child {
 body.ol-page .ol-feature-icon {
   width: 38px;
   height: 38px;
-  background: linear-gradient(135deg, rgba(236,117,5,0.16), rgba(100,87,166,0.16));
+  background: linear-gradient(135deg, rgba(236,117,5,0.16), rgba(207,111,8,0.16));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -869,7 +871,7 @@ body.ol-page .ol-contact-item:last-child {
 body.ol-page .ol-contact-item-icon {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(100,87,166,0.14));
+  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(207,111,8,0.14));
   border-radius: 50%;
   display: flex;
   align-items: center;

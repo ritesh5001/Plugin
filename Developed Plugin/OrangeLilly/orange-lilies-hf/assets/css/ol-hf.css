@@ -1,38 +1,43 @@
 /* ════════════════════════════════════════════════════════════════
    Orange Lilies — Header & Footer
-   Palette extracted from the brand colour schema (beige → white):
-     #EC7505 orange · #FFFFFF white · #7D7ABC indigo
-     #6457A6 ultra violet · #223843 gunmetal
-   Only #25D366 (official WhatsApp green) is hard-coded, for the
+   WARM palette (orange + cream) matching the brand reference:
+     #E8780A orange · #FFFAF3 cream · #F3A44E amber
+     #CF6F08 deep orange · #34302B warm charcoal
+   The header is a floating orange "pill" bar; the footer sits on warm
+   cream. Only #25D366 (official WhatsApp green) is hard-coded, for the
    floating WhatsApp button.
 ════════════════════════════════════════════════════════════════ */
 :root {
   /* Raw palette colours */
-  --ol-color-1:      #ec7505;
-  --ol-color-2:      #ffffff;
-  --ol-color-3:      #7d7abc;
-  --ol-color-4:      #6457a6;
-  --ol-color-5:      #223843;
+  --ol-color-1:      #e8780a;
+  --ol-color-2:      #fffaf3;
+  --ol-color-3:      #f3a44e;
+  --ol-color-4:      #cf6f08;
+  --ol-color-5:      #34302b;
 
   /* Semantic aliases */
-  --ol-bg:           #ffffff;
-  --ol-primary:      #223843;
-  --ol-accent:       #ec7505;
-  --ol-violet:       #6457a6;
-  --ol-indigo:       #7d7abc;
+  --ol-bg:           #fffaf3;
+  --ol-primary:      #2f2a24;
+  --ol-accent:       #e8780a;
+  --ol-violet:       #cf6f08;
+  --ol-indigo:       #f3a44e;
   --ol-surface:      #ffffff;
-  --ol-surface2:     #f6f4fc;
-  --ol-border:       #e6e1f4;
+  --ol-surface2:     #fbeeda;
+  --ol-border:       #f1e3cd;
+
+  /* Header bar gradient (light amber → orange) */
+  --ol-hdr-grad-a:   #f0982a;
+  --ol-hdr-grad-b:   #e8780a;
 
   /* Derived utilities */
   --ol-white:        #ffffff;
-  --ol-text:         #2f3e48;
-  --ol-muted:        #5a6772;
-  --ol-glow:         rgba(236,117,5,0.22);
-  --ol-glow-violet:  rgba(100,87,166,0.22);
+  --ol-text:         #3c3833;
+  --ol-muted:        #6f665b;
+  --ol-glow:         rgba(232,120,10,0.22);
+  --ol-glow-violet:  rgba(207,111,8,0.22);
   --ol-wa-green:     #25d366;
   --ol-transition:   0.3s ease;
-  --ol-hdr-height:   72px;
+  --ol-hdr-height:   92px;
 }
 
 /* ════════════════════════════════════════════════════════════════
