@@ -10,7 +10,7 @@
     --o:#e8780a; --o2:#cf6f08; --gold:#c8912f; --ink:#2f2a24; --body:#4a443d; --muted:#7a7065;
     --cream:#fffaf3; --cream2:#fbeeda; --border:#f1e3cd; --peach:#f8e2c4;
     background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(232,120,10,.05),transparent 60%),var(--cream);
-    padding:108px 20px;font-family:'Manrope',sans-serif;color:var(--body);box-sizing:border-box;
+    padding:108px 20px;font-family:'Manrope',sans-serif;color:var(--body);box-sizing:border-box;overflow:hidden;
   }
   .ol-spot *{box-sizing:border-box;}
   .ol-spot__inner{max-width:1140px;margin:0 auto;}
@@ -18,7 +18,7 @@
   .ol-spot__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
     text-transform:uppercase;color:var(--o);margin-bottom:14px;}
   .ol-spot__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
-    font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
+    font-size:clamp(1.8rem,3.4vw,2.7rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
   .ol-spot__rule{width:96px;height:1px;margin:18px auto 0;position:relative;
     background:linear-gradient(90deg,transparent,var(--gold),transparent);}
   .ol-spot__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
@@ -27,17 +27,16 @@
 
   .ol-spot__grid{display:grid;grid-template-columns:1fr minmax(240px,360px) 1fr;gap:40px;align-items:center;}
   .ol-spot__col{display:flex;flex-direction:column;gap:38px;}
-  .ol-spot__feat{display:flex;flex-direction:column;gap:9px;}
+  .ol-spot__feat{display:flex;flex-direction:column;gap:11px;}
   .ol-spot__ic{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-    font-size:1.35rem;color:var(--o);border:1px solid var(--border);
+    font-size:1.35rem;color:var(--o);border:1px solid var(--border);flex-shrink:0;
     background:linear-gradient(135deg,rgba(240,152,42,.16),rgba(232,120,10,.10));
     transition:transform .4s cubic-bezier(.22,.61,.36,1);}
   .ol-spot__feat:hover .ol-spot__ic{transform:translateY(-4px) rotate(-4deg);}
-  .ol-spot__feat h3{margin:0;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink);}
-  .ol-spot__feat p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.6;}
+  .ol-spot__txt h3{margin:0 0 5px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink);}
+  .ol-spot__txt p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.6;}
   .ol-spot__col--right{text-align:right;align-items:flex-end;}
   .ol-spot__col--right .ol-spot__feat{align-items:flex-end;}
-  .ol-spot__col--right .ol-spot__ic{align-self:flex-end;}
 
   .ol-spot__media{position:relative;display:flex;justify-content:center;}
   .ol-spot__disc{position:relative;width:100%;max-width:340px;aspect-ratio:1/1;border-radius:50%;
@@ -57,11 +56,36 @@
   .ol-spot.is-on .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.ol-spot.is-on .rv{opacity:1!important;transform:none!important;}.ol-spot__ring{animation:none;}}
 
-  @media(max-width:860px){.ol-spot{padding:72px 18px;}.ol-spot__grid{grid-template-columns:1fr 1fr;gap:34px 26px;}
-    .ol-spot__media{grid-column:1 / -1;order:-1;margin-bottom:10px;}
+  /* ── Tablet: product on top, features in 2 columns ── */
+  @media(max-width:900px){
+    .ol-spot{padding:80px 20px;}
+    .ol-spot__head{margin-bottom:48px;}
+    .ol-spot__grid{grid-template-columns:1fr 1fr;gap:30px 28px;align-items:start;}
+    .ol-spot__media{grid-column:1 / -1;order:-1;margin-bottom:6px;}
+    .ol-spot__col{gap:30px;}
     .ol-spot__col--right{text-align:left;align-items:flex-start;}
-    .ol-spot__col--right .ol-spot__feat{align-items:flex-start;}.ol-spot__col--right .ol-spot__ic{align-self:flex-start;}}
-  @media(max-width:520px){.ol-spot__grid{grid-template-columns:1fr;}.ol-spot__col{gap:28px;}}
+    .ol-spot__col--right .ol-spot__feat{align-items:flex-start;}
+  }
+
+  /* ── Phone: single column, compact horizontal feature cards ── */
+  @media(max-width:600px){
+    .ol-spot{padding:58px 16px;overflow:hidden;}
+    .ol-spot__head{margin-bottom:38px;}
+    .ol-spot__grid{grid-template-columns:1fr;gap:16px;}
+    .ol-spot__col{gap:16px;}
+    .ol-spot__feat,
+    .ol-spot__col--right .ol-spot__feat{
+      flex-direction:row;align-items:flex-start;gap:15px;text-align:left;
+      background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 18px;
+      box-shadow:0 16px 32px -28px rgba(120,60,0,.5);
+    }
+    .ol-spot__ic{width:46px;height:46px;font-size:1.15rem;}
+    .ol-spot__txt h3{font-size:1.06rem;}
+    .ol-spot__txt p{font-size:.9rem;}
+    .ol-spot__disc{max-width:230px;}
+    .ol-spot__ring{inset:-9px;}
+    .ol-spot__badge{font-size:.64rem;padding:8px 15px;bottom:4px;}
+  }
 </style>
 
 <section class="ol-spot">
@@ -76,9 +100,9 @@
 
     <div class="ol-spot__grid">
       <div class="ol-spot__col">
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-droplet"></i></span><h3>Leak-Proof Core</h3><p>High-absorbency layers lock in flow for dependable, all-day security.</p></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-feather"></i></span><h3>Ultra-Soft Comfort</h3><p>Gentle, skin-friendly fabric that feels like your favourite underwear.</p></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-wind"></i></span><h3>Breathable Layers</h3><p>Airy, non-sweaty construction keeps you fresh from morning to night.</p></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-droplet"></i></span><div class="ol-spot__txt"><h3>Leak-Proof Core</h3><p>High-absorbency layers lock in flow for dependable, all-day security.</p></div></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-feather"></i></span><div class="ol-spot__txt"><h3>Ultra-Soft Comfort</h3><p>Gentle, skin-friendly fabric that feels like your favourite underwear.</p></div></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-wind"></i></span><div class="ol-spot__txt"><h3>Breathable Layers</h3><p>Airy, non-sweaty construction keeps you fresh from morning to night.</p></div></div>
       </div>
 
       <div class="ol-spot__media rv">
@@ -91,9 +115,9 @@
       </div>
 
       <div class="ol-spot__col ol-spot__col--right">
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-shirt"></i></span><h3>Body-Hugging Fit</h3><p>Stays exactly where it should &mdash; no shifting, no bunching, no worry.</p></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-eye-slash"></i></span><h3>Discreet &amp; Light</h3><p>Slim, quiet and invisible under clothes &mdash; nobody will ever know.</p></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-recycle"></i></span><h3>Wear &amp; Dispose</h3><p>No washing, no soaking. Simply change and dispose responsibly.</p></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-shirt"></i></span><div class="ol-spot__txt"><h3>Body-Hugging Fit</h3><p>Stays exactly where it should &mdash; no shifting, no bunching, no worry.</p></div></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-eye-slash"></i></span><div class="ol-spot__txt"><h3>Discreet &amp; Light</h3><p>Slim, quiet and invisible under clothes &mdash; nobody will ever know.</p></div></div>
+        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-recycle"></i></span><div class="ol-spot__txt"><h3>Wear &amp; Dispose</h3><p>No washing, no soaking. Simply change and dispose responsibly.</p></div></div>
       </div>
     </div>
 
