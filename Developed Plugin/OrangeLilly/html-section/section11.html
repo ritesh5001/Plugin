@@ -1,0 +1,224 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · PRODUCT DESCRIPTION (premium / luxury)       -->
+<!--  Paste into an Elementor "HTML" widget.                        -->
+<!--  • Swap the REPLACE IMAGE photo for your own pack shot.        -->
+<!--  • EDIT the price (₹) and the button href links.              -->
+<!-- ============================================================= -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  .ol-pd{
+    --o:#e8780a; --o2:#cf6f08; --amber:#f0982a; --gold:#c8912f; --ink:#2f2a24; --body:#4a443d; --muted:#7a7065;
+    --cream:#fffaf3; --cream2:#fbeeda; --cream3:#fcefd9; --border:#f1e3cd; --peach:#f8e2c4;
+    background:radial-gradient(ellipse 60% 50% at 85% 0%,rgba(232,120,10,.06),transparent 60%),var(--cream);
+    padding:108px 20px;font-family:'Manrope',sans-serif;color:var(--body);box-sizing:border-box;
+  }
+  .ol-pd *{box-sizing:border-box;}
+  .ol-pd__inner{max-width:1160px;margin:0 auto;}
+
+  /* ── Top: gallery + info ── */
+  .ol-pd__top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+
+  .ol-pd__media{position:relative;}
+  .ol-pd__frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/4.3;
+    background:linear-gradient(155deg,var(--cream3),var(--peach));
+    border:1px solid var(--border);box-shadow:0 44px 80px -36px rgba(216,124,12,.5);}
+  .ol-pd__frame img{width:100%;height:100%;object-fit:cover;}
+  .ol-pd__ribbon{position:absolute;top:22px;left:22px;z-index:2;
+    background:linear-gradient(90deg,var(--amber),var(--o2));color:#fff;font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;border-radius:60px;
+    box-shadow:0 16px 30px -10px rgba(216,124,12,.6);}
+  .ol-pd__seal{position:absolute;right:-18px;bottom:-18px;z-index:2;width:104px;height:104px;border-radius:50%;
+    background:#fff;border:1px solid var(--border);box-shadow:0 24px 44px -22px rgba(120,60,0,.5);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;}
+  .ol-pd__seal i{color:var(--o);font-size:1.4rem;}
+  .ol-pd__seal span{font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.2;}
+
+  .ol-pd__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-pd__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(2rem,3.8vw,3rem);color:var(--ink);line-height:1.1;letter-spacing:-.015em;}
+  .ol-pd__title em{font-style:italic;color:var(--o);}
+  .ol-pd__rating{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:.9rem;color:var(--muted);}
+  .ol-pd__rating .stars{color:var(--gold);letter-spacing:2px;font-size:.95rem;}
+  .ol-pd__lead{margin:20px 0 0;font-size:1.06rem;line-height:1.8;color:var(--body);}
+
+  .ol-pd__list{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:13px 22px;}
+  .ol-pd__list li{display:flex;align-items:flex-start;gap:10px;font-size:.94rem;color:var(--ink);font-weight:500;}
+  .ol-pd__list i{color:var(--o);font-size:.82rem;margin-top:4px;flex-shrink:0;}
+
+  .ol-pd__buy{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:30px 0 0;
+    padding:22px 0 0;border-top:1px solid var(--border);}
+  .ol-pd__price{display:flex;align-items:baseline;gap:9px;}
+  .ol-pd__price b{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--o2);line-height:1;}
+  .ol-pd__price s{color:var(--muted);font-size:1.05rem;}
+  .ol-pd__price small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:4px;}
+  .ol-pd__btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .ol-pd__btn{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;font-weight:700;text-decoration:none;
+    cursor:pointer;padding:15px 32px;border-radius:60px;border:1.5px solid transparent;
+    transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease;}
+  .ol-pd__btn--solid{background:linear-gradient(95deg,var(--amber),var(--o2));color:#fff;
+    box-shadow:0 16px 32px -12px rgba(216,124,12,.6);}
+  .ol-pd__btn--solid:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(216,124,12,.7);color:#fff;}
+  .ol-pd__btn--ghost{background:#fff;color:var(--o);border-color:var(--border);}
+  .ol-pd__btn--ghost:hover{transform:translateY(-3px);border-color:var(--o);color:var(--o2);}
+
+  .ol-pd__trust{display:flex;gap:22px;flex-wrap:wrap;margin:22px 0 0;font-size:.82rem;color:var(--muted);}
+  .ol-pd__trust span{display:inline-flex;align-items:center;gap:7px;}
+  .ol-pd__trust i{color:var(--o);}
+
+  /* ── Editorial details ── */
+  .ol-pd__details{margin-top:96px;text-align:center;}
+  .ol-pd__dhead{max-width:640px;margin:0 auto 18px;}
+  .ol-pd__dhead h3{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.7rem,3vw,2.3rem);color:var(--ink);letter-spacing:-.01em;}
+  .ol-pd__rule{width:96px;height:1px;margin:18px auto 26px;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-pd__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
+  .ol-pd__copy{max-width:760px;margin:0 auto;color:var(--body);font-size:1.05rem;line-height:1.9;}
+  .ol-pd__copy p{margin:0 0 18px;}
+  .ol-pd__copy p:last-child{margin-bottom:0;}
+
+  /* ── Spec grid ── */
+  .ol-pd__specs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px;}
+  .ol-pd__spec{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;
+    box-shadow:0 20px 44px -32px rgba(120,60,0,.4);transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+  .ol-pd__spec:hover{transform:translateY(-8px);box-shadow:0 34px 60px -34px rgba(216,124,12,.5);}
+  .ol-pd__spec-ic{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;color:var(--o);border:1px solid var(--border);
+    background:linear-gradient(135deg,rgba(240,152,42,.16),rgba(232,120,10,.10));}
+  .ol-pd__spec h4{margin:0 0 6px;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--ink);}
+  .ol-pd__spec p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.55;}
+
+  /* scroll-reveal (JS-gated) */
+  .ol-pd.is-on .rv{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-pd.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-pd.is-on .rv{opacity:1!important;transform:none!important;}}
+
+  @media(max-width:900px){
+    .ol-pd{padding:72px 18px;}
+    .ol-pd__top{grid-template-columns:1fr;gap:44px;}
+    .ol-pd__media{max-width:460px;margin:0 auto;width:100%;}
+    .ol-pd__details{margin-top:72px;}
+    .ol-pd__specs{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:520px){
+    .ol-pd__list{grid-template-columns:1fr;}
+    .ol-pd__specs{grid-template-columns:1fr;}
+    .ol-pd__buy{gap:16px;}
+  }
+</style>
+
+<section class="ol-pd">
+  <div class="ol-pd__inner">
+
+    <!-- ── Product top ── -->
+    <div class="ol-pd__top">
+      <div class="ol-pd__media rv">
+        <div class="ol-pd__frame">
+          <span class="ol-pd__ribbon">Bestseller</span>
+          <!-- REPLACE IMAGE: your product / pack shot -->
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80" alt="Orange Lilies Disposable Period Panties">
+        </div>
+        <div class="ol-pd__seal">
+          <i class="fa-solid fa-shield-heart"></i>
+          <span>Dermatologically<br>Tested</span>
+        </div>
+      </div>
+
+      <div class="ol-pd__info rv">
+        <span class="ol-pd__eyebrow">Orange Lilies &middot; Period Care</span>
+        <h2 class="ol-pd__title">Disposable <em>Period</em> Panties</h2>
+
+        <div class="ol-pd__rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.9 &middot; Loved by 2,300+ women</span>
+        </div>
+
+        <p class="ol-pd__lead">Period care, redefined. Our signature disposable panty blends reliable, leak-proof protection with all-day softness &mdash; an all-in-one solution that feels exactly like your favourite underwear, only worry-free. Wear it, change it, dispose of it. No pads, no soaking, no compromise.</p>
+
+        <ul class="ol-pd__list">
+          <li><i class="fa-solid fa-check"></i>High-absorbency leak-proof core</li>
+          <li><i class="fa-solid fa-check"></i>Ultra-soft, breathable layers</li>
+          <li><i class="fa-solid fa-check"></i>Snug, body-hugging fit</li>
+          <li><i class="fa-solid fa-check"></i>Day &amp; overnight protection</li>
+          <li><i class="fa-solid fa-check"></i>Single-use, hygienic &amp; discreet</li>
+          <li><i class="fa-solid fa-check"></i>Skin-friendly, dermatologically tested</li>
+        </ul>
+
+        <div class="ol-pd__buy">
+          <div class="ol-pd__price">
+            <b>&#8377;499</b> <s>&#8377;599</s>
+            <small>Per pack &middot; 8 panties</small>
+          </div>
+          <div class="ol-pd__btns">
+            <!-- EDIT href -->
+            <a href="/shop/" class="ol-pd__btn ol-pd__btn--solid"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
+            <a href="#packs" class="ol-pd__btn ol-pd__btn--ghost">View Packs</a>
+          </div>
+        </div>
+
+        <div class="ol-pd__trust">
+          <span><i class="fa-solid fa-truck-fast"></i> Free delivery across India</span>
+          <span><i class="fa-solid fa-hand-holding-dollar"></i> COD available</span>
+          <span><i class="fa-solid fa-box"></i> 100% discreet packaging</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Editorial description ── -->
+    <div class="ol-pd__details">
+      <div class="ol-pd__dhead rv">
+        <h3>Comfort &amp; Confidence, Reimagined</h3>
+        <div class="ol-pd__rule"></div>
+      </div>
+      <div class="ol-pd__copy rv">
+        <p>Orange Lilies Disposable Period Panties are thoughtfully engineered for real life. Each panty features a high-absorbency core that locks in flow and an ultra-soft, breathable outer layer that stays gentle against sensitive skin &mdash; so you stay dry, fresh and secure from the first hour to the last.</p>
+        <p>Designed for young girls, working women, travellers and athletes alike, they move with you through every part of your day: the morning commute, the workout, the long-haul flight, the deep night's sleep. No bulk. No shifting. No anxious checks. Just quiet, dependable freedom &mdash; the way period care should always have felt.</p>
+        <p>Crafted by a women-led team and made to ISO 9001:2015 GMP-certified standards as part of The Kutumb Group, every Orange Lilies panty is dermatologically tested and responsibly packaged. Confidence of freshness, in every single one.</p>
+      </div>
+
+      <!-- ── Spec grid ── -->
+      <div class="ol-pd__specs">
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-feather"></i></div>
+          <h4>Material</h4>
+          <p>Soft, breathable, skin-friendly non-woven layers</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-droplet"></i></div>
+          <h4>Absorbency</h4>
+          <p>High-capacity core for day &amp; overnight flow</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-ruler"></i></div>
+          <h4>Fit &amp; Sizes</h4>
+          <p>Body-hugging stretch fit, available M&ndash;XXL</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-recycle"></i></div>
+          <h4>Use &amp; Care</h4>
+          <p>Single-use &mdash; wear, change &amp; bin responsibly</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var R = document.querySelector('.ol-pd');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>
