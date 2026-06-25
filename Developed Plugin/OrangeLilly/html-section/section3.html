@@ -1,316 +1,134 @@
 <!-- ============================================================= -->
-<!--  ORANGE LILIES · CUSTOMER REVIEWS MARQUEE                      -->
-<!--  Paste into an Elementor "HTML" widget. Cards auto-scroll and  -->
-<!--  pause on hover. Edit the review text / names freely.          -->
+<!--  ORANGE LILIES · CUSTOMER REVIEWS MARQUEE (premium)           -->
+<!--  Cards auto-scroll and pause on hover. Edit text/names freely. -->
 <!-- ============================================================= -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap');
 
-  .ol-review-section {
-    padding: 56px 20px;
-    border-top: 1px solid #f1e3cd;
-    border-bottom: 1px solid #f1e3cd;
-    background: #fbeeda;
-    font-family: 'Manrope', sans-serif;
-    overflow: hidden;
+  .ol-rev{
+    --o:#e8780a; --o2:#cf6f08; --gold:#c8912f; --ink:#2f2a24; --body:#4a443d; --muted:#7a7065;
+    --cream:#fffaf3; --cream2:#fbeeda; --border:#f1e3cd;
+    padding:96px 0;background:var(--cream2);font-family:'Manrope',sans-serif;overflow:hidden;
   }
+  .ol-rev__head{text-align:center;margin:0 auto 50px;padding:0 20px;}
+  .ol-rev__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-rev__title{margin:0;font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.4vw,2.7rem);
+    font-weight:700;color:var(--ink);letter-spacing:-.01em;}
+  .ol-rev__rule{width:96px;height:1px;margin:18px auto 0;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-rev__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
 
-  .ol-review-headbox {
-    text-align: center;
-    margin-bottom: 32px;
-    padding: 0 15px;
-  }
+  .ol-rev__scroll{width:100%;overflow:hidden;padding:14px 0;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);
+            mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);}
+  .ol-rev__track{display:flex;width:max-content;animation:olRev 52s linear infinite;}
+  .ol-rev__track:hover{animation-play-state:paused;}
 
-  .ol-review-eyebrow {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #7a7065;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 8px;
+  .ol-rev__card{
+    position:relative;width:340px;margin:0 14px;flex:0 0 auto;
+    background:#fff;border:1px solid var(--border);border-radius:20px;padding:34px 30px 28px;
+    box-shadow:0 24px 48px -30px rgba(120,60,0,.4);
+    display:flex;flex-direction:column;
   }
+  .ol-rev__quote{position:absolute;top:14px;right:24px;font-family:'Playfair Display',serif;
+    font-size:4rem;line-height:1;color:rgba(232,120,10,.14);}
+  .ol-rev__stars{color:var(--gold);font-size:15px;letter-spacing:3px;margin-bottom:14px;}
+  .ol-rev__text{position:relative;z-index:1;font-size:15px;line-height:1.7;color:var(--body);
+    margin:0 0 22px;font-style:italic;flex-grow:1;}
+  .ol-rev__author{display:flex;align-items:center;gap:13px;border-top:1px solid #f4ece0;padding-top:16px;}
+  .ol-rev__avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;
+    background:linear-gradient(135deg,#f0982a,#cf6f08);}
+  .ol-rev__meta strong{display:block;font-size:14px;color:var(--ink);}
+  .ol-rev__meta span{font-size:12px;color:var(--muted);}
 
-  .ol-review-title {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: #2f2a24;
-  }
-
-  /* Scroll logic */
-  .ol-review-scroll {
-    width: 100%;
-    overflow: hidden;
-    padding: 10px 0;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  }
-
-  .ol-review-track {
-    display: flex;
-    width: max-content;
-    animation: olReviewLoop 48s linear infinite;
-  }
-
-  .ol-review-item {
-    margin: 0 15px;
-    flex: 0 0 auto;
-  }
-
-  .ol-review-card {
-    width: 320px;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 26px;
-    border: 1px solid #f1e3cd;
-    box-shadow: 0 8px 22px rgba(120,60,0,0.07);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .ol-review-stars {
-    color: #e8780a;
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-
-  .ol-review-text {
-    font-size: 15px;
-    line-height: 1.65;
-    color: #4a443d;
-    margin-bottom: 20px;
-    font-style: italic;
-    flex-grow: 1;
-  }
-
-  .ol-review-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-top: 1px solid #f4ece0;
-    padding-top: 15px;
-  }
-
-  .ol-review-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #f0982a, #cf6f08);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .ol-review-meta strong {
-    display: block;
-    font-size: 14px;
-    color: #2f2a24;
-  }
-
-  .ol-review-meta span {
-    font-size: 12px;
-    color: #7a7065;
-  }
-
-  @keyframes olReviewLoop {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .ol-review-track:hover {
-    animation-play-state: paused;
-  }
-
-  @media (max-width: 768px) {
-    .ol-review-card { width: 270px; padding: 20px; }
-    .ol-review-title { font-size: 25px; }
-  }
+  @keyframes olRev{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(max-width:768px){.ol-rev{padding:70px 0;}.ol-rev__card{width:290px;padding:28px 24px;}}
 </style>
 
-<section class="ol-review-section">
-  <div class="ol-review-headbox">
-    <span class="ol-review-eyebrow">Real Stories</span>
-    <h3 class="ol-review-title">Women Who Love Orange Lilies</h3>
+<section class="ol-rev">
+  <div class="ol-rev__head">
+    <span class="ol-rev__eyebrow">Real Stories</span>
+    <h3 class="ol-rev__title">Women Who Love Orange Lilies</h3>
+    <div class="ol-rev__rule"></div>
   </div>
 
-  <div class="ol-review-scroll">
-    <div class="ol-review-track">
+  <div class="ol-rev__scroll">
+    <div class="ol-rev__track">
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">SR</div>
-            <div class="ol-review-meta">
-              <strong>Sneha R.</strong>
-              <span>Mumbai | Travel Days</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">SR</div><div class="ol-rev__meta"><strong>Sneha R.</strong><span>Mumbai &middot; Travel Days</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">AK</div>
-            <div class="ol-review-meta">
-              <strong>Aisha K.</strong>
-              <span>Delhi | Everyday Comfort</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">AK</div><div class="ol-rev__meta"><strong>Aisha K.</strong><span>Delhi &middot; Everyday Comfort</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"Perfect for my gym days — secure, breathable and zero worry during workouts. A total game-changer."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">RP</div>
-            <div class="ol-review-meta">
-              <strong>Riya P.</strong>
-              <span>Bangalore | Active Days</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">Perfect for my gym days &mdash; secure, breathable and zero worry during workouts. A total game-changer.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">RP</div><div class="ol-rev__meta"><strong>Riya P.</strong><span>Bangalore &middot; Active Days</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"As a working mom the convenience is unreal. Wear, change, dispose — done. No washing, no fuss."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">MS</div>
-            <div class="ol-review-meta">
-              <strong>Meera S.</strong>
-              <span>Pune | Working Women</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">As a working mom the convenience is unreal. Wear, change, dispose &mdash; done. No washing, no fuss.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">MS</div><div class="ol-rev__meta"><strong>Meera S.</strong><span>Pune &middot; Working Women</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"My daughter just started her periods and these made her so much more confident at school. Thank you!"</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">KN</div>
-            <div class="ol-review-meta">
-              <strong>Kavya N.</strong>
-              <span>Hyderabad | Teen Care</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">My daughter just started her periods and these made her so much more confident at school. Thank you!</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">KN</div><div class="ol-rev__meta"><strong>Kavya N.</strong><span>Hyderabad &middot; Teen Care</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"Discreet packaging and super soft material. Finally, period care that truly understands women."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">FA</div>
-            <div class="ol-review-meta">
-              <strong>Fatima A.</strong>
-              <span>Chennai | First-Time User</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">Discreet packaging and super soft material. Finally, period care that truly understands women.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">FA</div><div class="ol-rev__meta"><strong>Fatima A.</strong><span>Chennai &middot; First-Time User</span></div></div>
       </div>
 
-      <!-- DUPLICATE SET FOR INFINITE LOOP -->
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">SR</div>
-            <div class="ol-review-meta">
-              <strong>Sneha R.</strong>
-              <span>Mumbai | Travel Days</span>
-            </div>
-          </div>
-        </div>
+      <!-- duplicate set for seamless loop -->
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">No more leaks or bulky pads. I wore Orange Lilies on a 9-hour flight and felt fresh and worry-free the entire time.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">SR</div><div class="ol-rev__meta"><strong>Sneha R.</strong><span>Mumbai &middot; Travel Days</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">AK</div>
-            <div class="ol-review-meta">
-              <strong>Aisha K.</strong>
-              <span>Delhi | Everyday Comfort</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">So comfortable I forgot I was on my period. It genuinely feels just like wearing regular underwear.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">AK</div><div class="ol-rev__meta"><strong>Aisha K.</strong><span>Delhi &middot; Everyday Comfort</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"Perfect for my gym days — secure, breathable and zero worry during workouts. A total game-changer."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">RP</div>
-            <div class="ol-review-meta">
-              <strong>Riya P.</strong>
-              <span>Bangalore | Active Days</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">Perfect for my gym days &mdash; secure, breathable and zero worry during workouts. A total game-changer.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">RP</div><div class="ol-rev__meta"><strong>Riya P.</strong><span>Bangalore &middot; Active Days</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"As a working mom the convenience is unreal. Wear, change, dispose — done. No washing, no fuss."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">MS</div>
-            <div class="ol-review-meta">
-              <strong>Meera S.</strong>
-              <span>Pune | Working Women</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">As a working mom the convenience is unreal. Wear, change, dispose &mdash; done. No washing, no fuss.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">MS</div><div class="ol-rev__meta"><strong>Meera S.</strong><span>Pune &middot; Working Women</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"My daughter just started her periods and these made her so much more confident at school. Thank you!"</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">KN</div>
-            <div class="ol-review-meta">
-              <strong>Kavya N.</strong>
-              <span>Hyderabad | Teen Care</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">My daughter just started her periods and these made her so much more confident at school. Thank you!</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">KN</div><div class="ol-rev__meta"><strong>Kavya N.</strong><span>Hyderabad &middot; Teen Care</span></div></div>
       </div>
 
-      <div class="ol-review-item">
-        <div class="ol-review-card">
-          <div class="ol-review-stars">★★★★★</div>
-          <p class="ol-review-text">"Discreet packaging and super soft material. Finally, period care that truly understands women."</p>
-          <div class="ol-review-author">
-            <div class="ol-review-avatar">FA</div>
-            <div class="ol-review-meta">
-              <strong>Fatima A.</strong>
-              <span>Chennai | First-Time User</span>
-            </div>
-          </div>
-        </div>
+      <div class="ol-rev__card"><span class="ol-rev__quote">&#8221;</span>
+        <div class="ol-rev__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="ol-rev__text">Discreet packaging and super soft material. Finally, period care that truly understands women.</p>
+        <div class="ol-rev__author"><div class="ol-rev__avatar">FA</div><div class="ol-rev__meta"><strong>Fatima A.</strong><span>Chennai &middot; First-Time User</span></div></div>
       </div>
 
     </div>

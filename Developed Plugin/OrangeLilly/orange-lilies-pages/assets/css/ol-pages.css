@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 /* ════════════════════════════════════════════════════════════════
    Orange Lilies — WARM palette (orange + cream).
@@ -43,9 +43,13 @@
   --ol-glow:         rgba(232,120,10,0.20);
   --ol-glow-strong:  rgba(232,120,10,0.38);
   --ol-glow-violet:  rgba(207,111,8,0.22);
-  --ol-radius:       10px;
-  --ol-radius-lg:    18px;
-  --ol-transition:   0.3s ease;
+  --ol-gold:         #c8912f;    /* refined gold for hairlines / ornaments */
+  --ol-radius:       14px;
+  --ol-radius-lg:    22px;
+  --ol-shadow:       0 30px 60px -28px rgba(120,60,0,0.30);
+  --ol-shadow-sm:    0 18px 40px -24px rgba(120,60,0,0.26);
+  --ol-transition:   0.35s cubic-bezier(.22,.61,.36,1);
+  --ol-ease:         cubic-bezier(.22,.61,.36,1);
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -163,11 +167,27 @@ body.ol-page .ol-wrap {
 }
 
 body.ol-page .ol-section {
-  padding: 80px 0;
+  padding: 112px 0;
 }
 
 body.ol-page .ol-section-sm {
-  padding: 48px 0;
+  padding: 64px 0;
+}
+
+/* Scroll-reveal — elements lift & fade in as they enter the viewport.
+   Falls back to fully visible if JS is off or motion is reduced. */
+body.ol-page .ol-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s var(--ol-ease), transform 0.9s var(--ol-ease);
+  will-change: opacity, transform;
+}
+body.ol-page .ol-reveal.ol-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.ol-page .ol-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 /* ── Typography — forced so the theme cannot recolour headings ── */
@@ -178,18 +198,22 @@ body.ol-page h4,
 body.ol-page .ol-h1,
 body.ol-page .ol-h2,
 body.ol-page .ol-h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-weight: 700 !important;
   color: var(--ol-primary) !important;
-  line-height: 1.2 !important;
-  margin: 0 0 16px !important;
+  line-height: 1.14 !important;
+  margin: 0 0 18px !important;
   text-transform: none !important;
-  letter-spacing: normal !important;
+  letter-spacing: -0.012em !important;
 }
 
-body.ol-page .ol-h1 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
-body.ol-page .ol-h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; }
-body.ol-page .ol-h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem) !important; }
+body.ol-page .ol-h1 { font-size: clamp(2.4rem, 5.4vw, 4rem) !important; }
+body.ol-page .ol-h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem) !important; }
+body.ol-page .ol-h3 { font-size: clamp(1.25rem, 2.5vw, 1.7rem) !important; }
+
+/* Accent words can be set in elegant italic for an editorial, luxury feel */
+body.ol-page .ol-accent-text,
+body.ol-page .ol-violet-text { font-style: italic; }
 
 body.ol-page p,
 body.ol-page li,
@@ -209,50 +233,51 @@ body.ol-page a {
 /* ── Chip / eyebrow label ────────────────────────────────────── */
 body.ol-page .ol-chip {
   display: inline-block;
-  background: rgba(236,117,5,0.10);
-  border: 1px solid var(--ol-accent);
+  background: transparent;
+  border: none;
   color: var(--ol-accent) !important;
   font-family: 'Manrope', sans-serif !important;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  padding: 6px 18px;
-  border-radius: 100px;
-  margin-bottom: 20px;
-  line-height: 1.4;
+  padding: 0;
+  margin-bottom: 22px;
+  line-height: 1.5;
 }
 
 body.ol-page .ol-chip-violet {
-  background: rgba(207,111,8,0.10);
-  border-color: var(--ol-violet);
   color: var(--ol-violet) !important;
 }
 
 /* ── Hero section ────────────────────────────────────────────── */
 body.ol-page .ol-hero {
-  background: linear-gradient(160deg, #ffffff 0%, var(--ol-gradient) 50%, var(--ol-gradient2) 100%) !important;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% -10%, rgba(232,120,10,0.10), transparent 60%),
+    linear-gradient(180deg, #fffdf9 0%, var(--ol-gradient2) 100%) !important;
   text-align: center;
-  padding: 100px 24px 80px;
+  padding: 150px 24px 110px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--ol-border);
 }
 
+/* soft floating ornaments */
 body.ol-page .ol-hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(236,117,5,0.10) 0%, transparent 70%);
+  top: -120px; right: -120px;
+  width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(240,152,42,0.16) 0%, transparent 70%);
   pointer-events: none;
 }
 
 body.ol-page .ol-hero::after {
   content: '';
   position: absolute;
-  bottom: -40%; left: -10%;
-  width: 60%; height: 120%;
-  background: radial-gradient(ellipse at center, rgba(207,111,8,0.10) 0%, transparent 65%);
+  bottom: -140px; left: -120px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(248,226,196,0.5) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -263,10 +288,10 @@ body.ol-page .ol-hero > * {
 
 body.ol-page .ol-hero-logo {
   display: block;
-  margin: 0 auto 32px;
-  max-width: 200px;
+  margin: 0 auto 34px;
+  max-width: 190px;
   height: auto;
-  filter: drop-shadow(0 6px 18px rgba(207,111,8,0.18));
+  filter: drop-shadow(0 10px 24px rgba(207,111,8,0.20));
 }
 
 body.ol-page .ol-hero h1 {
@@ -274,11 +299,11 @@ body.ol-page .ol-hero h1 {
 }
 
 body.ol-page .ol-hero-intro {
-  font-size: 1.1rem;
+  font-size: 1.16rem;
   color: var(--ol-muted) !important;
-  max-width: 700px;
-  margin: 16px auto 0;
-  line-height: 1.8;
+  max-width: 680px;
+  margin: 22px auto 0;
+  line-height: 1.85;
 }
 
 /* ── Stats bar ───────────────────────────────────────────────── */
@@ -305,7 +330,7 @@ body.ol-page .ol-stat-item {
 
 body.ol-page .ol-stat-number {
   display: block;
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--ol-accent) !important;
@@ -338,7 +363,8 @@ body.ol-page .ol-card {
   background: var(--ol-surface) !important;
   border: 1px solid var(--ol-border);
   border-radius: var(--ol-radius-lg);
-  padding: 36px 28px;
+  padding: 42px 34px;
+  box-shadow: var(--ol-shadow-sm);
   transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
   position: relative;
   overflow: hidden;
@@ -349,19 +375,20 @@ body.ol-page .ol-card::before {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--ol-accent), var(--ol-violet));
-  opacity: 0;
-  transition: opacity var(--ol-transition);
+  background: linear-gradient(90deg, var(--ol-indigo), var(--ol-accent), var(--ol-violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ol-ease);
 }
 
 body.ol-page .ol-card:hover {
-  border-color: var(--ol-accent);
-  box-shadow: 0 14px 40px rgba(207,111,8,0.16);
-  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: var(--ol-shadow);
+  transform: translateY(-8px);
 }
 
 body.ol-page .ol-card:hover::before {
-  opacity: 1;
+  transform: scaleX(1);
 }
 
 body.ol-page .ol-card-icon {
@@ -371,8 +398,18 @@ body.ol-page .ol-card-icon {
   line-height: 1;
 }
 
+/* Font Awesome icons that sit inside the icon tiles render in brand
+   orange. !important so no active theme can recolour them. */
+body.ol-page .ol-feature-icon i,
+body.ol-page .ol-value-icon i,
+body.ol-page .ol-contact-item-icon i,
+body.ol-page .ol-card-icon i {
+  color: var(--ol-accent) !important;
+  line-height: 1;
+}
+
 body.ol-page .ol-card h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.2rem !important;
   font-weight: 600 !important;
   color: var(--ol-primary) !important;
@@ -401,11 +438,13 @@ body.ol-page .ol-card ul li {
 }
 
 body.ol-page .ol-card ul li::before {
-  content: '✿';
+  content: '✓';
   position: absolute;
   left: 0;
+  top: 5px;
   color: var(--ol-accent);
   font-size: 0.85rem;
+  font-weight: 700;
 }
 
 /* ── Card number badge ───────────────────────────────────────── */
@@ -417,7 +456,7 @@ body.ol-page .ol-card-num {
   height: 46px;
   background: linear-gradient(135deg, var(--ol-accent), var(--ol-violet));
   border-radius: 50%;
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1rem;
   font-weight: 700;
   color: #ffffff !important;
@@ -460,7 +499,7 @@ body.ol-page .ol-why-icon {
 
 body.ol-page .ol-why-text strong {
   display: block;
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 0.98rem;
   color: var(--ol-primary) !important;
   margin-bottom: 4px;
@@ -476,31 +515,37 @@ body.ol-page .ol-value-card {
   background: var(--ol-surface) !important;
   border: 1px solid var(--ol-border);
   border-radius: var(--ol-radius-lg);
-  padding: 30px 26px;
+  padding: 38px 32px;
   text-align: left;
+  box-shadow: var(--ol-shadow-sm);
   transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
 }
 
 body.ol-page .ol-value-card:hover {
-  border-color: var(--ol-accent);
-  box-shadow: 0 14px 36px rgba(236,117,5,0.12);
-  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: var(--ol-shadow);
+  transform: translateY(-8px);
 }
 
 body.ol-page .ol-value-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, rgba(236,117,5,0.14), rgba(207,111,8,0.14));
+  font-size: 1.45rem;
+  margin-bottom: 22px;
+  background: linear-gradient(135deg, rgba(240,152,42,0.16), rgba(232,120,10,0.12));
+  transition: transform var(--ol-transition);
+}
+
+body.ol-page .ol-value-card:hover .ol-value-icon {
+  transform: scale(1.08) rotate(-3deg);
 }
 
 body.ol-page .ol-value-card h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.1rem !important;
   color: var(--ol-primary) !important;
   margin: 0 0 8px !important;
@@ -524,14 +569,15 @@ body.ol-page .ol-team-card {
   background: var(--ol-surface) !important;
   border: 1px solid var(--ol-border);
   border-radius: var(--ol-radius-lg);
-  padding: 36px 30px;
+  padding: 44px 38px;
+  box-shadow: var(--ol-shadow-sm);
   transition: border-color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
 }
 
 body.ol-page .ol-team-card:hover {
-  border-color: var(--ol-violet);
-  box-shadow: 0 16px 40px rgba(207,111,8,0.15);
-  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: var(--ol-shadow);
+  transform: translateY(-8px);
 }
 
 body.ol-page .ol-team-head {
@@ -548,7 +594,7 @@ body.ol-page .ol-team-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
@@ -558,7 +604,7 @@ body.ol-page .ol-team-avatar {
 }
 
 body.ol-page .ol-team-name {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.25rem !important;
   color: var(--ol-primary) !important;
   margin: 0 0 4px !important;
@@ -584,19 +630,30 @@ body.ol-page .ol-team-card p:last-child { margin-bottom: 0; }
 
 /* ── CTA panel ───────────────────────────────────────────────── */
 body.ol-page .ol-cta {
-  background: linear-gradient(135deg, var(--ol-violet) 0%, var(--ol-indigo) 100%) !important;
-  border-radius: var(--ol-radius-lg);
+  background: linear-gradient(120deg, #b5610a 0%, var(--ol-accent) 52%, var(--ol-indigo) 100%) !important;
+  border-radius: 28px;
   text-align: center;
-  padding: 64px 32px;
+  padding: 84px 40px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--ol-shadow);
 }
 
 body.ol-page .ol-cta::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(236,117,5,0.30) 0%, transparent 65%);
+  width: 360px; height: 360px; border-radius: 50%;
+  right: -90px; top: -150px;
+  background: rgba(255,255,255,0.10);
+  pointer-events: none;
+}
+
+body.ol-page .ol-cta::after {
+  content: '';
+  position: absolute;
+  width: 260px; height: 260px; border-radius: 50%;
+  left: -100px; bottom: -130px;
+  background: rgba(255,255,255,0.08);
   pointer-events: none;
 }
 
@@ -606,40 +663,46 @@ body.ol-page .ol-cta > * {
 }
 
 body.ol-page .ol-cta h2 {
-  font-family: 'Cinzel', serif !important;
-  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem) !important;
   color: #ffffff !important;
-  margin: 0 0 12px !important;
+  margin: 0 0 14px !important;
 }
 
 body.ol-page .ol-cta p {
   color: rgba(255,255,255,0.92) !important;
-  font-size: 1.05rem;
-  margin: 0 auto 32px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin: 0 auto 36px;
   max-width: 560px;
 }
 
 body.ol-page .ol-cta .ol-btn {
-  background: var(--ol-accent) !important;
-  border-color: var(--ol-accent) !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: var(--ol-accent) !important;
+  box-shadow: 0 16px 34px -14px rgba(60,30,0,0.5);
 }
 
 body.ol-page .ol-cta .ol-btn:hover {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
+  background: #fff4e3 !important;
+  border-color: #fff4e3 !important;
   color: var(--ol-violet) !important;
+  transform: translateY(-3px);
 }
 
 body.ol-page .ol-cta .ol-btn-outline {
   background: transparent !important;
-  border-color: #ffffff !important;
+  border-color: rgba(255,255,255,0.7) !important;
   color: #ffffff !important;
+  box-shadow: none;
 }
 
 body.ol-page .ol-cta .ol-btn-outline:hover {
-  background: #ffffff !important;
-  color: var(--ol-violet) !important;
+  background: rgba(255,255,255,0.12) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  transform: translateY(-3px);
 }
 
 body.ol-page .ol-btn-group {
@@ -649,66 +712,72 @@ body.ol-page .ol-btn-group {
   flex-wrap: wrap;
 }
 
-/* ── Button ──────────────────────────────────────────────────── */
+/* ── Button — premium pill ───────────────────────────────────── */
 body.ol-page .ol-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--ol-accent) !important;
+  gap: 9px;
+  background: linear-gradient(95deg, var(--ol-indigo) 0%, var(--ol-accent) 55%, var(--ol-violet) 100%) !important;
+  background-size: 160% 100% !important;
+  background-position: 0% 50% !important;
   color: #ffffff !important;
   font-family: 'Manrope', sans-serif !important;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-decoration: none !important;
-  padding: 14px 32px;
-  border-radius: 6px;
-  border: 2px solid var(--ol-accent) !important;
-  transition: background var(--ol-transition), color var(--ol-transition), box-shadow var(--ol-transition), transform var(--ol-transition);
+  padding: 15px 36px;
+  border-radius: 60px;
+  border: 1.5px solid transparent !important;
+  box-shadow: 0 14px 30px -12px var(--ol-glow-strong);
+  transition: background-position 0.5s var(--ol-ease), box-shadow var(--ol-transition), transform var(--ol-transition), color var(--ol-transition), border-color var(--ol-transition);
   cursor: pointer;
 }
 
 body.ol-page .ol-btn:hover {
-  background: var(--ol-violet) !important;
-  border-color: var(--ol-violet) !important;
+  background-position: 100% 50% !important;
   color: #ffffff !important;
-  box-shadow: 0 10px 28px var(--ol-glow-violet);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 38px -14px var(--ol-glow-strong);
+  transform: translateY(-3px);
   text-decoration: none !important;
 }
 
 body.ol-page .ol-btn-outline {
   background: transparent !important;
   color: var(--ol-violet) !important;
-  border-color: var(--ol-violet) !important;
+  border: 1.5px solid var(--ol-border) !important;
+  box-shadow: none;
 }
 
 body.ol-page .ol-btn-outline:hover {
-  background: var(--ol-violet) !important;
-  border-color: var(--ol-violet) !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  border-color: var(--ol-accent) !important;
+  color: var(--ol-accent) !important;
+  box-shadow: 0 16px 30px -16px var(--ol-glow);
+  transform: translateY(-3px);
 }
 
 /* ── Two-column layout ───────────────────────────────────────── */
 body.ol-page .ol-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 76px;
   align-items: start;
 }
 
 body.ol-page .ol-two-col-content h2 {
-  font-family: 'Cinzel', serif !important;
-  font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem) !important;
   color: var(--ol-primary) !important;
-  margin: 0 0 20px !important;
+  margin: 0 0 22px !important;
+  letter-spacing: -0.012em !important;
 }
 
 body.ol-page .ol-two-col-content p {
   color: var(--ol-muted) !important;
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 16px;
+  font-size: 1.04rem;
+  line-height: 1.85;
+  margin-bottom: 18px;
 }
 
 body.ol-page .ol-feature-list {
@@ -790,7 +859,7 @@ body.ol-page .ol-step-num {
   background: #ffffff !important;
   border: 2px solid var(--ol-accent);
   border-radius: 50%;
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--ol-accent) !important;
@@ -799,7 +868,7 @@ body.ol-page .ol-step-num {
 }
 
 body.ol-page .ol-step h4 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
   color: var(--ol-primary) !important;
@@ -816,29 +885,42 @@ body.ol-page .ol-step p {
 /* ── Section heading ─────────────────────────────────────────── */
 body.ol-page .ol-section-heading {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
 body.ol-page .ol-section-heading h2 {
-  font-family: 'Cinzel', serif !important;
-  font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem) !important;
   color: var(--ol-primary) !important;
-  margin: 0 0 12px !important;
+  margin: 0 0 14px !important;
+  letter-spacing: -0.012em !important;
 }
 
 body.ol-page .ol-section-heading p {
   color: var(--ol-muted) !important;
-  font-size: 1.05rem;
-  max-width: 640px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  max-width: 620px;
   margin: 0 auto;
 }
 
+/* Elegant centred divider: a fine line with a small diamond at centre */
 body.ol-page .ol-divider {
-  width: 64px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--ol-accent), var(--ol-violet));
-  border-radius: 2px;
-  margin: 16px auto;
+  position: relative;
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ol-gold), transparent);
+  border-radius: 0;
+  margin: 20px auto;
+}
+body.ol-page .ol-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  background: var(--ol-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 /* ── Contact section ─────────────────────────────────────────── */
@@ -846,12 +928,13 @@ body.ol-page .ol-contact-panel {
   background: var(--ol-surface) !important;
   border: 1px solid var(--ol-border);
   border-radius: var(--ol-radius-lg);
-  padding: 40px 36px;
+  padding: 48px 44px;
   height: 100%;
+  box-shadow: var(--ol-shadow-sm);
 }
 
 body.ol-page .ol-contact-panel h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.4rem !important;
   color: var(--ol-primary) !important;
   margin: 0 0 28px !important;
@@ -934,11 +1017,12 @@ body.ol-page .ol-form-panel {
   background: var(--ol-surface) !important;
   border: 1px solid var(--ol-border);
   border-radius: var(--ol-radius-lg);
-  padding: 40px 36px;
+  padding: 48px 44px;
+  box-shadow: var(--ol-shadow-sm);
 }
 
 body.ol-page .ol-form-panel h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.4rem !important;
   color: var(--ol-primary) !important;
   margin: 0 0 28px !important;
@@ -1027,7 +1111,7 @@ body.ol-page .ol-policy-section {
 }
 
 body.ol-page .ol-policy-section h2 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1.3rem !important;
   color: var(--ol-violet) !important;
   margin: 0 0 16px !important;
@@ -1036,7 +1120,7 @@ body.ol-page .ol-policy-section h2 {
 }
 
 body.ol-page .ol-policy-section h3 {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   font-size: 1rem !important;
   color: var(--ol-primary) !important;
   margin: 24px 0 8px !important;
@@ -1105,7 +1189,7 @@ body.ol-page .ol-banner .ol-banner-icon {
 }
 
 body.ol-page .ol-banner strong {
-  font-family: 'Cinzel', serif !important;
+  font-family: 'Playfair Display', serif !important;
   color: var(--ol-primary) !important;
   font-size: 1.05rem;
 }

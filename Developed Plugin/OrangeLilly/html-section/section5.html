@@ -1,92 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orange Lilies · Section Header</title>
-<style>body{margin:0;background:#fffaf3;}</style>
-
 <!-- ============================================================= -->
-<!--  ORANGE LILIES · STANDALONE SECTION HEADER                    -->
-<!--  Paste between START and END. Drop this above any grid,        -->
-<!--  carousel, or product block to title that section.            -->
+<!--  ORANGE LILIES · STANDALONE SECTION HEADER (premium)          -->
+<!--  Drop above any grid / carousel / product block to title it.  -->
 <!--  Edit the eyebrow + title text for each use case.             -->
 <!-- ============================================================= -->
-
-<!-- ======================= START ======================= -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@500;600&display=swap');
 
-.ol-header-block{
-  --ol-orange:#e8780a;     /* same accent used across all Orange Lilies sections */
-  --ol-ink:#2f2a24;
+  .ol-shead{
+    --o:#e8780a; --gold:#c8912f; --ink:#2f2a24;
+    padding:72px 20px 44px;background:#fffaf3;text-align:center;
+    max-width:1200px;margin:0 auto;font-family:'Manrope',sans-serif;box-sizing:border-box;
+  }
+  .ol-shead__eyebrow{display:block;margin-bottom:14px;font-size:.72rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);font-weight:700;}
+  .ol-shead__row{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
+  .ol-shead__line{flex:1 1 auto;max-width:110px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));}
+  .ol-shead__line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+  .ol-shead__dot{width:7px;height:7px;background:var(--o);border-radius:50%;
+    transform:rotate(45deg);flex-shrink:0;}
+  .ol-shead__title{margin:0;font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;color:var(--ink);
+    font-family:'Playfair Display',serif;line-height:1.18;letter-spacing:-.01em;}
 
-  padding:48px 20px;
-  background-color:#fffaf3;
-  text-align:center;
-  max-width:1200px;
-  margin:0 auto;
-  font-family:'Manrope',sans-serif;
-  box-sizing:border-box;
-}
+  .ol-shead.is-on .rv{opacity:0;transform:translateY(22px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-shead.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-shead.is-on .rv{opacity:1!important;transform:none!important;}}
 
-.ol-header-block__inner{margin-bottom:0;}
-
-.ol-header-block__eyebrow{
-  display:block;margin-bottom:10px;
-  font-size:13px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--ol-orange);font-weight:700;
-}
-
-/* Title row with hairline + ✦ sparkle (matches the category section) */
-.ol-header-block__title-row{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  flex-wrap:wrap;
-}
-.ol-header-block__line{flex:1 1 auto;max-width:90px;height:1px;background:rgba(232,120,10,.3);}
-.ol-header-block__spark{color:var(--ol-orange);font-size:13px;line-height:1;flex-shrink:0;}
-
-.ol-header-block__title{
-  margin:0;font-size:32px;font-weight:600;color:var(--ol-ink);
-  font-family:'Playfair Display',serif;
-  line-height:1.25;
-}
-
-/* ---- Responsive ---- */
-@media(max-width:768px){
-  .ol-header-block{padding:38px 16px;}
-  .ol-header-block__title{font-size:26px;}
-  .ol-header-block__line{max-width:50px;}
-  .ol-header-block__eyebrow{font-size:12px;}
-}
-@media(max-width:480px){
-  .ol-header-block{padding:30px 14px;}
-  .ol-header-block__title{font-size:21px;}
-  .ol-header-block__line{max-width:26px;}
-  .ol-header-block__eyebrow{font-size:11px;letter-spacing:1.5px;margin-bottom:8px;}
-  .ol-header-block__title-row{gap:8px;}
-}
-@media(max-width:360px){
-  .ol-header-block{padding:24px 12px;}
-  .ol-header-block__title{font-size:18px;}
-  .ol-header-block__line{display:none;}            /* keep just the sparkles when space is tight */
-  .ol-header-block__title-row{gap:8px;}
-}
+  @media(max-width:768px){.ol-shead{padding:54px 16px 32px;}.ol-shead__line{max-width:60px;}}
+  @media(max-width:480px){.ol-shead__line{max-width:30px;}}
 </style>
 
-<section class="ol-header-block">
-  <div class="ol-header-block__inner">
-    <span class="ol-header-block__eyebrow">Period Care Essentials</span>
-    <div class="ol-header-block__title-row">
-      <span class="ol-header-block__line"></span>
-      <span class="ol-header-block__spark">&#10038;</span>
-      <h2 class="ol-header-block__title">Shop Our Bestsellers</h2>
-      <span class="ol-header-block__spark">&#10038;</span>
-      <span class="ol-header-block__line"></span>
+<section class="ol-shead">
+  <div class="rv">
+    <span class="ol-shead__eyebrow">Period Care Essentials</span>
+    <div class="ol-shead__row">
+      <span class="ol-shead__line"></span>
+      <span class="ol-shead__dot"></span>
+      <h2 class="ol-shead__title">Shop Our Bestsellers</h2>
+      <span class="ol-shead__dot"></span>
+      <span class="ol-shead__line r"></span>
     </div>
   </div>
 </section>
-<!-- ======================== END ======================== -->
 
-</body>
-</html>
+<script>
+(function () {
+  var R = document.querySelector('.ol-shead');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.2 });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>

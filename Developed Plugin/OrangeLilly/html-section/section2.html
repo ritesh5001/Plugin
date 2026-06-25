@@ -1,143 +1,53 @@
 <!-- ============================================================= -->
-<!--  ORANGE LILIES · SCROLLING TRUST / FEATURE STRIP              -->
-<!--  Paste into an Elementor "HTML" widget. Icons use Font Awesome -->
-<!--  (loaded below). The site header plugin also loads FA, so the  -->
-<!--  duplicate link is harmless.                                   -->
+<!--  ORANGE LILIES · TRUST / FEATURE STRIP (premium)              -->
+<!--  Paste into an Elementor "HTML" widget.                        -->
 <!-- ============================================================= -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-  .ol-scroll-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 14px 0;
-    background: #fffaf3;
-    border-top: 1px solid #f1e3cd;
-    border-bottom: 1px solid #f1e3cd;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap');
 
-  .ol-scroll-track {
-    display: flex;
-    width: max-content;
-    align-items: center;
-    animation: olLoopScroll 40s linear infinite;
+  .ol-trust{
+    --o:#e8780a; --o2:#cf6f08; --ink:#2f2a24; --muted:#7a7065;
+    width:100%;overflow:hidden;background:#fffaf3;
+    border-top:1px solid #f1e3cd;border-bottom:1px solid #f1e3cd;
+    padding:30px 0;font-family:'Manrope',sans-serif;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);
+            mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);
   }
-
-  .ol-scroll-item {
-    text-align: center;
-    margin: 0 20px;
-    min-width: 150px;
+  .ol-trust-track{display:flex;align-items:center;width:max-content;animation:olTrust 38s linear infinite;}
+  .ol-trust:hover .ol-trust-track{animation-play-state:paused;}
+  .ol-trust-item{display:flex;align-items:center;gap:14px;padding:0 34px;flex-shrink:0;}
+  .ol-trust-ic{
+    width:46px;height:46px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--o);
+    background:linear-gradient(135deg,rgba(240,152,42,.16),rgba(232,120,10,.10));
+    border:1px solid #f1e3cd;
   }
-
-  .ol-scroll-item i {
-    font-size: 32px;
-    color: #e8780a;
+  .ol-trust-item p{
+    margin:0;font-size:12px;font-weight:700;color:var(--ink);
+    text-transform:uppercase;letter-spacing:.12em;line-height:1.3;
   }
-
-  .ol-scroll-item p {
-    margin-top: 8px;
-    margin-bottom: 0 !important;
-    font-size: 13px;
-    color: #2f2a24;
-    font-weight: 700;
-    font-family: inherit;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  @keyframes olLoopScroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* TABLET */
-  @media (max-width: 768px) {
-    .ol-scroll-item { min-width: calc(100vw / 5); margin: 0 10px; }
-    .ol-scroll-item i { font-size: 27px; }
-    .ol-scroll-item p { font-size: 11px; }
-  }
-
-  /* MOBILE */
-  @media (max-width: 480px) {
-    .ol-scroll-item { min-width: calc(100vw / 3.5); margin: 0 8px; }
-    .ol-scroll-item i { font-size: 23px; }
-    .ol-scroll-item p { font-size: 10px; }
-  }
+  @keyframes olTrust{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(max-width:600px){.ol-trust-item{padding:0 22px;gap:11px;}.ol-trust-ic{width:40px;height:40px;font-size:16px;}.ol-trust-item p{font-size:10.5px;}}
 </style>
 
-<div class="ol-scroll-container">
-  <div class="ol-scroll-track">
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-truck-fast"></i>
-      <p>Free Delivery</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-hand-holding-dollar"></i>
-      <p>COD Available</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-arrow-rotate-left"></i>
-      <p>Easy Returns</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-shield-heart"></i>
-      <p>Dermatologically Tested</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-box"></i>
-      <p>Discreet Packaging</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-leaf"></i>
-      <p>Eco-Friendly</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-lock"></i>
-      <p>Secure Payments</p>
-    </div>
-
-    <!-- DUPLICATE FOR INFINITE LOOP -->
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-truck-fast"></i>
-      <p>Free Delivery</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-hand-holding-dollar"></i>
-      <p>COD Available</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-arrow-rotate-left"></i>
-      <p>Easy Returns</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-shield-heart"></i>
-      <p>Dermatologically Tested</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-box"></i>
-      <p>Discreet Packaging</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-leaf"></i>
-      <p>Eco-Friendly</p>
-    </div>
-
-    <div class="ol-scroll-item">
-      <i class="fa-solid fa-lock"></i>
-      <p>Secure Payments</p>
-    </div>
-
+<div class="ol-trust">
+  <div class="ol-trust-track">
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-truck-fast"></i></span><p>Free Delivery</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-hand-holding-dollar"></i></span><p>COD Available</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-arrow-rotate-left"></i></span><p>Easy Returns</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-shield-heart"></i></span><p>Dermatologically Tested</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-box"></i></span><p>Discreet Packaging</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-leaf"></i></span><p>Eco-Friendly</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-lock"></i></span><p>Secure Payments</p></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-truck-fast"></i></span><p>Free Delivery</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-hand-holding-dollar"></i></span><p>COD Available</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-arrow-rotate-left"></i></span><p>Easy Returns</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-shield-heart"></i></span><p>Dermatologically Tested</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-box"></i></span><p>Discreet Packaging</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-leaf"></i></span><p>Eco-Friendly</p></div>
+    <div class="ol-trust-item"><span class="ol-trust-ic"><i class="fa-solid fa-lock"></i></span><p>Secure Payments</p></div>
   </div>
 </div>

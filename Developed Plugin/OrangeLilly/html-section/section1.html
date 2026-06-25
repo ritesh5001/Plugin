@@ -1,74 +1,44 @@
 <!-- ============================================================= -->
-<!--  ORANGE LILIES · FULL-WIDTH OFFER MARQUEE                      -->
+<!--  ORANGE LILIES · FULL-WIDTH OFFER MARQUEE (premium)           -->
 <!--  Paste into an Elementor "HTML" widget inside a FULL-WIDTH     -->
 <!--  section (so the 100vw bleed reaches the screen edges).        -->
 <!-- ============================================================= -->
 <style>
-  .ol-marquee-wrapper {
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    width: 100vw;
-    overflow: hidden;
-    background: #fffaf3;
-    border-top: 1px solid #f3c896;
-    border-bottom: 1px solid #f3c896;
-    padding: 10px 0;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap');
 
-  .ol-offer-track {
-    display: flex;
-    gap: 14px;
-    width: max-content;
-    white-space: nowrap;
-    animation: olOfferScroll 18s linear infinite;
+  .ol-marquee-wrap{
+    --o:#e8780a; --gold:#c8912f; --ink:#2f2a24;
+    position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;
+    overflow:hidden;background:#fffaf3;
+    border-top:1px solid #f1e3cd;border-bottom:1px solid #f1e3cd;
+    padding:13px 0;font-family:'Manrope',sans-serif;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
+            mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
   }
-
-  .ol-offer-item {
-    font-size: 13px;
-    font-weight: 600;
-    color: #4a443d;
-    padding: 5px 14px;
-    background: #fff6ea;
-    border-radius: 30px;
-    border: 1px solid #f6dcb8;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    flex-shrink: 0;
+  .ol-marquee-track{display:flex;align-items:center;width:max-content;animation:olMarquee 28s linear infinite;}
+  .ol-marquee-wrap:hover .ol-marquee-track{animation-play-state:paused;}
+  .ol-marquee-item{
+    display:flex;align-items:center;gap:14px;padding:0 30px;flex-shrink:0;
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
   }
-
-  .ol-offer-dot {
-    width: 7px;
-    height: 7px;
-    background: #e8780a;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(232,120,10,0.5);
-  }
-
-  @keyframes olOfferScroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+  .ol-marquee-sep{color:var(--gold);font-size:9px;line-height:1;transform:translateY(-1px);}
+  @keyframes olMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 </style>
 
-<div class="ol-marquee-wrapper">
-  <div class="ol-offer-track">
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Free Delivery Across India</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Cash on Delivery Available</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Easy Returns on Sealed Packs</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Dermatologically Tested</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>100% Discreet Packaging</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Women-Led &middot; Made in India</div>
-
-    <!-- DUPLICATE FOR INFINITE LOOP -->
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Free Delivery Across India</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Cash on Delivery Available</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Easy Returns on Sealed Packs</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Dermatologically Tested</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>100% Discreet Packaging</div>
-    <div class="ol-offer-item"><span class="ol-offer-dot"></span>Women-Led &middot; Made in India</div>
+<div class="ol-marquee-wrap">
+  <div class="ol-marquee-track">
+    <span class="ol-marquee-item">Free Delivery Across India<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Cash on Delivery Available<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Easy Returns on Sealed Packs<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Dermatologically Tested<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">100% Discreet Packaging<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Women-Led &middot; Made in India<span class="ol-marquee-sep">&#10022;</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ol-marquee-item">Free Delivery Across India<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Cash on Delivery Available<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Easy Returns on Sealed Packs<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Dermatologically Tested<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">100% Discreet Packaging<span class="ol-marquee-sep">&#10022;</span></span>
+    <span class="ol-marquee-item">Women-Led &middot; Made in India<span class="ol-marquee-sep">&#10022;</span></span>
   </div>
 </div>

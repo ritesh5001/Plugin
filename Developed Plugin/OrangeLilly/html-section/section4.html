@@ -1,179 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orange Lilies · Shop by Category</title>
-<style>body{margin:0;background:#fffaf3;}</style>
-
 <!-- ============================================================= -->
-<!--  ORANGE LILIES · SHOP BY CATEGORY                             -->
-<!--  Paste everything between START and END into your page         -->
-<!--  (Elementor HTML widget, or WordPress -> Custom HTML block).   -->
-<!--  Images are free Unsplash hotlinks marked REPLACE IMAGE — swap -->
-<!--  to your own product photos and edit href to real category URLs.-->
+<!--  ORANGE LILIES · SHOP THE COLLECTION (premium disc grid)      -->
+<!--  Paste into an Elementor "HTML" widget.                        -->
+<!--  Swap the REPLACE IMAGE photos and edit the href links.        -->
 <!-- ============================================================= -->
-
-<!-- ======================= START ======================= -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600&display=swap');
 
-.ol-cat{
-  --ol-ink:#2f2a24;          /* title */
-  --ol-label:#6f665b;        /* category labels */
-  --ol-orange:#e8780a;       /* brand accent */
-  --ol-disc:#fbeeda;         /* pale circle fill */
-  --ol-line:#f1e3cd;         /* hairline rules */
-  --ol-bg:#fffaf3;
+  .ol-cat{
+    --o:#e8780a; --o2:#cf6f08; --gold:#c8912f; --ink:#2f2a24; --muted:#6f665b;
+    --cream:#fffaf3; --disc:#fbeeda; --border:#f1e3cd;
+    display:block;width:100%;padding:104px 20px;background:var(--cream);
+    font-family:'Manrope',sans-serif;text-align:center;box-sizing:border-box;
+  }
+  .ol-cat *{box-sizing:border-box;}
+  .ol-cat__inner{max-width:1040px;margin:0 auto;}
+  .ol-cat__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-cat__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--ink);letter-spacing:-.01em;}
+  .ol-cat__rule{width:96px;height:1px;margin:18px auto 54px;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-cat__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
 
-  display:block;
-  width:100%;
-  padding:60px 20px;
-  background:var(--ol-bg);
-  font-family:'Manrope',sans-serif;
-  text-align:center;
-  box-sizing:border-box;
-}
-.ol-cat__inner{max-width:1080px;width:100%;margin:0 auto;}
+  .ol-cat__grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;max-width:900px;margin:0 auto;}
+  .ol-cat__item{text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:16px;
+    flex:0 0 calc((100% - 5 * 22px) / 6);min-width:104px;}
+  .ol-cat__disc{position:relative;width:100%;max-width:130px;aspect-ratio:1/1;border-radius:50%;
+    background:var(--disc);overflow:hidden;border:1px solid var(--border);
+    box-shadow:0 18px 36px -22px rgba(120,60,0,.4);
+    transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+  .ol-cat__disc::after{content:'';position:absolute;inset:0;border-radius:50%;
+    border:1px solid transparent;transition:border-color .4s ease;}
+  .ol-cat__disc img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s ease;}
+  .ol-cat__item:hover .ol-cat__disc{transform:translateY(-8px);box-shadow:0 26px 46px -22px rgba(232,120,10,.55);}
+  .ol-cat__item:hover .ol-cat__disc::after{border-color:var(--o);}
+  .ol-cat__item:hover .ol-cat__disc img{transform:scale(1.09);}
+  .ol-cat__name{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);transition:color .3s ease;}
+  .ol-cat__item:hover .ol-cat__name{color:var(--o);}
 
-/* ---- Title row: hairline — ✦ SHOP BY CATEGORY ✦ — hairline ---- */
-.ol-cat__head{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  margin:0 auto 46px;
-  width:100%;
-}
-.ol-cat__line{flex:1 1 auto;max-width:150px;height:1px;background:var(--ol-line);}
-.ol-cat__spark{color:var(--ol-orange);font-size:13px;line-height:1;}
-.ol-cat__title{
-  margin:0;white-space:nowrap;
-  font-family:'Playfair Display',serif;font-weight:600;
-  font-size:24px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--ol-ink);
-}
+  /* scroll-reveal (JS-gated; visible if JS off) */
+  .ol-cat.is-on .rv{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-cat.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-cat.is-on .rv{opacity:1!important;transform:none!important;}}
 
-/* ---- Row of categories ---- */
-.ol-cat__grid{
-  display:flex;flex-wrap:wrap;justify-content:center;
-  gap:18px;
-  max-width:900px;width:100%;margin:0 auto;
-  overflow:visible;
-}
-
-.ol-cat__item{
-  text-decoration:none;
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-  flex:0 0 calc((100% - 5 * 18px) / 6);   /* 6 equal columns */
-  min-width:100px;
-}
-
-/* Pale disc holding the product image */
-.ol-cat__disc{
-  width:100%;max-width:128px;aspect-ratio:1/1;border-radius:50%;
-  background:var(--ol-disc);overflow:hidden;position:relative;
-  border:2px solid #f6dcb8;
-  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-}
-.ol-cat__disc img{
-  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
-  transition:transform .5s ease;
-}
-.ol-cat__item:hover .ol-cat__disc{
-  transform:translateY(-6px);
-  border-color:var(--ol-orange);
-  box-shadow:0 12px 26px rgba(232,120,10,.22);
-}
-.ol-cat__item:hover .ol-cat__disc img{transform:scale(1.08);}
-
-/* Label */
-.ol-cat__name{
-  font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--ol-label);transition:color .3s ease;
-}
-.ol-cat__item:hover .ol-cat__name{color:var(--ol-orange);}
-
-/* ---- Responsive ---- */
-@media(max-width:860px){
-  .ol-cat{padding:48px 20px 56px;}
-  .ol-cat__grid{gap:26px 16px;}
-  .ol-cat__item{flex:0 0 calc((100% - 3 * 16px) / 4);min-width:80px;}   /* 4 per row */
-  .ol-cat__line{max-width:80px;}
-  .ol-cat__title{font-size:20px;letter-spacing:2px;}
-}
-@media(max-width:520px){
-  .ol-cat{padding:36px 16px 48px;}
-  .ol-cat__grid{gap:24px 10px;row-gap:30px;}
-  .ol-cat__item{flex:0 0 calc((100% - 2 * 10px) / 3);min-width:0;gap:10px;}   /* 3 per row */
-  .ol-cat__title{font-size:16px;letter-spacing:1.5px;white-space:normal;}
-  .ol-cat__line{max-width:30px;}
-  .ol-cat__name{font-size:11px;letter-spacing:.6px;}
-}
+  @media(max-width:860px){.ol-cat{padding:72px 20px;}.ol-cat__item{flex:0 0 calc((100% - 3 * 18px) / 4);min-width:84px;}}
+  @media(max-width:520px){.ol-cat__grid{gap:26px 14px;}.ol-cat__item{flex:0 0 calc((100% - 2 * 14px) / 3);min-width:0;}.ol-cat__name{font-size:11px;}}
 </style>
 
 <section class="ol-cat">
   <div class="ol-cat__inner">
-
-    <div class="ol-cat__head">
-      <span class="ol-cat__line"></span>
-      <span class="ol-cat__spark">&#10038;</span>
-      <h2 class="ol-cat__title">Shop by Category</h2>
-      <span class="ol-cat__spark">&#10038;</span>
-      <span class="ol-cat__line"></span>
+    <div class="rv">
+      <span class="ol-cat__eyebrow">Shop the Range</span>
+      <h2 class="ol-cat__title">Explore the Collection</h2>
+      <div class="ol-cat__rule"></div>
     </div>
-
     <div class="ol-cat__grid">
-
-      <a class="ol-cat__item" href="/product-category/disposable-panties/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&h=400&q=70" alt="Disposable Panties">
-        </div>
-        <span class="ol-cat__name">Disposable Panties</span>
-      </a>
-
-      <a class="ol-cat__item" href="/product-category/overnight-protection/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=400&h=400&q=70" alt="Overnight Protection">
-        </div>
-        <span class="ol-cat__name">Overnight</span>
-      </a>
-
-      <a class="ol-cat__item" href="/product-category/travel-packs/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=400&q=70" alt="Travel Packs">
-        </div>
-        <span class="ol-cat__name">Travel Packs</span>
-      </a>
-
-      <a class="ol-cat__item" href="/product-category/teen-care/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&h=400&q=70" alt="Teen Care">
-        </div>
-        <span class="ol-cat__name">Teen Care</span>
-      </a>
-
-      <a class="ol-cat__item" href="/product-category/combo-packs/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=400&h=400&q=70" alt="Combo Packs">
-        </div>
-        <span class="ol-cat__name">Combo Packs</span>
-      </a>
-
-      <a class="ol-cat__item" href="/product-category/new-arrivals/">
-        <div class="ol-cat__disc">
-          <!-- REPLACE IMAGE -->
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&h=400&q=70" alt="New Arrivals">
-        </div>
-        <span class="ol-cat__name">New Arrivals</span>
-      </a>
-
+      <a class="ol-cat__item rv" href="/product-category/disposable-panties/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&h=400&q=70" alt="Disposable Panties"></div><span class="ol-cat__name">Disposable Panties</span></a>
+      <a class="ol-cat__item rv" href="/product-category/overnight-protection/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=400&h=400&q=70" alt="Overnight Protection"></div><span class="ol-cat__name">Overnight</span></a>
+      <a class="ol-cat__item rv" href="/product-category/travel-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=400&q=70" alt="Travel Packs"></div><span class="ol-cat__name">Travel Packs</span></a>
+      <a class="ol-cat__item rv" href="/product-category/teen-care/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&h=400&q=70" alt="Teen Care"></div><span class="ol-cat__name">Teen Care</span></a>
+      <a class="ol-cat__item rv" href="/product-category/combo-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=400&h=400&q=70" alt="Combo Packs"></div><span class="ol-cat__name">Combo Packs</span></a>
+      <a class="ol-cat__item rv" href="/product-category/new-arrivals/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&h=400&q=70" alt="New Arrivals"></div><span class="ol-cat__name">New Arrivals</span></a>
     </div>
   </div>
 </section>
-<!-- ======================== END ======================== -->
 
-</body>
-</html>
+<script>
+(function () {
+  var R = document.querySelector('.ol-cat');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 85) + 'ms'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>

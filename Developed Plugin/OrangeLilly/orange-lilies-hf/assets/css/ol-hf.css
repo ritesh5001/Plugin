@@ -192,25 +192,30 @@ body.ol-header-active {
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* Mobile nav dropdown */
+/* Mobile nav dropdown — fully invisible while collapsed so no stray
+   1px border/background line shows under the header. The white panel,
+   border and shadow only appear once it is opened. */
 .ol-hdr-mobile-nav {
   display: none;
   position: absolute;
   top: calc(var(--ol-hdr-height) - 8px);
   left: 24px;
   right: 24px;
-  background: var(--ol-surface);
-  border: 1px solid var(--ol-border);
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: 18px;
   padding: 0;
   z-index: 9998;
-  box-shadow: 0 18px 40px rgba(120,60,0,0.16);
+  box-shadow: none;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  transition: max-height 0.35s ease, padding 0.35s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .ol-hdr-mobile-nav.ol-open {
+  background: var(--ol-surface);
+  border-color: var(--ol-border);
+  box-shadow: 0 18px 40px rgba(120,60,0,0.16);
   max-height: 460px;
   padding: 10px 0;
 }

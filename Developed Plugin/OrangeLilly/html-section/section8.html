@@ -1,0 +1,124 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · COMPARISON (premium — vs Pads vs Tampons)    -->
+<!--  Paste into an Elementor "HTML" widget.                        -->
+<!-- ============================================================= -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+  .ol-cmp{
+    --o:#e8780a; --o2:#cf6f08; --amber:#f0982a; --gold:#c8912f; --ink:#2f2a24; --muted:#7a7065;
+    --cream:#fffaf3; --border:#f1e3cd;
+    background:var(--cream);padding:108px 20px;font-family:'Manrope',sans-serif;box-sizing:border-box;
+  }
+  .ol-cmp *{box-sizing:border-box;}
+  .ol-cmp__inner{max-width:880px;margin:0 auto;}
+  .ol-cmp__head{text-align:center;max-width:620px;margin:0 auto 56px;}
+  .ol-cmp__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-cmp__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
+  .ol-cmp__rule{width:96px;height:1px;margin:18px auto 0;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-cmp__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
+  .ol-cmp__sub{margin:18px 0 0;color:var(--muted);font-size:1.04rem;line-height:1.7;}
+
+  .ol-cmp__table{width:100%;background:#fff;border:1px solid var(--border);border-radius:24px;overflow:hidden;
+    box-shadow:0 34px 70px -40px rgba(120,60,0,.45);}
+  .ol-cmp__row{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;align-items:center;border-bottom:1px solid var(--border);}
+  .ol-cmp__row:last-child{border-bottom:none;}
+  .ol-cmp__cell{padding:17px 14px;text-align:center;font-size:.92rem;}
+  .ol-cmp__cell--feat{text-align:left;font-weight:600;color:var(--ink);}
+  .ol-cmp__row--head .ol-cmp__cell{padding:20px 14px;font-weight:700;}
+  .ol-cmp__brandcol{color:#fff;background:linear-gradient(135deg,var(--amber),var(--o2));
+    font-family:'Playfair Display',serif;font-size:1rem;border-radius:16px 16px 0 0;}
+  .ol-cmp__othercol{color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;}
+  .ol-cmp__cell--brand{background:rgba(232,120,10,.06);}
+  .ol-cmp__row:last-child .ol-cmp__cell--brand{border-radius:0 0 16px 16px;}
+  .ol-yes{color:#1e9e63;font-size:1rem;}
+  .ol-no{color:#cf8b7e;font-size:.95rem;}
+  .ol-meh{color:#c79a3a;font-size:.95rem;}
+  .ol-cmp__legend{text-align:center;margin:20px 0 0;font-size:.82rem;color:var(--muted);}
+  .ol-cmp__legend i{margin-right:4px;}
+
+  .ol-cmp.is-on .rv{opacity:0;transform:translateY(24px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-cmp.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-cmp.is-on .rv{opacity:1!important;transform:none!important;}}
+
+  @media(max-width:680px){.ol-cmp{padding:70px 14px;}.ol-cmp__cell{padding:13px 8px;font-size:.82rem;}
+    .ol-cmp__cell--feat{font-size:.8rem;}.ol-cmp__brandcol{font-size:.82rem;}.ol-cmp__othercol{font-size:.64rem;}
+    .ol-cmp__row{grid-template-columns:1.4fr .9fr .9fr .9fr;}}
+</style>
+
+<section class="ol-cmp">
+  <div class="ol-cmp__inner">
+    <div class="ol-cmp__head rv">
+      <span class="ol-cmp__eyebrow">See the Difference</span>
+      <h2 class="ol-cmp__title">Why Women Are Making the Switch</h2>
+      <div class="ol-cmp__rule"></div>
+      <p class="ol-cmp__sub">Everything you love about modern period care &mdash; without the compromises of old-school products.</p>
+    </div>
+
+    <div class="ol-cmp__table rv">
+      <div class="ol-cmp__row ol-cmp__row--head">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">&nbsp;</div>
+        <div class="ol-cmp__cell ol-cmp__brandcol">Orange Lilies</div>
+        <div class="ol-cmp__cell ol-cmp__othercol">Pads</div>
+        <div class="ol-cmp__cell ol-cmp__othercol">Tampons</div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">Feels like underwear</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">No bulk, no shifting</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-check ol-yes"></i></div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">All-night leak protection</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">Mess-free &amp; hygienic</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">Perfect for travel &amp; sport</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+      </div>
+      <div class="ol-cmp__row">
+        <div class="ol-cmp__cell ol-cmp__cell--feat">Gentle &amp; skin-friendly</div>
+        <div class="ol-cmp__cell ol-cmp__cell--brand"><i class="fa-solid fa-check ol-yes"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-minus ol-meh"></i></div>
+        <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
+      </div>
+    </div>
+    <p class="ol-cmp__legend rv"><i class="fa-solid fa-check ol-yes"></i>Yes &nbsp;&bull;&nbsp; <i class="fa-solid fa-minus ol-meh"></i>Sometimes &nbsp;&bull;&nbsp; <i class="fa-solid fa-xmark ol-no"></i>No</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var R = document.querySelector('.ol-cmp');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  E.forEach(function (el, i) { el.style.transitionDelay = (i * 80) + 'ms'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>

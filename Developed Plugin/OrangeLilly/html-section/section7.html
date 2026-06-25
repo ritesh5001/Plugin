@@ -1,0 +1,79 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · HOW IT WORKS (premium, 4 steps)             -->
+<!--  Paste into an Elementor "HTML" widget. No images needed.     -->
+<!-- ============================================================= -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+  .ol-steps{
+    --o:#e8780a; --o2:#cf6f08; --amber:#f0982a; --gold:#c8912f; --ink:#2f2a24; --muted:#7a7065;
+    --cream2:#fbeeda; --border:#f1e3cd;
+    background:var(--cream2);padding:108px 20px;font-family:'Manrope',sans-serif;box-sizing:border-box;
+  }
+  .ol-steps *{box-sizing:border-box;}
+  .ol-steps__inner{max-width:1140px;margin:0 auto;}
+  .ol-steps__head{text-align:center;max-width:620px;margin:0 auto 64px;}
+  .ol-steps__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-steps__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
+  .ol-steps__rule{width:96px;height:1px;margin:18px auto 0;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-steps__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
+  .ol-steps__sub{margin:18px 0 0;color:var(--muted);font-size:1.04rem;line-height:1.7;}
+
+  .ol-steps__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative;}
+  .ol-steps__grid::before{content:'';position:absolute;top:38px;left:12%;right:12%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--amber),var(--o2),transparent);opacity:.6;z-index:0;}
+  .ol-step{position:relative;z-index:1;background:#fff;border:1px solid var(--border);border-radius:22px;
+    padding:36px 26px 30px;text-align:center;box-shadow:0 20px 44px -30px rgba(120,60,0,.4);
+    transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+  .ol-step:hover{transform:translateY(-8px);box-shadow:0 34px 60px -34px rgba(216,124,12,.55);}
+  .ol-step__num{width:58px;height:58px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;
+    background:linear-gradient(135deg,var(--amber),var(--o2));box-shadow:0 14px 26px -8px rgba(216,124,12,.6);}
+  .ol-step__ic{font-size:1.5rem;color:var(--o);margin-bottom:10px;line-height:1;}
+  .ol-step h3{margin:0 0 9px;font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--ink);}
+  .ol-step p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.6;}
+
+  .ol-steps.is-on .rv{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-steps.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-steps.is-on .rv{opacity:1!important;transform:none!important;}}
+
+  @media(max-width:860px){.ol-steps{padding:72px 18px;}.ol-steps__grid{grid-template-columns:1fr 1fr;gap:20px;}.ol-steps__grid::before{display:none;}}
+  @media(max-width:480px){.ol-steps__grid{grid-template-columns:1fr;}}
+</style>
+
+<section class="ol-steps">
+  <div class="ol-steps__inner">
+    <div class="ol-steps__head rv">
+      <span class="ol-steps__eyebrow">Simple &amp; Worry-Free</span>
+      <h2 class="ol-steps__title">Period Care in 4 Easy Steps</h2>
+      <div class="ol-steps__rule"></div>
+      <p class="ol-steps__sub">No bulky pads, no soaking, no stress. Here's how Orange Lilies fits effortlessly into your day.</p>
+    </div>
+    <div class="ol-steps__grid">
+      <div class="ol-step rv"><div class="ol-step__num">1</div><div class="ol-step__ic"><i class="fa-solid fa-bag-shopping"></i></div><h3>Choose Your Pack</h3><p>Pick the Orange Lilies pack that suits your flow and your routine.</p></div>
+      <div class="ol-step rv"><div class="ol-step__num">2</div><div class="ol-step__ic"><i class="fa-solid fa-shirt"></i></div><h3>Wear With Ease</h3><p>Slip it on just like regular underwear &mdash; soft, secure and ready to go.</p></div>
+      <div class="ol-step rv"><div class="ol-step__num">3</div><div class="ol-step__ic"><i class="fa-solid fa-face-smile"></i></div><h3>Stay Confident</h3><p>Move, work, travel and rest freely with dependable all-day protection.</p></div>
+      <div class="ol-step rv"><div class="ol-step__num">4</div><div class="ol-step__ic"><i class="fa-solid fa-recycle"></i></div><h3>Change &amp; Dispose</h3><p>When it's time, change and dispose responsibly &mdash; never flush.</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var R = document.querySelector('.ol-steps');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>

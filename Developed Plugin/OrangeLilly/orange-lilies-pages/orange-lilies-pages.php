@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Pages
  * Plugin URI:  https://orangelilies.com/
  * Description: Creates all Orange Lilies content pages on activation — About, Our Products, Sustainability, Contact, and all policy pages — with branded, full-width styling baked in. No page builder required.
- * Version:     1.1.0
+ * Version:     1.2.0
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_PAGES_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_PAGES_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_PAGES_VERSION', '1.1.0' );
+define( 'OL_PAGES_VERSION', '1.2.0' );
 define( 'OL_PAGES_CSS_FILE', OL_PAGES_DIR . 'assets/css/ol-pages.css' );
 define( 'OL_PAGES_ASSET_VERSION', OL_PAGES_VERSION . '-' . ( file_exists( OL_PAGES_CSS_FILE ) ? filemtime( OL_PAGES_CSS_FILE ) : OL_PAGES_VERSION ) );
 
 /* Default logo — shared with the Header & Footer plugin via the
    ol_hf_logo_url option, so changing it once updates both plugins. */
-define( 'OL_LOGO_URL', 'https://mistyrose-chamois-793959.hostingersite.com/wp-content/uploads/2026/06/logo-1.png' );
+define( 'OL_LOGO_URL', 'https://orangelilies.com/wp-content/uploads/2026/06/logo-1.png' );
 
 require_once OL_PAGES_DIR . 'includes/pages.php';
 
@@ -123,14 +123,22 @@ function ol_enqueue_page_assets() {
 	}
 	wp_enqueue_style(
 		'ol-google-fonts',
-		'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap',
 		[],
 		null
+	);
+	/* Font Awesome powers the page icons. Same handle/URL as the Header &
+	   Footer plugin, so it loads only once when both plugins are active. */
+	wp_enqueue_style(
+		'ol-font-awesome',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
+		[],
+		'6.5.2'
 	);
 	wp_enqueue_style(
 		'ol-pages',
 		OL_PAGES_URL . 'assets/css/ol-pages.css',
-		[ 'ol-google-fonts' ],
+		[ 'ol-google-fonts', 'ol-font-awesome' ],
 		OL_PAGES_ASSET_VERSION
 	);
 	wp_add_inline_style( 'ol-pages', ol_pages_palette_override_css() );
@@ -185,6 +193,57 @@ body.ol-page .ol-muted-text {
 body.ol-page .ol-cta h2 { color: #ffffff !important; }
 body.ol-page .ol-cta p  { color: rgba(255,255,255,0.92) !important; }
 CSS;
+}
+
+/* ── Scroll-reveal: lift & fade-in sections as they enter view ───
+   Progressive enhancement — the .ol-reveal hiding class is added by JS,
+   so with JS off (or before the script runs) all content stays visible. */
+add_action( 'wp_footer', 'ol_pages_reveal_script', 20 );
+
+function ol_pages_reveal_script() {
+	if ( ! ol_is_plugin_page() ) {
+		return;
+	}
+	?>
+<script>
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sel = [
+    '.ol-section-heading', '.ol-card', '.ol-value-card', '.ol-team-card',
+    '.ol-two-col-content', '.ol-feature-list > li', '.ol-step', '.ol-stat-item',
+    '.ol-cta', '.ol-banner', '.ol-policy-section', '.ol-contact-panel',
+    '.ol-form-panel', '.ol-hero-intro', '.ol-hero .ol-btn-group'
+  ].map(function (s) { return 'body.ol-page ' + s; }).join(',');
+
+  var els = document.querySelectorAll(sel);
+  if (!els.length) return;
+
+  if (!('IntersectionObserver' in window)) return; // leave content visible
+
+  els.forEach(function (el) { el.classList.add('ol-reveal'); });
+
+  /* stagger siblings inside grids/rows for an elegant cascade */
+  document.querySelectorAll(
+    'body.ol-page .ol-grid, body.ol-page .ol-grid-2, body.ol-page .ol-team-grid, ' +
+    'body.ol-page .ol-process, body.ol-page .ol-feature-list, body.ol-page .ol-stats-inner'
+  ).forEach(function (group) {
+    Array.prototype.slice.call(group.children).forEach(function (child, i) {
+      if (child.classList && child.classList.contains('ol-reveal')) {
+        child.style.transitionDelay = ((i % 4) * 90) + 'ms';
+      }
+    });
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('ol-in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+	<?php
 }
 
 /* ── Body class on plugin pages ──────────────────────────────── */

@@ -1,0 +1,137 @@
+<!-- ============================================================= -->
+<!--  ORANGE LILIES · CHOOSE YOUR PACK (premium pricing)           -->
+<!--  EDIT the prices (₹) and the button href links before live.   -->
+<!-- ============================================================= -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  .ol-pack{
+    --o:#e8780a; --o2:#cf6f08; --amber:#f0982a; --gold:#c8912f; --ink:#2f2a24; --body:#4a443d; --muted:#7a7065;
+    --cream2:#fbeeda; --border:#f1e3cd;
+    background:var(--cream2);padding:108px 20px;font-family:'Manrope',sans-serif;box-sizing:border-box;
+  }
+  .ol-pack *{box-sizing:border-box;}
+  .ol-pack__inner{max-width:1060px;margin:0 auto;}
+  .ol-pack__head{text-align:center;max-width:620px;margin:0 auto 60px;}
+  .ol-pack__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-pack__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
+  .ol-pack__rule{width:96px;height:1px;margin:18px auto 0;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-pack__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
+  .ol-pack__sub{margin:18px 0 0;color:var(--muted);font-size:1.04rem;line-height:1.7;}
+
+  .ol-pack__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch;}
+  .ol-pack__card{position:relative;background:#fff;border:1px solid var(--border);border-radius:24px;
+    padding:38px 30px;display:flex;flex-direction:column;box-shadow:0 24px 50px -34px rgba(120,60,0,.4);
+    transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+  .ol-pack__card:hover{transform:translateY(-8px);box-shadow:0 40px 70px -34px rgba(216,124,12,.5);}
+  .ol-pack__card--pop{border:1.5px solid var(--o);box-shadow:0 40px 70px -30px rgba(216,124,12,.5);transform:scale(1.035);}
+  .ol-pack__card--pop:hover{transform:scale(1.035) translateY(-8px);}
+  .ol-pack__tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:linear-gradient(90deg,var(--amber),var(--o2));color:#fff;font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:7px 20px;border-radius:60px;white-space:nowrap;
+    box-shadow:0 14px 26px -8px rgba(216,124,12,.6);}
+  .ol-pack__name{margin:0 0 4px;font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--ink);}
+  .ol-pack__for{font-size:.85rem;color:var(--muted);margin:0 0 20px;}
+  .ol-pack__price{display:flex;align-items:baseline;gap:7px;margin-bottom:4px;}
+  .ol-pack__price b{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--o2);line-height:1;}
+  .ol-pack__price s{color:var(--muted);font-size:1rem;}
+  .ol-pack__unit{font-size:.82rem;color:var(--muted);margin:0 0 24px;}
+  .ol-pack__list{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px;}
+  .ol-pack__list li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--body);}
+  .ol-pack__list i{color:var(--o);font-size:.82rem;margin-top:3px;flex-shrink:0;}
+  .ol-pack__btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;
+    font-size:.96rem;font-weight:700;text-decoration:none;cursor:pointer;padding:15px 24px;border-radius:60px;
+    border:1.5px solid var(--border);color:var(--o);background:#fff;
+    transition:transform .3s ease,background .3s ease,color .3s ease,box-shadow .3s ease,border-color .3s ease;}
+  .ol-pack__btn:hover{transform:translateY(-3px);border-color:var(--o);background:#fff4e3;color:var(--o2);}
+  .ol-pack__btn--solid{background:linear-gradient(95deg,var(--amber),var(--o2));color:#fff;border-color:transparent;
+    box-shadow:0 16px 30px -12px rgba(216,124,12,.6);}
+  .ol-pack__btn--solid:hover{color:#fff;transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(216,124,12,.7);}
+  .ol-pack__trust{text-align:center;margin:38px 0 0;font-size:.86rem;color:var(--muted);}
+  .ol-pack__trust i{color:var(--o);margin-right:3px;}
+
+  .ol-pack.is-on .rv{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-pack.is-on .rv.in{opacity:1;transform:none;}
+  .ol-pack.is-on .ol-pack__card--pop.rv{transform:translateY(28px) scale(1.035);}
+  .ol-pack.is-on .ol-pack__card--pop.rv.in{transform:scale(1.035);}
+  @media(prefers-reduced-motion:reduce){.ol-pack.is-on .rv{opacity:1!important;transform:none!important;}}
+
+  @media(max-width:860px){.ol-pack{padding:72px 18px;}.ol-pack__grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;gap:30px;}
+    .ol-pack__card--pop,.ol-pack.is-on .ol-pack__card--pop.rv.in{transform:none;}.ol-pack__card--pop:hover{transform:translateY(-8px);}}
+</style>
+
+<section class="ol-pack">
+  <div class="ol-pack__inner">
+    <div class="ol-pack__head rv">
+      <span class="ol-pack__eyebrow">Choose Your Pack</span>
+      <h2 class="ol-pack__title">Period Freedom, Your Way</h2>
+      <div class="ol-pack__rule"></div>
+      <p class="ol-pack__sub">Try it once or stock up and save &mdash; every pack ships discreetly across India.</p>
+    </div>
+
+    <div class="ol-pack__grid">
+      <div class="ol-pack__card rv">
+        <h3 class="ol-pack__name">Trial Pack</h3>
+        <p class="ol-pack__for">Try Orange Lilies for a day</p>
+        <div class="ol-pack__price"><b>&#8377;199</b></div>
+        <p class="ol-pack__unit">3 disposable panties</p>
+        <ul class="ol-pack__list">
+          <li><i class="fa-solid fa-check"></i>Perfect for first-time users</li>
+          <li><i class="fa-solid fa-check"></i>All-day leak protection</li>
+          <li><i class="fa-solid fa-check"></i>Discreet packaging</li>
+        </ul>
+        <a href="/shop/" class="ol-pack__btn">Add to Cart</a><!-- EDIT href -->
+      </div>
+
+      <div class="ol-pack__card ol-pack__card--pop rv">
+        <span class="ol-pack__tag">Most Popular</span>
+        <h3 class="ol-pack__name">Monthly Pack</h3>
+        <p class="ol-pack__for">One full cycle, sorted</p>
+        <div class="ol-pack__price"><b>&#8377;499</b> <s>&#8377;599</s></div>
+        <p class="ol-pack__unit">8 disposable panties</p>
+        <ul class="ol-pack__list">
+          <li><i class="fa-solid fa-check"></i>Best for a complete period</li>
+          <li><i class="fa-solid fa-check"></i>Day &amp; overnight protection</li>
+          <li><i class="fa-solid fa-check"></i>Free delivery across India</li>
+          <li><i class="fa-solid fa-check"></i>Save 16% vs trial pricing</li>
+        </ul>
+        <a href="/shop/" class="ol-pack__btn ol-pack__btn--solid">Shop Now</a><!-- EDIT href -->
+      </div>
+
+      <div class="ol-pack__card rv">
+        <h3 class="ol-pack__name">Value Pack</h3>
+        <p class="ol-pack__for">Stock up &amp; save the most</p>
+        <div class="ol-pack__price"><b>&#8377;899</b> <s>&#8377;1199</s></div>
+        <p class="ol-pack__unit">16 disposable panties</p>
+        <ul class="ol-pack__list">
+          <li><i class="fa-solid fa-check"></i>Two months of worry-free care</li>
+          <li><i class="fa-solid fa-check"></i>Lowest price per panty</li>
+          <li><i class="fa-solid fa-check"></i>Free priority delivery</li>
+        </ul>
+        <a href="/shop/" class="ol-pack__btn">Add to Cart</a><!-- EDIT href -->
+      </div>
+    </div>
+
+    <p class="ol-pack__trust rv"><i class="fa-solid fa-lock"></i> Secure payments &nbsp;&bull;&nbsp; <i class="fa-solid fa-truck-fast"></i> Free shipping over &#8377;499 &nbsp;&bull;&nbsp; <i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery available</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var R = document.querySelector('.ol-pack');
+  if (!R || !('IntersectionObserver' in window)) return;
+  R.classList.add('is-on');
+  var E = [].slice.call(R.querySelectorAll('.rv'));
+  E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  E.forEach(function (el) { io.observe(el); });
+})();
+</script>

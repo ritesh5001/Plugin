@@ -53,42 +53,42 @@ function ol_page_about() {
       <div>
         <ul class="ol-feature-list">
           <li>
-            <div class="ol-feature-icon">&#127800;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-venus"></i></div>
             <div class="ol-feature-text">
               <strong>Women-Led &amp; Women-First</strong>
               <span>Built by women who understand what real comfort and dignity during periods truly mean.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#128104;&#8205;&#9877;&#65039;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-flask"></i></div>
             <div class="ol-feature-text">
               <strong>Dermatologically Tested</strong>
               <span>Every product is dermatologically tested and quality-assured for your safety and peace of mind.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#127807;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-leaf"></i></div>
             <div class="ol-feature-text">
               <strong>Eco-Conscious</strong>
               <span>We use eco-friendly materials and responsible packaging to protect the planet for future generations.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#9989;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-certificate"></i></div>
             <div class="ol-feature-text">
               <strong>ISO 9001:2015 GMP Certified</strong>
               <span>The Kutumb Group is certified to globally recognised quality-management standards.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#128150;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-heart"></i></div>
             <div class="ol-feature-text">
               <strong>Comfort First</strong>
               <span>Gentle, soft and secure by design — so you can focus on living your life.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#127757;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-globe"></i></div>
             <div class="ol-feature-text">
               <strong>A Movement, Not Just a Brand</strong>
               <span>We exist to uplift, educate and empower women everywhere.</span>
@@ -104,12 +104,12 @@ function ol_page_about() {
   <div class="ol-wrap">
     <div class="ol-grid-2">
       <div class="ol-card">
-        <span class="ol-card-icon">&#127919;</span>
+        <span class="ol-card-icon"><i class="fa-solid fa-bullseye"></i></span>
         <h3>Our Mission</h3>
         <p>To redefine period comfort and hygiene for women everywhere, through innovative, safe, and accessible products that inspire confidence and well-being.</p>
       </div>
       <div class="ol-card">
-        <span class="ol-card-icon">&#10024;</span>
+        <span class="ol-card-icon"><i class="fa-solid fa-eye"></i></span>
         <h3>Our Vision</h3>
         <p>A world where every woman can embrace her period with pride, comfort, and freedom — without compromise. Together, we strive to uplift, educate, and empower women everywhere.</p>
       </div>
@@ -127,32 +127,32 @@ function ol_page_about() {
     </div>
     <div class="ol-grid">
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#128150;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-heart"></i></div>
         <h3>Comfort First</h3>
         <p>We design every product to feel gentle, soft, and secure — so you can focus on living your life.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#128170;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-hand-fist"></i></div>
         <h3>Empowerment</h3>
         <p>We believe in supporting women's confidence, dignity, and independence — every day of the month.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#128161;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-lightbulb"></i></div>
         <h3>Innovation</h3>
         <p>We're always improving — bringing you the latest in period care technology and design.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#127807;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-leaf"></i></div>
         <h3>Sustainability</h3>
         <p>We use eco-friendly materials and responsible practices to protect our planet for future generations.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#128737;&#65039;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-shield-halved"></i></div>
         <h3>Quality</h3>
         <p>Every product is dermatologically tested and quality-assured for your safety and peace of mind.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#129309;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-handshake"></i></div>
         <h3>Community</h3>
         <p>We're more than a brand — we're a movement for better period care, education, and support.</p>
       </div>
@@ -342,7 +342,7 @@ function ol_page_services() {
       <h2>Ready to Feel the Difference?</h2>
       <p>Have a question about our range, sizing or bulk orders? Message us on WhatsApp or email — our team is happy to help.</p>
       <div class="ol-btn-group">
-        <a href="https://wa.me/918368615088" class="ol-btn" target="_blank" rel="noopener">&#128241; Chat on WhatsApp</a>
+        <a href="https://wa.me/918368615088" class="ol-btn" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
         <a href="%%URL_CONTACT%%" class="ol-btn ol-btn-outline">Contact Us</a>
       </div>
     </div>
@@ -378,28 +378,28 @@ function ol_page_sustainability() {
       <div>
         <ul class="ol-feature-list">
           <li>
-            <div class="ol-feature-icon">&#127807;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-leaf"></i></div>
             <div class="ol-feature-text">
               <strong>Eco-Friendly Materials</strong>
               <span>Biodegradable and responsibly sourced materials wherever possible, designed to minimise environmental impact while maximising comfort and protection.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#128230;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-box-open"></i></div>
             <div class="ol-feature-text">
               <strong>Responsible Packaging</strong>
               <span>Packaging made from recycled cardboard and paper fillers, reducing plastic use and waste.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#9851;&#65039;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-recycle"></i></div>
             <div class="ol-feature-text">
               <strong>Sustainable Practices</strong>
               <span>From sourcing to shipping, we prioritise sustainability at every step and continuously review our processes.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#129309;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-handshake"></i></div>
             <div class="ol-feature-text">
               <strong>Partners Who Share Our Values</strong>
               <span>We work only with partners who are committed to ethical, eco-friendly practices.</span>
@@ -420,22 +420,22 @@ function ol_page_sustainability() {
     </div>
     <div class="ol-grid">
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#9851;&#65039;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-recycle"></i></div>
         <h3>Plastic-Free Packaging</h3>
         <p>We're working towards making all our packaging 100% recyclable and plastic-free.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#127981;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-industry"></i></div>
         <h3>Ethical Suppliers</h3>
         <p>We encourage our suppliers to adopt sustainable and ethical practices across the board.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#127775;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
         <h3>Community Support</h3>
         <p>We support local communities and women-led initiatives for environmental awareness.</p>
       </div>
       <div class="ol-value-card">
-        <div class="ol-value-icon">&#128666;</div>
+        <div class="ol-value-icon"><i class="fa-solid fa-shoe-prints"></i></div>
         <h3>Lower Carbon Footprint</h3>
         <p>We regularly review and improve our supply chain to reduce our carbon footprint.</p>
       </div>
@@ -457,28 +457,28 @@ function ol_page_sustainability() {
         <h2>Care That Continues at Home</h2>
         <ul class="ol-feature-list" style="margin-top:8px;">
           <li>
-            <div class="ol-feature-icon">&#128465;&#65039;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-trash-can"></i></div>
             <div class="ol-feature-text">
               <strong>Dispose Responsibly</strong>
               <span>Never flush used products — always use a sanitary bin.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#9851;&#65039;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-recycle"></i></div>
             <div class="ol-feature-text">
               <strong>Recycle Packaging</strong>
               <span>Recycle our cardboard and paper packaging wherever possible.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#128483;&#65039;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
             <div class="ol-feature-text">
               <strong>Spread Awareness</strong>
               <span>Share sustainable period care with friends and family.</span>
             </div>
           </li>
           <li>
-            <div class="ol-feature-icon">&#128172;</div>
+            <div class="ol-feature-icon"><i class="fa-solid fa-comment-dots"></i></div>
             <div class="ol-feature-text">
               <strong>Share Your Ideas</strong>
               <span>Send us your feedback to help us improve further.</span>
@@ -496,7 +496,7 @@ function ol_page_sustainability() {
       <h2>Our Commitment to the Planet</h2>
       <p>We believe that period care should never come at the cost of the planet. Orange Lilies is dedicated to ongoing improvement, transparency, and innovation in sustainability — and we welcome your feedback and ideas.</p>
       <div class="ol-btn-group">
-        <a href="https://wa.me/918368615088" class="ol-btn" target="_blank" rel="noopener">&#128241; WhatsApp Us</a>
+        <a href="https://wa.me/918368615088" class="ol-btn" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
         <a href="mailto:info@orangelilies.com" class="ol-btn ol-btn-outline">Email info@orangelilies.com</a>
       </div>
     </div>
@@ -527,35 +527,35 @@ function ol_page_contact() {
       <div class="ol-contact-panel">
         <h3>Our Contact Details</h3>
         <div class="ol-contact-item">
-          <div class="ol-contact-item-icon">&#128241;</div>
+          <div class="ol-contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
           <div class="ol-contact-item-text">
             <strong>WhatsApp / Phone</strong>
             <a href="https://wa.me/918368615088" target="_blank" rel="noopener">+91 83686 15088</a>
           </div>
         </div>
         <div class="ol-contact-item">
-          <div class="ol-contact-item-icon">&#9993;</div>
+          <div class="ol-contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
           <div class="ol-contact-item-text">
             <strong>Email</strong>
             <a href="mailto:info@orangelilies.com">info@orangelilies.com</a>
           </div>
         </div>
         <div class="ol-contact-item">
-          <div class="ol-contact-item-icon">&#128205;</div>
+          <div class="ol-contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div class="ol-contact-item-text">
             <strong>Address</strong>
             <span>E 44, Okhla Phase 2, New Delhi 110020, India</span>
           </div>
         </div>
         <div class="ol-contact-item">
-          <div class="ol-contact-item-icon">&#127970;</div>
+          <div class="ol-contact-item-icon"><i class="fa-solid fa-building"></i></div>
           <div class="ol-contact-item-text">
             <strong>Company</strong>
             <span>The Kutumb Group &mdash; ISO 9001:2015 GMP Certified</span>
           </div>
         </div>
         <div class="ol-contact-item">
-          <div class="ol-contact-item-icon">&#128336;</div>
+          <div class="ol-contact-item-icon"><i class="fa-solid fa-clock"></i></div>
           <div class="ol-contact-item-text">
             <strong>Response Time</strong>
             <span>We aim to reply within 24 hours on working days.</span>
