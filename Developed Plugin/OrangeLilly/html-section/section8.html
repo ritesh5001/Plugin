@@ -42,10 +42,10 @@
   .ol-cmp__legend{text-align:center;margin:20px 0 0;font-size:.82rem;color:var(--muted);}
   .ol-cmp__legend i{margin-right:4px;}
 
-  .ol-cmp.is-on .rv{opacity:0;transform:translateY(24px);
+  .ol-cmp.olrv-on .olrv{opacity:0;transform:translateY(24px);
     transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
-  .ol-cmp.is-on .rv.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.ol-cmp.is-on .rv{opacity:1!important;transform:none!important;}}
+  .ol-cmp.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-cmp.olrv-on .olrv{opacity:1!important;transform:none!important;}}
 
   @media(max-width:680px){.ol-cmp{padding:70px 14px;}.ol-cmp__cell{padding:13px 8px;font-size:.82rem;}
     .ol-cmp__cell--feat{font-size:.8rem;}.ol-cmp__brandcol{font-size:.82rem;}.ol-cmp__othercol{font-size:.64rem;}
@@ -54,14 +54,14 @@
 
 <section class="ol-cmp">
   <div class="ol-cmp__inner">
-    <div class="ol-cmp__head rv">
+    <div class="ol-cmp__head olrv">
       <span class="ol-cmp__eyebrow">See the Difference</span>
       <h2 class="ol-cmp__title">Why Women Are Making the Switch</h2>
       <div class="ol-cmp__rule"></div>
       <p class="ol-cmp__sub">Everything you love about modern period care &mdash; without the compromises of old-school products.</p>
     </div>
 
-    <div class="ol-cmp__table rv">
+    <div class="ol-cmp__table olrv">
       <div class="ol-cmp__row ol-cmp__row--head">
         <div class="ol-cmp__cell ol-cmp__cell--feat">&nbsp;</div>
         <div class="ol-cmp__cell ol-cmp__brandcol">Orange Lilies</div>
@@ -105,7 +105,7 @@
         <div class="ol-cmp__cell"><i class="fa-solid fa-xmark ol-no"></i></div>
       </div>
     </div>
-    <p class="ol-cmp__legend rv"><i class="fa-solid fa-check ol-yes"></i>Yes &nbsp;&bull;&nbsp; <i class="fa-solid fa-minus ol-meh"></i>Sometimes &nbsp;&bull;&nbsp; <i class="fa-solid fa-xmark ol-no"></i>No</p>
+    <p class="ol-cmp__legend olrv"><i class="fa-solid fa-check ol-yes"></i>Yes &nbsp;&bull;&nbsp; <i class="fa-solid fa-minus ol-meh"></i>Sometimes &nbsp;&bull;&nbsp; <i class="fa-solid fa-xmark ol-no"></i>No</p>
   </div>
 </section>
 
@@ -113,11 +113,11 @@
 (function () {
   var R = document.querySelector('.ol-cmp');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   E.forEach(function (el, i) { el.style.transitionDelay = (i * 80) + 'ms'; });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
   E.forEach(function (el) { io.observe(el); });
 })();

@@ -41,10 +41,10 @@
   .ol-cat__item:hover .ol-cat__name{color:var(--o);}
 
   /* scroll-reveal (JS-gated; visible if JS off) */
-  .ol-cat.is-on .rv{opacity:0;transform:translateY(28px);
+  .ol-cat.olrv-on .olrv{opacity:0;transform:translateY(28px);
     transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
-  .ol-cat.is-on .rv.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.ol-cat.is-on .rv{opacity:1!important;transform:none!important;}}
+  .ol-cat.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-cat.olrv-on .olrv{opacity:1!important;transform:none!important;}}
 
   @media(max-width:860px){.ol-cat{padding:72px 20px;}.ol-cat__item{flex:0 0 calc((100% - 3 * 18px) / 4);min-width:84px;}}
   @media(max-width:520px){.ol-cat__grid{gap:26px 14px;}.ol-cat__item{flex:0 0 calc((100% - 2 * 14px) / 3);min-width:0;}.ol-cat__name{font-size:11px;}}
@@ -52,18 +52,18 @@
 
 <section class="ol-cat">
   <div class="ol-cat__inner">
-    <div class="rv">
+    <div class="olrv">
       <span class="ol-cat__eyebrow">Shop the Range</span>
       <h2 class="ol-cat__title">Explore the Collection</h2>
       <div class="ol-cat__rule"></div>
     </div>
     <div class="ol-cat__grid">
-      <a class="ol-cat__item rv" href="/product-category/disposable-panties/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&h=400&q=70" alt="Disposable Panties"></div><span class="ol-cat__name">Disposable Panties</span></a>
-      <a class="ol-cat__item rv" href="/product-category/overnight-protection/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=400&h=400&q=70" alt="Overnight Protection"></div><span class="ol-cat__name">Overnight</span></a>
-      <a class="ol-cat__item rv" href="/product-category/travel-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=400&q=70" alt="Travel Packs"></div><span class="ol-cat__name">Travel Packs</span></a>
-      <a class="ol-cat__item rv" href="/product-category/teen-care/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&h=400&q=70" alt="Teen Care"></div><span class="ol-cat__name">Teen Care</span></a>
-      <a class="ol-cat__item rv" href="/product-category/combo-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=400&h=400&q=70" alt="Combo Packs"></div><span class="ol-cat__name">Combo Packs</span></a>
-      <a class="ol-cat__item rv" href="/product-category/new-arrivals/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&h=400&q=70" alt="New Arrivals"></div><span class="ol-cat__name">New Arrivals</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/disposable-panties/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&h=400&q=70" alt="Disposable Panties"></div><span class="ol-cat__name">Disposable Panties</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/overnight-protection/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=400&h=400&q=70" alt="Overnight Protection"></div><span class="ol-cat__name">Overnight</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/travel-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=400&q=70" alt="Travel Packs"></div><span class="ol-cat__name">Travel Packs</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/teen-care/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&h=400&q=70" alt="Teen Care"></div><span class="ol-cat__name">Teen Care</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/combo-packs/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=400&h=400&q=70" alt="Combo Packs"></div><span class="ol-cat__name">Combo Packs</span></a>
+      <a class="ol-cat__item olrv" href="/product-category/new-arrivals/"><div class="ol-cat__disc"><!-- REPLACE IMAGE --><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&h=400&q=70" alt="New Arrivals"></div><span class="ol-cat__name">New Arrivals</span></a>
     </div>
   </div>
 </section>
@@ -72,11 +72,11 @@
 (function () {
   var R = document.querySelector('.ol-cat');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 85) + 'ms'; });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   E.forEach(function (el) { io.observe(el); });
 })();

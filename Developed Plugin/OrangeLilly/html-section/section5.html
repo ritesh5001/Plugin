@@ -22,17 +22,17 @@
   .ol-shead__title{margin:0;font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;color:var(--ink);
     font-family:'Playfair Display',serif;line-height:1.18;letter-spacing:-.01em;}
 
-  .ol-shead.is-on .rv{opacity:0;transform:translateY(22px);
+  .ol-shead.olrv-on .olrv{opacity:0;transform:translateY(22px);
     transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
-  .ol-shead.is-on .rv.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.ol-shead.is-on .rv{opacity:1!important;transform:none!important;}}
+  .ol-shead.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-shead.olrv-on .olrv{opacity:1!important;transform:none!important;}}
 
   @media(max-width:768px){.ol-shead{padding:54px 16px 32px;}.ol-shead__line{max-width:60px;}}
   @media(max-width:480px){.ol-shead__line{max-width:30px;}}
 </style>
 
 <section class="ol-shead">
-  <div class="rv">
+  <div class="olrv">
     <span class="ol-shead__eyebrow">Period Care Essentials</span>
     <div class="ol-shead__row">
       <span class="ol-shead__line"></span>
@@ -48,10 +48,10 @@
 (function () {
   var R = document.querySelector('.ol-shead');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.2 });
   E.forEach(function (el) { io.observe(el); });
 })();

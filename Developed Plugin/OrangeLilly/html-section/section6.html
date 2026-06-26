@@ -51,10 +51,10 @@
     letter-spacing:.06em;text-transform:uppercase;padding:10px 20px;border-radius:60px;white-space:nowrap;
     box-shadow:0 16px 30px -10px rgba(216,124,12,.6);}
 
-  .ol-spot.is-on .rv{opacity:0;transform:translateY(28px);
+  .ol-spot.olrv-on .olrv{opacity:0;transform:translateY(28px);
     transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
-  .ol-spot.is-on .rv.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.ol-spot.is-on .rv{opacity:1!important;transform:none!important;}.ol-spot__ring{animation:none;}}
+  .ol-spot.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-spot.olrv-on .olrv{opacity:1!important;transform:none!important;}.ol-spot__ring{animation:none;}}
 
   /* ── Tablet: product on top, features in 2 columns ── */
   @media(max-width:900px){
@@ -91,7 +91,7 @@
 <section class="ol-spot">
   <div class="ol-spot__inner">
 
-    <div class="ol-spot__head rv">
+    <div class="ol-spot__head olrv">
       <span class="ol-spot__eyebrow">Engineered for You</span>
       <h2 class="ol-spot__title">What Makes Orange Lilies Different</h2>
       <div class="ol-spot__rule"></div>
@@ -100,24 +100,24 @@
 
     <div class="ol-spot__grid">
       <div class="ol-spot__col">
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-droplet"></i></span><div class="ol-spot__txt"><h3>Leak-Proof Core</h3><p>High-absorbency layers lock in flow for dependable, all-day security.</p></div></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-feather"></i></span><div class="ol-spot__txt"><h3>Ultra-Soft Comfort</h3><p>Gentle, skin-friendly fabric that feels like your favourite underwear.</p></div></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-wind"></i></span><div class="ol-spot__txt"><h3>Breathable Layers</h3><p>Airy, non-sweaty construction keeps you fresh from morning to night.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-droplet"></i></span><div class="ol-spot__txt"><h3>Leak-Proof Core</h3><p>High-absorbency layers lock in flow for dependable, all-day security.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-feather"></i></span><div class="ol-spot__txt"><h3>Ultra-Soft Comfort</h3><p>Gentle, skin-friendly fabric that feels like your favourite underwear.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-wind"></i></span><div class="ol-spot__txt"><h3>Breathable Layers</h3><p>Airy, non-sweaty construction keeps you fresh from morning to night.</p></div></div>
       </div>
 
-      <div class="ol-spot__media rv">
+      <div class="ol-spot__media olrv">
         <div class="ol-spot__disc">
           <span class="ol-spot__ring"></span>
-          <!-- REPLACE IMAGE: product / pack shot (transparent PNG looks best) -->
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80" alt="Orange Lilies Disposable Panty">
+          <!-- Product shot — change the number (image1…image20) to use a different one -->
+          <img src="https://orangelilies.com/wp-content/uploads/2026/06/image5.jpeg" alt="Orange Lilies Disposable Period Panties">
           <span class="ol-spot__badge">Dermatologically Tested</span>
         </div>
       </div>
 
       <div class="ol-spot__col ol-spot__col--right">
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-shirt"></i></span><div class="ol-spot__txt"><h3>Body-Hugging Fit</h3><p>Stays exactly where it should &mdash; no shifting, no bunching, no worry.</p></div></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-eye-slash"></i></span><div class="ol-spot__txt"><h3>Discreet &amp; Light</h3><p>Slim, quiet and invisible under clothes &mdash; nobody will ever know.</p></div></div>
-        <div class="ol-spot__feat rv"><span class="ol-spot__ic"><i class="fa-solid fa-recycle"></i></span><div class="ol-spot__txt"><h3>Wear &amp; Dispose</h3><p>No washing, no soaking. Simply change and dispose responsibly.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-shirt"></i></span><div class="ol-spot__txt"><h3>Body-Hugging Fit</h3><p>Stays exactly where it should &mdash; no shifting, no bunching, no worry.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-eye-slash"></i></span><div class="ol-spot__txt"><h3>Discreet &amp; Light</h3><p>Slim, quiet and invisible under clothes &mdash; nobody will ever know.</p></div></div>
+        <div class="ol-spot__feat olrv"><span class="ol-spot__ic"><i class="fa-solid fa-recycle"></i></span><div class="ol-spot__txt"><h3>Wear &amp; Dispose</h3><p>No washing, no soaking. Simply change and dispose responsibly.</p></div></div>
       </div>
     </div>
 
@@ -128,11 +128,11 @@
 (function () {
   var R = document.querySelector('.ol-spot');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   E.forEach(function (el) { io.observe(el); });
 })();

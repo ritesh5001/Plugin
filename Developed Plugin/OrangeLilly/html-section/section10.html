@@ -35,49 +35,49 @@
   .ol-faq__item[open] .ol-faq__icon{transform:rotate(135deg);background:linear-gradient(135deg,var(--amber),var(--o2));color:#fff;}
   .ol-faq__a{padding:0 24px 24px;color:var(--body);font-size:.96rem;line-height:1.75;}
 
-  .ol-faq.is-on .rv{opacity:0;transform:translateY(22px);
+  .ol-faq.olrv-on .olrv{opacity:0;transform:translateY(22px);
     transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
-  .ol-faq.is-on .rv.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.ol-faq.is-on .rv{opacity:1!important;transform:none!important;}}
+  .ol-faq.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-faq.olrv-on .olrv{opacity:1!important;transform:none!important;}}
 
   @media(max-width:560px){.ol-faq{padding:70px 16px;}.ol-faq__q{padding:18px 18px;font-size:.96rem;}.ol-faq__a{padding:0 18px 18px;}}
 </style>
 
 <section class="ol-faq">
   <div class="ol-faq__inner">
-    <div class="ol-faq__head rv">
+    <div class="ol-faq__head olrv">
       <span class="ol-faq__eyebrow">Good to Know</span>
       <h2 class="ol-faq__title">Frequently Asked Questions</h2>
       <div class="ol-faq__rule"></div>
       <p class="ol-faq__sub">Everything you want to know about Orange Lilies disposable period panties.</p>
     </div>
 
-    <details class="ol-faq__item rv" open>
+    <details class="ol-faq__item olrv" open>
       <summary class="ol-faq__q">How do Orange Lilies disposable panties work?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">They're a soft, all-in-one period panty with a built-in high-absorbency core. Just wear them like regular underwear &mdash; the panty holds your flow securely, with no separate pad or tampon needed. When you're done, change and dispose responsibly.</div>
     </details>
 
-    <details class="ol-faq__item rv">
+    <details class="ol-faq__item olrv">
       <summary class="ol-faq__q">How long can I wear one panty?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">Most women comfortably wear a single panty for 6&ndash;8 hours, depending on their flow. On heavier days simply change more often. They're also designed for dependable overnight protection.</div>
     </details>
 
-    <details class="ol-faq__item rv">
+    <details class="ol-faq__item olrv">
       <summary class="ol-faq__q">Will they leak or feel bulky?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">No. The body-hugging fit and leak-proof core keep everything secure with zero bulk &mdash; so you can move, work out, travel and sleep with complete confidence.</div>
     </details>
 
-    <details class="ol-faq__item rv">
+    <details class="ol-faq__item olrv">
       <summary class="ol-faq__q">Are they safe and skin-friendly?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">Yes. Orange Lilies are dermatologically tested and made with soft, breathable, skin-friendly materials. As part of The Kutumb Group, our products are made to ISO 9001:2015 GMP-certified quality standards.</div>
     </details>
 
-    <details class="ol-faq__item rv">
+    <details class="ol-faq__item olrv">
       <summary class="ol-faq__q">How do I dispose of them?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">Wrap the used panty and place it in a sanitary bin &mdash; never flush it. Our packaging is designed to be as eco-conscious and responsible as possible.</div>
     </details>
 
-    <details class="ol-faq__item rv">
+    <details class="ol-faq__item olrv">
       <summary class="ol-faq__q">Do you deliver across India? Is COD available?<span class="ol-faq__icon">+</span></summary>
       <div class="ol-faq__a">Yes! We deliver to addresses across India with discreet packaging. Cash on Delivery is available on eligible orders, and shipping is free on qualifying packs.</div>
     </details>
@@ -88,11 +88,11 @@
 (function () {
   var R = document.querySelector('.ol-faq');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   E.forEach(function (el, i) { el.style.transitionDelay = (i * 70) + 'ms'; });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
   E.forEach(function (el) { io.observe(el); });
 })();

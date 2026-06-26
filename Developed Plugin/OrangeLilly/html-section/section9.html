@@ -55,20 +55,20 @@
   .ol-pack__trust{text-align:center;margin:38px 0 0;font-size:.86rem;color:var(--muted);}
   .ol-pack__trust i{color:var(--o);margin-right:3px;}
 
-  .ol-pack.is-on .rv{opacity:0;transform:translateY(28px);
+  .ol-pack.olrv-on .olrv{opacity:0;transform:translateY(28px);
     transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
-  .ol-pack.is-on .rv.in{opacity:1;transform:none;}
-  .ol-pack.is-on .ol-pack__card--pop.rv{transform:translateY(28px) scale(1.035);}
-  .ol-pack.is-on .ol-pack__card--pop.rv.in{transform:scale(1.035);}
-  @media(prefers-reduced-motion:reduce){.ol-pack.is-on .rv{opacity:1!important;transform:none!important;}}
+  .ol-pack.olrv-on .olrv.olrv-in{opacity:1;transform:none;}
+  .ol-pack.olrv-on .ol-pack__card--pop.olrv{transform:translateY(28px) scale(1.035);}
+  .ol-pack.olrv-on .ol-pack__card--pop.olrv.olrv-in{transform:scale(1.035);}
+  @media(prefers-reduced-motion:reduce){.ol-pack.olrv-on .olrv{opacity:1!important;transform:none!important;}}
 
   @media(max-width:860px){.ol-pack{padding:72px 18px;}.ol-pack__grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;gap:30px;}
-    .ol-pack__card--pop,.ol-pack.is-on .ol-pack__card--pop.rv.in{transform:none;}.ol-pack__card--pop:hover{transform:translateY(-8px);}}
+    .ol-pack__card--pop,.ol-pack.olrv-on .ol-pack__card--pop.olrv.olrv-in{transform:none;}.ol-pack__card--pop:hover{transform:translateY(-8px);}}
 </style>
 
 <section class="ol-pack">
   <div class="ol-pack__inner">
-    <div class="ol-pack__head rv">
+    <div class="ol-pack__head olrv">
       <span class="ol-pack__eyebrow">Choose Your Pack</span>
       <h2 class="ol-pack__title">Period Freedom, Your Way</h2>
       <div class="ol-pack__rule"></div>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="ol-pack__grid">
-      <div class="ol-pack__card rv">
+      <div class="ol-pack__card olrv">
         <h3 class="ol-pack__name">Trial Pack</h3>
         <p class="ol-pack__for">Try Orange Lilies for a day</p>
         <div class="ol-pack__price"><b>&#8377;199</b></div>
@@ -89,7 +89,7 @@
         <a href="/shop/" class="ol-pack__btn">Add to Cart</a><!-- EDIT href -->
       </div>
 
-      <div class="ol-pack__card ol-pack__card--pop rv">
+      <div class="ol-pack__card ol-pack__card--pop olrv">
         <span class="ol-pack__tag">Most Popular</span>
         <h3 class="ol-pack__name">Monthly Pack</h3>
         <p class="ol-pack__for">One full cycle, sorted</p>
@@ -104,7 +104,7 @@
         <a href="/shop/" class="ol-pack__btn ol-pack__btn--solid">Shop Now</a><!-- EDIT href -->
       </div>
 
-      <div class="ol-pack__card rv">
+      <div class="ol-pack__card olrv">
         <h3 class="ol-pack__name">Value Pack</h3>
         <p class="ol-pack__for">Stock up &amp; save the most</p>
         <div class="ol-pack__price"><b>&#8377;899</b> <s>&#8377;1199</s></div>
@@ -118,7 +118,7 @@
       </div>
     </div>
 
-    <p class="ol-pack__trust rv"><i class="fa-solid fa-lock"></i> Secure payments &nbsp;&bull;&nbsp; <i class="fa-solid fa-truck-fast"></i> Free shipping over &#8377;499 &nbsp;&bull;&nbsp; <i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery available</p>
+    <p class="ol-pack__trust olrv"><i class="fa-solid fa-lock"></i> Secure payments &nbsp;&bull;&nbsp; <i class="fa-solid fa-truck-fast"></i> Free shipping over &#8377;499 &nbsp;&bull;&nbsp; <i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery available</p>
   </div>
 </section>
 
@@ -126,11 +126,11 @@
 (function () {
   var R = document.querySelector('.ol-pack');
   if (!R || !('IntersectionObserver' in window)) return;
-  R.classList.add('is-on');
-  var E = [].slice.call(R.querySelectorAll('.rv'));
+  R.classList.add('olrv-on');
+  var E = [].slice.call(R.querySelectorAll('.olrv'));
   E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('olrv-in'); io.unobserve(x.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   E.forEach(function (el) { io.observe(el); });
 })();
