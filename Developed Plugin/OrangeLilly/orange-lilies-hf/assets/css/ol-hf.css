@@ -156,6 +156,53 @@ body.ol-header-active {
   text-decoration: none;
 }
 
+/* Cart button (white circular icon with badge) */
+.ol-hdr-cart {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: #ffffff;
+  color: var(--ol-accent);
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(120,60,0,0.18);
+  transition: transform var(--ol-transition), box-shadow var(--ol-transition), background var(--ol-transition), color var(--ol-transition);
+}
+
+.ol-hdr-cart:hover {
+  background: #fff4e3;
+  color: var(--ol-violet);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(120,60,0,0.26);
+  text-decoration: none;
+}
+
+.ol-hdr-cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ol-color-5);
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 100px;
+  border: 2px solid var(--ol-hdr-grad-b);
+}
+
 /* Hamburger (mobile only) — three white bars */
 .ol-hdr-hamburger {
   display: none;
@@ -567,9 +614,10 @@ body.ol-header-active {
 }
 
 @media (max-width: 992px) {
-  /* Collapse desktop nav + Shop Now into the hamburger menu */
+  /* Collapse desktop nav + Shop Now + Cart into the hamburger menu */
   .ol-hdr-nav,
-  .ol-hdr-shop {
+  .ol-hdr-shop,
+  .ol-hdr-cart {
     display: none;
   }
   .ol-hdr-hamburger {

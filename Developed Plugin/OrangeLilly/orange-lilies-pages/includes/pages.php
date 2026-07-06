@@ -544,7 +544,7 @@ function ol_page_contact() {
           <div class="ol-contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div class="ol-contact-item-text">
             <strong>Address</strong>
-            <span>E 44, Okhla Phase 2, New Delhi 110020, India</span>
+            <a href="https://maps.app.goo.gl/LFrAXBt4bpyXE8Xq5" target="_blank" rel="noopener">E 44, Okhla Phase 2, New Delhi 110020, India</a>
           </div>
         </div>
         <div class="ol-contact-item">
@@ -565,11 +565,20 @@ function ol_page_contact() {
           <a href="https://wa.me/918368615088" class="ol-social-link" target="_blank" rel="noopener">
             <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
           </a>
-          <a href="https://www.instagram.com/orangelilies.in" class="ol-social-link" target="_blank" rel="noopener">
+          <a href="https://www.instagram.com/orangelilies_?igsh=dXQ1bjF6NDBjdDJp&utm_source=qr" class="ol-social-link" target="_blank" rel="noopener">
             <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
           </a>
-          <a href="https://www.facebook.com/Orangelilies/" class="ol-social-link" target="_blank" rel="noopener">
+          <a href="https://www.facebook.com/share/192C6vjdCy/?mibextid=wwXIfr" class="ol-social-link" target="_blank" rel="noopener">
             <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+          </a>
+          <a href="https://x.com/orangelilies_?s=11" class="ol-social-link" target="_blank" rel="noopener">
+            <i class="fab fa-x-twitter" aria-hidden="true"></i> X
+          </a>
+          <a href="https://youtube.com/@orangelilies?si=Q7BKZgD-iQL3EO9z" class="ol-social-link" target="_blank" rel="noopener">
+            <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
+          </a>
+          <a href="https://www.linkedin.com/in/kanikatomar11?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="ol-social-link" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
           </a>
           <a href="mailto:info@orangelilies.com" class="ol-social-link">
             <i class="far fa-envelope" aria-hidden="true"></i> Email

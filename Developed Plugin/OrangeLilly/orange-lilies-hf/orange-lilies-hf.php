@@ -26,11 +26,13 @@ define( 'OL_HF_DEF_DESC',      'Women-led period care from The Kutumb Group — 
 define( 'OL_HF_DEF_WHATSAPP',  '918368615088' );
 define( 'OL_HF_DEF_EMAIL',     'info@orangelilies.com' );
 define( 'OL_HF_DEF_ADDRESS',   'E 44, Okhla Phase 2, New Delhi 110020, India' );
-define( 'OL_HF_DEF_INSTAGRAM', 'https://www.instagram.com/orangelilies.in' );
-define( 'OL_HF_DEF_FACEBOOK',  'https://www.facebook.com/Orangelilies/' );
-define( 'OL_HF_DEF_TWITTER',   'https://x.com/orangelilies_' );
-define( 'OL_HF_DEF_YOUTUBE',   'https://www.youtube.com/@orangelilies' );
-define( 'OL_HF_DEF_LINKTREE',  'https://linktr.ee/orangelilies_' );
+define( 'OL_HF_DEF_INSTAGRAM', 'https://www.instagram.com/orangelilies_?igsh=dXQ1bjF6NDBjdDJp&utm_source=qr' );
+define( 'OL_HF_DEF_FACEBOOK',  'https://www.facebook.com/share/192C6vjdCy/?mibextid=wwXIfr' );
+define( 'OL_HF_DEF_TWITTER',   'https://x.com/orangelilies_?s=11' );
+define( 'OL_HF_DEF_YOUTUBE',   'https://youtube.com/@orangelilies?si=Q7BKZgD-iQL3EO9z' );
+define( 'OL_HF_DEF_LINKEDIN',  'https://www.linkedin.com/in/kanikatomar11?utm_source=share_via&utm_content=profile&utm_medium=member_ios' );
+define( 'OL_HF_DEF_GOOGLE',    'https://share.google/kxf4G4R87FnAWvVXW' );
+define( 'OL_HF_DEF_MAP',       'https://maps.app.goo.gl/LFrAXBt4bpyXE8Xq5' );
 
 /* Flag: prevents double-injection when both wp_body_open and wp_footer fire */
 global $ol_hdr_injected;
@@ -221,8 +223,11 @@ function ol_hf_handle_save() {
 	update_option( 'ol_hf_address', isset( $_POST['ol_hf_address'] )
 		? sanitize_text_field( wp_unslash( $_POST['ol_hf_address'] ) ) : '' );
 
+	update_option( 'ol_hf_map', isset( $_POST['ol_hf_map'] )
+		? esc_url_raw( trim( wp_unslash( $_POST['ol_hf_map'] ) ) ) : '' );
+
 	/* ── Social links ────────────────────────────────────────── */
-	foreach ( [ 'instagram', 'facebook', 'twitter', 'youtube', 'linktree' ] as $key ) {
+	foreach ( [ 'instagram', 'facebook', 'twitter', 'youtube', 'linkedin', 'google' ] as $key ) {
 		update_option( 'ol_hf_' . $key, isset( $_POST[ 'ol_hf_' . $key ] )
 			? esc_url_raw( trim( wp_unslash( $_POST[ 'ol_hf_' . $key ] ) ) ) : '' );
 	}
@@ -400,11 +405,13 @@ function ol_hf_render_settings_page() {
 			$whatsapp_val  = esc_attr( get_option( 'ol_hf_whatsapp', '' ) );
 			$email_val     = esc_attr( get_option( 'ol_hf_email', '' ) );
 			$address_val   = esc_attr( get_option( 'ol_hf_address', '' ) );
+			$map_val       = esc_attr( get_option( 'ol_hf_map', '' ) );
 			$instagram_val = esc_attr( get_option( 'ol_hf_instagram', '' ) );
 			$facebook_val  = esc_attr( get_option( 'ol_hf_facebook', '' ) );
 			$twitter_val   = esc_attr( get_option( 'ol_hf_twitter', '' ) );
 			$youtube_val   = esc_attr( get_option( 'ol_hf_youtube', '' ) );
-			$linktree_val  = esc_attr( get_option( 'ol_hf_linktree', '' ) );
+			$linkedin_val  = esc_attr( get_option( 'ol_hf_linkedin', '' ) );
+			$google_val    = esc_attr( get_option( 'ol_hf_google', '' ) );
 			?>
 
 			<div class="ol-admin-card">
@@ -443,6 +450,9 @@ function ol_hf_render_settings_page() {
 						<input type="text" name="ol_hf_address" class="ol-text-input" value="<?php echo $address_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_ADDRESS ); ?>">
 					</div>
 				</div>
+
+				<label class="ol-field-label">Google Maps location URL <span class="ol-field-note">(makes the footer address clickable &amp; opens directions)</span></label>
+				<input type="url" name="ol_hf_map" class="ol-text-input" value="<?php echo $map_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_MAP ); ?>">
 			</div>
 
 			<div class="ol-admin-card">
@@ -466,8 +476,12 @@ function ol_hf_render_settings_page() {
 						<input type="url" name="ol_hf_youtube" class="ol-text-input" value="<?php echo $youtube_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_YOUTUBE ); ?>">
 					</div>
 					<div>
-						<label class="ol-field-label">Linktree URL</label>
-						<input type="url" name="ol_hf_linktree" class="ol-text-input" value="<?php echo $linktree_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_LINKTREE ); ?>">
+						<label class="ol-field-label">LinkedIn URL</label>
+						<input type="url" name="ol_hf_linkedin" class="ol-text-input" value="<?php echo $linkedin_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_LINKEDIN ); ?>">
+					</div>
+					<div>
+						<label class="ol-field-label">Google (Business) URL</label>
+						<input type="url" name="ol_hf_google" class="ol-text-input" value="<?php echo $google_val; ?>" placeholder="<?php echo esc_attr( OL_HF_DEF_GOOGLE ); ?>">
 					</div>
 				</div>
 			</div>
@@ -597,6 +611,10 @@ function ol_hf_get_address() {
 	$v = trim( (string) get_option( 'ol_hf_address', '' ) );
 	return $v !== '' ? $v : OL_HF_DEF_ADDRESS;
 }
+function ol_hf_get_map() {
+	$v = trim( (string) get_option( 'ol_hf_map', '' ) );
+	return $v !== '' ? $v : OL_HF_DEF_MAP;
+}
 function ol_hf_get_social( $key, $default ) {
 	$v = trim( (string) get_option( 'ol_hf_' . $key, '' ) );
 	return $v !== '' ? $v : $default;
@@ -621,11 +639,12 @@ function ol_hf_instagram_handle() {
 /* Returns the configured socials as an icon-ready list (only filled-in ones) */
 function ol_hf_get_socials() {
 	$defs = [
-		'instagram' => [ 'icon' => 'fab fa-instagram', 'label' => 'Instagram', 'def' => OL_HF_DEF_INSTAGRAM ],
-		'facebook'  => [ 'icon' => 'fab fa-facebook-f', 'label' => 'Facebook',  'def' => OL_HF_DEF_FACEBOOK ],
-		'twitter'   => [ 'icon' => 'fab fa-x-twitter',  'label' => 'X',         'def' => OL_HF_DEF_TWITTER ],
-		'youtube'   => [ 'icon' => 'fab fa-youtube',    'label' => 'YouTube',   'def' => OL_HF_DEF_YOUTUBE ],
-		'linktree'  => [ 'icon' => 'fas fa-link',       'label' => 'Linktree',  'def' => OL_HF_DEF_LINKTREE ],
+		'instagram' => [ 'icon' => 'fab fa-instagram',   'label' => 'Instagram', 'def' => OL_HF_DEF_INSTAGRAM ],
+		'facebook'  => [ 'icon' => 'fab fa-facebook-f',  'label' => 'Facebook',  'def' => OL_HF_DEF_FACEBOOK ],
+		'twitter'   => [ 'icon' => 'fab fa-x-twitter',   'label' => 'X',         'def' => OL_HF_DEF_TWITTER ],
+		'youtube'   => [ 'icon' => 'fab fa-youtube',     'label' => 'YouTube',   'def' => OL_HF_DEF_YOUTUBE ],
+		'linkedin'  => [ 'icon' => 'fab fa-linkedin-in', 'label' => 'LinkedIn',  'def' => OL_HF_DEF_LINKEDIN ],
+		'google'    => [ 'icon' => 'fab fa-google',      'label' => 'Google',    'def' => OL_HF_DEF_GOOGLE ],
 	];
 	$out = [];
 	foreach ( $defs as $key => $d ) {
@@ -684,6 +703,16 @@ function ol_render_header() {
 	}
 	$shop_url = esc_url( $shop_url ? $shop_url : home_url( '/' ) );
 
+	/* Cart link → WooCommerce cart if present, else the shop/products page */
+	if ( $wc_active && function_exists( 'wc_get_cart_url' ) ) {
+		$cart_url   = wc_get_cart_url();
+		$cart_count = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_contents_count() : 0;
+	} else {
+		$cart_url   = $shop_url;
+		$cart_count = 0;
+	}
+	$cart_url = esc_url( $cart_url ? $cart_url : home_url( '/' ) );
+
 	$nav_links = ol_hf_get_nav_links();
 
 	ob_start();
@@ -703,6 +732,13 @@ function ol_render_header() {
 
     <a href="<?php echo $shop_url; ?>" class="ol-hdr-shop">Shop Now</a>
 
+    <a href="<?php echo $cart_url; ?>" class="ol-hdr-cart" aria-label="View cart">
+      <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+      <?php if ( $cart_count > 0 ) : ?>
+      <span class="ol-hdr-cart-count"><?php echo (int) $cart_count; ?></span>
+      <?php endif; ?>
+    </a>
+
     <button class="ol-hdr-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="ol-mobile-nav">
       <span></span><span></span><span></span>
     </button>
@@ -713,6 +749,7 @@ function ol_render_header() {
     <?php foreach ( $nav_links as $link ) : ?>
     <a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
     <?php endforeach; ?>
+    <a href="<?php echo $cart_url; ?>"><i class="fas fa-cart-shopping" aria-hidden="true"></i> Cart<?php echo $cart_count > 0 ? ' (' . (int) $cart_count . ')' : ''; ?></a>
     <a class="ol-mobile-shop" href="<?php echo $shop_url; ?>">Shop Now</a>
   </nav>
 
@@ -764,6 +801,7 @@ function ol_render_footer() {
 	$address      = esc_html( ol_hf_get_address() );
 	$insta_url    = esc_url( ol_hf_get_social( 'instagram', OL_HF_DEF_INSTAGRAM ) );
 	$insta_handle = esc_html( ol_hf_instagram_handle() );
+	$map_url      = esc_url( ol_hf_get_map() );
 	$socials      = ol_hf_get_socials();
 
 	$quick_links = ol_hf_get_quick_links();
@@ -842,7 +880,7 @@ function ol_render_footer() {
       <?php endif; ?>
       <div class="ol-ftr-contact-item">
         <i class="fas fa-location-dot" aria-hidden="true"></i>
-        <span><?php echo $address; ?></span>
+        <a href="<?php echo $map_url; ?>" target="_blank" rel="noopener noreferrer"><?php echo $address; ?></a>
       </div>
     </div>
 
