@@ -246,6 +246,505 @@ function ol_page_services() {
   </div>
 </div>
 
+<!-- Featured product: Disposable Period Panties — gallery carousel, pack-size
+     selector & size chart. Gallery loads product images image3…image20 from the
+     media library; edit the URLS / EXTS list in the script below if names change. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  .ol-pd{
+    --o:#e8780a; --o2:#cf6f08; --amber:#f0982a; --gold:#c8912f; --ink:#2f2a24; --body:#4a443d; --muted:#7a7065;
+    --cream:#fffaf3; --cream2:#fbeeda; --cream3:#fcefd9; --border:#f1e3cd; --peach:#f8e2c4;
+    background:radial-gradient(ellipse 60% 50% at 85% 0%,rgba(232,120,10,.06),transparent 60%),var(--cream);
+    padding:100px 20px;font-family:'Manrope',sans-serif;color:var(--body);box-sizing:border-box;overflow:hidden;
+  }
+  .ol-pd *{box-sizing:border-box;}
+  .ol-pd__inner{max-width:1160px;margin:0 auto;}
+
+  /* ── Top: gallery + info ── */
+  .ol-pd__top{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+
+  /* gallery */
+  .ol-pd__media{position:relative;width:100%;max-width:480px;margin:0 auto;}
+  .ol-pd__stage{position:relative;width:100%;border-radius:28px;overflow:hidden;aspect-ratio:1/1;
+    background:linear-gradient(155deg,var(--cream3),var(--peach));border:1px solid var(--border);
+    box-shadow:0 44px 80px -36px rgba(216,124,12,.5);}
+  .ol-pd__slides{position:absolute;inset:0;}
+  .ol-pd__slide{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    object-fit:contain!important;padding:7%;opacity:0;transition:opacity .55s ease;}
+  .ol-pd__slide.is-active{opacity:1;}
+  .ol-pd__ribbon{position:absolute;top:18px;left:18px;z-index:3;
+    background:linear-gradient(90deg,var(--amber),var(--o2));color:#fff;font-size:.68rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:60px;
+    box-shadow:0 14px 26px -10px rgba(216,124,12,.6);}
+  .ol-pd__seal{position:absolute;top:16px;right:16px;z-index:3;width:74px;height:74px;border-radius:50%;
+    background:rgba(255,255,255,.94);border:1px solid var(--border);box-shadow:0 14px 28px -12px rgba(120,60,0,.5);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;}
+  .ol-pd__seal i{color:var(--o);font-size:1.15rem;}
+  .ol-pd__seal span{font-size:.52rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);line-height:1.15;}
+  .ol-pd__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;border-radius:50%;
+    border:none;cursor:pointer;background:rgba(255,255,255,.92);color:var(--ink);font-size:.92rem;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -6px rgba(120,60,0,.45);
+    transition:background .25s,color .25s,transform .25s;}
+  .ol-pd__nav:hover{background:#fff;color:var(--o);transform:translateY(-50%) scale(1.1);}
+  .ol-pd__nav--prev{left:14px;} .ol-pd__nav--next{right:14px;}
+  .ol-pd__count{position:absolute;bottom:14px;right:14px;z-index:3;background:rgba(47,42,36,.72);color:#fff;
+    font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:60px;letter-spacing:.04em;}
+  .ol-pd__thumbs{display:flex;gap:10px;margin-top:14px;overflow-x:auto;padding:3px 1px 9px;scrollbar-width:thin;scrollbar-color:var(--peach) transparent;}
+  .ol-pd__thumbs::-webkit-scrollbar{height:6px;}
+  .ol-pd__thumbs::-webkit-scrollbar-thumb{background:var(--peach);border-radius:60px;}
+  .ol-pd__thumb{flex:0 0 64px;width:64px;height:64px;border-radius:12px;overflow:hidden;cursor:pointer;
+    border:2px solid transparent;background:#fff;padding:0;transition:border-color .25s,transform .25s;}
+  .ol-pd__thumb img{width:100%!important;height:100%!important;object-fit:cover!important;display:block;}
+  .ol-pd__thumb.is-active{border-color:var(--o);}
+  .ol-pd__thumb:hover{transform:translateY(-2px);}
+
+  /* info */
+  .ol-pd__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--o);margin-bottom:14px;}
+  .ol-pd__title{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(2rem,3.8vw,3rem);color:var(--ink);line-height:1.1;letter-spacing:-.015em;}
+  .ol-pd__title em{font-style:italic;color:var(--o);}
+  .ol-pd__rating{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:.9rem;color:var(--muted);}
+  .ol-pd__rating .stars{color:var(--gold);letter-spacing:2px;font-size:.95rem;}
+  .ol-pd__lead{margin:20px 0 0;font-size:1.04rem;line-height:1.8;color:var(--body);}
+  .ol-pd__lead strong{color:var(--ink);font-weight:700;}
+
+  .ol-pd__list{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:13px 22px;}
+  .ol-pd__list li{display:flex;align-items:flex-start;gap:10px;font-size:.94rem;color:var(--ink);font-weight:500;}
+  .ol-pd__list i{color:var(--o);font-size:.82rem;margin-top:4px;flex-shrink:0;}
+
+  /* Pack Size Variant Selector */
+  .ol-pd__variants{margin:28px 0 0;}
+  .ol-pd__v-title{margin:0 0 12px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  .ol-pd__v-options{display:flex;gap:12px;flex-wrap:wrap;}
+  .ol-pd__v-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;border:2px solid var(--border);border-radius:14px;background:#fff;cursor:pointer;transition:all .3s ease;color:var(--ink);text-align:center;}
+  .ol-pd__v-btn.is-active{border-color:var(--o);background:rgba(232,120,10,.04);box-shadow:0 8px 20px -8px rgba(232,120,10,.25);}
+  .ol-pd__v-btn:hover:not(.is-active){border-color:var(--amber);}
+  .ol-pd__v-btn .v-qty{font-size:1.05rem;font-weight:700;margin-bottom:6px;}
+  .ol-pd__v-btn .v-save{font-size:.7rem;font-weight:800;color:#1c8a57;background:rgba(30,158,99,.12);padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.02em;}
+
+  .ol-pd__buy{margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--border);}
+  .ol-pd__price{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .ol-pd__price b{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--o2);line-height:1;}
+  .ol-pd__price s{color:var(--muted);font-size:1.2rem;}
+  .ol-pd__off{background:rgba(30,158,99,.12);color:#1c8a57;font-size:.74rem;font-weight:800;
+    letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:60px;}
+  .ol-pd__taxes{margin:8px 0 0;font-size:.78rem;color:var(--muted);letter-spacing:.02em;}
+  .ol-pd__btns{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 0;}
+  .ol-pd__btn{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;font-weight:700;text-decoration:none;
+    cursor:pointer;padding:15px 32px;border-radius:60px;border:1.5px solid transparent;
+    transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease;}
+  .ol-pd__btn--solid{background:linear-gradient(95deg,var(--amber),var(--o2));color:#fff;
+    box-shadow:0 16px 32px -12px rgba(216,124,12,.6);}
+  .ol-pd__btn--solid:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(216,124,12,.7);color:#fff;}
+  .ol-pd__btn--ghost{background:#fff;color:var(--o);border-color:var(--border);}
+  .ol-pd__btn--ghost:hover{transform:translateY(-3px);border-color:var(--o);color:var(--o2);}
+
+  .ol-pd__trust{display:flex;gap:22px;flex-wrap:wrap;margin:22px 0 0;font-size:.82rem;color:var(--muted);}
+  .ol-pd__trust span{display:inline-flex;align-items:center;gap:7px;}
+  .ol-pd__trust i{color:var(--o);}
+
+  /* ── Editorial details ── */
+  .ol-pd__details{margin-top:96px;text-align:center;}
+  .ol-pd__dhead{max-width:640px;margin:0 auto 18px;}
+  .ol-pd__dhead h3{margin:0;font-family:'Playfair Display',serif;font-weight:700;
+    font-size:clamp(1.7rem,3vw,2.3rem);color:var(--ink);letter-spacing:-.01em;}
+  .ol-pd__rule{width:96px;height:1px;margin:18px auto 26px;position:relative;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .ol-pd__rule::after{content:'';position:absolute;top:50%;left:50%;width:6px;height:6px;
+    background:var(--o);border-radius:50%;transform:translate(-50%,-50%) rotate(45deg);}
+  .ol-pd__copy{max-width:760px;margin:0 auto;color:var(--body);font-size:1.04rem;line-height:1.9;}
+  .ol-pd__copy p{margin:0 0 18px;}
+  .ol-pd__copy p:last-child{margin-bottom:0;}
+
+  /* ── Spec grid ── */
+  .ol-pd__specs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px;}
+  .ol-pd__spec{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;
+    box-shadow:0 20px 44px -32px rgba(120,60,0,.4);transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+  .ol-pd__spec:hover{transform:translateY(-8px);box-shadow:0 34px 60px -34px rgba(216,124,12,.5);}
+  .ol-pd__spec-ic{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;color:var(--o);border:1px solid var(--border);
+    background:linear-gradient(135deg,rgba(240,152,42,.16),rgba(232,120,10,.10));}
+  .ol-pd__spec h4{margin:0 0 6px;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--ink);}
+  .ol-pd__spec p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.55;}
+
+  /* ── Size chart ── */
+  .ol-pd__sizewrap{margin-top:84px;text-align:center;}
+  .ol-size{max-width:560px;margin:0 auto;border-radius:20px;overflow:hidden;color:#fff;
+    background:linear-gradient(150deg,var(--amber),var(--o));
+    box-shadow:0 34px 64px -34px rgba(216,124,12,.7);}
+  .ol-size__row{display:grid;grid-template-columns:62px 1fr 1.35fr;align-items:center;
+    border-bottom:1px dashed rgba(255,255,255,.45);}
+  .ol-size__row:last-child{border-bottom:none;}
+  .ol-size__c{padding:18px 14px;text-align:center;font-size:1.02rem;font-weight:600;
+    border-right:1px dashed rgba(255,255,255,.45);}
+  .ol-size__c:last-child{border-right:none;}
+  .ol-size__row--head{background:rgba(120,52,0,.28);}
+  .ol-size__row--head .ol-size__c{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.01em;}
+  .ol-size__row--active{background:rgba(255,255,255,.16);}
+  .ol-size__c--mark i{font-size:1.15rem;color:#fff;}
+  .ol-size__note{max-width:560px;margin:18px auto 0;font-size:.88rem;color:var(--muted);}
+
+  /* scroll-reveal (JS-gated) */
+  .ol-pd.is-on .rv{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .ol-pd.is-on .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.ol-pd.is-on .rv{opacity:1!important;transform:none!important;}}
+
+  @media(max-width:900px){
+    .ol-pd{padding:72px 24px;}
+    .ol-pd__top{grid-template-columns:1fr;gap:40px;}
+    .ol-pd__media{max-width:480px;margin:0 auto;width:100%;}
+    .ol-pd__details{margin-top:72px;}
+    .ol-pd__specs{grid-template-columns:1fr 1fr;}
+    .ol-pd__sizewrap{margin-top:64px;}
+  }
+  @media(max-width:520px){
+    .ol-pd{padding:54px 20px;}
+    .ol-pd__media{max-width:360px;}
+    .ol-pd__list{grid-template-columns:1fr;}
+    .ol-pd__specs{grid-template-columns:1fr;}
+    .ol-pd__btns{gap:10px;}
+    .ol-pd__btn{flex:1 1 auto;justify-content:center;}
+    .ol-pd__price b{font-size:2.1rem;}
+    .ol-size__row{grid-template-columns:42px 1fr 1.2fr;}
+    .ol-size__c{padding:13px 7px;font-size:.88rem;}
+    .ol-pd__seal{width:58px;height:58px;top:12px;right:12px;}
+    .ol-pd__seal i{font-size:.95rem;}
+    .ol-pd__ribbon{font-size:.6rem;padding:6px 12px;top:12px;left:12px;}
+    .ol-pd__nav{width:36px;height:36px;font-size:.82rem;}
+    .ol-pd__nav--prev{left:10px;} .ol-pd__nav--next{right:10px;}
+    .ol-pd__thumb{flex:0 0 52px;width:52px;height:52px;}
+    .ol-pd__title{font-size:1.85rem;}
+  }
+</style>
+
+<section class="ol-pd">
+  <div class="ol-pd__inner">
+
+    <!-- ── Product top ── -->
+    <div class="ol-pd__top">
+      <div class="ol-pd__media rv">
+        <div class="ol-pd__stage">
+          <span class="ol-pd__ribbon">Bestseller</span>
+          <span class="ol-pd__seal"><i class="fa-solid fa-shield-heart"></i><span>Derma<br>Tested</span></span>
+          <div class="ol-pd__slides" id="olpdSlides">
+            <!-- Loading fallback -->
+            <div class="ol-pd__slide is-active" style="background:#fff; display:flex; align-items:center; justify-content:center; opacity:1;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:#e8780a;"></i></div>
+          </div>
+          <button class="ol-pd__nav ol-pd__nav--prev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="ol-pd__nav ol-pd__nav--next" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+          <span class="ol-pd__count" id="olpdCount">1 / 20</span>
+        </div>
+        <div class="ol-pd__thumbs" id="olpdThumbs"></div>
+      </div>
+
+      <div class="ol-pd__info rv">
+        <span class="ol-pd__eyebrow" id="olEyebrow">Orange Lilies &middot; Period Care &middot; Pack of 5</span>
+        <h2 class="ol-pd__title">Disposable <em>Period</em> Panties</h2>
+
+        <div class="ol-pd__rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.9 &middot; Loved by 2,300+ women</span>
+        </div>
+
+        <p class="ol-pd__lead">Period care, redefined. Our signature disposable panty blends reliable, leak-proof protection with all-day softness &mdash; an all-in-one solution that feels exactly like your favourite underwear, only worry-free. <strong id="olLeadPack">Each box contains 5 single-use panties.</strong> Wear it, change it, dispose of it. No pads, no soaking, no compromise.</p>
+
+        <ul class="ol-pd__list">
+          <li id="olPackDesc"><i class="fa-solid fa-box-open"></i>Pack of 5 panties per box</li>
+          <li><i class="fa-solid fa-check"></i>High-absorbency leak-proof core</li>
+          <li><i class="fa-solid fa-check"></i>Ultra-soft, breathable layers</li>
+          <li><i class="fa-solid fa-check"></i>Snug, body-hugging fit</li>
+          <li><i class="fa-solid fa-check"></i>Day &amp; overnight protection</li>
+          <li><i class="fa-solid fa-check"></i>Skin-friendly, dermatologically tested</li>
+        </ul>
+
+        <!-- Variant Selector -->
+        <div class="ol-pd__variants">
+          <h4 class="ol-pd__v-title">Select Pack Size</h4>
+          <div class="ol-pd__v-options">
+
+            <!-- Pack of 5 -->
+            <button type="button" class="ol-pd__v-btn is-active"
+              data-pack="5"
+              data-price="220"
+              data-strike="299"
+              data-url="https://orangelilies.com/product/disposable-period-panties/">
+              <span class="v-qty">Pack of 5</span>
+              <span class="v-save">Save 26%</span>
+            </button>
+
+            <!-- Pack of 10 -->
+            <button type="button" class="ol-pd__v-btn"
+              data-pack="10"
+              data-price="399"
+              data-strike="598"
+              data-url="https://orangelilies.com/product/disposable-period-panties-pack-of-10/">
+              <span class="v-qty">Pack of 10</span>
+              <span class="v-save">Save 33%</span>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="ol-pd__buy">
+          <div class="ol-pd__price">
+            <b id="olPriceMain">&#8377;220</b>
+            <s id="olPriceStrike">&#8377;299</s>
+            <span class="ol-pd__off" id="olPriceBadge">Save 26%</span>
+          </div>
+          <p class="ol-pd__taxes">Offer price &mdash; inclusive of all taxes.</p>
+          <div class="ol-pd__btns">
+            <!-- This URL updates automatically via JS when a pack is selected -->
+            <a href="https://orangelilies.com/product/disposable-period-panties/" id="olBuyBtn" class="ol-pd__btn ol-pd__btn--solid"><i class="fa-solid fa-bag-shopping"></i> Buy Now</a>
+            <a href="#ol-size" class="ol-pd__btn ol-pd__btn--ghost"><i class="fa-solid fa-ruler"></i> Size Guide</a>
+          </div>
+        </div>
+
+        <div class="ol-pd__trust">
+          <span><i class="fa-solid fa-truck-fast"></i> Free delivery across India</span>
+          <span><i class="fa-solid fa-hand-holding-dollar"></i> COD available</span>
+          <span><i class="fa-solid fa-box"></i> 100% discreet packaging</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Editorial description ── -->
+    <div class="ol-pd__details">
+      <div class="ol-pd__dhead rv">
+        <h3>Comfort &amp; Confidence, Reimagined</h3>
+        <div class="ol-pd__rule"></div>
+      </div>
+      <div class="ol-pd__copy rv">
+        <p>Orange Lilies Disposable Period Panties are thoughtfully engineered for real life. Each panty features a high-absorbency core that locks in flow and an ultra-soft, breathable outer layer that stays gentle against sensitive skin &mdash; so you stay dry, fresh and secure from the first hour to the last.</p>
+        <p>Designed for young girls, working women, travellers and athletes alike, they move with you through every part of your day: the morning commute, the workout, the long-haul flight, the deep night's sleep. No bulk. No shifting. No anxious checks. Just quiet, dependable freedom &mdash; the way period care should always have felt.</p>
+        <p>Crafted by a women-led team and made to ISO 9001:2015 GMP-certified standards as part of The Kutumb Group, every Orange Lilies panty is dermatologically tested and responsibly packaged. Confidence of freshness, in every single one.</p>
+      </div>
+
+      <!-- ── Spec grid ── -->
+      <div class="ol-pd__specs">
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-feather"></i></div>
+          <h4>Material</h4>
+          <p>Soft, breathable, skin-friendly non-woven layers</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-droplet"></i></div>
+          <h4>Absorbency</h4>
+          <p>High-capacity core for day &amp; overnight flow</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-ruler"></i></div>
+          <h4>Fit &amp; Sizes</h4>
+          <p>Body-hugging stretch fit, available S to XXXL</p>
+        </div>
+        <div class="ol-pd__spec rv">
+          <div class="ol-pd__spec-ic"><i class="fa-solid fa-recycle"></i></div>
+          <h4>Use &amp; Care</h4>
+          <p>Single-use &mdash; wear, change &amp; bin responsibly</p>
+        </div>
+      </div>
+
+      <!-- ── Size chart ── -->
+      <div class="ol-pd__sizewrap" id="ol-size">
+        <div class="ol-pd__dhead rv">
+          <h3>Find Your Perfect Fit</h3>
+          <div class="ol-pd__rule"></div>
+        </div>
+        <div class="ol-size rv">
+          <div class="ol-size__row ol-size__row--head">
+            <div class="ol-size__c ol-size__c--mark">&nbsp;</div>
+            <div class="ol-size__c">Size</div>
+            <div class="ol-size__c">Waist Size (inches)</div>
+          </div>
+          <div class="ol-size__row">
+            <div class="ol-size__c ol-size__c--mark">&nbsp;</div>
+            <div class="ol-size__c">S&ndash;M</div>
+            <div class="ol-size__c">22&ndash;30</div>
+          </div>
+          <div class="ol-size__row">
+            <div class="ol-size__c ol-size__c--mark">&nbsp;</div>
+            <div class="ol-size__c">M&ndash;L</div>
+            <div class="ol-size__c">30&ndash;38</div>
+          </div>
+          <div class="ol-size__row ol-size__row--active">
+            <div class="ol-size__c ol-size__c--mark"><i class="fa-solid fa-check"></i></div>
+            <div class="ol-size__c">XL&ndash;XXL</div>
+            <div class="ol-size__c">38&ndash;46</div>
+          </div>
+          <div class="ol-size__row">
+            <div class="ol-size__c ol-size__c--mark">&nbsp;</div>
+            <div class="ol-size__c">XXL&ndash;XXXL</div>
+            <div class="ol-size__c">46&ndash;54</div>
+          </div>
+        </div>
+        <p class="ol-size__note rv">Not sure of your size? Measure around the fullest part of your waist and match it to the chart above.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var R = document.querySelector('.ol-pd');
+  if (!R) return;
+
+  /* ── Pack Variant Switcher ── */
+  var vBtns       = R.querySelectorAll('.ol-pd__v-btn');
+  var buyBtn      = document.getElementById('olBuyBtn');
+  var priceMain   = document.getElementById('olPriceMain');
+  var priceStrike = document.getElementById('olPriceStrike');
+  var priceBadge  = document.getElementById('olPriceBadge');
+  var eyebrow     = document.getElementById('olEyebrow');
+  var leadPack    = document.getElementById('olLeadPack');
+  var packDesc    = document.getElementById('olPackDesc');
+
+  if (vBtns.length) {
+    vBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        vBtns.forEach(function(b) { b.classList.remove('is-active'); });
+        this.classList.add('is-active');
+
+        var pk = this.getAttribute('data-pack');
+        var p  = this.getAttribute('data-price');
+        var s  = this.getAttribute('data-strike');
+        var u  = this.getAttribute('data-url');
+
+        if(priceMain) priceMain.innerHTML = '&#8377;' + p;
+        if(priceStrike) priceStrike.innerHTML = '&#8377;' + s;
+        if(buyBtn) buyBtn.href = u;
+
+        var savePerc = Math.round(((s - p) / s) * 100);
+        if(priceBadge) priceBadge.innerText = 'Save ' + savePerc + '%';
+
+        if(eyebrow) eyebrow.innerHTML = 'Orange Lilies &middot; Period Care &middot; Pack of ' + pk;
+        if(leadPack) leadPack.innerText = 'Each box contains ' + pk + ' single-use panties.';
+        if(packDesc) packDesc.innerHTML = '<i class="fa-solid fa-box-open"></i>Pack of ' + pk + ' panties per box';
+      });
+    });
+  }
+
+
+  /* ── Image Gallery ── */
+  var URLS = [
+    'https://orangelilies.com/wp-content/uploads/2026/06/image3',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image4',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image5',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image6',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image7',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image8',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image9',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image10',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image11',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image12',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image13',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image14',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image15',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image16',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image17',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image18',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image19',
+    'https://orangelilies.com/wp-content/uploads/2026/06/image20'
+  ];
+
+  var EXTS = ['.jpeg', '.jpg', '.png', '.webp'];
+  var ALT  = 'Orange Lilies Disposable Period Panties';
+
+  var slidesWrap = R.querySelector('#olpdSlides');
+  var thumbsWrap = R.querySelector('#olpdThumbs');
+  var countEl    = R.querySelector('#olpdCount');
+
+  if (slidesWrap && thumbsWrap) {
+    slidesWrap.innerHTML = '';
+    thumbsWrap.innerHTML = '';
+    var imgs = [], thumbs = [], cur = 0;
+
+    function refresh() {
+      if (cur >= imgs.length) cur = imgs.length - 1;
+      if (cur < 0) cur = 0;
+      imgs.forEach(function (im, j) { im.classList.toggle('is-active', j === cur); });
+      thumbs.forEach(function (tb, j) { tb.classList.toggle('is-active', j === cur); });
+      if (countEl) countEl.textContent = (imgs.length ? (cur + 1) : 0) + ' / ' + imgs.length;
+    }
+
+    function go(n) {
+      if (!imgs.length) return;
+      cur = (n + imgs.length) % imgs.length;
+      refresh();
+      var at = thumbs[cur];
+
+      if (at && thumbsWrap) {
+        var thumbCenter = at.offsetLeft + (at.clientWidth / 2);
+        var wrapCenter = thumbsWrap.clientWidth / 2;
+        thumbsWrap.scrollTo({ left: thumbCenter - wrapCenter, behavior: 'smooth' });
+      }
+    }
+
+    function drop(slide, thumb) {
+      var idx = imgs.indexOf(slide);
+      if (idx > -1) { imgs.splice(idx, 1); thumbs.splice(idx, 1); }
+      if (slide && slide.parentNode) slide.parentNode.removeChild(slide);
+      if (thumb && thumb.parentNode) thumb.parentNode.removeChild(thumb);
+      refresh();
+    }
+
+    URLS.forEach(function (baseUrl, k) {
+      var s = document.createElement('img');
+      s.className = 'ol-pd__slide' + (k === 0 ? ' is-active' : '');
+      s.alt = ALT + ' — view ' + (k + 1);
+      if (k > 0) s.loading = 'lazy';
+
+      var t = document.createElement('button');
+      t.type = 'button'; t.className = 'ol-pd__thumb' + (k === 0 ? ' is-active' : '');
+      t.setAttribute('aria-label', 'View image ' + (k + 1));
+      var ti = document.createElement('img'); ti.alt = ''; ti.loading = 'lazy';
+      t.appendChild(ti);
+
+      var ei = 0;
+      function setSrc() { s.src = baseUrl + EXTS[ei]; ti.src = baseUrl + EXTS[ei]; }
+      s.onerror = function () {
+        ei++;
+        if (ei < EXTS.length) { setSrc(); }
+        else { drop(s, t); }
+      };
+      setSrc();
+
+      slidesWrap.appendChild(s);
+      thumbsWrap.appendChild(t);
+      imgs.push(s); thumbs.push(t);
+      t.addEventListener('click', function () { cur = imgs.indexOf(s); go(cur); });
+    });
+    refresh();
+
+    var prev = R.querySelector('.ol-pd__nav--prev');
+    var next = R.querySelector('.ol-pd__nav--next');
+    if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+    if (next) next.addEventListener('click', function () { go(cur + 1); });
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    function play() { if (!reduce && !timer) timer = setInterval(function () { go(cur + 1); }, 4500); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    var stage = R.querySelector('.ol-pd__stage');
+    if (stage) { stage.addEventListener('mouseenter', stop); stage.addEventListener('mouseleave', play); }
+    play();
+  }
+
+  /* ── Scroll Reveal ── */
+  if ('IntersectionObserver' in window) {
+    R.classList.add('is-on');
+    var E = [].slice.call(R.querySelectorAll('.rv'));
+    E.forEach(function (el, i) { el.style.transitionDelay = ((i % 4) * 90) + 'ms'; });
+    var io = new IntersectionObserver(function (en) {
+      en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    E.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+
 <div class="ol-section" style="background:var(--ol-bg);">
   <div class="ol-wrap">
     <div class="ol-section-heading">
