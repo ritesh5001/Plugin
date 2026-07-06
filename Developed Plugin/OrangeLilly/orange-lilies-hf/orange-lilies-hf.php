@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Header & Footer
  * Plugin URI:  https://orangelilies.com/
  * Description: Auto-injects a branded header and footer site-wide. Configure logo, contact details and all header/footer links under Appearance → Orange Lilies Header & Footer. Shortcodes [ol_header] and [ol_footer] also available for manual placement.
- * Version:     1.1.3
+ * Version:     1.1.4
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_HF_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_HF_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_HF_VERSION', '1.1.3' );
+define( 'OL_HF_VERSION', '1.1.4' );
 define( 'OL_HF_CSS_FILE', OL_HF_DIR . 'assets/css/ol-hf.css' );
 define( 'OL_HF_ASSET_VERSION', OL_HF_VERSION . '-' . ( file_exists( OL_HF_CSS_FILE ) ? filemtime( OL_HF_CSS_FILE ) : OL_HF_VERSION ) );
 define( 'OL_HF_LOGO_URL', 'https://orangelilies.com/wp-content/uploads/2026/06/logo-1.png' );
@@ -749,7 +749,6 @@ function ol_render_header() {
     <?php foreach ( $nav_links as $link ) : ?>
     <a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
     <?php endforeach; ?>
-    <a href="<?php echo $cart_url; ?>"><i class="fas fa-cart-shopping" aria-hidden="true"></i> Cart<?php echo $cart_count > 0 ? ' (' . (int) $cart_count . ')' : ''; ?></a>
     <a class="ol-mobile-shop" href="<?php echo $shop_url; ?>">Shop Now</a>
   </nav>
 

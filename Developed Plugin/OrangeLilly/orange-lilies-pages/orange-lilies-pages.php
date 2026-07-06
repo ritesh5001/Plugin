@@ -3,7 +3,7 @@
  * Plugin Name: Orange Lilies Pages
  * Plugin URI:  https://orangelilies.com/
  * Description: Creates all Orange Lilies content pages on activation — About, Our Products, Sustainability, Contact, and all policy pages — with branded, full-width styling baked in. No page builder required.
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      Orange Lilies
  * Author URI:  https://orangelilies.com/
  * License:     GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'OL_PAGES_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'OL_PAGES_URL',     plugin_dir_url( __FILE__ ) );
-define( 'OL_PAGES_VERSION', '1.2.0' );
+define( 'OL_PAGES_VERSION', '1.2.1' );
 define( 'OL_PAGES_CSS_FILE', OL_PAGES_DIR . 'assets/css/ol-pages.css' );
 define( 'OL_PAGES_ASSET_VERSION', OL_PAGES_VERSION . '-' . ( file_exists( OL_PAGES_CSS_FILE ) ? filemtime( OL_PAGES_CSS_FILE ) : OL_PAGES_VERSION ) );
 

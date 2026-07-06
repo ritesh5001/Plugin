@@ -303,6 +303,42 @@ body.ol-header-active {
   background: var(--ol-violet);
 }
 
+/* ── Header legibility lock ───────────────────────────────────────
+   The header pill sits on the orange brand gradient, so its nav text
+   and buttons must stay legible on every page. Some themes (e.g.
+   XStore) recolour header/menu links with their own !important rules
+   on inner pages, turning the nav dark — we re-assert the brand
+   colours here with higher specificity + !important so the header
+   reads identically on the home page and every inner page. */
+.ol-hdr-bar .ol-hdr-nav a {
+  color: #ffffff !important;
+}
+.ol-hdr-bar .ol-hdr-nav a:hover {
+  color: #fff4e3 !important;
+}
+.ol-hdr-bar .ol-hdr-shop,
+.ol-hdr-bar .ol-hdr-shop:visited,
+.ol-hdr-bar .ol-hdr-cart,
+.ol-hdr-bar .ol-hdr-cart i {
+  color: var(--ol-accent) !important;
+}
+.ol-hdr-bar .ol-hdr-shop:hover,
+.ol-hdr-bar .ol-hdr-cart:hover,
+.ol-hdr-bar .ol-hdr-cart:hover i {
+  color: var(--ol-violet) !important;
+}
+/* Mobile dropdown sits on a white panel — keep its links dark, and its
+   "Shop Now" pill white — regardless of theme link colours. */
+.ol-hdr-mobile-nav a:not(.ol-mobile-shop) {
+  color: var(--ol-primary) !important;
+}
+.ol-hdr-mobile-nav a:not(.ol-mobile-shop):hover {
+  color: var(--ol-accent) !important;
+}
+.ol-hdr-mobile-nav a.ol-mobile-shop {
+  color: #ffffff !important;
+}
+
 /* ════════════════════════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════════════════════════ */
@@ -614,14 +650,19 @@ body.ol-header-active {
 }
 
 @media (max-width: 992px) {
-  /* Collapse desktop nav + Shop Now + Cart into the hamburger menu */
+  /* Collapse desktop nav + Shop Now into the hamburger menu, but keep
+     a real, tappable cart button in the header bar on mobile. */
   .ol-hdr-nav,
-  .ol-hdr-shop,
-  .ol-hdr-cart {
+  .ol-hdr-shop {
     display: none;
+  }
+  .ol-hdr-cart {
+    display: inline-flex;
+    margin-left: auto;
   }
   .ol-hdr-hamburger {
     display: flex;
+    margin-left: 0;
   }
   .ol-hdr-mobile-nav {
     display: block;

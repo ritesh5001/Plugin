@@ -291,11 +291,11 @@ function ol_page_services() {
       <div class="ol-card">
         <div class="ol-card-num">04</div>
         <h3>Eco-Conscious Care</h3>
-        <p>Comfort for you, care for the planet. We use biodegradable and responsibly sourced materials wherever possible, with recycled packaging that keeps plastic to a minimum.</p>
+        <p>Comfort for you, care for the planet. We use biodegradable and responsibly sourced materials wherever possible, with recycled and recyclable packaging.</p>
         <ul>
           <li>Biodegradable materials where possible</li>
           <li>Recycled cardboard &amp; paper packaging</li>
-          <li>Plastic-reducing design</li>
+          <li>Low-waste, thoughtful design</li>
           <li>Responsible, ethical sourcing</li>
         </ul>
       </div>
@@ -388,7 +388,7 @@ function ol_page_sustainability() {
             <div class="ol-feature-icon"><i class="fa-solid fa-box-open"></i></div>
             <div class="ol-feature-text">
               <strong>Responsible Packaging</strong>
-              <span>Packaging made from recycled cardboard and paper fillers, reducing plastic use and waste.</span>
+              <span>Packaging made from recycled cardboard and paper fillers to help reduce waste.</span>
             </div>
           </li>
           <li>
@@ -419,11 +419,6 @@ function ol_page_sustainability() {
       <div class="ol-divider"></div>
     </div>
     <div class="ol-grid">
-      <div class="ol-value-card">
-        <div class="ol-value-icon"><i class="fa-solid fa-recycle"></i></div>
-        <h3>Plastic-Free Packaging</h3>
-        <p>We're working towards making all our packaging 100% recyclable and plastic-free.</p>
-      </div>
       <div class="ol-value-card">
         <div class="ol-value-icon"><i class="fa-solid fa-industry"></i></div>
         <h3>Ethical Suppliers</h3>
