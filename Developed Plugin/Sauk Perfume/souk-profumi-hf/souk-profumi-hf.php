@@ -388,7 +388,7 @@ function sp_hf_render_footer() {
   </div>
 
   <div class="sp-ftr-bottom">
-    © <?php echo esc_html( date('Y') ); ?> Souk Profumi. Developed by <a href="https://nextgenfusion.in" target="_blank" rel="noopener">NextGen Fusion</a>.
+    © <?php echo esc_html( date('Y') ); ?> Souk Profumi.
   </div>
 </footer>
 
